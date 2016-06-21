@@ -7,6 +7,8 @@ Implementation of a non-trivial application allows to test the language design a
 I found that I could do away with a lot of the more complex ones %% performance gain, net win
 
 \section{The game}
+It is actually a port of my earlier clone of the game, which was written in Links\footnote{\url{http://groups.inf.ed.ac.uk/links/}}, a functional language.
+
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.9\textwidth]{pacman}
@@ -17,9 +19,133 @@ I found that I could do away with a lot of the more complex ones %% performance 
 % put a firefox version as a separate example
 
 \subsection{Main loop}
+A typical game loop in a modern JavaScript game\footnote{\url{https://developer.mozilla.org/en-US/docs/Games/Anatomy}} relies on the \texttt{requestAnimationFrame} method\footnote{\url{https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame}}. This method takes a single argument, which is a function callback. This function is invoked by the browser before it repaints the contents of the window. Thus, it allows the game rendering to be synchronized with the browser.
+
+The callback invoked by \texttt{requestAnimationFrame} receives a timestamp, specifying the time of the repaint event. Ideally and under the most common circumstances this happens 60 times a second.
+
+I implemented the game loop in Dual as follows:
+\begin{lstlisting}
+-- [1] the amount of milliseconds between
+--        game state updates:
+bind [tick-length 50]
+
+-- the main loop function:
+bind [main-loop
+-- arguments:
+--    game-state -- current game state
+--    last-tick -- time of the last
+--        game state update
+--    fps-info -- an object used for debugging,
+--        which contains information about
+--         the frame rate
+--     current-time -- the time of  the current
+--        invocation of the loop
+of [game-state last-tick fps-info current-time do [
+    -- [2] schedule the next iteration of the loop
+    --        using requestAnimationFrame:
+    async [
+        .[window requestAnimationFrame]
+        of [next-time
+            main-loop[
+                game-state
+                last-tick
+                fps-info
+                next-time
+            ]
+        ]
+    ]
+    
+    -- the timestamp of the tick after the last tick
+    bind [next-tick +[last-tick tick-length]]
+    
+    -- counts how many state updates should be
+    --        performed in this iteration:
+    bind [tick-count 0]
+    
+    -- if the current time is past the timestamp of
+    --        the next tick, the above counter
+    --        should be incremented;
+    -- possibly more than by one, if the difference
+    --        is a multiply of tick-length
+    if [>[current-time next-tick] do [
+        bind [time-since-tick
+              -[current-time last-tick]]
+        mutate [
+            tick-count
+            .[math floor][
+                /[time-since-tick tick-length]
+            ]
+        ]
+    ] false]
+    
+    -- perform the calculated amount of
+    --        game state updates:
+    bind [i 0]
+    while [<[i tick-count] do [
+        -- keep track of the time of the last tick:
+        mutate [last-tick +[last-tick tick-length]]
+        
+        -- invoke the function that updates
+        --        the game-state:
+        mutate [
+            game-state
+            main-game-logic[game-state input-queue]
+        ]
+        mutate [i +[i 1]]
+    ]]
+
+    -- if there were game state updates,
+    --        redraw game screen; else do nothing:
+    if [>[tick-count 0]
+        mutate [fps-info draw[
+            game-state
+            current-time
+            .[window performance now]!
+            fps-info
+        ]]
+        _
+    ]
+]]]
+\end{lstlisting}
+
 
 \section{Performance}
 
+Disparity between Firefox and Chrome, reflecting differences in garbage collector implementations.
+
+Issue: interpreter is blocking the event loop.
+There's a lot of intermediate objects created that have to be garbage collected.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.9\textwidth]{profiling}
+	\caption{Comparison of Firefox' and Chrome's profiler outputs}
+	\label{fig:profiling}
+\end{figure}
+General pattern:
+
+Chrome more frequent garbage collections
+more regular
+more predictable
+
+Details are a topic for another thesis
+
+\section{Possible improvements}
+Interruptable eval
+
+Continuation-passing style
+State machine
+Anyway, explicit stack
+
+Additional benefits:
+	can pause and debug the application, step through
+	can record the state and rewind
+	
+iterative-evaluate.js excerpt:
+\begin{lstlisting}
+\end{lstlisting}
+
+% REFER to my previous work?
 
 pacman
 
@@ -38,10 +164,10 @@ fight with garbage collector
 game loop
 requestAnimationFrame
 
-Ten rozdział zawiera opis wyników uzyskanych w~ramach pracy. Jeśli praca miała
+\comment{Ten rozdział zawiera opis wyników uzyskanych w~ramach pracy. Jeśli praca miała
 cel badawczy należy skupić się na opisie przeprowadzonych eksperymentów oraz
 prezentacji i~analizie uzyskanych wyników. Jeśli praca nie miała na celu
 uzyskania nowatorskich wyników, należy skupić się na opisie architektury
 stworzonej aplikacji. W~obu przypadkach podstawowym celem tego rozdziału jest
 realizacja celów postawionych w~rozdziale \ref{sec:cele_pracy}. Rozdział ten ma
-bezspornie pokazywać, że cele pracy zostały zrealizowane
+bezspornie pokazywać, że cele pracy zostały zrealizowane}

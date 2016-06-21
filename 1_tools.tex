@@ -1,17 +1,38 @@
 \chapter{Tools and methods}\label{chap:tools}
-The Dual programming language is build on top of the web platform\footnote{\url{https://platform.html5.org/}}. This means that it utilizes web technologies. Specifically:
-\begin{itemize}
-    \item JavaScript
-    \item HTML5. In the scope of this thesis I will touch in detail on the following elements of this standard:
-    \begin{itemize}
-        \item Canvas element
-    \end{itemize}
-    \item CSS
-\end{itemize}
+% THIS CHAPTER SHOULD PROBABLY BE MERGED WITH THE NEXT ONE
+
+This chapter briefly introduces the theoretical and practical components involved in design and implementation of the Dual programming language and its environment. I may further use the terms ``Dual system'' or simply ``system'' to refer to these.
+
+\section{Web technologies}
+One of the main goals in designing the system is accessibility. This is accomplished in practice by building it on top of arguably the most accessible and ubiquitous platform -- the web platform\footnote{\url{https://platform.html5.org/}}.
+
+The language's interpreter and development environment is intended to work with and is built on web technologies. Specifically JavaScript, HTML5 and CSS. The prototype implementation makes use of Node.js -- server-side JavaScript runtime and CodeMirror\footnote{\url{http://codemirror.net/}} -- a JavaScript library which provides basic facilities for the text-based code editor part of the system. This part is modeled after modern web-oriented code editors with similar design philosophy\footnote{\url{https://en.wikipedia.org/wiki/Comparison_of_JavaScript-based_source_code_editors}}, such as Visual Studio Code\footnote{\url{https://code.visualstudio.com/}}, Brackets\footnote{\url{http://brackets.io/}}, Atom\footnote{\url{https://atom.io/}} and many others.
+
+The design of Dual's visual representation draws from many visual programming languages\footnote{\url{
+http://blog.interfacevision.com/design/design-visual-progarmming-languages-snapshots/}}. Analyzing these, we can observe many distinct approaches of which two particular designs are the most widespread and successful. These can be described as line-connected block-based and snap-together block-based visual languages. The former family is exemplified by the Blueprints Visual Scripting system of Unreal Engine 4\footnote{\url{https://docs.unrealengine.com/latest/INT/Engine/Blueprints/}} and the latter by MIT Scratch\footnote{\url{https://scratch.mit.edu/}}.
+
+\section{Programming languages}
+Lisp family
+Pattern matching languages (ML-family?)
+JavaScript
+
+
+
+
+
+\section{Programming discipline}
+The prototype was implemented largely in the spirit of exploratory programming: ``the kind where you decide what to write by writing it.''\footnote{\url{http://arclanguage.org/}}.
+
+This approach in combination with a dynamic and flexible language like JavaScript enables one to quickly transform ideas to working prototypes and shape them as one goes along. But the usefulness of this method is limited, as it may quickly produce fairly low-quality code, as it is not focused on future maintainability.
+
+\comment{
+An example application built with the language 
+
+Canvas element
 
 Other related technologies that are relevant to development of the language are:
 \begin{itemize}
-    \item JavaScript components that provide code editor features\footnote{\url{https://en.wikipedia.org/wiki/Comparison_of_JavaScript-based_source_code_editors}}, specifically CodeMirror\footnote{\url{http://codemirror.net/}}, which is used as the text editor component component of the Dual programming language editor
+    \item JavaScript components that provide code editor features, specifically CodeMirror, which is used as the text editor component component of the Dual programming language editor
     \item Standalone modern code editors, built with web technologies and with web development in mind, such as:
     \begin{itemize}
         \item Visual Studio Code\footnote{\url{https://code.visualstudio.com/}}
@@ -20,11 +41,6 @@ Other related technologies that are relevant to development of the language are:
     \end{itemize}
     \item Node.js\footnote{\url{https://nodejs.org/en/}}, a JavaScript-based runtime environment for developing server-side web applications
 \end{itemize}
-
-Also an important part of this research are visual programming languages in general\footnote{\url{
-http://blog.interfacevision.com/design/design-visual-progarmming-languages-snapshots/}} and [[]] their development environments.
-In particular Blueprints Visual Scripting system in Unreal Engine 4\footnote{\url{https://docs.unrealengine.com/latest/INT/Engine/Blueprints/}}.
-
 In developing the Dual programming language 
 short
 Web platform
@@ -35,7 +51,4 @@ CSS
 Browser environment
 
 Node.js
-
-\section{Programming discipline}
-Primarily exploratory programming:
-``exploratory programming: the kind where you decide what to write by writing it.''\footnote{\url{http://arclanguage.org/}}
+}

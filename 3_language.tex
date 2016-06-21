@@ -107,7 +107,7 @@ Before the primary notation of Lisp, namely S-expressions\footnote{\url{http://w
     \item I dropped the semicolon \texttt{;} as a separator for arguments, as it is entirely superfluous and there is no need for the programmer to type it or the parser to be concerned with it; this means that the only separating characters are the whitespace characters, exactly as in pure S-expressions
     \item The primary bracketing characters are square brackets (\texttt{[]}) instead of parentheses; the reason for that design choice is that these are easier to type than parentheses or curly brackets (as they do not require holding the shift key), which matters considering the ubiquity of these characters in the source code
     \item Expression's operator name is written before the opening bracket that precedes the list of arguments, as in \texttt{operator[argument-1 argument-2 ... argument-n]}
-    \item I decided not to include any other syntax in the first prototype, as the one described so far is entirely sufficient to represent any Lisp-like expressions -- it maps directly to S-expressions\footnote{Any additions can be considered syntax sugar. Such syntax extensions were introduced in later prototypes and designs and some of them are included in the final prototype included with this thesis; see [][]}
+    \item I decided not to include any other syntax in the first prototype, as the one described so far is entirely sufficient to represent any Lisp-like expressions -- it maps directly to S-expressions\footnote{Any additions can be considered syntax sugar. Such syntax extensions were introduced in later prototypes and designs and some of them are included in the final prototype included with this thesis; see [][]} 
 \end{itemize}
 
 This gives a notation that is somewhat in between S-expressions and M-expressions. This was the basic syntax of the first prototype of the language. It can be defined\footnote{This definition is included here only for the sake of formality. I believe that for such a simple grammar BNF seems to introduce more noise and is unnecessarily more complex than a textual description in terms of regular expressions or simply verbatim parser source code. For these reasons any extensions to this basic grammar will later on be described in these ways.}, using pure, left-recursion-free BNF notation with the addition of a regular expression (between \texttt{/} delimiters) in the definition of \texttt{<word>}, as follows:
@@ -805,6 +805,10 @@ language's "memory model"
     functions have access to values in their local environments and all containing environments
     the local environment can have identifiers defined that override outer enivronments' identifiers (but they don't overwrite them)
     this mechanism is built on top of JavaScript's prototype-based inheritance
+    
+Since it is a thin wrapper over JavaScript it shares its memory model.
+Event loop
+Single-threadedness
 
 
 \section{Syntax extensions}

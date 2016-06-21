@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.4.4)  21 JUN 2016 10:32
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.4.4)  21 JUN 2016 23:39
 entering extended mode
 **main.tex
 (D:\master-project\master-thesis\main.tex
@@ -31,7 +31,7 @@ File: bk12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(D:\master-project\master-thesis\praca_dyplomowa.sty
+(D:\master-project\master-thesis\thesis.sty
 (D:\programs\MiKTeX\tex\latex\base\fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
@@ -891,8 +891,8 @@ LaTeX Info: Redefining \nameref on input line 11.
 (D:\master-project\master-thesis\main.out)
 \@outlinefile=\write6
 
-(D:\master-project\master-thesis\00_title_page.tex
-<img/logo.pdf, id=255, 386.24298pt x 566.2656pt>
+(D:\master-project\master-thesis\title_page.tex
+<img/logo.pdf, id=275, 386.24298pt x 566.2656pt>
 File: img/logo.pdf Graphic file (type pdf)
  <use img/logo.pdf>
 Package pdftex.def Info: img/logo.pdf used on input line 6.
@@ -957,24 +957,30 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 ]
 Chapter 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--14
+Underfull \hbox (badness 10000) in paragraph at lines 7--7
 [][][][]$\T1/cmtt/m/n/10 https : / / en . wikipedia . org / wiki / Comparison _
  of _ JavaScript-[]based _ source _ code _$
  []
 
 
-Overfull \hbox (10.79808pt too wide) in paragraph at lines 14--15
-[]\T1/cmr/m/n/12 JavaScript com-po-nents that pro-vide code ed-i-tor fea-tures[
-][][], specif-i-cally CodeMir-
- []
-
-
-Overfull \hbox (46.97046pt too wide) in paragraph at lines 25--25
+Overfull \hbox (46.97046pt too wide) in paragraph at lines 10--10
 [][][][]$\T1/cmtt/m/n/10 http : / / blog . interfacevision . com / design / des
 ign-[]visual-[]progarmming-[]languages-[]snapshots/$[]| 
  []
 
-[5]) (D:\master-project\master-thesis\2_background.tex [6]
+[5]
+Overfull \hbox (13.09752pt too wide) in paragraph at lines 22--23
+[]\T1/cmr/m/n/12 This ap-proach in com-bi-na-tion with a dy-namic and flex-i-bl
+e lan-guage like JavaScript
+ []
+
+
+Overfull \hbox (6.04912pt too wide) in paragraph at lines 49--49
+[]\T1/cmr/m/n/12 JavaScript com-po-nents that pro-vide code ed-i-tor fea-tures,
+ specif-i-cally CodeMir-
+ []
+
+) (D:\master-project\master-thesis\2_background.tex [6]
 Chapter 2.
 
 Overfull \hbox (4.1929pt too wide) in paragraph at lines 2--7
@@ -983,46 +989,44 @@ est umo»li-wie-nie czytel-
  []
 
 
-Overfull \hbox (4.4483pt too wide) in paragraph at lines 36--37
+Overfull \hbox (4.4483pt too wide) in paragraph at lines 38--39
 []\T1/cmr/m/n/12 My most re-cent and sig-nif-i-cant ex-pe-ri-ence both pro-fes-
 sional and non-professional
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--40
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
 [][][][]$\T1/cmtt/m/n/10 http : / / stackoverflow . com / research / developer-
 []survey-[]2016 #$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--40
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
 $\T1/cmtt/m/n/10 most-[]popular-[]technologies-[]per-[]occupation$[]\T1/cmr/m/n
 /10 , []$\T1/cmtt/m/n/10 http : / / redmonk . com / sogrady / 2016 / 02 /$
- []
-
-
-Overfull \hbox (32.7243pt too wide) in paragraph at lines 42--42
-[][][][]$\T1/cmtt/m/n/10 http : / / www . r-[]bloggers . com / the-[]most-[]pop
-ular-[]programming-[]languages-[]on-[]stackoverflow/$[]| 
  []
 
 [7
 
 ]
-Overfull \hbox (36.77657pt too wide) in paragraph at lines 47--48
+Overfull \hbox (32.7243pt too wide) in paragraph at lines 44--44
+[][][][]$\T1/cmtt/m/n/10 http : / / www . r-[]bloggers . com / the-[]most-[]pop
+ular-[]programming-[]languages-[]on-[]stackoverflow/$[]| 
+ []
+
+
+Overfull \hbox (36.77657pt too wide) in paragraph at lines 49--50
 [][]$\T1/cmtt/m/n/12 https : / / en . wikipedia . org / wiki / Measuring _ prog
 ramming _ language _ popularity$[] 
  []
 
-
-Overfull \hbox (46.97046pt too wide) in paragraph at lines 77--77
+[8]
+Overfull \hbox (46.97046pt too wide) in paragraph at lines 95--95
 [][][][]$\T1/cmtt/m/n/10 http : / / blog . interfacevision . com / design / des
 ign-[]visual-[]progarmming-[]languages-[]snapshots/$[]| 
  []
 
-[8]) (D:\master-project\master-thesis\3_language.tex [9] [10
-
-]
+[9]) (D:\master-project\master-thesis\3_language.tex [10]
 Chapter 3.
 
 Overfull \hbox (4.05467pt too wide) in paragraph at lines 4--6
@@ -1030,7 +1034,9 @@ Overfull \hbox (4.05467pt too wide) in paragraph at lines 4--6
 -ci¢ j¡ w tym rozdziale. 
  []
 
-[11] [12]
+[11
+
+] [12]
 
 LaTeX Warning: Citation `syntaxation' on page 13 undefined on input line 88.
 
@@ -1418,21 +1424,21 @@ and I'll forget about whatever was undefined.
 
 ]
 Chapter 4.
-[33] <img/editor.png, id=947, 1131.22626pt x 637.38126pt>
+[33] <img/editor.png, id=993, 1131.22626pt x 637.38126pt>
 File: img/editor.png Graphic file (type png)
  <use img/editor.png>
 Package pdftex.def Info: img/editor.png used on input line 24.
 (pdftex.def)             Requested size: 377.24702pt x 212.55391pt.
 
 [34 <D:/master-project/master-thesis/img/editor.png (PNG copy)>] [35]
-<img/editor-menu.png, id=963, 401.24907pt x 97.11281pt>
+<img/editor-menu.png, id=1009, 401.24907pt x 97.11281pt>
 File: img/editor-menu.png Graphic file (type png)
 
 <use img/editor-menu.png>
 Package pdftex.def Info: img/editor-menu.png used on input line 69.
 (pdftex.def)             Requested size: 377.24702pt x 91.30975pt.
  [36 <D:/master-project/master-thesis/img/editor-menu.png>] <img/scratch.png, i
-d=974, 854.19125pt x 571.13374pt>
+d=1020, 854.19125pt x 571.13374pt>
 File: img/scratch.png Graphic file (type png)
 
 <use img/scratch.png>
@@ -1469,6 +1475,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 87--87
 hampton . ac . uk / 12406702 / files / 2013 / 05 /$
  []
 
+<img/designs_01234.png, id=1023, 628.3475pt x 467.7475pt>
+File: img/designs_01234.png Graphic file (type png)
+
+<use img/designs_01234.png>
+Package pdftex.def Info: img/designs_01234.png used on input line 112.
+(pdftex.def)             Requested size: 377.24702pt x 280.82195pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<img/design_3.png, id=1025, 606.265pt x 320.19624pt>
+File: img/design_3.png Graphic file (type png)
+ <use img/design_3.png>
+Package pdftex.def Info: img/design_3.png used on input line 120.
+(pdftex.def)             Requested size: 377.24702pt x 199.2427pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<img/design_4.png, id=1026, 353.32pt x 163.61125pt>
+File: img/design_4.png Graphic file (type png)
+ <use img/design_4.png>
+Package pdftex.def Info: img/design_4.png used on input line 128.
+(pdftex.def)             Requested size: 377.24702pt x 174.69281pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[37 <D:/master-project/master-thesis/img/scratch.png>]
 
 ! Package glossaries Error: Glossary entry `ide' has not been defined.
 
@@ -1476,16 +1511,20 @@ See the glossaries package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.105 ...goal is to build an online \acrlong{ide} 
+l.139 ...goal is to build an online \acrlong{ide} 
                                                   IDE, similar to Codeanywhe...
 
 You need to define a glossary entry before you can use it.
 
-[37 <D:/master-project/master-thesis/img/scratch.png>]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [38 <D:/master-project/master-thesis/img/designs_01234.png> <D:/master-project
+/master-thesis/img/design_3.png>]
 ! Illegal parameter number in definition of \Hy@tempa.
 <to be read again> 
                    a
-l.130 ...emirror.net/doc/internals.html#approach}}
+l.164 ...emirror.net/doc/internals.html#approach}}
                                                    text files and are used i...
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -1494,30 +1533,61 @@ are all screwed up? I'm going to assume that you meant ##.
 ! Illegal parameter number in definition of \Hy@tempa.
 <to be read again> 
                    a
-l.130 ...emirror.net/doc/internals.html#approach}}
+l.164 ...emirror.net/doc/internals.html#approach}}
                                                    text files and are used i...
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-) (D:\master-project\master-thesis\5_case_study.tex [38]
+) (D:\master-project\master-thesis\5_case_study.tex [39 <D:/master-project/mast
+er-thesis/img/design_4.png>] [40]
 Chapter 5.
-<img/pacman.png, id=1000, 450.18187pt x 359.84438pt>
+<img/pacman.png, id=1068, 450.18187pt x 359.84438pt>
 File: img/pacman.png Graphic file (type png)
  <use img/pacman.png>
-Package pdftex.def Info: img/pacman.png used on input line 12.
+Package pdftex.def Info: img/pacman.png used on input line 14.
 (pdftex.def)             Requested size: 377.24702pt x 301.5589pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `sec:cele_pracy' on page 39 undefined on input line 46
-.
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
+[][][][]$\T1/cmtt/m/n/10 https : / / developer . mozilla . org / en-[]US / docs
+ / Web / API / Window /$
+ []
 
-) (D:\master-project\master-thesis\6_design_discussion.tex [39
 
-] [40 <D:/master-project/master-thesis/img/pacman.png>]
+Overfull \hbox (28.37753pt too wide) in paragraph at lines 22--23
+\T1/cmr/m/n/12 A typ-i-cal game loop in a mod-ern JavaScript game[][][] re-lies
+ on the \T1/cmtt/m/n/12 requestAnimationFrame
+ []
+
+[41
+
+] [42 <D:/master-project/master-thesis/img/pacman.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [43]
+<img/profiling.png, id=1150, 571.13374pt x 438.63875pt>
+File: img/profiling.png Graphic file (type png)
+
+<use img/profiling.png>
+Package pdftex.def Info: img/profiling.png used on input line 121.
+(pdftex.def)             Requested size: 377.24702pt x 289.73003pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[44]
+
+LaTeX Warning: Reference `sec:cele_pracy' on page 45 undefined on input line 17
+3.
+
+) (D:\master-project\master-thesis\6_design_discussion.tex [45 <D:/master-proje
+ct/master-thesis/img/profiling.png (PNG copy)>] [46
+
+]
 Chapter 6.
 ! Illegal parameter number in definition of \Hy@tempa.
 <to be read again> 
@@ -1537,14 +1607,12 @@ You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-[41
-
-] [42]
+[47] [48]
 Overfull \hbox (3.73418pt too wide) in paragraph at lines 113--114
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[43] [44] [45]) (D:\master-project\master-thesis\7_related_work.tex
+[49] [50] [51]) (D:\master-project\master-thesis\7_related_work.tex
 Overfull \hbox (38.2233pt too wide) in paragraph at lines 262--1
 []\T1/cmr/m/n/12 Operator prece-dence http://www.ozonehouse.com/mark/blog/code/
 PeriodicTable.pdf
@@ -1555,31 +1623,61 @@ Underfull \hbox (badness 10000) in paragraph at lines 262--1
 
  []
 
-[46]
+[52]
 Chapter 7.
-) (D:\master-project\master-thesis\8_summary.tex [47
+<img/blueprint.jpg, id=1287, 607.51968pt x 228.855pt>
+File: img/blueprint.jpg Graphic file (type jpg)
+ <use img/blueprint.jpg>
+Package pdftex.def Info: img/blueprint.jpg used on input line 5.
+(pdftex.def)             Requested size: 377.24702pt x 142.1121pt.
 
-] [48
+! Argument of \Hy@tempa has an extra }.
+<inserted text> 
+                \par 
+l.6 ...ine/Blueprints/HowTo/BPHT_6/GetScore.jpg}}}
+                                                  
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+\@captype {\@xfootnote }\def \reserved@b {\stepcounter \@mpfn \protected@xdef \
+ETC.
+! Paragraph ended before \Hy@tempa was complete.
+<to be read again> 
+                   \par 
+l.6 ...ine/Blueprints/HowTo/BPHT_6/GetScore.jpg}}}
+                                                  
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+) (D:\master-project\master-thesis\8_summary.tex [53
+
+ <D:/master-project/master-thesis/img/blueprint.jpg>] [54
 
 ]
 Chapter 8.
 
-LaTeX Warning: Reference `sec:cele_pracy' on page 49 undefined on input line 24
+LaTeX Warning: Reference `sec:cele_pracy' on page 55 undefined on input line 24
 .
 
 
-LaTeX Warning: Reference `chap:badania' on page 49 undefined on input line 26.
+LaTeX Warning: Reference `chap:badania' on page 55 undefined on input line 26.
 
 )
 No file main.bbl.
 No file main.gls.
 No file main.acr.
-(D:\master-project\master-thesis\a_latex.tex [49] [50
+(D:\master-project\master-thesis\a_latex.tex [55] [56
 
 ]
 Appendix A.
 
-LaTeX Warning: Citation `Oet11' on page 51 undefined on input line 5.
+LaTeX Warning: Citation `Oet11' on page 57 undefined on input line 5.
 
 
 Overfull \hbox (2.90192pt too wide) in paragraph at lines 3--6
@@ -1588,19 +1686,19 @@ Overfull \hbox (2.90192pt too wide) in paragraph at lines 3--6
  []
 
 
-LaTeX Warning: Citation `texlive' on page 51 undefined on input line 10.
+LaTeX Warning: Citation `texlive' on page 57 undefined on input line 10.
 
 
-LaTeX Warning: Citation `emacs' on page 51 undefined on input line 13.
+LaTeX Warning: Citation `emacs' on page 57 undefined on input line 13.
 
 
-LaTeX Warning: Citation `kile' on page 51 undefined on input line 13.
+LaTeX Warning: Citation `kile' on page 57 undefined on input line 13.
 
 
-LaTeX Warning: Citation `kbibtex' on page 51 undefined on input line 13.
+LaTeX Warning: Citation `kbibtex' on page 57 undefined on input line 13.
 
 
-LaTeX Warning: Citation `github' on page 51 undefined on input line 17.
+LaTeX Warning: Citation `github' on page 57 undefined on input line 17.
 
 
 Overfull \hbox (2.03935pt too wide) in paragraph at lines 15--18
@@ -1608,12 +1706,12 @@ Overfull \hbox (2.03935pt too wide) in paragraph at lines 15--18
 dªowego. Prefer-
  []
 
-[51]
+[57]
 
-LaTeX Warning: Citation `Nie10' on page 52 undefined on input line 52.
+LaTeX Warning: Citation `Nie10' on page 58 undefined on input line 52.
 
 
-LaTeX Warning: Citation `Oet11' on page 52 undefined on input line 63.
+LaTeX Warning: Citation `Oet11' on page 58 undefined on input line 63.
 
 ) (D:\master-project\master-thesis\b_cd.tex
 Overfull \hbox (4.67863pt too wide) in paragraph at lines 62--1
@@ -1621,43 +1719,49 @@ Overfull \hbox (4.67863pt too wide) in paragraph at lines 62--1
 ów dostar-czanych przez
  []
 
-[52]
+[58]
 Appendix B.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [53
+ [59
 
 ]
-Overfull \hbox (2.26456pt too wide) in paragraph at lines 41--42
+Overfull \hbox (2.26456pt too wide) in paragraph at lines 35--36
 \T1/cmr/m/n/12 uses ports in the range 8079-8082, spec-i-fied in the \T1/cmtt/m
 /n/12 server-options.json
  []
 
-[54])
+[60])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 42.
- [55]
+ [61]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 42.
  (D:\master-project\master-thesis\main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 42.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 42.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F6E1C79B9BB1358F400A73FC8C60BC93;4000.
+(rerunfilecheck)             Checksum: 093B35337C80991ED6D502465FDC9148;4327.
 
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 19847 strings out of 493921
- 323387 string characters out of 3150895
- 441154 words of memory out of 3000000
- 22324 multiletter control sequences out of 15000+200000
+ 20000 strings out of 493921
+ 325659 string characters out of 3150895
+ 449522 words of memory out of 3000000
+ 22357 multiletter control sequences out of 15000+200000
  20584 words of font info for 55 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 53i,12n,51p,10356b,1885s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.53} has been referenced but does not ex
+ 53i,12n,53p,10356b,1885s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Hfootnote.70} has been referenced but does not ex
 ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.59} has been referenced but does not exis
+t, replaced by a fixed one
 
  <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ect
 t1200.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\d
@@ -1681,9 +1785,9 @@ msfonts/cm/cmmi12.pfb><D:/programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.
 pfb><D:/programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/programs/Mi
 KTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (59 pages, 1154751 bytes).
+Output written on main.pdf (65 pages, 1337673 bytes).
 PDF statistics:
- 1977 PDF objects out of 2073 (max. 8388607)
- 523 named destinations out of 1000 (max. 500000)
- 530 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2185 PDF objects out of 2487 (max. 8388607)
+ 637 named destinations out of 1000 (max. 500000)
+ 595 words of extra memory for PDF output out of 10000 (max. 10000000)
 

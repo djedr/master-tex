@@ -10,6 +10,9 @@ I decided to implement the system with minimal dependencies, so it can be easily
 The only required dependency for the basic functionality of the prototype to work (which is the editor) is a web browser and the CodeMirror library. An additional dependency is the Node.js environment.
 
 
+
+The goal is to build an online \acrlong{ide} IDE, similar to Codeanywhere\footnote{\url{https://codeanywhere.com/}} or Cloud9\footnote{\url{https://c9.io/}}, works offline as well.
+
 The language's development environment is implemented as a web application. It consists of three parts:
 \begin{itemize}
     \item The server part, implemented in JavaScript on top of Node.js. This part's functions is mainly to enable access to user's file system, so any local folder can be opened as a project -- modern web browsers restrict access to the local file system, because of security reasons. The server part also handles persisting changes to files and configuration.
@@ -100,9 +103,47 @@ Interactive visualisation of the syntax tree.
 
 \section{Visual editor}
 \subsection{The visual representation}
+The fact that the visual representation is composed purely out of HTML and CSS 
+
 Fully customisable with CSS
 
-The goal is to build an online \acrlong{ide} IDE, similar to Codeanywhere\footnote{\url{https://codeanywhere.com/}} or Cloud9\footnote{\url{https://c9.io/}}, works offline as well.
+\subsubsection{Design}
+Many iterations:
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{designs_01234}
+\caption{}
+\label{fig:designs_01234}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{design_3}
+\caption{This design has the interesting property of visually illustrating the program flow with arrows.}
+\label{fig:design_3}
+\end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{design_4}
+\caption{}
+\label{fig:design_4}
+\end{figure}
+
+Not my final form.
+
+A good design is not made overnight.
+
+Smalltalk was perfected over 10 years.
+
+Improvements:
+icons, graphic controls
+Specialized controls for editing different types of values
+Some values have a very natural visual representation:
+colors, perhaps vectors
 
 
 %I considered using AngularJS\footnote{\url{https://angular.io/}}, but it would be an additional dependency .

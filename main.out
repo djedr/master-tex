@@ -7,57 +7,62 @@
 \BOOKMARK [1][-]{section.0.5}{Goals}{chapter.0}% 7
 \BOOKMARK [1][-]{section.0.6}{Structure}{chapter.0}% 8
 \BOOKMARK [0][-]{chapter.1}{Tools and methods}{}% 9
-\BOOKMARK [1][-]{section.1.1}{Programming discipline}{chapter.1}% 10
-\BOOKMARK [0][-]{chapter.2}{Background}{}% 11
-\BOOKMARK [1][-]{section.2.1}{Podrozdzia\233...}{chapter.2}% 12
-\BOOKMARK [1][-]{section.2.2}{Programming language design}{chapter.2}% 13
-\BOOKMARK [2][-]{subsection.2.2.1}{Syntax}{section.2.2}% 14
-\BOOKMARK [1][-]{section.2.3}{Abstract syntax tree}{chapter.2}% 15
-\BOOKMARK [1][-]{section.2.4}{Visual programming language}{chapter.2}% 16
-\BOOKMARK [0][-]{chapter.3}{Dual programming language}{}% 17
-\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 18
-\BOOKMARK [1][-]{section.3.2}{Name}{chapter.3}% 19
-\BOOKMARK [1][-]{section.3.3}{Grammar and syntactic features}{chapter.3}% 20
-\BOOKMARK [2][-]{subsection.3.3.1}{Basic syntax}{section.3.3}% 21
-\BOOKMARK [2][-]{subsection.3.3.2}{Comments, whitespace and the syntax tree}{section.3.3}% 22
-\BOOKMARK [2][-]{subsection.3.3.3}{Numbers}{section.3.3}% 23
-\BOOKMARK [2][-]{subsection.3.3.4}{Zero and single argument expressions}{section.3.3}% 24
-\BOOKMARK [2][-]{subsection.3.3.5}{Pattern matching}{section.3.3}% 25
-\BOOKMARK [2][-]{subsection.3.3.6}{Rest parameters and spread operator}{section.3.3}% 26
-\BOOKMARK [1][-]{section.3.4}{Basic primitives and functions}{chapter.3}% 27
-\BOOKMARK [2][-]{subsection.3.4.1}{Language primitives}{section.3.4}% 28
-\BOOKMARK [1][-]{section.3.5}{Basic functions}{chapter.3}% 29
-\BOOKMARK [1][-]{section.3.6}{Memory model}{chapter.3}% 30
-\BOOKMARK [1][-]{section.3.7}{Syntax extensions}{chapter.3}% 31
-\BOOKMARK [1][-]{section.3.8}{Pattern matching}{chapter.3}% 32
-\BOOKMARK [0][-]{chapter.4}{Development environment}{}% 33
-\BOOKMARK [1][-]{section.4.1}{Overview}{chapter.4}% 34
-\BOOKMARK [1][-]{section.4.2}{Text editor}{chapter.4}% 35
-\BOOKMARK [1][-]{section.4.3}{Visual editor}{chapter.4}% 36
-\BOOKMARK [2][-]{subsection.4.3.1}{The visual representation}{section.4.3}% 37
-\BOOKMARK [1][-]{section.4.4}{Performance}{chapter.4}% 38
-\BOOKMARK [0][-]{chapter.5}{Case study}{}% 39
-\BOOKMARK [1][-]{section.5.1}{The game}{chapter.5}% 40
-\BOOKMARK [2][-]{subsection.5.1.1}{Main loop}{section.5.1}% 41
-\BOOKMARK [1][-]{section.5.2}{Performance}{chapter.5}% 42
-\BOOKMARK [0][-]{chapter.6}{Design discussion}{}% 43
-\BOOKMARK [1][-]{section.6.1}{Comments}{chapter.6}% 44
-\BOOKMARK [1][-]{section.6.2}{Module system}{chapter.6}% 45
-\BOOKMARK [1][-]{section.6.3}{Extensions to parameter pattern matching}{chapter.6}% 46
-\BOOKMARK [1][-]{section.6.4}{Structural string manipulation}{chapter.6}% 47
-\BOOKMARK [1][-]{section.6.5}{First-class macros}{chapter.6}% 48
-\BOOKMARK [1][-]{section.6.6}{A better evaluation model}{chapter.6}% 49
-\BOOKMARK [1][-]{section.6.7}{C-like syntax}{chapter.6}% 50
-\BOOKMARK [1][-]{section.6.8}{Modules}{chapter.6}% 51
-\BOOKMARK [1][-]{section.6.9}{Editor}{chapter.6}% 52
-\BOOKMARK [2][-]{subsection.6.9.1}{Debugging}{section.6.9}% 53
-\BOOKMARK [1][-]{section.6.10}{Future work}{chapter.6}% 54
-\BOOKMARK [1][-]{section.6.11}{General considerations}{chapter.6}% 55
-\BOOKMARK [0][-]{chapter.7}{Related work}{}% 56
-\BOOKMARK [0][-]{chapter.8}{Summary and conclusions}{}% 57
-\BOOKMARK [0][-]{appendix.A}{Edycja i formatowanie pracy}{}% 58
-\BOOKMARK [1][-]{section.A.1}{Kwestie techniczne}{appendix.A}% 59
-\BOOKMARK [1][-]{section.A.2}{Formatowanie}{appendix.A}% 60
-\BOOKMARK [1][-]{section.A.3}{Bibliografia}{appendix.A}% 61
-\BOOKMARK [0][-]{appendix.B}{P\233yta CD}{}% 62
-\BOOKMARK [1][-]{section.B.1}{Running the application}{appendix.B}% 63
+\BOOKMARK [1][-]{section.1.1}{Web technologies}{chapter.1}% 10
+\BOOKMARK [1][-]{section.1.2}{Programming languages}{chapter.1}% 11
+\BOOKMARK [1][-]{section.1.3}{Programming discipline}{chapter.1}% 12
+\BOOKMARK [0][-]{chapter.2}{Background}{}% 13
+\BOOKMARK [1][-]{section.2.1}{Podrozdzia\233...}{chapter.2}% 14
+\BOOKMARK [1][-]{section.2.2}{Web platform}{chapter.2}% 15
+\BOOKMARK [2][-]{subsection.2.2.1}{JavaScript}{section.2.2}% 16
+\BOOKMARK [1][-]{section.2.3}{Programming language design}{chapter.2}% 17
+\BOOKMARK [2][-]{subsection.2.3.1}{Syntax}{section.2.3}% 18
+\BOOKMARK [1][-]{section.2.4}{Abstract syntax tree}{chapter.2}% 19
+\BOOKMARK [1][-]{section.2.5}{Visual programming language}{chapter.2}% 20
+\BOOKMARK [0][-]{chapter.3}{Dual programming language}{}% 21
+\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.2}{Name}{chapter.3}% 23
+\BOOKMARK [1][-]{section.3.3}{Grammar and syntactic features}{chapter.3}% 24
+\BOOKMARK [2][-]{subsection.3.3.1}{Basic syntax}{section.3.3}% 25
+\BOOKMARK [2][-]{subsection.3.3.2}{Comments, whitespace and the syntax tree}{section.3.3}% 26
+\BOOKMARK [2][-]{subsection.3.3.3}{Numbers}{section.3.3}% 27
+\BOOKMARK [2][-]{subsection.3.3.4}{Zero and single argument expressions}{section.3.3}% 28
+\BOOKMARK [2][-]{subsection.3.3.5}{Pattern matching}{section.3.3}% 29
+\BOOKMARK [2][-]{subsection.3.3.6}{Rest parameters and spread operator}{section.3.3}% 30
+\BOOKMARK [1][-]{section.3.4}{Basic primitives and functions}{chapter.3}% 31
+\BOOKMARK [2][-]{subsection.3.4.1}{Language primitives}{section.3.4}% 32
+\BOOKMARK [1][-]{section.3.5}{Basic functions}{chapter.3}% 33
+\BOOKMARK [1][-]{section.3.6}{Memory model}{chapter.3}% 34
+\BOOKMARK [1][-]{section.3.7}{Syntax extensions}{chapter.3}% 35
+\BOOKMARK [1][-]{section.3.8}{Pattern matching}{chapter.3}% 36
+\BOOKMARK [0][-]{chapter.4}{Development environment}{}% 37
+\BOOKMARK [1][-]{section.4.1}{Overview}{chapter.4}% 38
+\BOOKMARK [1][-]{section.4.2}{Text editor}{chapter.4}% 39
+\BOOKMARK [1][-]{section.4.3}{Visual editor}{chapter.4}% 40
+\BOOKMARK [2][-]{subsection.4.3.1}{The visual representation}{section.4.3}% 41
+\BOOKMARK [1][-]{section.4.4}{Performance}{chapter.4}% 42
+\BOOKMARK [0][-]{chapter.5}{Case study}{}% 43
+\BOOKMARK [1][-]{section.5.1}{The game}{chapter.5}% 44
+\BOOKMARK [2][-]{subsection.5.1.1}{Main loop}{section.5.1}% 45
+\BOOKMARK [1][-]{section.5.2}{Performance}{chapter.5}% 46
+\BOOKMARK [1][-]{section.5.3}{Possible improvements}{chapter.5}% 47
+\BOOKMARK [0][-]{chapter.6}{Design discussion}{}% 48
+\BOOKMARK [1][-]{section.6.1}{Comments}{chapter.6}% 49
+\BOOKMARK [1][-]{section.6.2}{Module system}{chapter.6}% 50
+\BOOKMARK [1][-]{section.6.3}{Extensions to parameter pattern matching}{chapter.6}% 51
+\BOOKMARK [1][-]{section.6.4}{Structural string manipulation}{chapter.6}% 52
+\BOOKMARK [1][-]{section.6.5}{First-class macros}{chapter.6}% 53
+\BOOKMARK [1][-]{section.6.6}{A better evaluation model}{chapter.6}% 54
+\BOOKMARK [1][-]{section.6.7}{C-like syntax}{chapter.6}% 55
+\BOOKMARK [1][-]{section.6.8}{Modules}{chapter.6}% 56
+\BOOKMARK [1][-]{section.6.9}{Editor}{chapter.6}% 57
+\BOOKMARK [2][-]{subsection.6.9.1}{Debugging}{section.6.9}% 58
+\BOOKMARK [1][-]{section.6.10}{Future work}{chapter.6}% 59
+\BOOKMARK [1][-]{section.6.11}{General considerations}{chapter.6}% 60
+\BOOKMARK [0][-]{chapter.7}{Related work}{}% 61
+\BOOKMARK [0][-]{chapter.8}{Summary and conclusions}{}% 62
+\BOOKMARK [0][-]{appendix.A}{Edycja i formatowanie pracy}{}% 63
+\BOOKMARK [1][-]{section.A.1}{Kwestie techniczne}{appendix.A}% 64
+\BOOKMARK [1][-]{section.A.2}{Formatowanie}{appendix.A}% 65
+\BOOKMARK [1][-]{section.A.3}{Bibliografia}{appendix.A}% 66
+\BOOKMARK [0][-]{appendix.B}{P\233yta CD}{}% 67
+\BOOKMARK [1][-]{section.B.1}{Running the application}{appendix.B}% 68

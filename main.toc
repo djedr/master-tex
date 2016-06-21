@@ -7,13 +7,18 @@
 \contentsline {section}{\numberline {0.5}Goals}{2}{section.0.5}
 \contentsline {section}{\numberline {0.6}Structure}{3}{section.0.6}
 \contentsline {chapter}{\numberline {1}Tools and methods}{5}{chapter.1}
-\contentsline {section}{\numberline {1.1}Programming discipline}{6}{section.1.1}
+\contentsline {section}{\numberline {1.1}Web technologies}{5}{section.1.1}
+\contentsline {section}{\numberline {1.2}Programming languages}{6}{section.1.2}
+\contentsline {section}{\numberline {1.3}Programming discipline}{6}{section.1.3}
 \contentsline {chapter}{\numberline {2}Background}{7}{chapter.2}
 \contentsline {section}{\numberline {2.1}Podrozdzia\IeC {\l }...}{7}{section.2.1}
-\contentsline {section}{\numberline {2.2}Programming language design}{8}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Syntax}{8}{subsection.2.2.1}
-\contentsline {section}{\numberline {2.3}Abstract syntax tree}{8}{section.2.3}
-\contentsline {section}{\numberline {2.4}Visual programming language}{8}{section.2.4}
+\contentsline {section}{\numberline {2.2}Web platform}{7}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}JavaScript}{7}{subsection.2.2.1}
+\contentsline {subsubsection}{Concurrency model}{8}{section*.2}
+\contentsline {section}{\numberline {2.3}Programming language design}{9}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Syntax}{9}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.4}Abstract syntax tree}{9}{section.2.4}
+\contentsline {section}{\numberline {2.5}Visual programming language}{9}{section.2.5}
 \contentsline {chapter}{\numberline {3}Dual programming language}{11}{chapter.3}
 \contentsline {section}{\numberline {3.1}Introduction}{11}{section.3.1}
 \contentsline {section}{\numberline {3.2}Name}{13}{section.3.2}
@@ -22,7 +27,7 @@
 \contentsline {subsection}{\numberline {3.3.2}Comments, whitespace and the syntax tree}{16}{subsection.3.3.2}
 \contentsline {subsection}{\numberline {3.3.3}Numbers}{19}{subsection.3.3.3}
 \contentsline {subsection}{\numberline {3.3.4}Zero and single argument expressions}{20}{subsection.3.3.4}
-\contentsline {subsubsection}{In combination with macros}{21}{section*.2}
+\contentsline {subsubsection}{In combination with macros}{21}{section*.3}
 \contentsline {subsection}{\numberline {3.3.5}Pattern matching}{22}{subsection.3.3.5}
 \contentsline {subsection}{\numberline {3.3.6}Rest parameters and spread operator}{25}{subsection.3.3.6}
 \contentsline {section}{\numberline {3.4}Basic primitives and functions}{26}{section.3.4}
@@ -36,29 +41,31 @@
 \contentsline {section}{\numberline {4.2}Text editor}{35}{section.4.2}
 \contentsline {section}{\numberline {4.3}Visual editor}{37}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}The visual representation}{37}{subsection.4.3.1}
-\contentsline {section}{\numberline {4.4}Performance}{38}{section.4.4}
-\contentsline {chapter}{\numberline {5}Case study}{39}{chapter.5}
-\contentsline {section}{\numberline {5.1}The game}{39}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Main loop}{39}{subsection.5.1.1}
-\contentsline {section}{\numberline {5.2}Performance}{39}{section.5.2}
-\contentsline {chapter}{\numberline {6}Design discussion}{41}{chapter.6}
-\contentsline {section}{\numberline {6.1}Comments}{41}{section.6.1}
-\contentsline {section}{\numberline {6.2}Module system}{43}{section.6.2}
-\contentsline {section}{\numberline {6.3}Extensions to parameter pattern matching}{43}{section.6.3}
-\contentsline {section}{\numberline {6.4}Structural string manipulation}{43}{section.6.4}
-\contentsline {section}{\numberline {6.5}First-class macros}{43}{section.6.5}
-\contentsline {section}{\numberline {6.6}A better evaluation model}{43}{section.6.6}
-\contentsline {section}{\numberline {6.7}C-like syntax}{43}{section.6.7}
-\contentsline {section}{\numberline {6.8}Modules}{45}{section.6.8}
-\contentsline {section}{\numberline {6.9}Editor}{46}{section.6.9}
-\contentsline {subsection}{\numberline {6.9.1}Debugging}{46}{subsection.6.9.1}
-\contentsline {section}{\numberline {6.10}Future work}{46}{section.6.10}
-\contentsline {section}{\numberline {6.11}General considerations}{46}{section.6.11}
-\contentsline {chapter}{\numberline {7}Related work}{47}{chapter.7}
-\contentsline {chapter}{\numberline {8}Summary and conclusions}{49}{chapter.8}
-\contentsline {chapter}{\numberline {A}Edycja i\nobreakspace {}formatowanie pracy}{51}{appendix.A}
-\contentsline {section}{\numberline {A.1}Kwestie techniczne}{51}{section.A.1}
-\contentsline {section}{\numberline {A.2}Formatowanie}{51}{section.A.2}
-\contentsline {section}{\numberline {A.3}Bibliografia}{52}{section.A.3}
-\contentsline {chapter}{\numberline {B}P\IeC {\l }yta CD}{53}{appendix.B}
-\contentsline {section}{\numberline {B.1}Running the application}{54}{section.B.1}
+\contentsline {subsubsection}{Design}{37}{section*.4}
+\contentsline {section}{\numberline {4.4}Performance}{39}{section.4.4}
+\contentsline {chapter}{\numberline {5}Case study}{41}{chapter.5}
+\contentsline {section}{\numberline {5.1}The game}{41}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Main loop}{41}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.2}Performance}{44}{section.5.2}
+\contentsline {section}{\numberline {5.3}Possible improvements}{44}{section.5.3}
+\contentsline {chapter}{\numberline {6}Design discussion}{47}{chapter.6}
+\contentsline {section}{\numberline {6.1}Comments}{47}{section.6.1}
+\contentsline {section}{\numberline {6.2}Module system}{49}{section.6.2}
+\contentsline {section}{\numberline {6.3}Extensions to parameter pattern matching}{49}{section.6.3}
+\contentsline {section}{\numberline {6.4}Structural string manipulation}{49}{section.6.4}
+\contentsline {section}{\numberline {6.5}First-class macros}{49}{section.6.5}
+\contentsline {section}{\numberline {6.6}A better evaluation model}{49}{section.6.6}
+\contentsline {section}{\numberline {6.7}C-like syntax}{49}{section.6.7}
+\contentsline {section}{\numberline {6.8}Modules}{51}{section.6.8}
+\contentsline {section}{\numberline {6.9}Editor}{52}{section.6.9}
+\contentsline {subsection}{\numberline {6.9.1}Debugging}{52}{subsection.6.9.1}
+\contentsline {section}{\numberline {6.10}Future work}{52}{section.6.10}
+\contentsline {section}{\numberline {6.11}General considerations}{52}{section.6.11}
+\contentsline {chapter}{\numberline {7}Related work}{53}{chapter.7}
+\contentsline {chapter}{\numberline {8}Summary and conclusions}{55}{chapter.8}
+\contentsline {chapter}{\numberline {A}Edycja i\nobreakspace {}formatowanie pracy}{57}{appendix.A}
+\contentsline {section}{\numberline {A.1}Kwestie techniczne}{57}{section.A.1}
+\contentsline {section}{\numberline {A.2}Formatowanie}{57}{section.A.2}
+\contentsline {section}{\numberline {A.3}Bibliografia}{58}{section.A.3}
+\contentsline {chapter}{\numberline {B}P\IeC {\l }yta CD}{59}{appendix.B}
+\contentsline {section}{\numberline {B.1}Running the application}{60}{section.B.1}

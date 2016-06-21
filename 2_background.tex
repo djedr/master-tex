@@ -1,11 +1,9 @@
 \chapter{Background}\label{chap:background}
-Ten rozdział powinien zawierać teorię z~której autor będzie korzystał w~dalszej
+\comment{Ten rozdział powinien zawierać teorię z~której autor będzie korzystał w~dalszej
 części pracy.  Podstawowym celem istnieniem tego rozdziału jest umożliwienie
 czytelnikowi zrozumienie teorii rozwijanej w pracy oraz osiągniętych wyników
 praktycznych.  Jeżeli jakieś informacje nie są niezbędne do zrozumienia
-osiągnięć autora nie należy o nich pisać.
-
-\section{Podrozdział...}
+osiągnięć autora nie należy o nich pisać.}
 
 Lisp
     apply // link
@@ -28,7 +26,9 @@ introduce arity notation
 etc.
 
 functional purity and why not
+\section{Web platform}
 
+\subsection{JavaScript}
 WebAssembly?
 
 Programming languages build on top of each other and cross over to form complex taxonomies.
@@ -48,6 +48,22 @@ Now 2016
 
 In my design I 
 
+\subsubsection{Concurrency model}
+In the context of the concurrency model, the JavaScript runtime conceptually consists of three parts: the call stack, the heap and the message queue. All these are bound together by the event loop\footnote{\url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop}}, which is the crucial part of this model.
+An iteration of this loop involves the following steps:
+\begin{enumerate}
+	\item Take the next message from the queue or wait for one to arrive. At this point the call stack is empty.
+	\item Start processing the message by calling a function associated with it. Every message has an associated function. This initializes the call stack.
+	\item Processing stops when the stack becomes empty again, thus completing the iteration.
+\end{enumerate}
+
+This means\footnote{At least conceptually. In practice it is much more complicated and there are exceptions to these rules. But this explanation is sufficient for further discussion.} that messages are processed one by one, in a single thread and an executing function cannot be preempted by any other function before it completes.
+
+This model makes reasoning about the program execution very straightforward, but is problematic when a single message takes long to execute. This problem is observed in practice when web applications cause browsers to hang or display a dialog asking the user if he wishes to terminate an unresponsive script.
+
+For this reason it is best to write programs in JavaScript that block the event loop for as short as possible and divide the processing into more messages.
+
+The mechanism is called the \textit{event} loop, because the messages are added to the queue any time an event occurs (an has an associated handler), such as a click or a scroll. In general input and output in JavaScript is performed asynchronously, through events, so it does not block program execution.
 
 \section{Programming language design}
 

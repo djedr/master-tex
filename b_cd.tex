@@ -1,0 +1,49 @@
+\chapter{Płyta CD}\label{app:plyta}
+
+\begin{figure}[htb]
+\makebox[\textwidth]{\framebox[12.8cm]{\rule{0pt}{12.8cm}}}
+\end{figure}
+\pagebreak
+{\color{red} Do pracy należy dołączyć podpisaną płytę CD w~papierowej
+  kopercie.  Poniżej należy zamieścić opis zawartości katalogów.}
+
+Zawartość katalogów na płycie:
+\begin{description}
+%\item[dat] : {\color{red} pliki z~danymi wykorzystane w~trakcie badań}
+%\item[db] : {\color{red} Zrzut bazy danych potrzebnej do działania aplikacji}
+% may want to show example folder here
+% sth like dist/examples:
+\item[dist] : dystrybucyjna wersja aplikacji przeznaczona do uruchamiania
+% this will be one presentation:
+\item[doc] : elektroniczna wersja pracy dyplomowej oraz dwie prezentacje
+  wygłoszone podczas seminarium dyplomowego
+\item[ext] : {\color{red} ten katalog powinien zawierać ewentualne aplikacje
+  dodatkowe potrzebne do uruchomienia stworzonej aplikacji, np. środowisko Java,
+  PostgreSQL itp.}
+% this is included in dist:
+\item[src] : kod źródłowy aplikacji {\color{red}(projekt środowiska Eclipse /
+  Netbeans / Qt Creator / ... })
+\end{description}
+
+{\color{red} Oczywiście nie wszystkie powyższe katalogi są wymagane, np. dat, db
+  albo ext mogą być niepotrzebne.}
+
+\section{Running the application}
+It is assumed that you have a modern web browser compatibile with Firefox\footnote{\url{
+https://www.mozilla.org/firefox}} 47 or Chrome\footnote{\url{https://www.google.com/chrome/browser/desktop/}} 51 -- these were used in developing and testing the application. The source code is written using some ECMAScript2015 features, so it will not work on older browsers. In order to run the version distributed with this thesis, follow these steps:
+\begin{enumerate}
+    \item If you want to run the server-side part of the application (it will work without it):
+    \begin{enumerate}
+        \item If you don't have Node.js already, install the latest ``Current'' version from the official distribution channel (\url{https://nodejs.org}), or use your operating system's package manager. If running 64-bit Windows, you may also use the installer from the DVD attatched to this thesis (\texttt{ext} folder). It was downloaded from \url{https://nodejs.org/dist/v6.2.2/}.
+        \item Open the \texttt{dist} folder in the command line.
+        \item By default, the server-side part of the application is configured to open \texttt{chrome} as the web browser that will handle the client-side. If you want to change that, edit the file \texttt{server-options.json} and change the \texttt{"browser"} property to a command that will open a different browser of your choice -- e.g. \texttt{"firefox"}. Save the file.
+        \item Run the command \texttt{node server.js}. Before doing that you may optionally update all dependencies to the latest versions by running \texttt{npm install}.
+        \item By default the server-side part is configured to run on \texttt{127.0.0.1} and uses ports in the range 8079-8082, specified in the \texttt{server-options.json} file. Make sure these are available. If not, you may change the defaults again by editing the file.
+        \item The project manager view should open in your web browser. You can change the same configuration options as in \texttt{server-options.json} here (under ``Options'').
+        \item Click the button ``open current path as project'' at the bottom.
+        \item See \ref{it:editor}
+    \end{enumerate}
+    \item Alternatively, if you want to just open the editor, open the \texttt{editor.html} file from the \texttt{dist} folder.
+    \item\label{it:editor} A new tab should open in the browser with the editor view. You can start using it as described in Chapter \ref{chap:editor}.
+\end{enumerate}
+

@@ -1,0 +1,42 @@
+\documentclass[a4paper,12pt,twoside]{book}
+
+\usepackage{praca_dyplomowa}
+
+\makeglossaries
+\input{glossary}
+
+\author{Dariusz Jędrzejczak}
+\title{Dual: a web-based, Pac-Man-complete hybrid text and visual programming language}
+
+\begin{document}
+\frontmatter
+\input{00_title_page}
+\tableofcontents
+
+\setcounter{chapter}{-1}
+\mainmatter
+\pagestyle{headings}
+\input{0_introduction}
+\input{1_tools}
+\input{2_background}
+\input{3_language}
+\input{4_editor}
+\input{5_case_study}
+\input{6_design_discussion}
+\input{7_related_work}
+\input{8_summary}
+
+\bibliographystyle{plain}
+\bibliography{bibliography}
+
+\printglossaries
+
+\appendix
+\renewcommand{\chaptermark}[1]{%
+\markboth{\MakeUppercase{%
+APPENDIX \thechapter.%
+\ }}{}}
+\input{a_latex}
+\input{b_cd}
+
+\end{document}

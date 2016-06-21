@@ -1,0 +1,115 @@
+\chapter{Background}\label{chap:background}
+Ten rozdział powinien zawierać teorię z~której autor będzie korzystał w~dalszej
+części pracy.  Podstawowym celem istnieniem tego rozdziału jest umożliwienie
+czytelnikowi zrozumienie teorii rozwijanej w pracy oraz osiągniętych wyników
+praktycznych.  Jeżeli jakieś informacje nie są niezbędne do zrozumienia
+osiągnięć autora nie należy o nich pisać.
+
+\section{Podrozdział...}
+
+Lisp
+    apply // link
+    eval // link
+    
+    Scheme
+    Common Lisp
+
+When talking about Lisp, if it is not directly specified then I mean any implementation (Common Lisp, Scheme).
+
+prefix (polish) notation
+
+what are language primitives/special forms
+I'll use the term language primitive
+
+introduce arity notation
+0..*
+0..2
+2
+etc.
+
+functional purity and why not
+
+WebAssembly?
+
+Programming languages build on top of each other and cross over to form complex taxonomies.
+
+My most recent and significant experience both professional and non-professional is with the JavaScript language.
+
+I find this language well-suited to a great range of tasks []
+
+JavaScript has many great design features, borrowed from other excellent languages and packaged in a familiar syntax. For this reason and because it is distributed with a ubiquitous environment, which is the web browser, it became one of the most\footnote{\url{http://www.tiobe.com/tiobe_index}, \url{http://pypl.github.io/PYPL.html}}, if not the most\footnote{\url{http://stackoverflow.com/research/developer-survey-2016\#most-popular-technologies-per-occupation}, \url{http://redmonk.com/sogrady/2016/02/19/language-rankings-1-16/}} popular programming lanugages in the world.
+
+The popularity of JavaScript grew over time\footnote{\url{http://www.r-bloggers.com/the-most-popular-programming-languages-on-stackoverflow/}}
+
+EcmaScript 2015
+Now 2016
+
+\url{https://en.wikipedia.org/wiki/Measuring_programming_language_popularity}
+
+In my design I 
+
+
+\section{Programming language design}
+
+\subsection{Syntax}
+
+``It's surprising that you can write in a language without using its syntax. Usually when we're reviewing languages syntax is all we look at. We look at the most superficial aspect of it. And often it could be years before we discover what's in the deeper layers.''
+-- Douglas Crockford, https://www.youtube.com/watch?v=Nlqv6NtBXcA ~4:00
+
+JavaScript design time: 10 days
+Smalltalk design time: 10 years
+
+
+\section{Abstract syntax tree}
+
+Visual programming is essentially manipulating a visual form of the syntax tree.
+
+\acrlong{vpl}
+
+\section{Visual programming language}
+This section 
+means of research, that are rather heuristic in nature and not formal
+provide a starting point and a reference for design
+
+A formal study of visual programming languages, proper classification in terms of statistics and methodical examination are not the focus of this thesis.
+
+The design of the visual representation involved a rough survey of visual programming languages\footnote{\url{http://blog.interfacevision.com/design/design-visual-progarmming-languages-snapshots/ 
+}}
+
+I classified each of nearly 160 languages, according to type of their visual representation, to one of three categories:
+\begin{enumerate}
+    \item Line-connected blocks: about 66\%
+    \item Snap-together blocks
+    \item Other
+\end{enumerate}
+
+Additionally, I associated each language with a number $s \in [0, 3]$, which descirbes its ``structure factor''. This tries to quantify my subjective assessment of the readability of the representation compared to familiar text representation ($s = 3$)\footnote{This is based solely on the screen shots from the editors. For example, if it appears that the representation consists of scattered blocks, connected by lines and the layout seems to be arranged by the user, with no automatic structuring by the editor, $s$ will be low.}.
+
+Below I present the results of this classification. The elements are structured as follows: name of category -- percentage of languages that fall into the category -- the average ``structure factor'' $s$ for the category
+This yielded the following results:
+\begin{enumerate}
+    \item Arrow/line connected blocks -- 66\% -- 0.61
+    \item Snap-together blocks -- 11\% -- 2.4
+    \item Other representations -- 23\% -- 1.39, notably:
+    \begin{enumerate}
+        \item Lists -- 2.5\% -- 2
+        \item GUI -- 2.5\% -- 1
+        \item Nested -- 2.5\% -- 2
+        \item Enhanced text -- 2.5\% -- 2.75
+        \item Timeline -- 2\% -- 1.17
+        \item \textit{The remaining 11\% are various other representations: in-game \acrshort{vpl}s, hybrid, specialized, esoteric, etc.}
+    \end{enumerate}
+\end{enumerate}
+
+Taking into account the above and looking at the most popular visual programming languages\footnote{I was not able to find and am not aware of any official or even unofficial ranking of popularity of visual programming languages, but analyzing the top hits when google searching the phrase ``visual programming language'' in combination with \url{https://en.wikipedia.org/wiki/Visual_programming_language} and my personal experience suggest that we can find these among the most popular:
+MIT Scratch
+Unreal Engine 4's Blueprints}
+
+From this and a I drew the conclusion that there are basically two main representations. A flowchart-like representation, exemplified by the Blueprints, with blocks connected by lines or arrows, which usually leaves the layout of the program source completely to the user, providing no automatic structuring. Another representation is exemplified by MIT Scratch. There, the code is represented and manipulated in terms of snap-together blocks, similarly to a jigsaw-puzzle. This representation is self-structuring and is designed to resemble a faimiliar text-based, indent-structured representations.
+
+The advantages of the first representation is that it clearly separates
+
+
+The lack of support for automatic structuring, which is an essential feature of modern text-based code editors is obviously a regression.
+
+% detailed bibliography: http://web.engr.oregonstate.edu/~burnett/vpl.html

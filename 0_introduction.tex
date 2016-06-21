@@ -1,0 +1,98 @@
+\chapter{Introduction}\label{chap:intro}
+
+\section{Title}
+The term ``Pac-Man-complete'' in the title refers to a somewhat humorous description of the Idris programming language\footnote{\url{http://www.idris-lang.org/}} attributed to the language's author, Edwin Brady\footnote{\url{https://twitter.com/folone/status/494017847585415168}}. In the context of this thesis it means that the designed and implemented programming language is complete enough and provides enough features to allow one to write a clone of the classic Pac-Man game in it.
+
+\section{Scope}
+% more on innovation
+This research explores various topics in the field of programming language design. Particularly, the possibilities of integrating and combining multiple representations of the same programming language in a dynamic way. I try to find ways of combining features of visual languages with text-based languages by creating a development environment which lets the programmer work with both representations in parallel or intertwine them in any way.
+
+%This ``dual'' representation of the language 
+The created language is used to implement a Pac-Man clone. This provides a demonstration of Dual's capabilities and is a reference for assessing the performance of the implementation.
+
+I discuss further possible improvements in the language's design and performance, as well as set down directions for any future research, which I intend to take on. The exploratory nature of this work lets me cover a fairly broad area, connecting programming language design, computer game development as well as web technologies and web application development.
+
+%%
+%exploring various features across different languages
+% and [[analyze, compare, other things]]
+%Approach presented here can be generalized to any number of representations
+%The scope of this research
+%Exploratory
+%I intend to develop this further
+%I also look at programming language design in general and try to find establish a balance of features for a modern language
+
+\section{Choice of subject}
+The choice of this particular subject stems from my deep personal interest in programming language design. This research is an opportunity for me to create a project that demonstrates various ideas in this area that I developed over time and to refine them further.
+
+%mainly  have been growing in popularity [[citation]]. I intend to further this growth with this research. 
+
+\section{Related work}
+%Literature and existing solutions
+Visual languages are not especially popular compared to text-based languages. But recently they have been gaining more popularity, particularly in game development. Chief example and the main cause of this is Unreal Engine, the highly popular and mainstream\footnote{\url{https://en.wikipedia.org/wiki/List_of_Unreal_Engine_games}, \url{http://www.guinnessworldrecords.com/world-records/most-successful-game-engine}} game engine, which in the latest version introduced a visual programming language\footnote{\url{https://docs.unrealengine.com/latest/INT/Engine/Blueprints/}} as its primary scripting language. In fact this is the only scripting language that the engine supports, having dropped the UnrealScript language\footnote{\url{http://www.gamasutra.com/view/news/213647/Epics_Tim_Sweeney_lays_out_the_case_for_Unreal_Engine_4.php}} included in the previous versions. 
+%Explore the [[unexplored]]
+
+I intend to further the growth of visual programming languages, propose an even more accessible solution and explore possible improvements over comparable technologies.
+
+I create a unique design, which combines [[]] and seems to be, certainly not to this extend and not with these technologies, a previously unexplored ground.
+
+It's also a good text-based language designed with rapid prototyping of computer games and web applications in mind, but fairly applicable as a more general-purpose solution.
+
+Not tied to any commercial product, dependent only on the ubiquitous web platform.
+
+Furthermore ideas regarding programming language design presented here are applicable in general, regardless of technology.
+
+\section{Goals}
+In line with the above, the purpose of this work is to introduce innovation as well as show a practical application of the developed solution. The concrete goals are:
+%The goal is not to simply go through the motions of implementing a programming language, while changing some superficial aspect of it -- such as syntax -- though this is incidentally done as well. But the point here is exploring some of the fundamental concepts and in language design and trying to innovate there.
+\begin{itemize}
+	\item Design and implement a programming language, whose \textit{complete} textual representation must be directly and dynamically mappable to a visual representation and vice versa
+	\item Explore and establish directions where innovation is possible in programming language design and implementation
+	\item Create a prototype of the development environment for the language on top of the web platform
+	\item Evaluate the performance of the language by implementing a clone of Pac-Man and comparing it to other implementations
+	\item Explore and discuss further refinements and possible future design directions
+	\item Compare the language to existing solutions %?
+\end{itemize}
+
+\section{Structure}
+This thesis is structured as follows:
+
+Chapter \ref{chap:intro} is this introduction.
+
+Chapter \ref{chap:tools} briefly describes technologies and tools used in developing any software described here.
+
+Chapter \ref{chap:background} discusses the essential elements of the theoretical framework upon which the language was built.
+
+Chapter \ref{chap:lang} describes the Dual language: its syntax, semantics and basic design.
+
+Chapter \ref{chap:editor} talks about the architecture, design and serves as a practical documentation of the language editor and visual representation.
+
+Chapter \ref{chap:design} elaborates on language design both in context of Dual and in general.
+
+Chapter \ref{chap:case} describes a non-trivial application developed with Dual: a Pac-Man clone. Performance of the language is assessed [[compared]] and possible adjustments and improvements are discussed.
+
+Chapter \ref{chap:comparison} relates the language with other similar solution, [[Unreal Engine's Blueprint]].
+
+Chapter \ref{chap:summary} summarizes and concludes.
+
+
+ Czy rozwiązania
+istniejące w~danej dziedzinie nie są wystarczające? Czy problem można rozwiązać
+inaczej? Czy podejmowany problem jest aktywnym tematem badawczym? Przed jakimi
+wyzwaniami stoi osoba podejmująca tematykę? Na tym etapie należy zarysować
+problem w~sposób ogólny.
+
+\comment{Cele muszą być sformułowane w~sposób zwięzły i~\textbf{ścisły}.}
+
+\comment{Alternatywnie, zamiast zakładać tutaj cele do realizacji, można
+  opisywać wkład pracy dyplomowej w stan wiedzy w danej dziedzinie.  W ten
+  sposób czytelnik już na wstępie wie, jakie są osiągnięcia autora.}
+
+
+W tym podrozdziale należy szczegółowo uzasadnić dlaczego wybrany został taki
+a~nie inny temat pracy. Trzeba przede wszystkim zaprezentować aktualny stan
+wiedzy w~danej dziedzinie. Oznacza to konieczność omówienia książek
+(ew. artykułów naukowych bądź dokumentacji technicznej) z~których będzie się
+korzystać w~trakcie rozprawy. Następnie należy wskazać -- tym razem już
+konkretnie -- co nowego zamierza się zrobić. Podstawowymi celami tego
+podrozdziału jest wprowadzenie czytelnika w~aktualny stand danej dziedziny
+i~przekonanie go że \textbf{naprawdę warto zajmować się podjętym tematem}.

@@ -86,8 +86,8 @@ The templates could also be selected by the user from a visual library of puzzle
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.9\textwidth]{scratch}
-\caption{MIT Scratch programming language editor\footnote{Screenshot from  \url{
-http://mypad.northampton.ac.uk/12406702/files/2013/05/Screen-Shot-2013-05-02-at-23.19.19-1s0qp26.png}}}
+\caption{ MIT Scratch programming language editor\protect\footnote{ Screenshot from \url{
+http://mypad.northampton.ac.uk/12406702/files/2013/05/Screen-Shot-2013-05-02-at-23.19.19-1s0qp26.png } } }
 \label{fig:scratch}
 \end{figure}
 
@@ -103,11 +103,24 @@ Interactive visualisation of the syntax tree.
 
 \section{Visual editor}
 \subsection{The visual representation}
-The fact that the visual representation is composed purely out of HTML and CSS 
+Basic design principles:
+make it no harder to use than the textual representation
+ideally it should add useful capabilities, without taking away these provided by text editors
 
+Existing visual languages are mostly criticized, because they fail to meet these basic criteria.
+
+\subsubsection{Flexibility}
+The fact that the visual representation is composed purely out of HTML and CSS 
 Fully customisable with CSS
 
 \subsubsection{Design}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{blueprint_more}
+\caption{}
+\label{fig:blueprint_more}
+\end{figure}
+
 Many iterations:
 
 \begin{figure}[h!]
@@ -116,6 +129,54 @@ Many iterations:
 \caption{}
 \label{fig:designs_01234}
 \end{figure}
+
+The visual form allows us to provide much more information about different elements of the program.
+Spatially relate this information with these elements through blocks and connections.
+Relate expressions with other expressions through connections, which can also carry additional information.
+
+We can distinguish the following visual elements:
+\begin{itemize}
+	\item Blocks, which represent expressions or individual nodes of the EST. Those in turn consist of:
+	\begin{itemize}
+		\item A header, which contains an icon and the name of the expression's operator. Next to the header a documentation comment might be displayed.
+		\item Slots, which are the numbers or names of the arguments followed by an icon; below these documentation comments could be displayed.
+		\item Possibly additional buttons, which could be used to add more slots to variadic expressions.
+	\end{itemize}
+	\item Connections between slots and blocks, which could also contain some useful annotations. The proposed design places type annotations there. These consist of the name of the type followed by an icon that represents this type. Connections actually have two parts: one extending from a slot, which in this case would contain the argument's type annotation, and one extending from a block header, which would contain expression return value's type annotation.
+\end{itemize}
+
+Icons are a way to minimize the use of text to represent different entities
+
+The text representation is very compact, which often is an advantage. This advantage can be maintained by the visual representation by making all the additional information optional. The user should have easy way of configuring whether or not and what informations should be displayed. By folding some textual elements into icons the visual representation could actually be made more compact than the text form.
+
+\subsubsection{Structure}
+The programmer could have the ability to alter the structure of the representation, but he should not be required to constantly shape it. A connected-block representations, such as the one in Unreal Engine 4 has no mechanism that automatically structures the visual code similar to autoindentation and other useful autostructuring features that evolved in code editors over time and experience with using text-based programming languages. This can be considered a regression on the visual editors' part. 
+
+Inputing symbols
+Unicode
+
+Slots
+
+Easy to see different relationships
+
+An useful technique even for visualisation of existing code
+
+The early designs show the following features that are not implemented in the final prototype:
+\begin{itemize}
+	\item Names of the arguments are displayed instead of numbers if sensible.
+	\item Names of types of variables
+\end{itemize}
+
+The colored squares with letters inside are actually placeholders for icons.
+I imagine a design, where the user is able to click on those icons and fold the blocks into a more compact form, hiding the names and excessive text. This could be done on the level of individual blocks, whole subtrees or the entire program -- similar to code folding in text editors. This allows to have a big picture and general relationships between nodes always visible and at the same time gives an ability to focus on the details of the part at hand.
+
+The connections between blocks 
+
+The text below the slots could be documentation comments associated with the given argument. Their visibility could be toggleable through clicking on them, on an individual or global basis, similarly to icons.
+
+We can observe that there's a need to manipulate or set visual properties of individual objects, clusters of objects/subtrees as well as the entire program tree. 
+
+I actually intended to represent 
 
 
 \begin{figure}[h!]
@@ -166,11 +227,52 @@ rapid editing: replacing any subtree
 
 Inefficient -- unnecessary amount of DOM nodes is kept
 
+Could be based on the canvas element
+
 It could be optimized similarly to CodeMirror or other web-based text editors or applications. That is, only a visible portion (plus a margin, which allows for fast scrolling) of the code is rendered as DOM nodes at any time. The scrollbar is virtual and controlled by the editor rather than the browser.
 
-Text editors like CodeMirror use similar amount of DOM nodes [[]], but thanks to these optimizations are able to handle megabyte-sized\footnote{\url{http://codemirror.net/doc/internals.html#approach}} text files and are used in many real-world applications\footnote{\url{http://codemirror.net/doc/realworld.html}}, which includes being a built-in editor in developer tools in major web browsers.
+Text editors like CodeMirror use similar amount of DOM nodes [[]], but thanks to these optimizations are able to handle megabyte-sized\footnote{\url{http://codemirror.net/doc/internals.html\#approach}} text files and are used in many real-world applications\footnote{\url{http://codemirror.net/doc/realworld.html}}, which includes being a built-in editor in developer tools in major web browsers.
 
 Another source of inefficiency is that parsing is done twice -- once by Dual's parser and once by CodeMirror's system, which are incompatibile.
 A solution to that would be to implement a custom text editor or extend/modify CodeMirror to work with Dual's parser.
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{blueprint}
+\caption{Blueprints Visual Scripting\protect\footnote{Screenshot from  \url{https://docs.unrealengine.com/latest/images/Engine/Blueprints/HowTo/BPHT_6/GetScore.jpg}}}
+\label{fig:blueprint}
+\end{figure}
+
+comparisons
+
+vs Unreal: // very static and cumbersome
+    first-class functions
+    first-class macros
+    substitution
+    
+    in 4.9.2 no sorting function implemented
+        and it's a commercial product
+        
+        one of the possible areas where a visual language would be handy for anyone, regardless of programming experience is rapid prototyping
+        
+        if it's static like Blueprint this advantage is greatly diminished
+    w/o first-class functions the more cumbersome to implement
+    
+
+General desirable characteristics of a scripting language:
+	dynamic
+	flexible
+	suitable for rapid prototyping
+	library of basic functions
+	complementary to a non-scripting language
+	
+Unreal Engine
+	nope
+	static
+	rigid
+	no sort
+	
+	does not really complement C++, which is also static and rigid
 
 % rendering text onto canvas?

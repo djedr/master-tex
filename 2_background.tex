@@ -5,48 +5,37 @@ czytelnikowi zrozumienie teorii rozwijanej w pracy oraz osiągniętych wyników
 praktycznych.  Jeżeli jakieś informacje nie są niezbędne do zrozumienia
 osiągnięć autora nie należy o nich pisać.}
 
-Lisp
-    apply // link
-    eval // link
-    
-    Scheme
-    Common Lisp
+%\section{Tools}
 
-When talking about Lisp, if it is not directly specified then I mean any implementation (Common Lisp, Scheme).
+This chapter briefly introduces the theoretical and practical components involved in design and implementation of the Dual programming language and its environment. I may further use the terms ``Dual system'' or simply ``system'' to refer to the language and the environment as a whole.
 
-prefix (polish) notation
+\section{Web technologies}
+One of the main goals in designing the system is accessibility. This is accomplished in practice by building it on top of arguably the most accessible and ubiquitous platform -- the web platform\footnote{\url{https://platform.html5.org/}}.
 
-what are language primitives/special forms
-I'll use the term language primitive
+The language's interpreter and development environment is intended to work with and is built on web technologies. Specifically JavaScript, HTML5 and CSS. The prototype implementation makes use of Node.js -- server-side JavaScript runtime and CodeMirror\footnote{\url{http://codemirror.net/}} -- a JavaScript library which provides basic facilities for the text-based code editor part of the system. This part is modeled after modern web-oriented code editors with similar design philosophy\footnote{\url{https://en.wikipedia.org/wiki/Comparison_of_JavaScript-based_source_code_editors}}, such as Visual Studio Code\footnote{\url{https://code.visualstudio.com/}}, Brackets\footnote{\url{http://brackets.io/}}, Atom\footnote{\url{https://atom.io/}} and many others.
 
-introduce arity notation
-0..*
-0..2
-2
-etc.
-
-functional purity and why not
-\section{Web platform}
+The design of Dual's visual representation draws from many visual programming languages\footnote{\url{
+http://blog.interfacevision.com/design/design-visual-progarmming-languages-snapshots/}}. Analyzing these, we can observe many distinct approaches of which two particular designs are the most widespread and successful. These can be described as line-connected block-based and snap-together block-based visual languages. The former family is exemplified by the Blueprints Visual Scripting system of Unreal Engine 4\footnote{\url{https://docs.unrealengine.com/latest/INT/Engine/Blueprints/}} and the latter by MIT Scratch\footnote{\url{https://scratch.mit.edu/}}.
 
 \subsection{JavaScript}
-WebAssembly?
+%The most important 
+%WebAssembly?
 
-Programming languages build on top of each other and cross over to form complex taxonomies.
+%My most recent and significant experience both professional and non-professional is with the JavaScript language.
 
-My most recent and significant experience both professional and non-professional is with the JavaScript language.
+%I find this language well-suited to a great range of tasks []
 
-I find this language well-suited to a great range of tasks []
-
-JavaScript has many great design features, borrowed from other excellent languages and packaged in a familiar syntax. For this reason and because it is distributed with a ubiquitous environment, which is the web browser, it became one of the most\footnote{\url{http://www.tiobe.com/tiobe_index}, \url{http://pypl.github.io/PYPL.html}}, if not the most\footnote{\url{http://stackoverflow.com/research/developer-survey-2016\#most-popular-technologies-per-occupation}, \url{http://redmonk.com/sogrady/2016/02/19/language-rankings-1-16/}} popular programming lanugages in the world.
+From a programming language design perspective, JavaScript has many great features, borrowed from other excellent languages and packaged in a familiar syntax. For this reason and because it is distributed with a ubiquitous environment, which is the web browser, it became one of the most\footnote{\url{http://www.tiobe.com/tiobe_index}, \url{http://pypl.github.io/PYPL.html}}, if not the most\footnote{\url{http://stackoverflow.com/research/developer-survey-2016\#most-popular-technologies-per-occupation}, \url{http://redmonk.com/sogrady/2016/02/19/language-rankings-1-16/}} popular programming lanugages in the world.
 
 The popularity of JavaScript grew over time\footnote{\url{http://www.r-bloggers.com/the-most-popular-programming-languages-on-stackoverflow/}}
 
-EcmaScript 2015
-Now 2016
+%EcmaScript 2015
+%Now 2016
 
-\url{https://en.wikipedia.org/wiki/Measuring_programming_language_popularity}
+%\url{https://en.wikipedia.org/wiki/Measuring_programming_language_popularity}
 
-In my design I 
+%In my design I 
+% Class-free OOP -> design discussion
 
 \subsubsection{Concurrency model}
 In the context of the concurrency model, the JavaScript runtime conceptually consists of three parts: the call stack, the heap and the message queue. All these are bound together by the event loop\footnote{\url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop}}, which is the crucial part of this model.
@@ -65,34 +54,75 @@ For this reason it is best to write programs in JavaScript that block the event 
 
 The mechanism is called the \textit{event} loop, because the messages are added to the queue any time an event occurs (an has an associated handler), such as a click or a scroll. In general input and output in JavaScript is performed asynchronously, through events, so it does not block program execution.
 
-\section{Programming language design}
+
+\section{Programming language design and implementation}
+A very important family of programming languages and one which had the most influence on the design of Dual is the Lisp family. In this thesis I use the singular form ``Lisp'' to refer to the whole family rather that a concrete dialect or implementation, such as Common Lisp or Scheme.
+
+Lisp is characterized by a very minimal syntax, which relies on Polish (prefix) notation for expressions and parentheses to indicate nesting. There are only expressions and no statements in the language. This means that every language construct represents a value. There's also no notion of operator precedence.
+
+The two core components of a Lisp interpreter are the \texttt{apply} and \texttt{eval} functions\cite{sicp_meta}\footnote{\url{http://c2.com/cgi/wiki?EvalApply}}. The former takes as arguments another function and a list of arguments and applies this function to these arguments. The latter takes as arguments an \texttt{expression} and an \texttt{environment} and evaluates this expression in this environment. The typical implementation of \texttt{eval} distinguishes between a few types of expressions. The essential are:
+\begin{itemize}
+	\item Symbols (also known as identifiers or names) -- e.g. \texttt{velocity} -- these are evaluated by looking up the value corresponding to the symbol in the environment, so \texttt{velocity} might evaluate to \texttt{10} if it is defined as such in the \texttt{environment}
+	\item Numbers (or number literals) -- e.g. \texttt{3.2} -- these evaluate to a corresponding numerical value
+	\item Booleans (boolean literals) -- \texttt{true} or \texttt{false} -- evaluate to a corresponding boolean value
+	\item Strings (string literals) -- e.g. \texttt{"Hello, world!"} -- evaluate to a corresponding string value
+	\item Quoted expressions -- e.g. \texttt{'(+ 2 2)} -- a quoted expression evaluates to itself; in other words a quote prevents an expression from being evaluated
+	\item \textit{Special forms} or \textit{primitives}, which are expressions that have some special meaning in the language. These are the basic building blocks of programs. For example:
+	\begin{itemize}
+		\item \texttt{if}, the basic conditional expression and other flow control expressions; the special meaning of these is that they evaluate their arguments depending on some condition
+		\item \textit{lambda} expressions -- essentially function literals, which consist of argument names and a body
+		\item \textit{definition} and \textit{assignment} expressions; these modify the environment; usually they treat their first argument as a name of the symbol in the environment, so it is not evaluated; the second argument is evaluated and its value is associated with the symbol 
+	\end{itemize}	 
+\end{itemize}
+
+For detailed explanation please refer to \cite{sicp_meta}.
 
 \subsection{Syntax}
+%Lisp distills some fundamental  
 
 ``It's surprising that you can write in a language without using its syntax. Usually when we're reviewing languages syntax is all we look at. We look at the most superficial aspect of it. And often it could be years before we discover what's in the deeper layers.''
--- Douglas Crockford, https://www.youtube.com/watch?v=Nlqv6NtBXcA ~4:00
+-- Douglas Crockford, \url{https://www.youtube.com/watch?v=Nlqv6NtBXcA} ~4:00
 
 JavaScript design time: 10 days
 Smalltalk design time: 10 years
 
 
-\section{Abstract syntax tree}
+%\subsection{Abstract syntax tree}
+The term ``\acrlong{ast}'' refers to a tree data structure that is often built by parsers of programming languages to represent syntactic structure of source code in an abstract and easily traversable and manipulable way. In the simplest form, in expression-only languages such as Lisp each node of such tree represents a single expression. The tree is abstract in the sense that it does not necessarily contain all the syntax constructs that occur in the source code or encodes them in some ``abstract'' way. In case of Lisp, there's no need to store or represent bracketing characters \texttt{()} in the AST, as nesting is inherent in the structure itself.
 
-Visual programming is essentially manipulating a visual form of the syntax tree.
+In theory, a programming language does not require a text representation and could be defined only in terms of a data structure such as a syntax tree. Practically, for a language to be useful, it needs a to come with an editable representation that provides a convenient way for a programmer to construct programs. Currently the most successful representation for that is the human-readable text-based representation, which evolved from more primitive and less convenient representations, such as punched cards.
 
-\acrlong{vpl}
+Constructing programs with this representation can be done with any text editor.
 
-\section{Visual programming language}
-This section 
-means of research, that are rather heuristic in nature and not formal
-provide a starting point and a reference for design
+This means that the representation is largely independent of a tool, which is an advantage. Any application capable of editing text can theoretically be used to edit any source code (ignoring details such as encoding, etc.). Such applications are universally available, so source code stored in text files can be edited freely on any platform with any tool.
 
-A formal study of visual programming languages, proper classification in terms of statistics and methodical examination are not the focus of this thesis.
+But for complex programs a simple text editor quickly becomes inconvenient and a more specialized one is preferable. Such code editors introduce various features that greatly improve the convenience of working with a text-based representation of a programming language. For example:
+\begin{itemize}
+	\item Automatic structuring of the text to emphasize blocks of code (autoindentation)
+	\item Highlighting different syntactic constructs with different colors
+	\item Context-based autocompletion
+	\item Autoclosing of bracketing characters
+	\item Automatic correction of errors
+	\item The ability to fold distinct blocks of code
+	\item Advanced navigation through the code: jumping to declarations, definitions, other modules or files
+	\item Etc.
+\end{itemize}
+Most of these features require that the editor makes use of a parser to recognize the syntactic structure of a program.
 
-The design of the visual representation involved a rough survey of visual programming languages\footnote{\url{http://blog.interfacevision.com/design/design-visual-progarmming-languages-snapshots/ 
-}}
+Other advantages of a text representation:
+It can be manipulated and processed in a multitude of ways, such as:
+Find and replace with regular expressions
+Selecting/processing many lines or even blocks of text
+Editors often treat the source as a 2D grid of characters; each row and column of such grid can be numbered
+Debuggers, compilers and other elements of a programming language system can use row and column numbers in error messages
+Version control systems can easily diff and keep track of changes in text files
 
-I classified each of nearly 160 languages, according to type of their visual representation, to one of three categories:
+An alternative representation is the one employed by visual programming languages. Such languages are usually tied to a particular editor, which allows the programmer to edit the source code with a mouse rather than the keyboard. That is instead of typing in streams of characters to be parsed and assembled into a structural form, he inserts, arranges and connects together distinct visual elements to produce such a structure. Thus I contend that visual programming can be defined at the lowest level as manipulating a visual form of a language's syntax tree.
+
+\subsection{Visual programming languages}
+The design of the visual representation for my language involved a rough survey of visual programming languages. In this section I will briefly describe the results obtained from this survey\footnote{A formal study of visual programming languages, proper classification in terms of statistics and methodical examination are not the focus of this thesis.}.
+
+I classified each of nearly 160 languages listed in \cite{snapshots}, according to type of their visual representation, to one of three categories:
 \begin{enumerate}
     \item Line-connected blocks: about 66\%
     \item Snap-together blocks
@@ -128,4 +158,42 @@ The advantages of the first representation is that it clearly separates
 
 The lack of support for automatic structuring, which is an essential feature of modern text-based code editors is obviously a regression.
 
+To design a visual representation that can be an improvement over the text-based representation all the advantages of the latter need to be kept.
 % detailed bibliography: http://web.engr.oregonstate.edu/~burnett/vpl.html
+
+
+
+\section{Programming discipline}
+The prototype was implemented largely in the spirit of exploratory programming: ``the kind where you decide what to write by writing it.''\footnote{\url{http://arclanguage.org/}}.
+
+This approach in combination with a dynamic and flexible language like JavaScript enables one to quickly transform ideas to working prototypes and shape them as one goes along. But the usefulness of this method is limited, as it may quickly produce fairly low-quality code, as it is not focused on future maintainability.
+
+\comment{
+An example application built with the language 
+Canvas element
+
+Programming languages build on top of each other and cross over to form complex taxonomies.
+
+Lisp family
+Pattern matching languages (ML-family?)
+JavaScript
+
+Lisp
+    apply // link
+    eval // link
+    
+    Scheme
+    Common Lisp
+
+prefix (polish) notation
+
+what are language primitives/special forms
+I'll use the term language primitive
+
+etc.
+functional purity and why not
+
+This section 
+means of research, that are rather heuristic in nature and not formal
+provide a starting point and a reference for design
+}

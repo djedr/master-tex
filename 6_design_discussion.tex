@@ -36,7 +36,7 @@ If multiline comments were implemented as expressions on parser-level then, in c
     $<-[^[x 2] x range[0 10]]
     $<-[$[x y] x $[1 2 3] y $[3 1 4] <>[x y]]
 \end{lstlisting}
-would be equivalent to Python's\footnote{\url{https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions}}:
+would be equivalent to Python's\footnote{\url{https://docs.python.org/3/tutorial/datastructures.html\#list-comprehensions}}:
 \begin{lstlisting}
     [x**2 for x in range(10)]
     [(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]
@@ -262,3 +262,9 @@ Cons of minimal syntax
 Operator precedence
 http://www.ozonehouse.com/mark/blog/code/PeriodicTable.pdf
 % periodic table of operators in Perl 6
+
+\section{Universal visual editor}
+
+
+The structure produced by a visual editor does not have to necessarily be a syntax tree of a particular language.
+Text editors allow inputing arbitrary sequences of characters, which are transformed into a syntax tree by a specialized parser. Analogously, an universal visual editor could allow insertion, connection and mainpulation of arbitrary generalized blocks, thus forming a truly abstract syntax tree (language-independent). This tree could then be ``parsed'' to produce a syntax tree for a particular language.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.4.4)  23 JUN 2016 09:59
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.4.4)  23 JUN 2016 16:19
 entering extended mode
 **main.tex
 (D:\master-project\master-thesis\main.tex
@@ -892,7 +892,7 @@ LaTeX Info: Redefining \nameref on input line 11.
 \@outlinefile=\write6
 
 (D:\master-project\master-thesis\title_page.tex
-<img/logo.pdf, id=263, 386.24298pt x 566.2656pt>
+<img/logo.pdf, id=199, 386.24298pt x 566.2656pt>
 File: img/logo.pdf Graphic file (type pdf)
  <use img/logo.pdf>
 Package pdftex.def Info: img/logo.pdf used on input line 6.
@@ -963,32 +963,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--7
  []
 
 
-Overfull \hbox (46.97046pt too wide) in paragraph at lines 10--10
-[][][][]$\T1/cmtt/m/n/10 http : / / blog . interfacevision . com / design / des
-ign-[]visual-[]progarmming-[]languages-[]snapshots/$[]| 
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 13--13
+Underfull \hbox (badness 10000) in paragraph at lines 12--12
 [][][][]$\T1/cmtt/m/n/10 http : / / stackoverflow . com / research / developer-
 []survey-[]2016 #$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--13
+Underfull \hbox (badness 10000) in paragraph at lines 12--12
 $\T1/cmtt/m/n/10 most-[]popular-[]technologies-[]per-[]occupation$[]\T1/cmr/m/n
 /10 , []$\T1/cmtt/m/n/10 http : / / redmonk . com / sogrady / 2016 / 02 /$
  []
 
-[6]
-Overfull \hbox (21.98875pt too wide) in paragraph at lines 38--39
+[5] [6]
+Overfull \hbox (21.98875pt too wide) in paragraph at lines 37--38
 []\T1/cmr/m/n/12 The two core com-po-nents of a Lisp in-ter-preter are the \T1/
 cmtt/m/n/12 apply \T1/cmr/m/n/12 and \T1/cmtt/m/n/12 eval \T1/cmr/m/n/12 functi
 ons[[]][][][].
  []
 
 [7] [8] [9] [10]) (D:\master-project\master-thesis\2_language.tex
-Overfull \hbox (13.09752pt too wide) in paragraph at lines 133--1
+Overfull \hbox (13.09752pt too wide) in paragraph at lines 132--1
 []\T1/cmr/m/n/12 This ap-proach in com-bi-na-tion with a dy-namic and flex-i-bl
 e lan-guage like JavaScript
  []
@@ -1108,21 +1102,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 492--492
 Chapter 3.
 [31
 
-] <img/editor.png, id=974, 1131.22626pt x 637.38126pt>
+] <img/editor.png, id=885, 1131.22626pt x 637.38126pt>
 File: img/editor.png Graphic file (type png)
  <use img/editor.png>
 Package pdftex.def Info: img/editor.png used on input line 24.
 (pdftex.def)             Requested size: 377.24702pt x 212.55391pt.
 
 [32 <D:/master-project/master-thesis/img/editor.png (PNG copy)>] [33]
-<img/editor-menu.png, id=992, 401.24907pt x 97.11281pt>
+<img/editor-menu.png, id=903, 401.24907pt x 97.11281pt>
 File: img/editor-menu.png Graphic file (type png)
 
 <use img/editor-menu.png>
 Package pdftex.def Info: img/editor-menu.png used on input line 67.
 (pdftex.def)             Requested size: 377.24702pt x 91.30975pt.
  [34 <D:/master-project/master-thesis/img/editor-menu.png>] <img/scratch.png, i
-d=1003, 854.19125pt x 571.13374pt>
+d=914, 854.19125pt x 571.13374pt>
 File: img/scratch.png Graphic file (type png)
 
 <use img/scratch.png>
@@ -1135,14 +1129,14 @@ rthampton . ac . uk / 12406702 / files / 2013 / 05 /$
  []
 
 [35 <D:/master-project/master-thesis/img/scratch.png>]
-<img/blueprint_more.png, id=1012, 700.11563pt x 338.01282pt>
+<img/blueprint_more.png, id=923, 700.11563pt x 338.01282pt>
 File: img/blueprint_more.png Graphic file (type png)
 
 <use img/blueprint_more.png>
 Package pdftex.def Info: img/blueprint_more.png used on input line 105.
 (pdftex.def)             Requested size: 377.24702pt x 182.13736pt.
 
-<img/designs_01234.png, id=1014, 628.3475pt x 467.7475pt>
+<img/designs_01234.png, id=925, 628.3475pt x 467.7475pt>
 File: img/designs_01234.png Graphic file (type png)
 
 <use img/designs_01234.png>
@@ -1154,13 +1148,13 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [36 <D:/master-project/master-thesis/img/blueprint_more.png>] [37 <D:/master-pr
 oject/master-thesis/img/designs_01234.png>]
-<img/design_3.png, id=1030, 606.265pt x 320.19624pt>
+<img/design_3.png, id=941, 606.265pt x 320.19624pt>
 File: img/design_3.png Graphic file (type png)
  <use img/design_3.png>
 Package pdftex.def Info: img/design_3.png used on input line 157.
 (pdftex.def)             Requested size: 377.24702pt x 199.2427pt.
 
-<img/design_4.png, id=1031, 353.32pt x 163.61125pt>
+<img/design_4.png, id=942, 353.32pt x 163.61125pt>
 File: img/design_4.png Graphic file (type png)
  <use img/design_4.png>
 Package pdftex.def Info: img/design_4.png used on input line 165.
@@ -1170,7 +1164,7 @@ Package pdftex.def Info: img/design_4.png used on input line 165.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [38 <D:/master-project/master-thesis/img/design_3.png>]
-<img/blueprint.jpg, id=1044, 607.51968pt x 228.855pt>
+<img/blueprint.jpg, id=955, 607.51968pt x 228.855pt>
 File: img/blueprint.jpg Graphic file (type jpg)
  <use img/blueprint.jpg>
 Package pdftex.def Info: img/blueprint.jpg used on input line 181.
@@ -1182,7 +1176,7 @@ Package pdftex.def Info: img/blueprint.jpg used on input line 181.
 
 ]
 Chapter 4.
-<img/pacman.png, id=1062, 450.18187pt x 359.84438pt>
+<img/pacman.png, id=973, 450.18187pt x 359.84438pt>
 File: img/pacman.png Graphic file (type png)
  <use img/pacman.png>
 Package pdftex.def Info: img/pacman.png used on input line 14.
@@ -1207,7 +1201,7 @@ Overfull \hbox (28.37753pt too wide) in paragraph at lines 20--21
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [43]
-<img/profiling.png, id=1144, 571.13374pt x 438.63875pt>
+<img/profiling.png, id=1055, 571.13374pt x 438.63875pt>
 File: img/profiling.png Graphic file (type png)
 
 <use img/profiling.png>
@@ -1227,154 +1221,86 @@ Overfull \hbox (3.73418pt too wide) in paragraph at lines 62--63
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[48] [49]) (D:\master-project\master-thesis\6_summary.tex [50]
-Chapter 6.
-) (D:\master-project\master-thesis\main.bbl [51
-
-] [52
+[48] [49] [50]) (D:\master-project\master-thesis\6_summary.tex [51] [52
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 26--31
+Chapter 6.
+) (D:\master-project\master-thesis\main.bbl [53] [54
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 20--25
 []\T1/cmr/m/n/12 Eric Hosick.  Vi-sual Pro-gram-ming Lan-guages - Snap-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--31
+Underfull \hbox (badness 10000) in paragraph at lines 20--25
 \T1/cmr/m/n/12 shots.  []$\T1/cmtt/m/n/12 http : / / blog . interfacevision . c
 om / design /$
  []
 
 
-Underfull \hbox (badness 1231) in paragraph at lines 33--39
+Underfull \hbox (badness 1231) in paragraph at lines 27--33
 []\T1/cmr/m/n/12 John Mc-Carthy.  The im-ple-men-ta-tion of LISP.  []$\T1/cmtt/
 m/n/12 http : / / www-[]formal .$
  []
 
-) (D:\master-project\master-thesis\main.gls [53] [54
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--39
+[]\T1/cmr/m/n/12 Matt Might.  First-class (run-time) macros and meta-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--39
+\T1/cmr/m/n/12 circular eval-u-a-tion.  []$\T1/cmtt/m/n/12 http : / / matt . mi
+ght . net / articles /$
+ []
+
+) (D:\master-project\master-thesis\main.gls [55] [56
 
 ])
-(D:\master-project\master-thesis\main.acr [55
-
-] [56
-
-])
-(D:\master-project\master-thesis\a_dvd.tex [57
+(D:\master-project\master-thesis\main.acr [57
 
 ] [58
+
+])
+(D:\master-project\master-thesis\a_dvd.tex [59
+
+] [60
 
 ]
 Appendix A.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [59]
+ [61]
 Overfull \hbox (2.26456pt too wide) in paragraph at lines 27--28
 \T1/cmr/m/n/12 uses ports in the range 8079-8082, spec-i-fied in the \T1/cmtt/m
 /n/12 server-options.json
  []
 
-[60])
+[62])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 39.
- [61]
+ [63]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 39.
  (D:\master-project\master-thesis\main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 39.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 39.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 1A2DACD9DD98DC25BBCC2111DDD67659;4140
-(rerunfilecheck)             After:  2D1FB4F9E9B29A34FFF1F4F4860CBFD2;3053.
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: EE596A8C180054AF138CA0BB0148D32D;3120.
  ) 
 Here is how much of TeX's memory you used:
- 20056 strings out of 493921
- 326574 string characters out of 3150895
- 450281 words of memory out of 3000000
- 22406 multiletter control sequences out of 15000+200000
+ 20017 strings out of 493921
+ 326040 string characters out of 3150895
+ 449185 words of memory out of 3000000
+ 22388 multiletter control sequences out of 15000+200000
  20584 words of font info for 55 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  53i,12n,56p,10356b,1831s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.60} has been referenced but does not ex
+pdfTeX warning (dest): name{Hfootnote.59} has been referenced but does not ex
 ist, replaced by a fixed one
 
-pdfTeX warning (dest): name{Hfootnote.57} has been referenced but does not exis
+pdfTeX warning (dest): name{Hfootnote.56} has been referenced but does not exis
 t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.B.1} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{appendix.B} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{section.A.3} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.A.2} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.5.12} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.5.11} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.5.10} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.5.9.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.5.9} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.5.8} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.5.7} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.5.6} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.5.5} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.2.7} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.2.6} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.2.5} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.2.4.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.2.4} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.2.3.6} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.2.3.5} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.2.3.4} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.2.3.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.2.3.2} has been referenced but does not 
-exist, replaced by a fixed one
 
  <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ect
 t1200.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\d
@@ -1396,9 +1322,9 @@ KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk><D:/programs/MiKTeX/fon
 ts/type1/public/amsfonts/cm/cmmi10.pfb><D:/programs/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmmi12.pfb><D:/programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.
 pfb><D:/programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (65 pages, 1409774 bytes).
+Output written on main.pdf (67 pages, 1402541 bytes).
 PDF statistics:
- 2160 PDF objects out of 2487 (max. 8388607)
- 646 named destinations out of 1000 (max. 500000)
- 576 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2077 PDF objects out of 2487 (max. 8388607)
+ 625 named destinations out of 1000 (max. 500000)
+ 448 words of extra memory for PDF output out of 10000 (max. 10000000)
 

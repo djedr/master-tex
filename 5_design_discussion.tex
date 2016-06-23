@@ -59,9 +59,102 @@ In future versions of the language, comments will be stored separately from whit
 
 \section{Structural string manipulation}
 \begin{lstlisting}
-    words[_ _ _ fourth _ sixth] -- supa fast, out of the box
+    words[_ _ _ fourth _ sixth] -- super fast, out of the box
     characters[_ _ _ _ fifth]
 \end{lstlisting}
+
+\section{Just-in-time macros}
+One feature that I experimented with while creating the prototype of Dual is support for ``first-class just-in-time expanded macros''. By this I mean macros similar to those found in Lisp, but with a few key characteristics, which differentiate them from conventional implementations of macros in Lisp-like languages. These are:
+\begin{itemize}
+	\item Macros are expanded upon evaluation; when a macro invocation is encountered by the interpreter, it is expanded into code; the node in the EST containing the macro invocation is permanently replaced by the expanded expression, which is subsequently evaluated and its value is returned as the value of the invocation.
+	\item Macros can return other macros in a straightforward manner; this feature nicely composes with the variation of Lisp syntax found in Dual; I used it extensively to improve it, mostly with the goal of reducing the amount of adjacent closing brackets in the source code.
+\end{itemize}
+
+In order to support first-class runtime macros a Lisp interpreter can be modified as follows\cite{macros}:
+\begin{itemize}
+	\item Primitives are moved into the top-level environment; they thus are no longer treated as special case by the \texttt{eval} function.
+	\item A new primitive, \texttt{macro} is added, which is essentially equivalent to \texttt{lambda}, except that it produces macro values instead of function values.
+	\item The \texttt{apply} function is now responsible for checking the type of an expression's operator, which can be a \texttt{primitive}, a \texttt{macro} or a normal expression; this determines whether the arguments are evaluated before application
+\end{itemize}
+
+This results in a simpler, more uniform and at the same time more powerful interpreter. A major advantage is that:
+\begin{quote}
+Because of their first-class nature, first-class macros make it easy to add or simulate any degree of laziness\cite{macros}
+\end{quote}
+
+The below listing presents an example of a macro named \texttt{if*} that wraps the \texttt{if} primitive in a slightly different syntax. This syntax wraps the condition, consequent and alternative parts of the \texttt{if} in separate blocks delimited by \texttt{[]}. The condition is required to be an infix expression in the form \texttt{a operator b}. The consequent and alternative blocks take care of wrapping all expressions within them in \texttt{do} blocks. This makes it more convenient and less error-prone to write complex \texttt{if} expressions:
+\begin{lstlisting}
+bind [if* macro [a op b macro [{then} macro [{else}
+	code'[if [apply[{op} {a} {b}] do[{then}] do[{else}]]]
+]]]
+
+if* [a < b][
+	log ['[a is less than b]]
+	a
+][
+	log ['[b is less than or equal to a]]
+	b
+]
+
+-- expands to:
+if [<[a b] do [
+	log ['[a is less than b]]
+	a
+] do [
+	log ['[b is less than or equal to a]]
+	b
+]]
+\end{lstlisting}
+
+TODO: elaborate
+
+***
+
+A somewhat tangent, but interesting observation here is that a Lisp interpreter could be simplified further by removing all special cases from \texttt{apply}. It would only apply a function to arguments, without checking its type. This would cause the following:
+\begin{itemize}
+	\item All primitives would cease to be ``special''. 
+	\item If we keep the strict evaluation strategy, a programmer would have to explicitly quote all expressions that should not be immediately evaluated.
+	\item We could also switch to a variation of lazy evaluation, which could be best described as ``explicit evaluation'', where evaluation \textit{never} happens unless explicitly requested. Under this evaluation strategy, a programmer would have to explicitly evaluate all expressions that should be evaluated.
+\end{itemize}
+
+Assuming the explicit evaluation strategy, the \texttt{if} primitive could be defined in the interpreter as follows (in JavaScript):
+\begin{lstlisting}
+// args is the list of arguments, which would be provided by apply
+// this is a greatly simplified implementation, to demonstrate the essence of the idea:
+function if (args, environment) {
+	var condition = args[0], consequent = args[1], alternative = args[2];
+	var conditionValue = evaluate(condition, environment);
+	
+	if (conditionValue) {
+		return evaluate(consequent, environment);
+	}
+	return evaluate(alternative, environment);
+}
+\end{lstlisting}
+
+Assuming we have \texttt{bind} and all other necessary primitives defined to conform to this evaluation strategy and a terse syntax for explicit evaluation (\texttt{'}):
+\begin{lstlisting}
+-- ' causes an expression to be evaluated
+
+-- bind would always evaluate its second argument:
+'bind [a 5]
+
+-- +, - and other arithmetic operators would always evaluate all of their arguments:
+'bind [b +[a 7]]
+
+-- log would evaluate all of its arguments
+-- logs `12`:
+'log [b]
+
+-- of would not evaluate any of its arguments:
+'bind [factorial of [n do [
+	'bind [n-value n]
+	*[n-value factorial[-[n-value 1]]]
+]]]
+\end{lstlisting}
+
+TODO: how this could be useful
+compiling to simplified Lisp
  
 \section{C-like syntax}
 Throughout this thesis I introduced multiple ways in which the basic, Lisp-like syntax of Dual can be easily extended with simple enhancements, such as adding more general-purpose special characters, macros, single-word comments (as described in Section \ref{sec:comments}), etc.

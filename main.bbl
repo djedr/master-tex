@@ -16,12 +16,6 @@ Julie~Sussman Harold~Abelson, Gerald Jay~Sussman.
   chapter 4.1. MIT Press, 1996.
 \newblock Also available online: \url{https://mitpress.mit.edu/sicp/}.
 
-\bibitem{eloquentjs}
-Marijn Haverbeke.
-\newblock {\em {E}loquent {J}ava{S}cript}.
-\newblock No Starch Press, 2nd edition, December 2014.
-\newblock Also available online: \url{http://eloquentjavascript.net/}.
-
 \bibitem{snapshots}
 Eric Hosick.
 \newblock {V}isual {P}rogramming {L}anguages - {S}napshots.
@@ -36,6 +30,12 @@ John McCarthy.
   February 1979.
 \newblock Part of the ``History of Lisp'' draft,
   \url{http://www-formal.stanford.edu/jmc/history/lisp/lisp.html}.
+
+\bibitem{macros}
+Matt Might.
+\newblock {F}irst-class (run-time) macros and meta-circular evaluation.
+\newblock
+  \url{http://matt.might.net/articles/metacircular-evaluation-and-first-class-run-time-macros/}.
 
 \bibitem{wadler_critique}
 Philip Wadler.

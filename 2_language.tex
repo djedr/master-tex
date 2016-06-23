@@ -3,11 +3,18 @@
 \section{Introduction}
 In order to make a visual language a viable choice for textual-oriented
 programmer it's important that a language has a solid textual representation.
+\js{To brzmi dziwnie - język wizulany musi mieć dobrą reprezentację tekstową
+  żeby przyciągnać normalnych programistów...}
 
 This chapter describes the textual representation of Dual, which is the basis
 for the executable representation for the interpreter (the syntax tree) and for
 any other editable representation -- including the block-based visual
 representation implemented in the prototype.
+
+\js{Ten akapit i kilka następnych brzmią jak z podsumowania.  Sugeruję przenieść
+  albo do rozdziału z podsumowaniem, ewentualnie na końcu rozdziału zrobić
+  podrozdział z wnioskami.  Na pewno nie powinno być tego we wstępie zanim
+  cokolwiek zostanie zaprezentowane.}
 
 While implementing this project I learned that programming language design is a
 tremendous task, especially if the language being designed is intended to be of
@@ -24,6 +31,8 @@ for real-world use.
 
 That aside, I believe that at least some of the ideas described here are -- in a
 varying degree -- innovative and worth exploring further.
+
+\js{Dalsze akapity mogą zostać.}
 
 The evolution of programming languages is a gradual process. And so is the
 process of designing a single language. The approach that I found effective was
@@ -61,7 +70,7 @@ project is reflected in:
         \url{http://www.iwriteiam.nl/Ha_bf_Turing.html} and thus} interpreter is
       included as an example program [[resources]] to demonstrate this
     \item Implementation of several interesting additional features of the core
-      language, which are described in this chapter
+      language, which are described in this chapter \js{wymienić jakich}
     \item The ablility of the language to implement also non-trivial
       applications. This is demonstrated by implementing a clone of Pac-Man,
       described in Chapter \ref{chap:case}
@@ -93,12 +102,13 @@ Even though the language presented in this thesis is complete in the sense of
 being able to implement any algorithm and non-trivial applications, as
 exemplified by the Pac-Man clone, it is by no means a complete design. It should
 be viewed as a snapshot from a continuous design process that is intended to
-progress in the future.
+progress in the future.\js{Wydaje mi się, że ten akapit równiez pownien być w podsumowaniu}
 
 Provided brief specification and description primarily describes the
 implementation provided with this thesis. But it is also annotated with
 suggestions for improvements or, in other words, descriptions of the more
-refined, future design, which itself is subject to change.
+refined, future design, which itself is subject to change.\js{Nie zrozumiałem
+  przesłania tego akapitu.}
 
 \section{Grammar and syntactic features}
 Among the main design goals for the prototype of the language were simplicity
@@ -107,7 +117,7 @@ different representation. This restriction suggests that the syntax should be as
 minimal as possible. A language with one of the most (if not \textit{the} most)
 minimal syntax is Lisp\cite{syntaxation}.
 
-An interpreter for List is also trivial to implement, so this is a good starting
+An interpreter for Lisp is also trivial to implement, so this is a good starting
 point.
 
 There are many approaches to implementing interpreters for LISP in
@@ -137,7 +147,17 @@ S-expressions\footnote{\url{http://www-formal.stanford.edu/jmc/recursive/node3.h
 was established -- a slightly different and, in my opinion, slightly more
 readable notation was used in the early theoretical publications about the
 language, called meta-expressions or M-expressions\cite{mexpr}. I first
-simplified this notation in the following way:
+simplified this notation in the following way:\js{Należałoby opisać notację
+  przed przystąpieniem do opisu jak zostałą ona zmieniona.}
+
+\js{Mam tutaj w ogóle taką myśl, że popełnia Pan tutaj pewien błąd w sposobie
+  prezentacji materiału.  Praca naukowa nie powinna stanowić opisu krok po kroku
+  jak doszło się do wyniku.  Tutaj mam wrażenie że właśnie coś takiego jest:
+  opisuje Pan z czego Pan wyszedł, jakich zmian i dlaczego dokonał, i dopiero na
+  końcu przedstawia rezultat.  Moim zdaniem należałoby przedstawić to co Pan
+  wymyślił (rezultat), i ewentualnie dopiero potem umotywować czemu tak, a nie
+  inaczej.}
+
 \begin{itemize}
     \item I dropped the semicolon \texttt{;} as a separator for arguments, as it
       is entirely superfluous and there is no need for the programmer to type it
@@ -242,6 +262,8 @@ of possible \texttt{<word>}-characters, which implies that the regular
 expression for \texttt{<word>} is changed accordingly.
 
 \subsection{Comments, whitespace and the syntax tree}\label{sub:comments}
+\js{Rozdział o komentarzach zajmuje więcej miejsca niż opis z opisem składni!}
+
 The parser was further extended with support for comment syntax similar to the
 ones found in Ada, Haskell or Lua:
 \begin{lstlisting}
@@ -383,6 +405,12 @@ In order to reduce the amount of \textit{closing} brackets appearing next to
 each other in program's text, two additional simple notations were
 introduced. The first is addition of the pipe special character
 (\texttt{|}). This character is used for single-argument expressions, as in:
+\js{Najpierw należałoby wyjaśnić jak to działa, a dopiero potem dawać przykłady.
+  Swoją drogą warto napisac że | wiąże od prawej, tzn. foo | bar | baz to to
+  samo co foo [bar [baz]]}
+
+\js{jestem za dopracowaniem wyglądu listingów - czcionka o stałej szerokości
+  mile widziana.}
 \begin{lstlisting}
     -- compute factorial of 32: factorial|32 -- equivalent to factorial[32]
     
@@ -420,9 +448,13 @@ zero-argument expressions (procedures):
 A unique macro system, described in Chapter \ref{chap:design}\footnote{This
   macro system is not included in the final version of the prototype, although a
   proof-of-concept of it that I implemented in earlier prototypes is the basis
-  for this description.} in combination with these two (\texttt{|} and
-\texttt{!}) special characters help reduce the amount of bracketing characters
-even further.
+  for this description. \js{Dobrą strategią w takich przypadkach jest zrobienie
+    rozdziału opisującego projekt teoretyczny, a następnie rozdziału z opisem co
+    rzeczywoiście zostało zaimplementowane.  Pan ma podobnie, ale jednak pisze
+    Pan co zostało a co nie zostało zaimplementowane już tutaj.}} in combination
+with these two (\texttt{|} and \texttt{!}) special characters help reduce the
+amount of bracketing characters even further.\js{Nie podoba mi się, że żeby
+  zrozumieć co tu jest napisane muszę zajrzeć do dalszego rozdziału.}
 
 For example, if we define a \texttt{match*} and \texttt{of*} macros as
 described, the following expression:
@@ -585,6 +617,7 @@ Chapter \ref{chap:design}.
 
 
 \subsection{Rest parameters and spread operator}\label{sub:rest}
+\js{Przyznaję, ze czytałem szybko, ale nie zrozumiałem do końca tych operatorów.}
 Another syntax extension that I introduced involved two additional special
 bracketing characters: \texttt{\{} and \texttt{\}}, which serve several
 purposes:
@@ -678,7 +711,10 @@ language. Each item is structured as follows:
 \end{itemize}
 
 \subsection{Language primitives}
-The Dual language supports the following primitives:
+\js{Wydaje mi się, że nalezałoby to opisać na samym początku. Czyli najpierw
+  ogólna składina hęzyka, potem operatory prymitywne, pattern matching, i potem
+  reszta. Komentarze na końcu.}  The Dual language supports the following
+primitives:
 \begin{itemize}
     \item \texttt{do [0..*]}
     

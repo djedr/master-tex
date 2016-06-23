@@ -2,10 +2,12 @@
 This chapter briefly introduces the theoretical and practical components
 involved in design and implementation of the Dual programming language and its
 environment. I may further use the terms ``Dual system'' or simply ``system'' to
-refer to the language and the environment as a whole.
+refer to the language and the environment \js{``its environment''?} as a whole.
 
 \section{Web technologies}
-One of the main design goals of the system is accessibility. This is
+One of the main design goals of the system is accessibility.
+\js{Może rozwinąć myśl?  Chodzi o dostępność dla osób które nie znają się w ogóle na programowaniu? O dostepność dla osób które znają już JavaScript?}
+ This is
 accomplished in practice by building it on top of the most accessible and
 ubiquitous platform -- the web
 platform\footnote{\url{https://platform.html5.org/}}.
@@ -41,6 +43,7 @@ most\footnote{\url{http://www.tiobe.com/tiobe_index},
 most\footnote{\url{http://stackoverflow.com/research/developer-survey-2016\#most-popular-technologies-per-occupation},
   \url{http://redmonk.com/sogrady/2016/02/19/language-rankings-1-16/}} popular
 programming lanugages in the world.
+\js{Tutaj wstawić cytowania na koniec zdania, nie w miejscach gdzie są footnote'y}
 
 \subsubsection{Concurrency model}
 In the context of the concurrency model, the JavaScript runtime conceptually
@@ -61,7 +64,8 @@ following steps:
 
 This means\footnote{At least conceptually. In practice it is much more
   complicated and there are exceptions to these rules. But this explanation is
-  sufficient for further discussion.} that messages are processed one by one, in
+  sufficient for further discussion.}\js{Chyba warto z tego footnote'a zrobić część głównego tekstu}
+ that messages are processed one by one, in
 a single thread and an executing function cannot be preempted by any other
 function before it completes.
 
@@ -73,7 +77,9 @@ dialog asking the user if he wishes to terminate an unresponsive script.
 For this reason it is best to write programs in JavaScript that block the event
 loop for as short as possible and divide the processing into more messages.
 
-The mechanism is called the \textit{event} loop, because the messages are added
+The mechanism\js{Nie było dla mnie w pierwszej chwili jasne który mechanizm.
+  Myślałem, że to z ostatniego akapitu z rozdzielaniem na jak najwięcej
+  komunikatów} is called the \textit{event} loop, because the messages are added
 to the queue any time an event occurs (an has an associated handler), such as a
 click or a scroll. In general input and output in JavaScript is performed
 asynchronously, through events, so it does not block program execution.
@@ -127,13 +133,18 @@ between a few types of expressions. The essential are:
                   argument as a name of the symbol in the environment, so it is
                   not evaluated; the second argument is evaluated and its value
                   is associated with the symbol
-	\end{itemize}	 
+	\end{itemize}
 \end{itemize}
+
+\js{Brakuje mi tu gdzieś jasnego powiedzenia, że listy którymi manipuluje lisp
+  mogą być zarówno przetwarzane jako dane, jak i wykonywane jako kod.  Chyba że
+  nie jest to szczególnie istotna własność z punktu widzenia Dual -- wtedy można
+  to pominąć.}
 
 For detailed explanation please refer to \cite{sicp_meta}.
 
 \subsection{Syntax}
-The term ``\acrlong{ast}'' refers to a tree data structure that is often built
+The term ``\acrlong{ast}'' refers to a tree data structure that is often \js{skreśliłbym often} built
 by parsers of programming languages to represent syntactic structure of source
 code in an abstract and easily traversable and manipulable way. In the simplest
 form, in expression-only languages such as Lisp each node of such tree
@@ -145,13 +156,13 @@ inherent in the structure itself.
 
 In theory, a programming language does not require a text representation and
 could be defined only in terms of a data structure such as a syntax
-tree. Practically, for a language to be useful, it needs a to come with an
+tree. Practically, for a language to be useful, it needs to come with an
 editable representation that provides a convenient way for a programmer to
 construct programs. Currently the most successful representation for that is the
 human-readable text-based representation, which evolved from more primitive and
 less convenient representations, such as punched cards.
 
-Constructing programs with this representation can be done with any text editor.
+Constructing programs with this \js{this -> text} representation can be done with any text editor.
 
 This means that the representation is largely independent of a tool, which is an
 advantage. Any application capable of editing text can theoretically be used to
@@ -206,10 +217,11 @@ The design of the visual representation for my language involved a rough survey
 of visual programming languages. In this section I will briefly describe the
 results obtained from this survey\footnote{A formal study of visual programming
   languages, proper classification in terms of statistics and methodical
-  examination are not the focus of this thesis.}.
+  examination are not the focus of this thesis. \js{No ja bym jednak tego nie pisał i zamiast tego zrobił solidny przegląd literatury.}}.
 
 I classified each of nearly 160 languages listed in \cite{snapshots}, according
 to type of their visual representation, to one of three categories:
+\js{Może Pan wyjaśnić czym się różni 1 od 2?  Mam poczucie, że wrzucenie obrazków pokazujących jedno i drugie mogło by pomóc.}
 \begin{enumerate}
     \item Line-connected blocks: about 66\%
     \item Snap-together blocks
@@ -223,6 +235,7 @@ representation ($s = 3$)\footnote{This is based solely on the screen shots from
   the editors. For example, if it appears that the representation consists of
   scattered blocks, connected by lines and the layout seems to be arranged by
   the user, with no automatic structuring by the editor, $s$ will be low.}.
+\js{Może po prostu napisać że im więcej tym lepiej?}
 
 Below I present the results of this classification. The elements are structured
 as follows: name of category -- percentage of languages that fall into the
@@ -242,6 +255,7 @@ the following results:
           in-game \acrshort{vpl}s, hybrid, specialized, esoteric, etc.}
     \end{enumerate}
 \end{enumerate}
+\js{No ja mam poczucie, że powyższe jednak wymagają bliższego wyjaśnienia.}
 
 Taking into account the above and looking at the most popular visual programming
 languages\footnote{I was not able to find and am not aware of any official or
@@ -251,7 +265,9 @@ languages\footnote{I was not able to find and am not aware of any official or
   \url{https://en.wikipedia.org/wiki/Visual_programming_language} and my
   personal experience suggest that we can find these among the most popular: MIT
   Scratch Unreal Engine 4's Blueprints}
+\js{Urwane zdanie?}
 
+\js{Coś jest nie tak z początkiem tego zdania}
 From this and a I drew the conclusion that there are basically two main
 representations. A flowchart-like representation, exemplified by the Blueprints,
 with blocks connected by lines or arrows, which usually leaves the layout of the
@@ -262,15 +278,19 @@ to a jigsaw-puzzle. This representation is self-structuring and is designed to
 resemble a faimiliar text-based, indent-structured representations.
 
 The advantages of the first representation is that it clearly separates
-
+\js{Znowu coś nie tak ze zdaniem}
 
 The lack of support for automatic structuring, which is an essential feature of
 modern text-based code editors is obviously a regression.
+\js{To zdanie wydaje mi się całkowicie wyrwane z kontektsu.}
 
 To design a visual representation that can be an improvement over the text-based
 representation all the advantages of the latter need to be kept.
 
+\js{Jakiś chaos się tutaj wkradł. Może czytam pracę trochę za szybko, ale nie przypominam sobie jakie były te zalety tekstowej reprezentacj. Pamiętam że były cechy, ale bez podziału na zalety i wady.}
+
 \section{Programming discipline}
+\js{mam poczucie, że ten podrozdział jest nie na miejscu. Lepiej napisać to gdzieś przy opisie implementacji}
 The prototype was implemented largely in the spirit of exploratory programming:
 ``the kind where you decide what to write by writing
 it.''\footnote{\url{http://arclanguage.org/}}.

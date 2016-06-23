@@ -1,206 +1,268 @@
 \chapter{Design discussion}\label{chap:design}
 
 \section{Comments}\label{sec:comments}
-If multiline comments were implemented as expressions on parser-level then, in combination with \texttt{|} special character we could have one-word comments, which could be useful for describing arguments to facilitate reading of expressions. For example we could implement list comprehensions, where:
+If multiline comments were implemented as expressions on parser-level then, in
+combination with \texttt{|} special character we could have one-word comments,
+which could be useful for describing arguments to facilitate reading of
+expressions. For example we could implement list comprehensions, where:
 \begin{lstlisting}
-    $<-[^[x 2] x range[0 10]]
-    $<-[$[x y] x $[1 2 3] y $[3 1 4] <>[x y]]
+    $<-[^[x 2] x range[0 10]] $<-[$[x y] x $[1 2 3] y $[3 1 4] <>[x y]]
 \end{lstlisting}
-would be equivalent to Python's\footnote{\url{https://docs.python.org/3/tutorial/datastructures.html\#list-comprehensions}}:
+would be equivalent to
+Python's\footnote{\url{https://docs.python.org/3/tutorial/datastructures.html\#list-comprehensions}}:
 \begin{lstlisting}
-    [x**2 for x in range(10)]
-    [(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]
+    [x**2 for x in range(10)] [(x, y) for x in [1,2,3] for y in [3,1,4] if x !=
+      y]
 \end{lstlisting}
-As we see this notation is acceptable (if not cleaner) for simple comprehensions, but starts being less readable for complex ones. This could be alleviated by introducing one-word comments:
+As we see this notation is acceptable (if not cleaner) for simple
+comprehensions, but starts being less readable for complex ones. This could be
+alleviated by introducing one-word comments:
 \begin{lstlisting}
     $<-[^[x 2] --|for x --|in range[0 10]]
     
-    $<-[$[x y] --|for x --|in $[1 2 3]
-               --|for y --|in $[3 1 4]
-               --|if <>[x y]]
+    $<-[$[x y] --|for x --|in $[1 2 3] --|for y --|in $[3 1 4] --|if <>[x y]]
 \end{lstlisting}
-which are easily inserted inline with code and have a benefit of clearly separating individual parts of an expression, because of being easily distinguished visually from the rest. This can simulate different syntactical constructs from other programming languages, like:
+which are easily inserted inline with code and have a benefit of clearly
+separating individual parts of an expression, because of being easily
+distinguished visually from the rest. This can simulate different syntactical
+constructs from other programming languages, like:
 \begin{lstlisting}
-    if [>[a b] --|then
-        log['|greater]
-    --|else log['|lesser-or-equal]
-    ]
+    if [>[a b] --|then log['|greater] --|else log['|lesser-or-equal] ]
 \end{lstlisting}
-Except that it is not validated by the parser. But we could imagine a separate or extend the existing syntax analyzer, so it could validate such ``keyword'' comments or even use them in some way. For example, we could add a static type checker to the language -- in a similar manner that TypeScript or Flow\footnote{\url{https://flowtype.org/}} extends JavaScript. This would be completely transparent to the rest of the language, so any program that uses this feature would be valid without it and it could be turned on and off as needed.
+Except that it is not validated by the parser. But we could imagine a separate
+or extend the existing syntax analyzer, so it could validate such ``keyword''
+comments or even use them in some way. For example, we could add a static type
+checker to the language -- in a similar manner that TypeScript or
+Flow\footnote{\url{https://flowtype.org/}} extends JavaScript. This would be
+completely transparent to the rest of the language, so any program that uses
+this feature would be valid without it and it could be turned on and off as
+needed.
 
-To reduce the number of characters that have to be typed, we could decide to use a different comment ``operator'', such as \texttt{\%}:
+To reduce the number of characters that have to be typed, we could decide to use
+a different comment ``operator'', such as \texttt{\%}:
 \begin{lstlisting}
     $<-[^[x 2] %|for x %|in range[0 10]]
     
-    $<-[$[x y] %|for x %|in $[1 2 3]
-               %|for y %|in $[3 1 4]
-               %|if <>[x y]]
+    $<-[$[x y] %|for x %|in $[1 2 3] %|for y %|in $[3 1 4] %|if <>[x y]]
 
-    if [>[a b] %|then
-        log['|greater]
-    %|else log['|lesser-or-equal]
-    ]
+    if [>[a b] %|then log['|greater] %|else log['|lesser-or-equal] ]
 \end{lstlisting}
 
-Or even, at the cost of complicating the parser, introduce a separate syntax for one-word comments:
+Or even, at the cost of complicating the parser, introduce a separate syntax for
+one-word comments:
 \begin{lstlisting}
-    -- `%:type` could be a type annotation 
-    bind [a 3 %:integer]
-    bind [b 5 %:integer]
+    -- `%:type` could be a type annotation bind [a 3 %:integer] bind [b 5
+    %:integer]
 
-    -- will print "lesser-or-equal"
-    if [>[a b] %then
-        log['|greater]
-    %else log['|lesser-or-equal]
-    ]
+    -- will print "lesser-or-equal" if [>[a b] %then log['|greater] %else
+      log['|lesser-or-equal] ]
 \end{lstlisting}
 
-In future versions of the language, comments will be stored separately from whitespace in the EST. This enables easy smart indentation -- only a prefix of the relevant expression has to be looked at, no need to filter out comments. It also enables using comments structurally, as a metalanguage for annotations, documentation, etc.
+In future versions of the language, comments will be stored separately from
+whitespace in the EST. This enables easy smart indentation -- only a prefix of
+the relevant expression has to be looked at, no need to filter out comments. It
+also enables using comments structurally, as a metalanguage for annotations,
+documentation, etc.
 
 \section{Structural string manipulation}
 \begin{lstlisting}
-    words[_ _ _ fourth _ sixth] -- super fast, out of the box
-    characters[_ _ _ _ fifth]
+    words[_ _ _ fourth _ sixth] -- super fast, out of the box characters[_ _ _ _
+      fifth]
 \end{lstlisting}
 
 \section{Just-in-time macros}
-One feature that I experimented with while creating the prototype of Dual is support for ``first-class just-in-time expanded macros''. By this I mean macros similar to those found in Lisp, but with a few key characteristics, which differentiate them from conventional implementations of macros in Lisp-like languages. These are:
+One feature that I experimented with while creating the prototype of Dual is
+support for ``first-class just-in-time expanded macros''. By this I mean macros
+similar to those found in Lisp, but with a few key characteristics, which
+differentiate them from conventional implementations of macros in Lisp-like
+languages. These are:
 \begin{itemize}
-	\item Macros are expanded upon evaluation; when a macro invocation is encountered by the interpreter, it is expanded into code; the node in the EST containing the macro invocation is permanently replaced by the expanded expression, which is subsequently evaluated and its value is returned as the value of the invocation.
-	\item Macros can return other macros in a straightforward manner; this feature nicely composes with the variation of Lisp syntax found in Dual; I used it extensively to improve it, mostly with the goal of reducing the amount of adjacent closing brackets in the source code.
+	\item Macros are expanded upon evaluation; when a macro invocation is
+          encountered by the interpreter, it is expanded into code; the node in
+          the EST containing the macro invocation is permanently replaced by the
+          expanded expression, which is subsequently evaluated and its value is
+          returned as the value of the invocation.
+	\item Macros can return other macros in a straightforward manner; this
+          feature nicely composes with the variation of Lisp syntax found in
+          Dual; I used it extensively to improve it, mostly with the goal of
+          reducing the amount of adjacent closing brackets in the source code.
 \end{itemize}
 
-In order to support first-class runtime macros a Lisp interpreter can be modified as follows\cite{macros}:
+In order to support first-class runtime macros a Lisp interpreter can be
+modified as follows\cite{macros}:
 \begin{itemize}
-	\item Primitives are moved into the top-level environment; they thus are no longer treated as special case by the \texttt{eval} function.
-	\item A new primitive, \texttt{macro} is added, which is essentially equivalent to \texttt{lambda}, except that it produces macro values instead of function values.
-	\item The \texttt{apply} function is now responsible for checking the type of an expression's operator, which can be a \texttt{primitive}, a \texttt{macro} or a normal expression; this determines whether the arguments are evaluated before application
+	\item Primitives are moved into the top-level environment; they thus are
+          no longer treated as special case by the \texttt{eval} function.
+	\item A new primitive, \texttt{macro} is added, which is essentially
+          equivalent to \texttt{lambda}, except that it produces macro values
+          instead of function values.
+	\item The \texttt{apply} function is now responsible for checking the
+          type of an expression's operator, which can be a \texttt{primitive}, a
+          \texttt{macro} or a normal expression; this determines whether the
+          arguments are evaluated before application
 \end{itemize}
 
-This results in a simpler, more uniform and at the same time more powerful interpreter. A major advantage is that:
+This results in a simpler, more uniform and at the same time more powerful
+interpreter. A major advantage is that:
 \begin{quote}
-Because of their first-class nature, first-class macros make it easy to add or simulate any degree of laziness\cite{macros}
+Because of their first-class nature, first-class macros make it easy to add or
+simulate any degree of laziness\cite{macros}
 \end{quote}
 
-The below listing presents an example of a macro named \texttt{if*} that wraps the \texttt{if} primitive in a slightly different syntax. This syntax wraps the condition, consequent and alternative parts of the \texttt{if} in separate blocks delimited by \texttt{[]}. The condition is required to be an infix expression in the form \texttt{a operator b}. The consequent and alternative blocks take care of wrapping all expressions within them in \texttt{do} blocks. This makes it more convenient and less error-prone to write complex \texttt{if} expressions:
+The below listing presents an example of a macro named \texttt{if*} that wraps
+the \texttt{if} primitive in a slightly different syntax. This syntax wraps the
+condition, consequent and alternative parts of the \texttt{if} in separate
+blocks delimited by \texttt{[]}. The condition is required to be an infix
+expression in the form \texttt{a operator b}. The consequent and alternative
+blocks take care of wrapping all expressions within them in \texttt{do}
+blocks. This makes it more convenient and less error-prone to write complex
+\texttt{if} expressions:
 \begin{lstlisting}
-bind [if* macro [a op b macro [{then} macro [{else}
-	code'[if [apply[{op} {a} {b}] do[{then}] do[{else}]]]
-]]]
+bind [if* macro [a op b macro [{then} macro [{else} code'[if [apply[{op} {a}
+              {b}] do[{then}] do[{else}]]] ]]]
 
-if* [a < b][
-	log ['[a is less than b]]
-	a
-][
-	log ['[b is less than or equal to a]]
-	b
-]
+if* [a < b][ log ['[a is less than b]] a ][ log ['[b is less than or equal to
+      a]] b ]
 
--- expands to:
-if [<[a b] do [
-	log ['[a is less than b]]
-	a
-] do [
-	log ['[b is less than or equal to a]]
-	b
-]]
+-- expands to: if [<[a b] do [ log ['[a is less than b]] a ] do [ log ['[b is
+        less than or equal to a]] b ]]
 \end{lstlisting}
 
 TODO: elaborate
 
 ***
 
-A somewhat tangent, but interesting observation here is that a Lisp interpreter could be simplified further by removing all special cases from \texttt{apply}. It would only apply a function to arguments, without checking its type. This would cause the following:
+A somewhat tangent, but interesting observation here is that a Lisp interpreter
+could be simplified further by removing all special cases from
+\texttt{apply}. It would only apply a function to arguments, without checking
+its type. This would cause the following:
 \begin{itemize}
-	\item All primitives would cease to be ``special''. 
-	\item If we keep the strict evaluation strategy, a programmer would have to explicitly quote all expressions that should not be immediately evaluated.
-	\item We could also switch to a variation of lazy evaluation, which could be best described as ``explicit evaluation'', where evaluation \textit{never} happens unless explicitly requested. Under this evaluation strategy, a programmer would have to explicitly evaluate all expressions that should be evaluated.
+	\item All primitives would cease to be ``special''.
+	\item If we keep the strict evaluation strategy, a programmer would have
+          to explicitly quote all expressions that should not be immediately
+          evaluated.
+	\item We could also switch to a variation of lazy evaluation, which
+          could be best described as ``explicit evaluation'', where evaluation
+          \textit{never} happens unless explicitly requested. Under this
+          evaluation strategy, a programmer would have to explicitly evaluate
+          all expressions that should be evaluated.
 \end{itemize}
 
-Assuming the explicit evaluation strategy, the \texttt{if} primitive could be defined in the interpreter as follows (in JavaScript):
+Assuming the explicit evaluation strategy, the \texttt{if} primitive could be
+defined in the interpreter as follows (in JavaScript):
 \begin{lstlisting}
-// args is the list of arguments, which would be provided by apply
-// this is a greatly simplified implementation, to demonstrate the essence of the idea:
-function if (args, environment) {
-	var condition = args[0], consequent = args[1], alternative = args[2];
-	var conditionValue = evaluate(condition, environment);
+// args is the list of arguments, which would be provided by apply // this is a
+greatly simplified implementation, to demonstrate the essence of the idea:
+function if (args, environment) { var condition = args[0], consequent = args[1],
+  alternative = args[2]; var conditionValue = evaluate(condition, environment);
 	
-	if (conditionValue) {
-		return evaluate(consequent, environment);
-	}
-	return evaluate(alternative, environment);
-}
+	if (conditionValue) { return evaluate(consequent, environment); } return
+        evaluate(alternative, environment); }
 \end{lstlisting}
 
-Assuming we have \texttt{bind} and all other necessary primitives defined to conform to this evaluation strategy and a terse syntax for explicit evaluation (\texttt{'}):
+Assuming we have \texttt{bind} and all other necessary primitives defined to
+conform to this evaluation strategy and a terse syntax for explicit evaluation
+(\texttt{'}):
 \begin{lstlisting}
 -- ' causes an expression to be evaluated
 
--- bind would always evaluate its second argument:
-'bind [a 5]
+-- bind would always evaluate its second argument: 'bind [a 5]
 
--- +, - and other arithmetic operators would always evaluate all of their arguments:
-'bind [b +[a 7]]
+-- +, - and other arithmetic operators would always evaluate all of their
+arguments: 'bind [b +[a 7]]
 
--- log would evaluate all of its arguments
--- logs `12`:
-'log [b]
+-- log would evaluate all of its arguments logs `12`: 'log [b]
 
--- of would not evaluate any of its arguments:
-'bind [factorial of [n do [
-	'bind [n-value n]
-	*[n-value factorial[-[n-value 1]]]
-]]]
+-- of would not evaluate any of its arguments: 'bind [factorial of [n do [ 'bind
+      [n-value n] *[n-value factorial[-[n-value 1]]] ]]]
 \end{lstlisting}
 
-TODO: how this could be useful
-compiling to simplified Lisp
+TODO: how this could be useful compiling to simplified Lisp
  
 \section{C-like syntax}
-Throughout this thesis I introduced multiple ways in which the basic, Lisp-like syntax of Dual can be easily extended with simple enhancements, such as adding more general-purpose special characters, macros, single-word comments (as described in Section \ref{sec:comments}), etc.
+Throughout this thesis I introduced multiple ways in which the basic, Lisp-like
+syntax of Dual can be easily extended with simple enhancements, such as adding
+more general-purpose special characters, macros, single-word comments (as
+described in Section \ref{sec:comments}), etc.
 
-Going further along this path, keeping in mind that a real-world language should appeal to its users we find ourselves introducing more and more elements of C-like syntax. This section describes more possible ways in which the simple syntax could be morphed to resemble the most popular languages.
-Ultimately all this could be implemented with a conventional complex parser for a C-like language that translates to bare Dual syntax.
+Going further along this path, keeping in mind that a real-world language should
+appeal to its users we find ourselves introducing more and more elements of
+C-like syntax. This section describes more possible ways in which the simple
+syntax could be morphed to resemble the most popular languages.  Ultimately all
+this could be implemented with a conventional complex parser for a C-like
+language that translates to bare Dual syntax.
 
-Below I present a snapshot from one of designs I have been working on in order to achieve some goals described in this section:
+Below I present a snapshot from one of designs I have been working on in order
+to achieve some goals described in this section:
 \begin{lstlisting}
-    fit map" {f; lst} {
-    	let {i; ret} [0, []];
+    fit map" {f; lst} { let {i; ret} [0, []];
     	
-    	while ((i < lst.length)) {
-    		ret.push f(lst i);
-    		set i" ((i + 1))
-    	};
-    	ret
-    };
+    	while ((i < lst.length)) { ret.push f(lst i); set i" ((i + 1)) }; ret };
 \end{lstlisting}
 
 This would be equivalent to:
 \begin{lstlisting}
-    bind ['|map of ['|f '|lst do [
-    	bind ['[i ret] $[0 $[]]]
+    bind ['|map of ['|f '|lst do [ bind ['[i ret] $[0 $[]]]
     	
-    	while [<[i lst|length] do [
-    		ret[push][f[lst|@[i]]] 
-    		mutate* ['|i +[i 1]]
-    	]]
-    	ret
-    ]]]
+    	while [<[i lst|length] do [ ret[push][f[lst|@[i]]] mutate* ['|i +[i 1]]
+        ]] ret ]]]
 \end{lstlisting}
 
 Using the notation presented in Chapter \ref{chap:lang}.
 
 One may observe that:
 \begin{itemize}
-    \item The syntax is much richer, somewhat C-like, but with critical differences, reflecting significantly different nature of the language. At a first glance, it has a familiar look defined by blocks of code delimited by curly-braces, inside which statements (actually expressions) are separated by semicolons; there are different kinds of bracketing characters (\texttt{\{\}()[]}) with different meanings (described below)
-    \item Names of the primitives are \textit{full} English words, although as short as possible. \texttt{let} introduces a variable definition -- similarly to \texttt{bind}. \texttt{fit <name> <args> <body>} is a shorthand for \texttt{let <name> (of <args> <body>)}, where \texttt{of} produces a function value. This translates to \texttt{bind [<name> of [<args> <body>]]}.
-    \item \texttt{\{\}} delimit a string; inside a string words are separated by \texttt{;}. Strings are stored in raw as well as structural (syntax tree) form. They are a way of quoting code. This provides an explicit laziness mechanism. One-word strings are denoted with \texttt{"} at the end of the word, which resembles the mathematical double prime notation.
-    \item \texttt{[]} delimit list literals; inside list literals, elements are separated by \texttt{,}. Lists are a basic data structure. They are actually objects, somewhat like in JavaScript. If a list contains at least one \texttt{:} character (not shown in the example), it will be validated as key-value container; if it doesn't, it will be treated as array with integer-based indices
-    \item \texttt{()} are used in function invocations; \texttt{f(a, b, c)} translates to \texttt{f[a b c]}; \texttt{,} separates function arguments; \texttt{f x} is a shorthand notation for \texttt{f(x)}. This, in combination with currying primitives into appropriate macros allows for elimination of excessive brackets and separators. Invocations of primitives resemble use of keywords from other lanugages. 
-    \item But at the same time primitives are defined as regular functions -- they are no longer treated exceptionally by the interpreter. When they are invoked, all of their arguments are first evaluated. This works, because now it is required that the programmer quote any words that shouldn't be evaluated, such as identifier names when using \texttt{let}. So primitives are just regular functions operating on code, thanks to the explicit laziness provided by strings.
-    \item \texttt{(())} introduce an infix expression, which respects basic operator precedence: (\texttt{((a + b * 2))} would translate to \texttt{+[a *[b 2]]}. This could be implemented with a separate parser based on the shunting-yard\footnote{\url{www.cs.utexas.edu/~EWD/MCReps/MR35.PDF}} or similar algorithm that is triggered by the \texttt{((} sequence. It would translate these infix expressions to prefix form and return them back to the original parser.
+    \item The syntax is much richer, somewhat C-like, but with critical
+      differences, reflecting significantly different nature of the language. At
+      a first glance, it has a familiar look defined by blocks of code delimited
+      by curly-braces, inside which statements (actually expressions) are
+      separated by semicolons; there are different kinds of bracketing
+      characters (\texttt{\{\}()[]}) with different meanings (described below)
+    \item Names of the primitives are \textit{full} English words, although as
+      short as possible. \texttt{let} introduces a variable definition --
+      similarly to \texttt{bind}. \texttt{fit <name> <args> <body>} is a
+      shorthand for \texttt{let <name> (of <args> <body>)}, where \texttt{of}
+      produces a function value. This translates to \texttt{bind [<name> of
+          [<args> <body>]]}.
+    \item \texttt{\{\}} delimit a string; inside a string words are separated by
+      \texttt{;}. Strings are stored in raw as well as structural (syntax tree)
+      form. They are a way of quoting code. This provides an explicit laziness
+      mechanism. One-word strings are denoted with \texttt{"} at the end of the
+      word, which resembles the mathematical double prime notation.
+    \item \texttt{[]} delimit list literals; inside list literals, elements are
+      separated by \texttt{,}. Lists are a basic data structure. They are
+      actually objects, somewhat like in JavaScript. If a list contains at least
+      one \texttt{:} character (not shown in the example), it will be validated
+      as key-value container; if it doesn't, it will be treated as array with
+      integer-based indices
+    \item \texttt{()} are used in function invocations; \texttt{f(a, b, c)}
+      translates to \texttt{f[a b c]}; \texttt{,} separates function arguments;
+      \texttt{f x} is a shorthand notation for \texttt{f(x)}. This, in
+      combination with currying primitives into appropriate macros allows for
+      elimination of excessive brackets and separators. Invocations of
+      primitives resemble use of keywords from other lanugages.
+    \item But at the same time primitives are defined as regular functions --
+      they are no longer treated exceptionally by the interpreter. When they are
+      invoked, all of their arguments are first evaluated. This works, because
+      now it is required that the programmer quote any words that shouldn't be
+      evaluated, such as identifier names when using \texttt{let}. So primitives
+      are just regular functions operating on code, thanks to the explicit
+      laziness provided by strings.
+    \item \texttt{(())} introduce an infix expression, which respects basic
+      operator precedence: (\texttt{((a + b * 2))} would translate to
+      \texttt{+[a *[b 2]]}. This could be implemented with a separate parser
+      based on the
+      shunting-yard\footnote{\url{www.cs.utexas.edu/~EWD/MCReps/MR35.PDF}} or
+      similar algorithm that is triggered by the \texttt{((} sequence. It would
+      translate these infix expressions to prefix form and return them back to
+      the original parser.
 \end{itemize}
 
 \section{Universal visual editor}
-The structure produced by a visual editor does not have to necessarily be a syntax tree of a particular language.
-Text editors allow inputing arbitrary sequences of characters, which are transformed into a syntax tree by a specialized parser. Analogously, an universal visual editor could allow insertion, connection and mainpulation of arbitrary generalized blocks, thus forming a truly abstract syntax tree (language-independent). This tree could then be ``parsed'' to produce a syntax tree for a particular language.
+The structure produced by a visual editor does not have to necessarily be a
+syntax tree of a particular language.  Text editors allow inputing arbitrary
+sequences of characters, which are transformed into a syntax tree by a
+specialized parser. Analogously, an universal visual editor could allow
+insertion, connection and mainpulation of arbitrary generalized blocks, thus
+forming a truly abstract syntax tree (language-independent). This tree could
+then be ``parsed'' to produce a syntax tree for a particular language.

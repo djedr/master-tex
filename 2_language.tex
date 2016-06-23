@@ -1,481 +1,678 @@
 \chapter{Dual programming language}\label{chap:lang}
 
 \section{Introduction}
-In order to make a visual language a viable choice for textual-oriented programmer it's important that a language has a solid textual representation.
+In order to make a visual language a viable choice for textual-oriented
+programmer it's important that a language has a solid textual representation.
 
-This chapter describes the textual representation of Dual, which is the basis for the executable representation for the interpreter (the syntax tree) and for any other editable representation -- including the block-based visual representation implemented in the prototype.
+This chapter describes the textual representation of Dual, which is the basis
+for the executable representation for the interpreter (the syntax tree) and for
+any other editable representation -- including the block-based visual
+representation implemented in the prototype.
 
-While implementing this project I learned that programming language design is a tremendous task, especially if the language being designed is intended to be of real-world use. Designing and implementing such a language absolutely from scratch, while introducing useful innovation cannot be done within the time limits of research for a thesis, unless perhaps by an experienced language designer. But such experience has to be gained somehow and this is an excellent opportunity.
+While implementing this project I learned that programming language design is a
+tremendous task, especially if the language being designed is intended to be of
+real-world use. Designing and implementing such a language absolutely from
+scratch, while introducing useful innovation cannot be done within the time
+limits of research for a thesis, unless perhaps by an experienced language
+designer. But such experience has to be gained somehow and this is an excellent
+opportunity.
 
-The character of this research project is exploratory, although I intend to further develop ideas described here and continue my research, which will, as I hope, eventually result in creation of an innovative and useful language ready for real-world use.
+The character of this research project is exploratory, although I intend to
+further develop ideas described here and continue my research, which will, as I
+hope, eventually result in creation of an innovative and useful language ready
+for real-world use.
 
-That aside, I believe that at least some of the ideas described here are -- in a varying degree -- innovative and worth exploring further.
+That aside, I believe that at least some of the ideas described here are -- in a
+varying degree -- innovative and worth exploring further.
 
-The evolution of programming languages is a gradual process. And so is the process of designing a single language. The approach that I found effective was iterative refinement, addition, testing, and sometimes subtraction of features. In practice this translates to intermediate designs and implementations being rearranged into new forms, with some discarded. I did not arrive at something that I could call the final form of the language, so a lot of the features described here are subject to change and improvement. This might show in descriptions, where along with talking about the prototype implementation I propose alternatives and refinements.
+The evolution of programming languages is a gradual process. And so is the
+process of designing a single language. The approach that I found effective was
+iterative refinement, addition, testing, and sometimes subtraction of
+features. In practice this translates to intermediate designs and
+implementations being rearranged into new forms, with some discarded. I did not
+arrive at something that I could call the final form of the language, so a lot
+of the features described here are subject to change and improvement. This might
+show in descriptions, where along with talking about the prototype
+implementation I propose alternatives and refinements.
 
-In chapter \ref{chap:design} I discuss features and ideas that reached only the design stage and were not implemented, although some of them will be further researched outside of scope of this thesis.
+In chapter \ref{chap:design} I discuss features and ideas that reached only the
+design stage and were not implemented, although some of them will be further
+researched outside of scope of this thesis.
 
-Most of the features of the language and editor in the prototype are implemented as a proof-of-concept, although some are more refined than others in order to fulfill the major goals of this thesis, one of which was to implement a working non-trivial application in the language. I cover a lot of design and implementation surface, only delving deep into some features that are relevant to core ideas that I wanted to convey in this thesis. The other features are implemented necessarily, as steps along the path to practical application of those ideas.
+Most of the features of the language and editor in the prototype are implemented
+as a proof-of-concept, although some are more refined than others in order to
+fulfill the major goals of this thesis, one of which was to implement a working
+non-trivial application in the language. I cover a lot of design and
+implementation surface, only delving deep into some features that are relevant
+to core ideas that I wanted to convey in this thesis. The other features are
+implemented necessarily, as steps along the path to practical application of
+those ideas.
 
-For these reasons the created environment is by no means complete and ready for use in developing complex applications. The degree of completeness of the project is reflected in:
+For these reasons the created environment is by no means complete and ready for
+use in developing complex applications. The degree of completeness of the
+project is reflected in:
 \begin{itemize}
-    \item The core language, which is sufficiently expressive to implement any algorithm, i.e. Turing-complete in the practical sense\footnote{That is, it is as Turing-complete as JavaScript or C. No existing language is really Turing-complete in the absolute sense, because of physical hardware limitations.}. A simple Brainfuck\footnote{Which is easily demostrable to be Turing-complete: \url{http://www.iwriteiam.nl/Ha_bf_Turing.html} and thus} interpreter is included as an example program [[resources]] to demonstrate this
-    \item Implementation of several interesting additional features of the core language, which are described in this chapter
-    \item The ablility of the language to implement also non-trivial applications. This is demonstrated by implementing a clone of Pac-Man, described in Chapter \ref{chap:case}
-    \item The direct correspondence of the visual and text representations, with the possibility of parallel dynamic editing; albeit the visual editing part of the editor includes only basic features and is not optimized in terms of performance; details are described in Chapter \ref{chap:editor}
-    \item Implementation of the prototype of the language's development environment on top of the web platform, which includes a server-side and a client-side part. It runs locally on the user's machine, but is designed to be easily deployed as an online web application
-    \item The editor has several useful features, such as basic support for text editing built on top of the CodeMirror JavaScript component with custom syntax highlighting and integration with the editor. The text editing component is integrated with the visual editing component, so that navigation or changes to each representation are tracked and visible to the user [[]]
+    \item The core language, which is sufficiently expressive to implement any
+      algorithm, i.e. Turing-complete in the practical sense\footnote{That is,
+        it is as Turing-complete as JavaScript or C. No existing language is
+        really Turing-complete in the absolute sense, because of physical
+        hardware limitations.}. A simple Brainfuck\footnote{Which is easily
+        demostrable to be Turing-complete:
+        \url{http://www.iwriteiam.nl/Ha_bf_Turing.html} and thus} interpreter is
+      included as an example program [[resources]] to demonstrate this
+    \item Implementation of several interesting additional features of the core
+      language, which are described in this chapter
+    \item The ablility of the language to implement also non-trivial
+      applications. This is demonstrated by implementing a clone of Pac-Man,
+      described in Chapter \ref{chap:case}
+    \item The direct correspondence of the visual and text representations, with
+      the possibility of parallel dynamic editing; albeit the visual editing
+      part of the editor includes only basic features and is not optimized in
+      terms of performance; details are described in Chapter \ref{chap:editor}
+    \item Implementation of the prototype of the language's development
+      environment on top of the web platform, which includes a server-side and a
+      client-side part. It runs locally on the user's machine, but is designed
+      to be easily deployed as an online web application
+    \item The editor has several useful features, such as basic support for text
+      editing built on top of the CodeMirror JavaScript component with custom
+      syntax highlighting and integration with the editor. The text editing
+      component is integrated with the visual editing component, so that
+      navigation or changes to each representation are tracked and visible to
+      the user [[]]
     \item [[]]
 \end{itemize}
 
-The language was not originally intended as a Lisp-like language of clone thereof, but throughout the research I ended up reinventing some language constructs characteristic of Lisp and learning a lot of and about the language.
+The language was not originally intended as a Lisp-like language of clone
+thereof, but throughout the research I ended up reinventing some language
+constructs characteristic of Lisp and learning a lot of and about the language.
 
-An somewhat philosophical interpretation of this would be that Lisp is built on some fundamental principles that are (re)discoverable rather than invented.
+An somewhat philosophical interpretation of this would be that Lisp is built on
+some fundamental principles that are (re)discoverable rather than invented.
 
-Even though the language presented in this thesis is complete in the sense of being able to implement any algorithm and non-trivial applications, as exemplified by the Pac-Man clone, it is by no means a complete design. It should be viewed as a snapshot from a continuous design process that is intended to progress in the future.
+Even though the language presented in this thesis is complete in the sense of
+being able to implement any algorithm and non-trivial applications, as
+exemplified by the Pac-Man clone, it is by no means a complete design. It should
+be viewed as a snapshot from a continuous design process that is intended to
+progress in the future.
 
-Provided brief specification and description primarily describes the implementation provided with this thesis. But it is also annotated with suggestions for improvements or, in other words, descriptions of the more refined, future design, which itself is subject to change.
+Provided brief specification and description primarily describes the
+implementation provided with this thesis. But it is also annotated with
+suggestions for improvements or, in other words, descriptions of the more
+refined, future design, which itself is subject to change.
 
 \section{Grammar and syntactic features}
-Among the main design goals for the prototype of the language were simplicity and clarity. I wanted a language that is easy to parse and transform to a different representation. This restriction suggests that the syntax should be as minimal as possible. A language with one of the most (if not \textit{the} most) minimal syntax is Lisp\cite{syntaxation}.
+Among the main design goals for the prototype of the language were simplicity
+and clarity. I wanted a language that is easy to parse and transform to a
+different representation. This restriction suggests that the syntax should be as
+minimal as possible. A language with one of the most (if not \textit{the} most)
+minimal syntax is Lisp\cite{syntaxation}.
 
-An interpreter for List is also trivial to implement, so this is a good starting point.
+An interpreter for List is also trivial to implement, so this is a good starting
+point.
 
-There are many approaches to implementing interpreters for LISP in JavaScript\footnote{\url{http://ceaude.twoticketsplease.de/js-lisps.html}}, but the general principles are the same.
+There are many approaches to implementing interpreters for LISP in
+JavaScript\footnote{\url{http://ceaude.twoticketsplease.de/js-lisps.html}}, but
+the general principles are the same.
 
-Although I opted for a minimal syntax, I did not want it to be exactly Lisp-like, as I thought the syntax of this language could be considerably improved -- in terms of ease of use and parsing by a human -- with a few simple adjustments, without significantly increasing the complexity of the interpreter.
+Although I opted for a minimal syntax, I did not want it to be exactly
+Lisp-like, as I thought the syntax of this language could be considerably
+improved -- in terms of ease of use and parsing by a human -- with a few simple
+adjustments, without significantly increasing the complexity of the interpreter.
 
 There primary criticisms of Lisp's syntax are:
 \begin{itemize}
-    \item Almost absolute uniformity of syntax makes the source code difficult to read by a human and thus [[]]
-    \item In general it is hard to teach\cite{wadler_critique}, because complex code gets easily confusing
-    \item The more nested the syntax tree, the harder it is to keep track of and balance parentheses; there tends to be a lot of closing parentheses next to each other in the source\footnote{\url{http://c2.com/cgi/wiki?LostInaSeaofParentheses}}
+    \item Almost absolute uniformity of syntax makes the source code difficult
+      to read by a human and thus [[]]
+    \item In general it is hard to teach\cite{wadler_critique}, because complex
+      code gets easily confusing
+    \item The more nested the syntax tree, the harder it is to keep track of and
+      balance parentheses; there tends to be a lot of closing parentheses next
+      to each other in the
+      source\footnote{\url{http://c2.com/cgi/wiki?LostInaSeaofParentheses}}
 \end{itemize}
 
 \subsection{Basic syntax}
-Before the primary notation of Lisp, namely S-expressions\footnote{\url{http://www-formal.stanford.edu/jmc/recursive/node3.html}}, was established -- a slightly different and, in my opinion, slightly more readable notation was used in the early theoretical publications about the language, called meta-expressions or M-expressions\cite{mexpr}. I first simplified this notation in the following way:
+Before the primary notation of Lisp, namely
+S-expressions\footnote{\url{http://www-formal.stanford.edu/jmc/recursive/node3.html}},
+was established -- a slightly different and, in my opinion, slightly more
+readable notation was used in the early theoretical publications about the
+language, called meta-expressions or M-expressions\cite{mexpr}. I first
+simplified this notation in the following way:
 \begin{itemize}
-    \item I dropped the semicolon \texttt{;} as a separator for arguments, as it is entirely superfluous and there is no need for the programmer to type it or the parser to be concerned with it; this means that the only separating characters are the whitespace characters, exactly as in pure S-expressions
-    \item The primary bracketing characters are square brackets (\texttt{[]}) instead of parentheses; the reason for that design choice is that these are easier to type than parentheses or curly brackets (as they do not require holding the shift key), which matters considering the ubiquity of these characters in the source code
-    \item Expression's operator name is written before the opening bracket that precedes the list of arguments, as in \texttt{operator[argument-1 argument-2 ... argument-n]}
-    \item I decided not to include any other syntax in the first prototype, as the one described so far is entirely sufficient to represent any Lisp-like expressions -- it maps directly to S-expressions\footnote{Any additions can be considered syntax sugar. Such syntax extensions were introduced in later prototypes and designs and some of them are included in the final prototype included with this thesis; see [][]} 
+    \item I dropped the semicolon \texttt{;} as a separator for arguments, as it
+      is entirely superfluous and there is no need for the programmer to type it
+      or the parser to be concerned with it; this means that the only separating
+      characters are the whitespace characters, exactly as in pure S-expressions
+    \item The primary bracketing characters are square brackets (\texttt{[]})
+      instead of parentheses; the reason for that design choice is that these
+      are easier to type than parentheses or curly brackets (as they do not
+      require holding the shift key), which matters considering the ubiquity of
+      these characters in the source code
+    \item Expression's operator name is written before the opening bracket that
+      precedes the list of arguments, as in \texttt{operator[argument-1
+          argument-2 ... argument-n]}
+    \item I decided not to include any other syntax in the first prototype, as
+      the one described so far is entirely sufficient to represent any Lisp-like
+      expressions -- it maps directly to S-expressions\footnote{Any additions
+        can be considered syntax sugar. Such syntax extensions were introduced
+        in later prototypes and designs and some of them are included in the
+        final prototype included with this thesis; see [][]}
 \end{itemize}
 
-This gives a notation that is somewhat in between S-expressions and M-expressions. This was the basic syntax of the first prototype of the language. It can be defined\footnote{This definition is included here only for the sake of formality. I believe that for such a simple grammar BNF seems to introduce more noise and is unnecessarily more complex than a textual description in terms of regular expressions or simply verbatim parser source code. For these reasons any extensions to this basic grammar will later on be described in these ways.}, using pure, left-recursion-free BNF notation with the addition of a regular expression (between \texttt{/} delimiters) in the definition of \texttt{<word>}, as follows:
+This gives a notation that is somewhat in between S-expressions and
+M-expressions. This was the basic syntax of the first prototype of the
+language. It can be defined\footnote{This definition is included here only for
+  the sake of formality. I believe that for such a simple grammar BNF seems to
+  introduce more noise and is unnecessarily more complex than a textual
+  description in terms of regular expressions or simply verbatim parser source
+  code. For these reasons any extensions to this basic grammar will later on be
+  described in these ways.}, using pure, left-recursion-free BNF notation with
+the addition of a regular expression (between \texttt{/} delimiters) in the
+definition of \texttt{<word>}, as follows:
 \begin{lstlisting}
-    <expression>     ::= <word> | <call>
-    <call>           ::= <operator> <argument-list>
-    <operator>       ::= <word> <argument-lists>
-    <argument-list>  ::= "[" <arguments> "]"
-    <word>           ::= /[^\s\[\]]+/
-    <argument-lists> ::= <argument-list> <argument-lists>
-                         | ""
-    <arguments>      ::= <expression> <arguments> | ""
+    <expression> ::= <word> | <call> <call> ::= <operator> <argument-list>
+    <operator> ::= <word> <argument-lists> <argument-list> ::= "[" <arguments>
+      "]" <word> ::= /[^\s\[\]]+/ <argument-lists> ::= <argument-list>
+    <argument-lists> | "" <arguments> ::= <expression> <arguments> | ""
 \end{lstlisting}
 
-The regular expression can be read as ``any character which is not whitespace, \texttt{[} or \texttt{]}''. This means that aside from whitespace, which acts as expression separator there are only two special characters -- the square brackets -- that the parser have to worry about. For this reason it is very trivial to implement.
+The regular expression can be read as ``any character which is not whitespace,
+\texttt{[} or \texttt{]}''. This means that aside from whitespace, which acts as
+expression separator there are only two special characters -- the square
+brackets -- that the parser have to worry about. For this reason it is very
+trivial to implement.
 
-The above -- somewhat verbose -- definition is obviously somewhat similar to a Lisp BNF description\footnote{\url{http://www.cs.cmu.edu/Groups//AI/util/lang/lisp/doc/notes/lisp_bnf.txt}, \url{http://cui.unige.ch/db-research/Enseignement/analyseinfo/LISP/BNFlisp.html}}.
+The above -- somewhat verbose -- definition is obviously somewhat similar to a
+Lisp BNF
+description\footnote{\url{http://www.cs.cmu.edu/Groups//AI/util/lang/lisp/doc/notes/lisp_bnf.txt},
+  \url{http://cui.unige.ch/db-research/Enseignement/analyseinfo/LISP/BNFlisp.html}}.
 
 An example of a valid expression in light of this definition would be:
 \begin{lstlisting}
-    do [
-        bind [a 3]
-        bind [b 5]
-        bind [is-a-greater if [>[a b] true false]]
-        is-a-greater
-    ]
+    do [ bind [a 3] bind [b 5] bind [is-a-greater if [>[a b] true false]]
+      is-a-greater ]
 \end{lstlisting}
 
-Where\footnote{Note: I will introduce brief definitions of language constructs as they appear in the presented listings. For a comprehensive list of primitives and functions see Section \ref{sec:primitives} of this chapter.}:
+Where\footnote{Note: I will introduce brief definitions of language constructs
+  as they appear in the presented listings. For a comprehensive list of
+  primitives and functions see Section \ref{sec:primitives} of this chapter.}:
 \begin{itemize}
-    \item \texttt{do} is a language primitive that serves the role of a single block of code, much like blocks delimited by \texttt{\{} and \texttt{\}} in C-like languages.
-    \item \texttt{bind} is a basic construct for defining variables, like \texttt{var} or \texttt{define} in other languages.
-    \item \texttt{if} serves as a basic conditional evaluation construct. Its semantics are like those of the analogous construct in Lisp.
+    \item \texttt{do} is a language primitive that serves the role of a single
+      block of code, much like blocks delimited by \texttt{\{} and \texttt{\}}
+      in C-like languages.
+    \item \texttt{bind} is a basic construct for defining variables, like
+      \texttt{var} or \texttt{define} in other languages.
+    \item \texttt{if} serves as a basic conditional evaluation construct. Its
+      semantics are like those of the analogous construct in Lisp.
 \end{itemize}
 
 Advantages of this M-expression-based notation over S-expressions are:
 \begin{itemize}
-    \item Easier to parse by a human. Operators are clearer distinguished from operands. This is arguably because this notation is more familiar, bearing a similarity to the general mathematical notation (as in \texttt{f(x)}) and the most popular programming language syntax -- the C-like syntax\footnote{See \url{http://www.tiobe.com/tiobe_index}; 11 out of the top 20 languages as of June 2016 have C-based syntax (by this classification: \url{https://en.wikipedia.org/wiki/List_of_C-family_programming_languages}). If we extend the syntax family to Algol-like, its virtually 20 out of 20 -- \url{http://www.martinrinehart.com/pages/genealogy-programming-languages.html}. There are no languages with Lisp-based syntax among the most popular ones.}
-    \item If an expression has another expression as its operator, it is written as \texttt{op[args-1][args-2]}, which reduces the amount of nesting and thus the amount of bracketing characters appearing next to each other in the source code. Compare the equivalent S-expression: \texttt{((op args-1) args-2)}; and with multiple levels: \texttt{op[args-1][args-2][args-3][args-4]} vs \texttt{((((op args-1) args-2) args-3) args-4)}
+    \item Easier to parse by a human. Operators are clearer distinguished from
+      operands. This is arguably because this notation is more familiar, bearing
+      a similarity to the general mathematical notation (as in \texttt{f(x)})
+      and the most popular programming language syntax -- the C-like
+      syntax\footnote{See \url{http://www.tiobe.com/tiobe_index}; 11 out of the
+        top 20 languages as of June 2016 have C-based syntax (by this
+        classification:
+        \url{https://en.wikipedia.org/wiki/List_of_C-family_programming_languages}). If
+        we extend the syntax family to Algol-like, its virtually 20 out of 20 --
+        \url{http://www.martinrinehart.com/pages/genealogy-programming-languages.html}. There
+        are no languages with Lisp-based syntax among the most popular ones.}
+    \item If an expression has another expression as its operator, it is written
+      as \texttt{op[args-1][args-2]}, which reduces the amount of nesting and
+      thus the amount of bracketing characters appearing next to each other in
+      the source code. Compare the equivalent S-expression: \texttt{((op args-1)
+        args-2)}; and with multiple levels:
+      \texttt{op[args-1][args-2][args-3][args-4]} vs \texttt{((((op args-1)
+        args-2) args-3) args-4)}
 \end{itemize}
 
-An interesting property of this syntax, that, depending on the context could be classified as advantage, disadvantage or neither is that the sequence of characters \texttt{[[} is not legal, whereas in Lisp the analogous sequence \texttt{((} is.
+An interesting property of this syntax, that, depending on the context could be
+classified as advantage, disadvantage or neither is that the sequence of
+characters \texttt{[[} is not legal, whereas in Lisp the analogous sequence
+    \texttt{((} is.
 
-Alas, this simple notation doesn't do away with a lot of other problems inherent in any minimal syntax, because such syntaxes have the property of being very homogenous. In the next subsections and later throughout this thesis I gradually introduce extensions, which make the syntax a little bit more diverse. Keep in mind that every special character that is introduced, is taken away from the set of possible \texttt{<word>}-characters, which implies that the regular expression for \texttt{<word>} is changed accordingly.
+Alas, this simple notation doesn't do away with a lot of other problems inherent
+in any minimal syntax, because such syntaxes have the property of being very
+homogenous. In the next subsections and later throughout this thesis I gradually
+introduce extensions, which make the syntax a little bit more diverse. Keep in
+mind that every special character that is introduced, is taken away from the set
+of possible \texttt{<word>}-characters, which implies that the regular
+expression for \texttt{<word>} is changed accordingly.
 
 \subsection{Comments, whitespace and the syntax tree}\label{sub:comments}
-The parser was further extended with support for comment syntax similar to the ones found in Ada, Haskell or Lua:
+The parser was further extended with support for comment syntax similar to the
+ones found in Ada, Haskell or Lua:
 \begin{lstlisting}
-    -- a comment that extends until the end of the line
-    -- an expression that computes square root of 81:
-    sqrt[81]
+    -- a comment that extends until the end of the line an expression that
+    -- computes square root of 81: sqrt[81]
     
-    --[
-        this is a multiline comment
+    --[ this is a multiline comment
         
-        --[
-            multiline comments can be nested
+        --[ multiline comments can be nested
             
-            as long as [ and ] are balanced,
-            anything can be nested within
+            as long as [ and ] are balanced, anything can be nested within
             multiline comments
             
-            for example:
-            --[this is a comment that includes
-            a piece of code *[7 7],
-            which would evaluate to 49]
-        ]
-    ]
+            for example: --[this is a comment that includes a piece of code *[7
+                7], which would evaluate to 49] ] ]
 \end{lstlisting}
 
-In principle multiline comments could be implemented simply with the syntax analyzer checking the operator of the expression being parsed, and if it is \texttt{--}, treating such expression as a comment. The fact that this expression was already parsed and transformed into a structural tree-like form could be taken advantage of while generating documentation from comments. For example we could define a following \acrlong{dsl}\footnote{Inspired by \url{https://en.wikipedia.org/wiki/JSDoc})} for documentation:
+In principle multiline comments could be implemented simply with the syntax
+analyzer checking the operator of the expression being parsed, and if it is
+\texttt{--}, treating such expression as a comment. The fact that this
+expression was already parsed and transformed into a structural tree-like form
+could be taken advantage of while generating documentation from comments. For
+example we could define a following \acrlong{dsl}\footnote{Inspired by
+  \url{https://en.wikipedia.org/wiki/JSDoc})} for documentation:
 \begin{lstlisting}
-    --[
-        -- the below is a documentation comment
-        -- followed by the documented piece of code:
-        --[[
-            Calculates the circumference of the Circle.
+    --[ the below is a documentation comment followed by the documented piece of
+        -- code: [[ Calculates the circumference of the Circle.
             
-            override!
-            deprecated!
+            override!  deprecated!
             
             this [circle]
             
-            -- The circumference of the circle:
-            return [number]
-        --]]
+            -- The circumference of the circle: return [number] --]]
         
-        define [calculate-circumference procedure [
-            mul[2 math.pi this.radius]
-        ]]
-    ]
+        define [calculate-circumference procedure [ mul[2 math.pi this.radius]
+    ]] ]
 \end{lstlisting}
 
-Nevertheless the implementation in the prototype treats the comments as a stream of characters, taking into account nesting and balancing of brackets, but doesn't keep them as a tree-like structure.
+Nevertheless the implementation in the prototype treats the comments as a stream
+of characters, taking into account nesting and balancing of brackets, but
+doesn't keep them as a tree-like structure.
 
-Whitespace characters and comments have no semantic significance, unless serving as separators could be considered one. After building the syntax tree, bracketing characters also serve no purpose and can be safely be discarded, without influencing the interpretation of the program.
+Whitespace characters and comments have no semantic significance, unless serving
+as separators could be considered one. After building the syntax tree,
+bracketing characters also serve no purpose and can be safely be discarded,
+without influencing the interpretation of the program.
 
-Despite this, all of these are included in the syntax tree generated by the parser. Storing these characters in the syntax tree means that the entirety of the textual representation, in structural form, is accessible by any other representation we might devise. This allows for implementation of variety of interesting ``smart'' language and editor features.
+Despite this, all of these are included in the syntax tree generated by the
+parser. Storing these characters in the syntax tree means that the entirety of
+the textual representation, in structural form, is accessible by any other
+representation we might devise. This allows for implementation of variety of
+interesting ``smart'' language and editor features.
 
-A thing to note at this point is that such syntax tree can't be described as ``abstract''\footnote{According to these definitions: \url{https://en.wikipedia.org/wiki/Abstract_syntax_tree}, \url{http://c2.com/cgi/wiki?AbstractSyntaxTree}}, as it includes all of the ``concrete'' syntax, with its runtime-insignificant elements. The syntax tree that is built for the Dual language is also later extended with references to other representations of code. For these reasons, I will later on use the acronym \acrlong{est} to refer to the representation used internally by the Dual language interpreter.
+A thing to note at this point is that such syntax tree can't be described as
+``abstract''\footnote{According to these definitions:
+  \url{https://en.wikipedia.org/wiki/Abstract_syntax_tree},
+  \url{http://c2.com/cgi/wiki?AbstractSyntaxTree}}, as it includes all of the
+``concrete'' syntax, with its runtime-insignificant elements. The syntax tree
+that is built for the Dual language is also later extended with references to
+other representations of code. For these reasons, I will later on use the
+acronym \acrlong{est} to refer to the representation used internally by the Dual
+language interpreter.
 
-This representation greatly simplifies the implementation of and integrates with the language the following features:
+This representation greatly simplifies the implementation of and integrates with
+the language the following features:
 \begin{itemize}
     \item Automatic indentation
-    \item Documentation comments. Comments can easily be associated with corresponding code blocks (syntax tree nodes), which can be useful for automatically generating documentation in any format
-    \item Any expression can be unparsed to its original form straight from syntax tree, which can be used for debugging
-    \item This also means that any expression can be stringified on-the-fly and this string can be used as a value in the program. This feature allowed me to completely omit definition of strings at the parser level, although this is not a very efficient solution. Nevertheless keeping strings in such structural form -- as syntax trees -- in combination with pattern matching enables language-native structural manipulation of strings\footnote{See: \url{https://reference.wolfram.com/language/tutorial/WorkingWithStringPatterns.html} and \url{https://en.wikipedia.org/wiki/Pattern_matching\#Pattern_matching_and_strings} for similar concepts.}\footnote{I chose the structural representation as the only representation, because the performance penalty is acceptable in the prototype implementation. An obvious and very simple optimization would be to keep the raw form of the string as a value in the corresponding syntax tree node. Having these two forms alongside each other would enable the programmer to use the familiar string manipulation methods as well as structural manipulation.}. For example we could write:
+    \item Documentation comments. Comments can easily be associated with
+      corresponding code blocks (syntax tree nodes), which can be useful for
+      automatically generating documentation in any format
+    \item Any expression can be unparsed to its original form straight from
+      syntax tree, which can be used for debugging
+    \item This also means that any expression can be stringified on-the-fly and
+      this string can be used as a value in the program. This feature allowed me
+      to completely omit definition of strings at the parser level, although
+      this is not a very efficient solution. Nevertheless keeping strings in
+      such structural form -- as syntax trees -- in combination with pattern
+      matching enables language-native structural manipulation of
+      strings\footnote{See:
+        \url{https://reference.wolfram.com/language/tutorial/WorkingWithStringPatterns.html}
+        and
+        \url{https://en.wikipedia.org/wiki/Pattern_matching\#Pattern_matching_and_strings}
+        for similar concepts.}\footnote{I chose the structural representation as
+        the only representation, because the performance penalty is acceptable
+        in the prototype implementation. An obvious and very simple optimization
+        would be to keep the raw form of the string as a value in the
+        corresponding syntax tree node. Having these two forms alongside each
+        other would enable the programmer to use the familiar string
+        manipulation methods as well as structural manipulation.}. For example
+      we could write:
     \begin{lstlisting}
-        bind [str '[A quick brown fox jumps over
-                    the lazy dog]]
+        bind [str '[A quick brown fox jumps over the lazy dog]]
                     
         bind [words [_ _ third-word {rest}] str]
         
-        bind [characters [_ _ third-letter {rest}]
-              third-word]
+        bind [characters [_ _ third-letter {rest}] third-word]
         
-        -- logs "o" to the console:
-        log [third-letter]
+        -- logs "o" to the console: log [third-letter]
     \end{lstlisting}
     
-Where \texttt{words} deconstructs a string into single words and binds these words to identifiers provided as its arguments and \texttt{characters} performs an analogous operation on the single character-level. The notation \texttt{\{rest\}} matches zero or more arguments (see Section \ref{sub:rest} for details). \texttt{log} outputs the values of its arguments to the JavaScript console.
+Where \texttt{words} deconstructs a string into single words and binds these
+words to identifiers provided as its arguments and \texttt{characters} performs
+an analogous operation on the single character-level. The notation
+\texttt{\{rest\}} matches zero or more arguments (see Section \ref{sub:rest} for
+details). \texttt{log} outputs the values of its arguments to the JavaScript
+console.
 \end{itemize}
 
-Such representation was implemented in order to fulfill the design goal of direct and complete mapping of the textual representation into any other representation.
+Such representation was implemented in order to fulfill the design goal of
+direct and complete mapping of the textual representation into any other
+representation.
 
 \subsection{Numbers}
-Numbers in the language are represented as JavaScript numbers. This means that there's only one number type -- 64-bit floating point\footnote{Defined by the IEEE 754 standard: \url{http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=57469}, \url{http://www.2ality.com/2012/04/number-encoding.html}}. They are implemented as follows:
+Numbers in the language are represented as JavaScript numbers. This means that
+there's only one number type -- 64-bit floating point\footnote{Defined by the
+  IEEE 754 standard:
+  \url{http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=57469},
+  \url{http://www.2ality.com/2012/04/number-encoding.html}}. They are
+implemented as follows:
 \begin{itemize}
-    \item When a word is tokenized by the parser, it is converted to a JavaScript number with a Number type constructor, which returns either the corresponding value (if the word is parsable to a number) or the value \texttt{NaN}. In the former case, the numerical value is stored in the appropriate syntax tree node, as its \texttt{value} property.
-    \item Upon evaluation, a syntax tree node is checked for the \texttt{value} property. If it has one it is given as the result of the evaluation.
-    \item The fact that a number is stored as a syntax tree node, which contains the its string representation and its raw value, both obtained from the source code during parsing means that conversion from a number literal to string is zero-cost, which could be useful for optimization.
+    \item When a word is tokenized by the parser, it is converted to a
+      JavaScript number with a Number type constructor, which returns either the
+      corresponding value (if the word is parsable to a number) or the value
+      \texttt{NaN}. In the former case, the numerical value is stored in the
+      appropriate syntax tree node, as its \texttt{value} property.
+    \item Upon evaluation, a syntax tree node is checked for the \texttt{value}
+      property. If it has one it is given as the result of the evaluation.
+    \item The fact that a number is stored as a syntax tree node, which contains
+      the its string representation and its raw value, both obtained from the
+      source code during parsing means that conversion from a number literal to
+      string is zero-cost, which could be useful for optimization.
 \end{itemize}
 
-This shows a possible way of optimizing the representation of strings, which I intend to introduce in a future version of the language.
+This shows a possible way of optimizing the representation of strings, which I
+intend to introduce in a future version of the language.
 
 \subsection{Zero and single argument expressions}
-In order to reduce the amount of \textit{closing} brackets appearing next to each other in program's text, two additional simple notations were introduced. The first is addition of the pipe special character (\texttt{|}). This character is used for single-argument expressions, as in:
+In order to reduce the amount of \textit{closing} brackets appearing next to
+each other in program's text, two additional simple notations were
+introduced. The first is addition of the pipe special character
+(\texttt{|}). This character is used for single-argument expressions, as in:
 \begin{lstlisting}
-    -- compute factorial of 32:
-    factorial|32 -- equivalent to factorial[32]
+    -- compute factorial of 32: factorial|32 -- equivalent to factorial[32]
     
-    -- find 9th Fibonacci number:
-    fibonacci|9 -- <=> fibonacci[9]
+    -- find 9th Fibonacci number: fibonacci|9 -- <=> fibonacci[9]
     
-    -- compute sine of pi
-    sin|pi -- <=> sin[pi]
+    -- compute sine of pi sin|pi -- <=> sin[pi]
     
-    -- compute cosine of the number that is the result of
-    -- multiplication of pi and 5!:
-    cos|*[pi factorial|5] -- <=> cos[*[pi factorial[5]]]
+    -- compute cosine of the number that is the result of multiplication of pi
+    -- and 5!: cos|*[pi factorial|5] -- <=> cos[*[pi factorial[5]]]
     
-    -- convert 33.2 to an integer (truncate .2):
-    to-int|33.2 -- <=> to-int[33.2]
+    -- convert 33.2 to an integer (truncate .2): to-int|33.2 -- <=> to-int[33.2]
     
-    -- construct a list with one item,
-    -- which is a string "hello"
-    list|'|hello -- <=> list['[hello]]
+    -- construct a list with one item, which is a string "hello" list|'|hello --
+    -- <=> list['[hello]]
 \end{lstlisting}
 
-The above example shows that if a function is invoked with one argument, we can omit the closing brace and replace the opening brace with \texttt{|}. The parser produces equivalent syntax tree.
+The above example shows that if a function is invoked with one argument, we can
+omit the closing brace and replace the opening brace with \texttt{|}. The parser
+produces equivalent syntax tree.
 
-Another special character (\texttt{!}) was introduced for analogous use for zero-argument expressions (procedures):
+Another special character (\texttt{!}) was introduced for analogous use for
+zero-argument expressions (procedures):
 \begin{lstlisting}
-    -- invoke a procedure that changes some
-    -- state variables in its outer scope:
-    set-initial-state! -- <=> set-initial-state[]
+    -- invoke a procedure that changes some state variables in its outer scope:
+    -- set-initial-state! -- <=> set-initial-state[]
     
-    -- sum two random numbers:
-    -- <=> +[random[] random[]]:
-    +[random! random!] 
+    -- sum two random numbers: <=> +[random[] random[]]: +[random! random!]
     
-    -- bind a value returned by
-    -- an immediately invoked procedure to 
-    -- an identifier
-    -- <=> bind [forty-two procedure [42][]]
-    bind [forty-two procedure [42]!] 
-    forty-two -- evaluates to 42
+    -- bind a value returned by an immediately invoked procedure to an
+    -- identifier <=> bind [forty-two procedure [42][]] bind [forty-two
+    -- procedure [42]!]  forty-two -- evaluates to 42
 \end{lstlisting}
 
 \subsubsection{In combination with macros}\label{subsub:macros}
-A unique macro system, described in Chapter \ref{chap:design}\footnote{This macro system is not included in the final version of the prototype, although a proof-of-concept of it that I implemented in earlier prototypes is the basis for this description.} in combination with these two (\texttt{|} and \texttt{!}) special characters help reduce the amount of bracketing characters even further.
+A unique macro system, described in Chapter \ref{chap:design}\footnote{This
+  macro system is not included in the final version of the prototype, although a
+  proof-of-concept of it that I implemented in earlier prototypes is the basis
+  for this description.} in combination with these two (\texttt{|} and
+\texttt{!}) special characters help reduce the amount of bracketing characters
+even further.
 
-For example, if we define a \texttt{match*} and \texttt{of*} macros as described, the following expression:
+For example, if we define a \texttt{match*} and \texttt{of*} macros as
+described, the following expression:
 \begin{lstlisting}
     bind [x 99]
     
-    -- will log "x is greater than one":
-    match* [x]
-    | of* [<|0] [log|'[x is negative]]
-    | of*   [0] [log|'[x is zero]]
-    | of*   [1] [log|'[x is one]]
-    | log|'[x is greater than one]
+    -- will log "x is greater than one": match* [x] | of* [<|0] [log|'[x is
+        negative]] | of* [0] [log|'[x is zero]] | of* [1] [log|'[x is one]] |
+    log|'[x is greater than one]
 \end{lstlisting}
 
-which is somewhat similar syntactically to ML-style\footnote{\url{https://en.wikipedia.org/wiki/Standard_ML\#Algebraic_datatypes_and_pattern_matching}} languages, could be translated into the following:
+which is somewhat similar syntactically to
+ML-style\footnote{\url{https://en.wikipedia.org/wiki/Standard_ML\#Algebraic_datatypes_and_pattern_matching}}
+languages, could be translated into the following:
 \begin{lstlisting}
     bind [x 99]
     
-    -- will log "x is greater than one":
-    apply [
-        of [<|0 log|'[x is negative] 
-            of [0 log|'[x is zero]
-                of [1 log|'[x is one]
-                    log|'[x is greater than one]
-                ]
-            ]
-        ]
-        x
-    ]
+    -- will log "x is greater than one": apply [ of [<|0 log|'[x is negative] of
+        [0 log|'[x is zero] of [1 log|'[x is one] log|'[x is greater than one] ]
+      ] ] x ]
 \end{lstlisting}
 
-where \texttt{apply} would be defined analogously to Lisp's \texttt{apply}. \texttt{of} would be defined as a function primitive with arity 2..*, which treats its penultimate argument as the function's body and all the preceding arguments as patterns for the function's arguments. The last argument is used when such a function is called and the values supplied as arguments don't match the patterns. If the argument is a function, it will be called with the same values as arguments and if it's a value it will be returned.
+where \texttt{apply} would be defined analogously to Lisp's
+\texttt{apply}. \texttt{of} would be defined as a function primitive with arity
+2..*, which treats its penultimate argument as the function's body and all the
+preceding arguments as patterns for the function's arguments. The last argument
+is used when such a function is called and the values supplied as arguments
+don't match the patterns. If the argument is a function, it will be called with
+the same values as arguments and if it's a value it will be returned.
 
-I used such a solution for pattern matching in the early prototypes, but replaced it with a native \texttt{match} construct (described in Section \ref{sec:primitives}) for performance reasons. Nevertheless this shows that a few simple, but general syntax rules and a powerful macro system, can be a very flexible tool for extending syntax.
+I used such a solution for pattern matching in the early prototypes, but
+replaced it with a native \texttt{match} construct (described in Section
+\ref{sec:primitives}) for performance reasons. Nevertheless this shows that a
+few simple, but general syntax rules and a powerful macro system, can be a very
+flexible tool for extending syntax.
 
 The pattern matching mechanism is explained in the next subsection.
 
 \subsection{Pattern matching}
 A simple, yet powerful pattern-matching facility was added to the language.
 
-Pattern matching works with bindings, functions (although the primary function-producing expression in the prototype doesn't use it by default), \texttt{match} primitive and macros (not available in the prototype).
+Pattern matching works with bindings, functions (although the primary
+function-producing expression in the prototype doesn't use it by default),
+\texttt{match} primitive and macros (not available in the prototype).
 
-The pattern matching works in a way similar to most other languages that support this feature (e.g. ML family). The general rules are\footnote{For brevity I assume here that `of` is a primitive that works like described in \ref{subsub:macros}, where the alternative argument is optional. This is how it was implemented in an early prototype of the language. If no viable alternative was present, an error was thrown.}:
+The pattern matching works in a way similar to most other languages that support
+this feature (e.g. ML family). The general rules are\footnote{For brevity I
+  assume here that `of` is a primitive that works like described in
+  \ref{subsub:macros}, where the alternative argument is optional. This is how
+  it was implemented in an early prototype of the language. If no viable
+  alternative was present, an error was thrown.}:
 \begin{itemize}
     \item A literal (strings or numbers are supported) value matches itself:
     \begin{lstlisting}
-        -- computes factorial of a number
-        bind [factorial
-            of [0 1 
-            of [n *[n factorial[-[n 1]]]]]
-        ]
+        -- computes factorial of a number bind [factorial of [0 1 of [n *[n
+                factorial[-[n 1]]]]] ]
         
-        -- logs `120`:
-        log [factorial|5]
+        -- logs `120`: log [factorial|5]
     \end{lstlisting}
-    \item An identifier (word) matches any value, which is then bound to the identifier:
+    \item An identifier (word) matches any value, which is then bound to the
+      identifier:
     \begin{lstlisting}
         bind [simple-print of [x log|x]]
         
-        -- logs `3`:
-        simple-print[3]
+        -- logs `3`: simple-print[3]
     \end{lstlisting}
     \item A wildcard pattern (\texttt{\_}) matches any value, but doesn't bind:
     \begin{lstlisting}
-        -- returns its third argument,
-        -- discards the rest:
-        bind [get-third of [_ _ x x]]
+        -- returns its third argument, discards the rest: bind [get-third of [_
+        -- _ x x]]
         
-        -- logs `3`:
-        log [get-third[1 2 3]]
+        -- logs `3`: log [get-third[1 2 3]]
     \end{lstlisting}
-    As such it can be useful for discarding some values, depending on other values or extracting some values from a structure (see next point).
+    As such it can be useful for discarding some values, depending on other
+    values or extracting some values from a structure (see next point).
     \item The following expression-patterns are supported:
     \begin{itemize}
         \item \texttt{list} or \texttt{\$} is used to destructure lists:
         \begin{lstlisting}
             bind [$[_ _ third-element] $[0 1 2]]
             
-            -- logs `3`
-            log [third-element]
+            -- logs `3` log [third-element]
             
-            -- it works for arbitrarily nested
-            -- lists as well
-            bind [
-                $[  _ $[  _ pick   _   _]   _]
-                $['|a $['|b  '|c '|d '|e] '|f]
-            ]
+            -- it works for arbitrarily nested lists as well bind [ $[ _ $[ _
+            -- pick _ _] _] $['|a $['|b '|c '|d '|e] '|f] ]
             
-            -- logs `c`:
-            log [pick]
+            -- logs `c`: log [pick]
         \end{lstlisting}
-        \item Comparison operators (\texttt{= < <= >= <>}) match if a value passes the comparison; it can be viewed as a shorthand notation for simple guards\footnote{\url{https://en.wikibooks.org/wiki/F_Sharp_Programming/Pattern_Matching_Basics\#Using_Guards_within_Patterns}}:
+        \item Comparison operators (\texttt{= < <= >= <>}) match if a value
+          passes the comparison; it can be viewed as a shorthand notation for
+          simple
+          guards\footnote{\url{https://en.wikibooks.org/wiki/F_Sharp_Programming/Pattern_Matching_Basics\#Using_Guards_within_Patterns}}:
         \begin{lstlisting}
-            -- returns the sign of a number
-            -- note: `-#` is the unary `-` operator:
-            bind [sign of [=|0    0
-                       of [<|0 -#|1
-                       of [>|0    1]]]
-            ]
+            -- returns the sign of a number note: `-#` is the unary `-`
+            -- operator: bind [sign of [=|0 0 of [<|0 -#|1 of [>|0 1]]] ]
             
-            -- logs `-1`:
-            log [sign|-77]
+            -- logs `-1`: log [sign|-77]
         \end{lstlisting}
-        \item Other pattern-expressions are not supported and using them will result in a mismatch.
+        \item Other pattern-expressions are not supported and using them will
+          result in a mismatch.
     \end{itemize}
 \end{itemize}
 
-The above examples show pattern matching used for destructuring values and binding their components to identifiers and for function definitions. There's also a \texttt{match} primitive, which can serve the role of a \texttt{switch} statement from C-like languages. Although pattern matching makes it much more powerful than that, as any values supported by the pattern matching system can be matched, including lists, which allow us to switch on multiple values and in any combinations.
+The above examples show pattern matching used for destructuring values and
+binding their components to identifiers and for function definitions. There's
+also a \texttt{match} primitive, which can serve the role of a \texttt{switch}
+statement from C-like languages. Although pattern matching makes it much more
+powerful than that, as any values supported by the pattern matching system can
+be matched, including lists, which allow us to switch on multiple values and in
+any combinations.
 
-The \texttt{match} primitive's first argument is a value to match and all subsequent arguments are two-element lists, where the firs element is the pattern to match and the second is the expression to evaluate in case of a match. The primitive tries the matches in order and only evaluates the expression, related to the successful match, which is the first one that matches. The subsequent matches are not evaluated.
+The \texttt{match} primitive's first argument is a value to match and all
+subsequent arguments are two-element lists, where the firs element is the
+pattern to match and the second is the expression to evaluate in case of a
+match. The primitive tries the matches in order and only evaluates the
+expression, related to the successful match, which is the first one that
+matches. The subsequent matches are not evaluated.
 
 \begin{lstlisting}
     bind [state '|game-on]
     
-    -- will execute the `play` procedure:
-    match [state
-        $['|game-on play!]
-        $['|game-paused display-pause-menu!]
-        $['|game-screenshot capture-screenshot!]
-    ]
+    -- will execute the `play` procedure: match [state $['|game-on play!]
+      $['|game-paused display-pause-menu!]  $['|game-screenshot
+        capture-screenshot!]  ]
     
     -- ...
 
-    -- note: . is the access operator
-    -- .[a b c] is equivalent to a.b.c in other languages
-    bind [$[x y] .[player postion]]
+    -- note: . is the access operator .[a b c] is equivalent to a.b.c in other
+    -- languages bind [$[x y] .[player postion]]
     
-    -- we can easily replace complex conditions:
-    match [$[x x y y]
-        $[
-            $[>|0 <|screen-width >|0 <|screen-height]
-            log|'[player visible]
-        ]
-        $[_ log|'[player not visible]]
-    ]
+    -- we can easily replace complex conditions: match [$[x x y y] $[ $[>|0
+          <|screen-width >|0 <|screen-height] log|'[player visible] ] $[_
+        log|'[player not visible]] ]
     
 \end{lstlisting}
 \begin{itemize}
     \item 
 \end{itemize}
 
-With an arsenal of these few simple pattern matching tools we can use a lot of useful features, which further add expressivity to the language. We can also imagine many possible extensions and generalizations, as briefly discussed in Chapter \ref{chap:design}.
+With an arsenal of these few simple pattern matching tools we can use a lot of
+useful features, which further add expressivity to the language. We can also
+imagine many possible extensions and generalizations, as briefly discussed in
+Chapter \ref{chap:design}.
 
 \begin{itemize}
-    \item Destructuring assignments or, more precisely, destructuring definitions.\footnote{Destructuring could easily be extended to mutation as well, although I have found it sufficient to be usable only in definitions, while implementing the prototype.}. An example of such definition would be:
+    \item Destructuring assignments or, more precisely, destructuring
+      definitions.\footnote{Destructuring could easily be extended to mutation
+        as well, although I have found it sufficient to be usable only in
+        definitions, while implementing the prototype.}. An example of such
+      definition would be:
     \begin{lstlisting}
-        bind [$[a b $[c d]] $[1 2 $[3 4]]
-        bind [
-            $[  _   x   y  {  rest  }]
-            $['|a '|b '|c '|d '|e '|f]
-        ]
+        bind [$[a b $[c d]] $[1 2 $[3 4]] bind [ $[ _ x y { rest }] $['|a '|b
+              '|c '|d '|e '|f] ]
         
-        -- logs `1 2 3 4`:
-        log [a b c d]
+        -- logs `1 2 3 4`: log [a b c d]
         
-        -- logs `b c ["d", "e", "f"]`:
-        log [x y rest]
+        -- logs `b c ["d", "e", "f"]`: log [x y rest]
     \end{lstlisting}
 \end{itemize}
 
 
 \subsection{Rest parameters and spread operator}\label{sub:rest}
-Another syntax extension that I introduced involved two additional special bracketing characters: \texttt{\{} and \texttt{\}}, which serve several purposes:
+Another syntax extension that I introduced involved two additional special
+bracketing characters: \texttt{\{} and \texttt{\}}, which serve several
+purposes:
 \begin{itemize}
-    \item Rest parameters mechanism known from Lisp\footnote{\url{https://www.gnu.org/software/emacs/manual/html_node/elisp/Argument-List.html}}, recently also adopted in JavaScript (as of the ECMAScript2015 standard\footnote{\url{https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Functions/rest_parameters}}). That is, for example:
+    \item Rest parameters mechanism known from
+      Lisp\footnote{\url{https://www.gnu.org/software/emacs/manual/html_node/elisp/Argument-List.html}},
+      recently also adopted in JavaScript (as of the ECMAScript2015
+      standard\footnote{\url{https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Functions/rest_parameters}}). That
+      is, for example:
     \begin{lstlisting}
-        bind [variadic-function of [a b {args}
-            log [a b args]
-        ]]
+        bind [variadic-function of [a b {args} log [a b args] ]]
         
-        -- logs `1 2 [3, 4, 5, 6]`:
-        variadic-function[1 2 3 4 5 6]
+        -- logs `1 2 [3, 4, 5, 6]`: variadic-function[1 2 3 4 5 6]
     \end{lstlisting}
-    This enables the user to easily define variadic functions, which can be called with a variable number of arguments. 
-    This works in any place, where pattern matching works:
+    This enables the user to easily define variadic functions, which can be
+    called with a variable number of arguments.  This works in any place, where
+    pattern matching works:
     \begin{lstlisting}
         bind [$[a b {rest}] $['|a '|b '|c '|d '|e]]
         
-        -- logs `["c", "d", "e"]`
-        log [rest]
+        -- logs `["c", "d", "e"]` log [rest]
     \end{lstlisting}
     
     thus enabling non-exact matching.
     
-    \item Spread operator (also inspired by the analogous feature from ECMAScript2015):
+    \item Spread operator (also inspired by the analogous feature from
+      ECMAScript2015):
     \begin{lstlisting}
-        bind [f of [a b c d e f log [a b c d e f]]]
-        bind [args $[8 7 6]]
+        bind [f of [a b c d e f log [a b c d e f]]] bind [args $[8 7 6]]
         
-        -- logs `9 8 7 6 5 4`:
-        f[9 {args} {$[5 4]}]
+        -- logs `9 8 7 6 5 4`: f[9 {args} {$[5 4]}]
     \end{lstlisting}
-    This provides a much nicer and more powerful alternative to \texttt{apply}, Lisp's fundamental function, which applies a function to a list of arguments. It's a way to flatten any list onto a list of arguments. This works for multiple values and lists as well:
+    This provides a much nicer and more powerful alternative to \texttt{apply},
+    Lisp's fundamental function, which applies a function to a list of
+    arguments. It's a way to flatten any list onto a list of arguments. This
+    works for multiple values and lists as well:
     \begin{lstlisting}
-        -- alternative way to achieve the same
-        -- result as in the previous listing
-        -- logs `9 8 7 6 5 4`:
-        f[{9 args $[5 4]}]
+        -- alternative way to achieve the same result as in the previous listing
+        -- logs `9 8 7 6 5 4`: f[{9 args $[5 4]}]
     \end{lstlisting}
     \item String interpolation notation:
     \begin{lstlisting}
         bind [name '|Bill]
         
-        -- logs `Hello, Bill.`
-        log ['[Hello, {name}.]]
+        -- logs `Hello, Bill.` log ['[Hello, {name}.]]
     \end{lstlisting}
     
-    As we can see this gives us a very convenient notation for string interpolation, similar to e.g. template literals in JavaScript\footnote{\url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals}}.
+    As we can see this gives us a very convenient notation for string
+    interpolation, similar to e.g. template literals in
+    JavaScript\footnote{\url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals}}.
     In order to escape curly braces, they should be doubled:
     \begin{lstlisting}
-        -- logs `Hello, {name}.`
-        log ['[Hello, {{name}}.]]
+        -- logs `Hello, {name}.` log ['[Hello, {{name}}.]]
     \end{lstlisting}
     
-    I also added a special type of string -- an HTML string, where interpolation notation is the other way around -- double braces cause substitution, single braces do nothing:
+    I also added a special type of string -- an HTML string, where interpolation
+    notation is the other way around -- double braces cause substitution, single
+    braces do nothing:
     \begin{lstlisting}
-        bind [name '|Bill]
-        -- logs `<h1>Hello, Bill.</h1>`
-        log [html'[<h1>Hello, {{name}}.</h1>]]
+        bind [name '|Bill] -- logs `<h1>Hello, Bill.</h1>` log [html'[<h1>Hello,
+            {{name}}.</h1>]]
         
-        -- logs `<h1>Hello, {name}.</h1>`
-        log [html'[<h1>Hello, {name}.</h1>]]
+        -- logs `<h1>Hello, {name}.</h1>` log [html'[<h1>Hello, {name}.</h1>]]
     \end{lstlisting}
     
-    This is to enable embedding CSS and JavaScript code inside those strings, without having to constantly escape brace characters.
+    This is to enable embedding CSS and JavaScript code inside those strings,
+    without having to constantly escape brace characters.
     
-    \item Unquote notation for macros\footnote{Analogous to \texttt{unquote} or \texttt{,} in Lisp: \url{https://docs.racket-lang.org/reference/reader.html\#\%28part._parse-quote\%29}} -- see Chapter \ref{chap:design}.
+    \item Unquote notation for macros\footnote{Analogous to \texttt{unquote} or
+      \texttt{,} in Lisp:
+      \url{https://docs.racket-lang.org/reference/reader.html\#\%28part._parse-quote\%29}}
+      -- see Chapter \ref{chap:design}.
 \end{itemize}
 
 \section{Basic primitives and functions}\label{sec:primitives}
-Below is a description of the primitives and functions supported by the Dual language. Each item is structured as follows:
+Below is a description of the primitives and functions supported by the Dual
+language. Each item is structured as follows:
 \begin{itemize}
     \item \texttt{<name> [<arguments>]}
     
     <description>
     
-    Where \texttt{<name>} is the name of the function/primitive and \texttt{<arguments>} are either the names that describe the arguments of the function/primitive or its arity. That is, the number of arguments that the function/primitive is defined for. This can be a fixed value (e.g \texttt{1}), a fixed range of values (e.g. \texttt{0..3}) or a range of values without an upper bound (e.g. \texttt{0..*}, which means 0 or more).
+    Where \texttt{<name>} is the name of the function/primitive and
+    \texttt{<arguments>} are either the names that describe the arguments of the
+    function/primitive or its arity. That is, the number of arguments that the
+    function/primitive is defined for. This can be a fixed value (e.g
+    \texttt{1}), a fixed range of values (e.g. \texttt{0..3}) or a range of
+    values without an upper bound (e.g. \texttt{0..*}, which means 0 or more).
     
     <description> is a brief description of the function/primitive.
 \end{itemize}
@@ -489,19 +686,51 @@ The Dual language supports the following primitives:
     
     \item \texttt{bind [name value]}
     
-    Evaluates its second argument and binds this value to the name of the first argument. This name is bound within the current scope. This is a basic construct for defining variables, like \texttt{var} or \texttt{define} in other languages. Significant semantics here are that new scopes are introduced by function bodies, macro bodies and match expression bodies. The primitive also supports pattern matching to deconstruct the value and bind its components to possibly several variables. In that regard it works a lot like JavaScript's destructuring assignment\footnote{\url{https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment}} or similar features in other languages, such as Perl or Python. This primitive can be used only for binding names that don't exist in the scope at the point of its invocation. There are other constructs for mutating and modifying existing variables. There is no hoisting\footnote{\url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var\#var_hoisting}}, as definitions are processed in order in which they appear in code.
+    Evaluates its second argument and binds this value to the name of the first
+    argument. This name is bound within the current scope. This is a basic
+    construct for defining variables, like \texttt{var} or \texttt{define} in
+    other languages. Significant semantics here are that new scopes are
+    introduced by function bodies, macro bodies and match expression bodies. The
+    primitive also supports pattern matching to deconstruct the value and bind
+    its components to possibly several variables. In that regard it works a lot
+    like JavaScript's destructuring
+    assignment\footnote{\url{https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment}}
+    or similar features in other languages, such as Perl or Python. This
+    primitive can be used only for binding names that don't exist in the scope
+    at the point of its invocation. There are other constructs for mutating and
+    modifying existing variables. There is no
+    hoisting\footnote{\url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var\#var_hoisting}},
+    as definitions are processed in order in which they appear in code.
     
     \item \texttt{if [condition consequent alternative]}
     
-    This primitive serves as a basic conditional evaluation construct. Its semantics are like those of the analogous construct in Lisp. It accepts 3 arguments: first the \texttt{condition} expression, then the \texttt{consequent}, that is, the expression to be evaluated if the value of the condition is \textit{not false} (note that this is a strict rule; any other value than \texttt{false} is interpreted as \texttt{true}; every conditional construct in the language follows this rule). The third argument, the \texttt{alternative} is the expression that is evaluated otherwise.
+    This primitive serves as a basic conditional evaluation construct. Its
+    semantics are like those of the analogous construct in Lisp. It accepts 3
+    arguments: first the \texttt{condition} expression, then the
+    \texttt{consequent}, that is, the expression to be evaluated if the value of
+    the condition is \textit{not false} (note that this is a strict rule; any
+    other value than \texttt{false} is interpreted as \texttt{true}; every
+    conditional construct in the language follows this rule). The third
+    argument, the \texttt{alternative} is the expression that is evaluated
+    otherwise.
     
     \item \texttt{while [condition body]}
     
-    A basic loop construct. If \texttt{condition} is equivalent to \textit{not false}, evaluates \texttt{body}. Repeats these steps until \texttt{condition} evaluates to \texttt{false}. Returns the value of the last evaluation of \texttt{body} or \texttt{false} if the body was not evaluated.
+    A basic loop construct. If \texttt{condition} is equivalent to \textit{not
+      false}, evaluates \texttt{body}. Repeats these steps until
+    \texttt{condition} evaluates to \texttt{false}. Returns the value of the
+    last evaluation of \texttt{body} or \texttt{false} if the body was not
+    evaluated.
     
     \item \texttt{mutate* [name value]}
     
-    If a variable identified by \texttt{name} is defined within the current scope or any outer scope, changes (mutates) its value, so it now refers to the result of evaluating the \texttt{value} argument. The scopes are searched from the innermost to the outermost, in order. If the \texttt{name} argument doesn't identify any variable, an error is thrown. Returns the scope (environment), in which the primitive was evaluated. [[first-class environments, Bla paper?]]
+    If a variable identified by \texttt{name} is defined within the current
+    scope or any outer scope, changes (mutates) its value, so it now refers to
+    the result of evaluating the \texttt{value} argument. The scopes are
+    searched from the innermost to the outermost, in order. If the \texttt{name}
+    argument doesn't identify any variable, an error is thrown. Returns the
+    scope (environment), in which the primitive was evaluated. [[first-class
+        environments, Bla paper?]]
     
     \item assign
     
@@ -534,10 +763,19 @@ The Dual language supports the following primitives:
 
 Basic functions and values:
 \begin{itemize}
-    \item \texttt{true} and \texttt{false} evaluate to their respective boolean values. \texttt{\_} is an alias for \texttt{true} when used outside of pattern-matching. This enables a convenient compatibility between \texttt{match} and \texttt{cond}: if we're matching a single value and want to have a default case, then \texttt{\_} is used to match any value. Similarly, if \texttt{\_} is given as a condition in the last alternative of \texttt{cond}, it will evaluate to \texttt{true} and work as the default case.
+    \item \texttt{true} and \texttt{false} evaluate to their respective boolean
+      values. \texttt{\_} is an alias for \texttt{true} when used outside of
+      pattern-matching. This enables a convenient compatibility between
+      \texttt{match} and \texttt{cond}: if we're matching a single value and
+      want to have a default case, then \texttt{\_} is used to match any
+      value. Similarly, if \texttt{\_} is given as a condition in the last
+      alternative of \texttt{cond}, it will evaluate to \texttt{true} and work
+      as the default case.
     \item \texttt{undefined} evaluates to JavaScript's undefined[[link]].
     \item \texttt{typeof} wraps JavaScript's \texttt{typeof} operator.
-    \item \texttt{or} and \texttt{and} are the basic logical operators -- analogous to \texttt{||} and \texttt{\&\&} in JavaScript.
-    \item \texttt{any} and \texttt{all} are like the above, but accept variable number of arguments. These return either \texttt{true} or \texttt{false}.
+    \item \texttt{or} and \texttt{and} are the basic logical operators --
+      analogous to \texttt{||} and \texttt{\&\&} in JavaScript.
+    \item \texttt{any} and \texttt{all} are like the above, but accept variable
+      number of arguments. These return either \texttt{true} or \texttt{false}.
     \item \texttt{not} is the negation operator (\texttt{!})
 \end{itemize}

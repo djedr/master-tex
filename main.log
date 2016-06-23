@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.4.4)  22 JUN 2016 17:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.4.4)  23 JUN 2016 09:59
 entering extended mode
 **main.tex
 (D:\master-project\master-thesis\main.tex
@@ -933,560 +933,256 @@ Underfull \vbox (badness 5578) has occurred while \output is active []
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 31--31
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
 [][][][]$\T1/cmtt/m/n/10 https : / / en . wikipedia . org / wiki / List _ of _ 
 Unreal _ Engine _ games$[]\T1/cmr/m/n/10 , []$\T1/cmtt/m/n/10 http : / / www .$
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--31
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
 [][][][]$\T1/cmtt/m/n/10 http : / / www . gamasutra . com / view / news / 21364
 7 / Epics _ Tim _ Sweeney _ lays _ out _ the _$
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 48.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 24.
 (D:\programs\MiKTeX\tex\latex\base\omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 48.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 24.
  [2])
-(D:\master-project\master-thesis\2_background.tex [3] [4
+(D:\master-project\master-thesis\1_background.tex [3] [4
 
 ]
 Chapter 1.
 
-Overfull \hbox (4.1929pt too wide) in paragraph at lines 6--7
-\T1/cmr/m/n/12 cz¦±ci pracy. Pod-sta-wowym celem ist-nie-niem tego rozdzi-aªu j
-est umo»li-wie-nie czytel-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--15
+Underfull \hbox (badness 10000) in paragraph at lines 7--7
 [][][][]$\T1/cmtt/m/n/10 https : / / en . wikipedia . org / wiki / Comparison _
  of _ JavaScript-[]based _ source _ code _$
  []
 
 
-Overfull \hbox (46.97046pt too wide) in paragraph at lines 18--18
+Overfull \hbox (46.97046pt too wide) in paragraph at lines 10--10
 [][][][]$\T1/cmtt/m/n/10 http : / / blog . interfacevision . com / design / des
 ign-[]visual-[]progarmming-[]languages-[]snapshots/$[]| 
  []
 
 [5]
-Overfull \hbox (4.4483pt too wide) in paragraph at lines 26--27
-[]\T1/cmr/m/n/12 My most re-cent and sig-nif-i-cant ex-pe-ri-ence both pro-fes-
-sional and non-professional
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 30--30
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
 [][][][]$\T1/cmtt/m/n/10 http : / / stackoverflow . com / research / developer-
 []survey-[]2016 #$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--30
+Underfull \hbox (badness 10000) in paragraph at lines 13--13
 $\T1/cmtt/m/n/10 most-[]popular-[]technologies-[]per-[]occupation$[]\T1/cmr/m/n
 /10 , []$\T1/cmtt/m/n/10 http : / / redmonk . com / sogrady / 2016 / 02 /$
  []
 
-
-Overfull \hbox (32.7243pt too wide) in paragraph at lines 32--32
-[][][][]$\T1/cmtt/m/n/10 http : / / www . r-[]bloggers . com / the-[]most-[]pop
-ular-[]programming-[]languages-[]on-[]stackoverflow/$[]| 
- []
-
-
-Overfull \hbox (36.77657pt too wide) in paragraph at lines 37--38
-[][]$\T1/cmtt/m/n/12 https : / / en . wikipedia . org / wiki / Measuring _ prog
-ramming _ language _ popularity$[] 
- []
-
 [6]
-Overfull \hbox (21.98875pt too wide) in paragraph at lines 64--65
+Overfull \hbox (21.98875pt too wide) in paragraph at lines 38--39
 []\T1/cmr/m/n/12 The two core com-po-nents of a Lisp in-ter-preter are the \T1/
 cmtt/m/n/12 apply \T1/cmr/m/n/12 and \T1/cmtt/m/n/12 eval \T1/cmr/m/n/12 functi
 ons[[]][][][].
  []
 
-[7]
-Overfull \hbox (33.28218pt too wide) in paragraph at lines 84--86
-\T1/cmr/m/n/12 deeper lay-ers.'' -- Dou-glas Crock-ford, https://www.youtube.co
-m/watch?v=Nlqv6NtBXcA
- []
-
-[8] [9] [10]
-Overfull \hbox (13.09752pt too wide) in paragraph at lines 157--158
+[7] [8] [9] [10]) (D:\master-project\master-thesis\2_language.tex
+Overfull \hbox (13.09752pt too wide) in paragraph at lines 133--1
 []\T1/cmr/m/n/12 This ap-proach in com-bi-na-tion with a dy-namic and flex-i-bl
 e lan-guage like JavaScript
  []
 
-) (D:\master-project\master-thesis\3_language.tex [11] [12
+[11] [12
 
 ]
 Chapter 2.
-
-Overfull \hbox (4.05467pt too wide) in paragraph at lines 4--6
-\T1/cmr/m/n/12 Je±li w ra-mach pracy au-tor rozwin¡ª now¡ teori¦ nale»y za-mie±
--ci¢ j¡ w tym rozdziale. 
- []
-
-[13] [14] [15]
-Overfull \hbox (5.50253pt too wide) in paragraph at lines 92--93
+[13] [14]
+Overfull \hbox (5.50253pt too wide) in paragraph at lines 44--45
 []\T1/cmr/m/n/12 There are many ap-proaches to im-ple-ment-ing in-ter-preters f
 or LISP in JavaScript[][][],
  []
 
-[16]
-Overfull \hbox (17.43542pt too wide) in paragraph at lines 113--114
+[15]
+Overfull \hbox (17.43542pt too wide) in paragraph at lines 64--65
 []\T1/cmr/m/n/12 This gives a no-ta-tion that is some-what in be-tween S-expres
 sions and M-expressions.
  []
 
-[17]
-Overfull \hbox (5.60307pt too wide) in paragraph at lines 151--152
+[16]
+Overfull \hbox (5.60307pt too wide) in paragraph at lines 99--100
 []\T1/cmr/m/n/12 Easier to parse by a hu-man. Op-er-a-tors are clearer dis-tin-
 guished from operands.
  []
 
 
-Overfull \hbox (26.09967pt too wide) in paragraph at lines 152--153
+Overfull \hbox (26.09967pt too wide) in paragraph at lines 100--101
 \T1/cmr/m/n/12 with mul-ti-ple lev-els: \T1/cmtt/m/n/12 op[args-1][args-2][args
 -3][args-4] \T1/cmr/m/n/12 vs \T1/cmtt/m/n/12 ((((op args-1)
  []
 
-[18] [19]
-Underfull \hbox (badness 10000) in paragraph at lines 228--228
+[17] [18]
+Underfull \hbox (badness 10000) in paragraph at lines 168--168
 [][][]\T1/cmr/m/n/10 See: []$\T1/cmtt/m/n/10 https : / / reference . wolfram . 
 com / language / tutorial /$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--228
+Underfull \hbox (badness 10000) in paragraph at lines 168--168
 $\T1/cmtt/m/n/10 WorkingWithStringPatterns . html$[] \T1/cmr/m/n/10 and []$\T1/
 cmtt/m/n/10 https : / / en . wikipedia . org / wiki / Pattern _$
  []
 
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 248--248
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
 [][][]\T1/cmr/m/n/10 Defined by the IEEE 754 stan-dard: []$\T1/cmtt/m/n/10 http
  : / / www . iso . org / iso / iso _ catalogue /$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 248--248
+Underfull \hbox (badness 10000) in paragraph at lines 188--188
 $\T1/cmtt/m/n/10 catalogue _ tc / catalogue _ detail . htm ? csnumber = 57469$[
 ]\T1/cmr/m/n/10 , []$\T1/cmtt/m/n/10 http : / / www . 2ality . com / 2012 /$
  []
 
-[21]
-Overfull \hbox (5.2756pt too wide) in paragraph at lines 283--284
+[20]
+Overfull \hbox (5.2756pt too wide) in paragraph at lines 223--224
 []\T1/cmr/m/n/12 Another spe-cial char-ac-ter (\T1/cmtt/m/n/12 !\T1/cmr/m/n/12 
 ) was in-tro-duced for anal-o-gous use for zero-argument
  []
 
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 316--316
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 256--256
 [][][][]$\T1/cmtt/m/n/10 https : / / en . wikipedia . org / wiki / Standard _ M
 L # Algebraic _ datatypes _ and _ pattern _$
  []
 
-[23]
-Overfull \hbox (6.37688pt too wide) in paragraph at lines 343--344
+[22]
+Overfull \hbox (6.37688pt too wide) in paragraph at lines 282--283
 []\T1/cmr/m/n/12 Pattern match-ing works with bind-ings, func-tions (al-though 
 the pri-mary function-
  []
 
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 394--394
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 333--333
 [][][][]$\T1/cmtt/m/n/10 https : / / en . wikibooks . org / wiki / F _ Sharp _ 
 Programming / Pattern _ Matching _ Basics #$
  []
 
 
-Overfull \hbox (2.57184pt too wide) in paragraph at lines 397--398
+Overfull \hbox (2.57184pt too wide) in paragraph at lines 336--337
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[25] [26]
-Underfull \hbox (badness 10000) in paragraph at lines 472--472
+[24] [25]
+Underfull \hbox (badness 10000) in paragraph at lines 406--406
 [][][][]$\T1/cmtt/m/n/10 https : / / developer . mozilla . org / pl / docs / We
 b / JavaScript / Reference / Functions /$
  []
 
 
-Overfull \hbox (13.54892pt too wide) in paragraph at lines 494--495
+Overfull \hbox (13.54892pt too wide) in paragraph at lines 426--427
 []\T1/cmr/m/n/12 Spread op-er-a-tor (also in-spired by the anal-o-gous fea-ture
  from EC-MAScript2015): 
  []
 
-[27]
-Underfull \hbox (badness 10000) in paragraph at lines 517--517
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 449--449
 [][][][]$\T1/cmtt/m/n/10 https : / / developer . mozilla . org / en-[]US / docs
  / Web / JavaScript / Reference / Template _$
  []
 
-
-LaTeX Warning: Reference `chap:desgin' on page 28 undefined on input line 540.
-
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 586--586
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 492--492
 [][][][]$\T1/cmtt/m/n/10 https : / / developer . mozilla . org / pl / docs / We
 b / JavaScript / Reference / Operators /$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 586--586
+Underfull \hbox (badness 10000) in paragraph at lines 492--492
 [][][][]$\T1/cmtt/m/n/10 https : / / developer . mozilla . org / en-[]US / docs
  / Web / JavaScript / Reference /$
  []
 
-[29] [30]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.650     <word>           ::= /^
-                                 [^\s\[\]]+/
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Double superscript.
-l.650     <word>           ::= /^[^
-                                   \s\[\]]+/
-I treat `x^1^2' essentially like `x^1{}^2'.
-
-! Undefined control sequence.
-l.650     <word>           ::= /^[^\s
-                                     \[\]]+/
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Missing { inserted.
-<to be read again> 
-                   \def 
-l.650     <word>           ::= /^[^\s\[
-                                       \]]+/
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.650     <word>           ::= /^[^\s\[
-                                       \]]+/
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.650     <word>           ::= /^[^\s\[\]
-                                         ]+/
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.650     <word>           ::= /^[^\s\[\]
-                                         ]+/
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-! LaTeX Error: \begin{document} ended by \end{equation*}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.650     <word>           ::= /^[^\s\[\]
-                                         ]+/
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.650     <word>           ::= /^[^\s\[\]
-                                         ]+/
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.650     <word>           ::= /^[^\s\[\]
-                                         ]+/
-Things are pretty mixed up, but I think the worst is over.
-
-
-Overfull \hbox (4.08937pt too wide) in paragraph at lines 644--653
-\T1/cmr/m/n/12 list> ::= "[" <ar-gu-ments> "]" <word> ::= /$[][]$$$]+/ <argumen
-t-lists> ::= <argument-
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.656     <word>           ::= /^
-                                 [^\s\[\]]+/
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Double superscript.
-l.656     <word>           ::= /^[^
-                                   \s\[\]]+/
-I treat `x^1^2' essentially like `x^1{}^2'.
-
-! Undefined control sequence.
-l.656     <word>           ::= /^[^\s
-                                     \[\]]+/
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Missing { inserted.
-<to be read again> 
-                   \def 
-l.656     <word>           ::= /^[^\s\[
-                                       \]]+/
-A left brace was mandatory here, so I've put one in.
-You might want to delete and/or insert some corrections
-so that I will find a matching right brace soon.
-(If you're confused by all this, try typing `I}' now.)
-
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.656     <word>           ::= /^[^\s\[
-                                       \]]+/
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! Missing \endgroup inserted.
-<inserted text> 
-                \endgroup 
-l.656     <word>           ::= /^[^\s\[\]
-                                         ]+/
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.656     <word>           ::= /^[^\s\[\]
-                                         ]+/
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-! LaTeX Error: \begin{document} ended by \end{equation*}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.656     <word>           ::= /^[^\s\[\]
-                                         ]+/
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.656     <word>           ::= /^[^\s\[\]
-                                         ]+/
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.656     <word>           ::= /^[^\s\[\]
-                                         ]+/
-Things are pretty mixed up, but I think the worst is over.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.704 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (235.16582pt too wide) in paragraph at lines 691--704
-[]\T1/cmr/m/n/12 string aliases: $\OML/cmm/m/it/12 arity \OT1/cmr/m/n/12 : \OMS
-/cmsy/m/n/12 \OML/cmm/m/it/12 description \OT1/cmr/m/n/12 : \OML/cmm/m/it/12 r
-eturnsitsarguments[]namesandthewhitespacebetweenthemasastringvalue; asin \OT1/c
-mr/m/n/12 :$\T1/cmr/m/n/12 [Hello,
- []
-
-
-Overfull \hbox (109.75192pt too wide) in paragraph at lines 691--704
-$\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 Hello; \OT1/cmr/m/n/12 $[\OML/cmm/m/it/12 na
-me\OT1/cmr/m/n/12 ]!]\OML/cmm/m/it/12 if\OT1/cmr/m/n/12 `\OML/cmm/m/it/12 name\
-OT1/cmr/m/n/12 `\OML/cmm/m/it/12 wouldrefertoanotherstringofvaluee:g:\OT1/cmr/m
-/n/12 "\OML/cmm/m/it/12 Alan\OT1/cmr/m/n/12 "\OML/cmm/m/it/12 thiswouldproducea
-stringlike \OT1/cmr/m/n/12 :$
- []
-
-
-Overfull \hbox (17.32324pt too wide) in paragraph at lines 705--715
-[]\T1/cmr/m/n/12 if aliases: con-di-tional ar-ity: 3 ar-gu-ments: con-di-tion, 
-then-expression, else-expression
- []
-
-[31]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.745 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (64.85445pt too wide) in paragraph at lines 741--745
-[]\T1/cmr/m/n/12 print$\OML/cmm/m/it/12 arity \OT1/cmr/m/n/12 : \OMS/cmsy/m/n/1
-2 \OML/cmm/m/it/12 description \OT1/cmr/m/n/12 : \OML/cmm/m/it/12 workslike\OT
-1/cmr/m/n/12 `\OML/cmm/m/it/12 string\OT1/cmr/m/n/12 `\OML/cmm/m/it/12 ; butals
-oprintsitsvaluetotheJavaScriptconsole$ 
- []
-
-! Undefined control sequence.
-l.785             if\3
-                       flag then-do-this else-do-this
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[32]) (D:\master-project\master-thesis\4_editor.tex [33] [34
-
-]
+[28] [29]) (D:\master-project\master-thesis\3_editor.tex [30]
 Chapter 3.
-[35] <img/editor.png, id=992, 1131.22626pt x 637.38126pt>
+[31
+
+] <img/editor.png, id=974, 1131.22626pt x 637.38126pt>
 File: img/editor.png Graphic file (type png)
  <use img/editor.png>
-Package pdftex.def Info: img/editor.png used on input line 27.
+Package pdftex.def Info: img/editor.png used on input line 24.
 (pdftex.def)             Requested size: 377.24702pt x 212.55391pt.
 
-[36 <D:/master-project/master-thesis/img/editor.png (PNG copy)>] [37]
-<img/editor-menu.png, id=1009, 401.24907pt x 97.11281pt>
+[32 <D:/master-project/master-thesis/img/editor.png (PNG copy)>] [33]
+<img/editor-menu.png, id=992, 401.24907pt x 97.11281pt>
 File: img/editor-menu.png Graphic file (type png)
 
 <use img/editor-menu.png>
-Package pdftex.def Info: img/editor-menu.png used on input line 72.
+Package pdftex.def Info: img/editor-menu.png used on input line 67.
 (pdftex.def)             Requested size: 377.24702pt x 91.30975pt.
- [38 <D:/master-project/master-thesis/img/editor-menu.png>] <img/scratch.png, i
-d=1020, 854.19125pt x 571.13374pt>
+ [34 <D:/master-project/master-thesis/img/editor-menu.png>] <img/scratch.png, i
+d=1003, 854.19125pt x 571.13374pt>
 File: img/scratch.png Graphic file (type png)
 
 <use img/scratch.png>
-Package pdftex.def Info: img/scratch.png used on input line 88.
+Package pdftex.def Info: img/scratch.png used on input line 83.
 (pdftex.def)             Requested size: 377.24702pt x 252.2321pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--90
+Underfull \hbox (badness 10000) in paragraph at lines 85--85
 [][][] \T1/cmr/m/n/10 Screen-shot from []$\T1/cmtt/m/n/10 http : / / mypad . no
 rthampton . ac . uk / 12406702 / files / 2013 / 05 /$
  []
 
-[39 <D:/master-project/master-thesis/img/scratch.png>]
-<img/blueprint_more.png, id=1030, 700.11563pt x 338.01282pt>
+[35 <D:/master-project/master-thesis/img/scratch.png>]
+<img/blueprint_more.png, id=1012, 700.11563pt x 338.01282pt>
 File: img/blueprint_more.png Graphic file (type png)
 
 <use img/blueprint_more.png>
-Package pdftex.def Info: img/blueprint_more.png used on input line 119.
+Package pdftex.def Info: img/blueprint_more.png used on input line 105.
 (pdftex.def)             Requested size: 377.24702pt x 182.13736pt.
 
-<img/designs_01234.png, id=1032, 628.3475pt x 467.7475pt>
+<img/designs_01234.png, id=1014, 628.3475pt x 467.7475pt>
 File: img/designs_01234.png Graphic file (type png)
 
 <use img/designs_01234.png>
-Package pdftex.def Info: img/designs_01234.png used on input line 128.
+Package pdftex.def Info: img/designs_01234.png used on input line 114.
 (pdftex.def)             Requested size: 377.24702pt x 280.82195pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[40 <D:/master-project/master-thesis/img/blueprint_more.png>] [41 <D:/master-pr
+[36 <D:/master-project/master-thesis/img/blueprint_more.png>] [37 <D:/master-pr
 oject/master-thesis/img/designs_01234.png>]
-<img/design_3.png, id=1048, 606.265pt x 320.19624pt>
+<img/design_3.png, id=1030, 606.265pt x 320.19624pt>
 File: img/design_3.png Graphic file (type png)
  <use img/design_3.png>
-Package pdftex.def Info: img/design_3.png used on input line 184.
+Package pdftex.def Info: img/design_3.png used on input line 157.
 (pdftex.def)             Requested size: 377.24702pt x 199.2427pt.
 
-<img/design_4.png, id=1049, 353.32pt x 163.61125pt>
+<img/design_4.png, id=1031, 353.32pt x 163.61125pt>
 File: img/design_4.png Graphic file (type png)
  <use img/design_4.png>
-Package pdftex.def Info: img/design_4.png used on input line 192.
+Package pdftex.def Info: img/design_4.png used on input line 165.
 (pdftex.def)             Requested size: 377.24702pt x 174.69281pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[42 <D:/master-project/master-thesis/img/design_3.png>]
-
-LaTeX Warning: Reference `chap:comparison' on page 43 undefined on input line 2
-21.
-
-<img/blueprint.jpg, id=1060, 607.51968pt x 228.855pt>
+[38 <D:/master-project/master-thesis/img/design_3.png>]
+<img/blueprint.jpg, id=1044, 607.51968pt x 228.855pt>
 File: img/blueprint.jpg Graphic file (type jpg)
  <use img/blueprint.jpg>
-Package pdftex.def Info: img/blueprint.jpg used on input line 242.
+Package pdftex.def Info: img/blueprint.jpg used on input line 181.
 (pdftex.def)             Requested size: 377.24702pt x 142.1121pt.
+)
+(D:\master-project\master-thesis\4_case_study.tex [39 <D:/master-project/master
+-thesis/img/design_4.png> <D:/master-project/master-thesis/img/blueprint.jpg>]
+[40
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[43 <D:/master-project/master-thesis/img/design_4.png>])
-(D:\master-project\master-thesis\5_case_study.tex [44 <D:/master-project/master
--thesis/img/blueprint.jpg>]
+]
 Chapter 4.
-<img/pacman.png, id=1079, 450.18187pt x 359.84438pt>
+<img/pacman.png, id=1062, 450.18187pt x 359.84438pt>
 File: img/pacman.png Graphic file (type png)
  <use img/pacman.png>
 Package pdftex.def Info: img/pacman.png used on input line 14.
@@ -1496,66 +1192,46 @@ Package pdftex.def Info: img/pacman.png used on input line 14.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 22--22
+Underfull \hbox (badness 10000) in paragraph at lines 20--20
 [][][][]$\T1/cmtt/m/n/10 https : / / developer . mozilla . org / en-[]US / docs
  / Web / API / Window /$
  []
 
 
-Overfull \hbox (28.37753pt too wide) in paragraph at lines 22--23
+Overfull \hbox (28.37753pt too wide) in paragraph at lines 20--21
 \T1/cmr/m/n/12 A typ-i-cal game loop in a mod-ern JavaScript game[][][] re-lies
  on the \T1/cmtt/m/n/12 requestAnimationFrame
  []
 
-[45
-
-] [46 <D:/master-project/master-thesis/img/pacman.png>]
+[41] [42 <D:/master-project/master-thesis/img/pacman.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [47]
-<img/profiling.png, id=1162, 571.13374pt x 438.63875pt>
+ [43]
+<img/profiling.png, id=1144, 571.13374pt x 438.63875pt>
 File: img/profiling.png Graphic file (type png)
 
 <use img/profiling.png>
-Package pdftex.def Info: img/profiling.png used on input line 121.
+Package pdftex.def Info: img/profiling.png used on input line 118.
 (pdftex.def)             Requested size: 377.24702pt x 289.73003pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[48]
-
-LaTeX Warning: Reference `sec:cele_pracy' on page 49 undefined on input line 17
-3.
-
-) (D:\master-project\master-thesis\6_design_discussion.tex [49 <D:/master-proje
-ct/master-thesis/img/profiling.png (PNG copy)>] [50
+) (D:\master-project\master-thesis\5_design_discussion.tex [44] [45 <D:/master-
+project/master-thesis/img/profiling.png (PNG copy)>] [46
 
 ]
 Chapter 5.
-[51] [52]
-Overfull \hbox (3.73418pt too wide) in paragraph at lines 113--114
+[47]
+Overfull \hbox (3.73418pt too wide) in paragraph at lines 62--63
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[53] [54] [55]
-Overfull \hbox (38.2233pt too wide) in paragraph at lines 262--265
-[]\T1/cmr/m/n/12 Operator prece-dence http://www.ozonehouse.com/mark/blog/code/
-PeriodicTable.pdf 
- []
-
-) (D:\master-project\master-thesis\8_summary.tex [56]
+[48] [49]) (D:\master-project\master-thesis\6_summary.tex [50]
 Chapter 6.
+) (D:\master-project\master-thesis\main.bbl [51
 
-LaTeX Warning: Reference `sec:cele_pracy' on page 57 undefined on input line 24
-.
-
-
-LaTeX Warning: Reference `chap:badania' on page 57 undefined on input line 26.
-
-) (D:\master-project\master-thesis\main.bbl [57
-
-] [58
+] [52
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 26--31
@@ -1574,103 +1250,131 @@ Underfull \hbox (badness 1231) in paragraph at lines 33--39
 m/n/12 http : / / www-[]formal .$
  []
 
-) (D:\master-project\master-thesis\main.gls [59] [60
+) (D:\master-project\master-thesis\main.gls [53] [54
 
 ])
-(D:\master-project\master-thesis\main.acr [61
+(D:\master-project\master-thesis\main.acr [55
 
-] [62
+] [56
 
 ])
-(D:\master-project\master-thesis\a_latex.tex [63
+(D:\master-project\master-thesis\a_dvd.tex [57
 
-] [64
+] [58
 
 ]
 Appendix A.
 
-LaTeX Warning: Citation `Oet11' on page 65 undefined on input line 5.
-
-
-Overfull \hbox (2.90192pt too wide) in paragraph at lines 3--6
-\T1/cmr/m/n/12 Prac¦ nale»y przy-go-towa¢ ko-rzys-ta-j¡c z sys-temu skªadu L[]T
-[]X (czyt. \T1/cmr/m/it/12 lat-ech\T1/cmr/m/n/12 ). Bardzo
- []
-
-
-LaTeX Warning: Citation `texlive' on page 65 undefined on input line 10.
-
-
-LaTeX Warning: Citation `emacs' on page 65 undefined on input line 13.
-
-
-LaTeX Warning: Citation `kile' on page 65 undefined on input line 13.
-
-
-LaTeX Warning: Citation `kbibtex' on page 65 undefined on input line 13.
-
-
-LaTeX Warning: Citation `github' on page 65 undefined on input line 17.
-
-
-Overfull \hbox (2.03935pt too wide) in paragraph at lines 15--18
-[]\T1/cmr/m/n/12 Wymagane jest prze-chowywanie pracy w re-pozy-to-rium kodu ¹ró
-dªowego. Prefer-
- []
-
-[65]
-
-LaTeX Warning: Citation `Nie10' on page 66 undefined on input line 52.
-
-
-LaTeX Warning: Citation `Oet11' on page 66 undefined on input line 63.
-
-) (D:\master-project\master-thesis\b_cd.tex
-Overfull \hbox (4.67863pt too wide) in paragraph at lines 62--1
-[]\T1/cmr/m/n/12 Bibliografi¦ nale»y przy-go-towa¢ ko-rzys-ta-j¡c z mech-a-nizm
-ów dostar-czanych przez
- []
-
-[66]
-Appendix B.
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [67
-
-]
-Overfull \hbox (2.26456pt too wide) in paragraph at lines 35--36
+ [59]
+Overfull \hbox (2.26456pt too wide) in paragraph at lines 27--28
 \T1/cmr/m/n/12 uses ports in the range 8079-8082, spec-i-fied in the \T1/cmtt/m
 /n/12 server-options.json
  []
 
-[68])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 42.
- [69]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 42.
+[60])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 39.
+ [61]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 39.
  (D:\master-project\master-thesis\main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 42.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 42.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1A2DACD9DD98DC25BBCC2111DDD67659;4140.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 39.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 39.
 
 
-LaTeX Warning: There were undefined references.
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 1A2DACD9DD98DC25BBCC2111DDD67659;4140
+(rerunfilecheck)             After:  2D1FB4F9E9B29A34FFF1F4F4860CBFD2;3053.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 20074 strings out of 493921
- 326765 string characters out of 3150895
+ 20056 strings out of 493921
+ 326574 string characters out of 3150895
  450281 words of memory out of 3000000
- 22417 multiletter control sequences out of 15000+200000
+ 22406 multiletter control sequences out of 15000+200000
  20584 words of font info for 55 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 53i,12n,56p,10356b,1885s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.61} has been referenced but does not ex
+ 53i,12n,56p,10356b,1831s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Hfootnote.60} has been referenced but does not ex
 ist, replaced by a fixed one
 
-pdfTeX warning (dest): name{Hfootnote.58} has been referenced but does not exis
+pdfTeX warning (dest): name{Hfootnote.57} has been referenced but does not exis
 t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.B.1} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{appendix.B} has been referenced but does not exist,
+ replaced by a fixed one
+
+pdfTeX warning (dest): name{section.A.3} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.A.2} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.5.12} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.5.11} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.5.10} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.5.9.1} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.5.9} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.5.8} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.5.7} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.5.6} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.5.5} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.2.7} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.2.6} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.2.5} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.4.1} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{section.2.4} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.3.6} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.3.5} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.3.4} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.3.3} has been referenced but does not 
+exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{subsection.2.3.2} has been referenced but does not 
+exist, replaced by a fixed one
 
  <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ect
 t1200.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\d
@@ -1691,12 +1395,10 @@ fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\snsv\AppData\Local\Mi
 KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk><D:/programs/MiKTeX/fon
 ts/type1/public/amsfonts/cm/cmmi10.pfb><D:/programs/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmmi12.pfb><D:/programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.
-pfb><D:/programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/programs/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (73 pages, 1474568 bytes).
+pfb><D:/programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on main.pdf (65 pages, 1409774 bytes).
 PDF statistics:
- 2246 PDF objects out of 2487 (max. 8388607)
- 650 named destinations out of 1000 (max. 500000)
+ 2160 PDF objects out of 2487 (max. 8388607)
+ 646 named destinations out of 1000 (max. 500000)
  576 words of extra memory for PDF output out of 10000 (max. 10000000)
 

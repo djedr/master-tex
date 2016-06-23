@@ -16,8 +16,6 @@ It is actually a port of my earlier clone of the game, which was written in Link
 \label{fig:pacman}
 \end{figure}
 
-% put a firefox version as a separate example
-
 \subsection{Main loop}
 A typical game loop in a modern JavaScript game\footnote{\url{https://developer.mozilla.org/en-US/docs/Games/Anatomy}} relies on the \texttt{requestAnimationFrame} method\footnote{\url{https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame}}. This method takes a single argument, which is a function callback. This function is invoked by the browser before it repaints the contents of the window. Thus, it allows the game rendering to be synchronized with the browser.
 
@@ -110,7 +108,6 @@ of [game-state last-tick fps-info current-time do [
 
 
 \section{Performance}
-
 Disparity between Firefox and Chrome, reflecting differences in garbage collector implementations.
 
 Issue: interpreter is blocking the event loop.
@@ -122,8 +119,8 @@ There's a lot of intermediate objects created that have to be garbage collected.
 	\caption{Comparison of Firefox' and Chrome's profiler outputs}
 	\label{fig:profiling}
 \end{figure}
-General pattern:
 
+General pattern:
 Chrome more frequent garbage collections
 more regular
 more predictable
@@ -140,34 +137,3 @@ Anyway, explicit stack
 Additional benefits:
 	can pause and debug the application, step through
 	can record the state and rewind
-	
-iterative-evaluate.js excerpt:
-\begin{lstlisting}
-\end{lstlisting}
-
-% REFER to my previous work?
-
-pacman
-
-vs Links
-vs JS
-vs Unreal Engine
-    BLUI
-    Coherent
-        web platform for UIs everywhere
-
-early user feedback
-
-event loop
-js event model
-fight with garbage collector
-game loop
-requestAnimationFrame
-
-\comment{Ten rozdział zawiera opis wyników uzyskanych w~ramach pracy. Jeśli praca miała
-cel badawczy należy skupić się na opisie przeprowadzonych eksperymentów oraz
-prezentacji i~analizie uzyskanych wyników. Jeśli praca nie miała na celu
-uzyskania nowatorskich wyników, należy skupić się na opisie architektury
-stworzonej aplikacji. W~obu przypadkach podstawowym celem tego rozdziału jest
-realizacja celów postawionych w~rozdziale \ref{sec:cele_pracy}. Rozdział ten ma
-bezspornie pokazywać, że cele pracy zostały zrealizowane}

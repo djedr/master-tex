@@ -1,4 +1,5 @@
 \chapter{Development environment}\label{chap:editor}
+The goal is to build an online \acrlong{ide} IDE, similar to Codeanywhere\footnote{\url{https://codeanywhere.com/}} or Cloud9\footnote{\url{https://c9.io/}}, works offline as well.
 
 \section{Overview}
 A folder is considered a project, similarly to modern code editors, such as Brackets or Visual Studio Code.
@@ -8,10 +9,6 @@ The current version of the development environment is intended to be used offlin
 I decided to implement the system with minimal dependencies, so it can be easily installed and so I can achieve a greater level of integration by having more control over every part.
 
 The only required dependency for the basic functionality of the prototype to work (which is the editor) is a web browser and the CodeMirror library. An additional dependency is the Node.js environment.
-
-
-
-The goal is to build an online \acrlong{ide} IDE, similar to Codeanywhere\footnote{\url{https://codeanywhere.com/}} or Cloud9\footnote{\url{https://c9.io/}}, works offline as well.
 
 The language's development environment is implemented as a web application. It consists of three parts:
 \begin{itemize}
@@ -56,8 +53,6 @@ The text editor is built on top of the CodeMirror framework\footnote{\url{https:
     \item If a position of the text cursor in or the contents of the source change, a fragment of text corresponding to the appropriate \acrshort{est} node is highlighted. Also the corresponding subtree in the visual editor is highlighted. This works also in the other direction -- when a node in the visual editor is selected, it is highlighted along with the corresponding text fragment. This demonstrates the core functionality of the system: it is ``aware'' at all times of currently focused meaningful part of the code, corresponding to an \acrshort{est} node. This is reflected in every representation that is associated with the EST.
 
 \end{itemize}
-A naive implementation of 
-
 Because every node in the EST is linked in both directions with a corresponding abstract element in a representation, any change to the element can be reflected in the node and, through the EST, in all other associated representations. This makes the system accurate and fast, as every change happens in an isolated context, which doesn't have to be reestablished every time a modification is made.
 
 We can distinguish three representations used by the system:
@@ -90,15 +85,6 @@ The templates could also be selected by the user from a visual library of puzzle
 http://mypad.northampton.ac.uk/12406702/files/2013/05/Screen-Shot-2013-05-02-at-23.19.19-1s0qp26.png } } }
 \label{fig:scratch}
 \end{figure}
-
-The templates prepared for the prototype use 
-
-Saving own templates
-
-Possible improvements and enhancments to the visual editor:
-Support for more ways of manipulating the DOM representation, such as drag and drop.
-
-Interactive visualisation of the syntax tree.
 
 
 \section{Visual editor}
@@ -152,15 +138,6 @@ The text representation is very compact, which often is an advantage. This advan
 \subsubsection{Structure}
 The programmer could have the ability to alter the structure of the representation, but he should not be required to constantly shape it. A connected-block representations, such as the one in Unreal Engine 4 has no mechanism that automatically structures the visual code similar to autoindentation and other useful autostructuring features that evolved in code editors over time and experience with using text-based programming languages. This can be considered a regression on the visual editors' part. 
 
-Inputing symbols
-Unicode
-
-Slots
-
-Easy to see different relationships
-
-An useful technique even for visualisation of existing code
-
 The early designs show the following features that are not implemented in the final prototype:
 \begin{itemize}
 	\item Names of the arguments are displayed instead of numbers if sensible.
@@ -170,13 +147,9 @@ The early designs show the following features that are not implemented in the fi
 The colored squares with letters inside are actually placeholders for icons.
 I imagine a design, where the user is able to click on those icons and fold the blocks into a more compact form, hiding the names and excessive text. This could be done on the level of individual blocks, whole subtrees or the entire program -- similar to code folding in text editors. This allows to have a big picture and general relationships between nodes always visible and at the same time gives an ability to focus on the details of the part at hand.
 
-The connections between blocks 
-
 The text below the slots could be documentation comments associated with the given argument. Their visibility could be toggleable through clicking on them, on an individual or global basis, similarly to icons.
 
-We can observe that there's a need to manipulate or set visual properties of individual objects, clusters of objects/subtrees as well as the entire program tree. 
-
-I actually intended to represent 
+We can observe that there's a need to manipulate or set visual properties of individual objects, clusters of objects/subtrees as well as the entire program tree.
 
 
 \begin{figure}[h!]
@@ -194,41 +167,7 @@ I actually intended to represent
 \label{fig:design_4}
 \end{figure}
 
-Not my final form.
-
-A good design is not made overnight.
-
-Smalltalk was perfected over 10 years.
-
-Improvements:
-icons, graphic controls
-Specialized controls for editing different types of values
-Some values have a very natural visual representation:
-colors, perhaps vectors
-
-
-%I considered using AngularJS\footnote{\url{https://angular.io/}}, but it would be an additional dependency .
-
-Describe how the representations are \textit{dynamically} mapped into each other. 
-
-angular
-data binding
-
-simple syntax can be easily mapped into a visual, tree-like representation:
-basically we visualise the EST, with additional visual cues, widgets, etc. for language primitives, different datatypes, and other distinguishable elements
-
-compare to unreal engine:
-see chapter 7\ref{chap:comparison}
-
-the interface is somewhat cumbersome, but allows for assembling any code that can be assembled with text
-rapid editing: replacing any subtree
-
 \section{Performance}
-
-Inefficient -- unnecessary amount of DOM nodes is kept
-
-Could be based on the canvas element
-
 It could be optimized similarly to CodeMirror or other web-based text editors or applications. That is, only a visible portion (plus a margin, which allows for fast scrolling) of the code is rendered as DOM nodes at any time. The scrollbar is virtual and controlled by the editor rather than the browser.
 
 Text editors like CodeMirror use similar amount of DOM nodes [[]], but thanks to these optimizations are able to handle megabyte-sized\footnote{\url{http://codemirror.net/doc/internals.html\#approach}} text files and are used in many real-world applications\footnote{\url{http://codemirror.net/doc/realworld.html}}, which includes being a built-in editor in developer tools in major web browsers.
@@ -243,36 +182,3 @@ A solution to that would be to implement a custom text editor or extend/modify C
 \caption{Blueprints Visual Scripting\protect\footnote{Screenshot from  \url{https://docs.unrealengine.com/latest/images/Engine/Blueprints/HowTo/BPHT_6/GetScore.jpg}}}
 \label{fig:blueprint}
 \end{figure}
-
-comparisons
-
-vs Unreal: // very static and cumbersome
-    first-class functions
-    first-class macros
-    substitution
-    
-    in 4.9.2 no sorting function implemented
-        and it's a commercial product
-        
-        one of the possible areas where a visual language would be handy for anyone, regardless of programming experience is rapid prototyping
-        
-        if it's static like Blueprint this advantage is greatly diminished
-    w/o first-class functions the more cumbersome to implement
-    
-
-General desirable characteristics of a scripting language:
-	dynamic
-	flexible
-	suitable for rapid prototyping
-	library of basic functions
-	complementary to a non-scripting language
-	
-Unreal Engine
-	nope
-	static
-	rigid
-	no sort
-	
-	does not really complement C++, which is also static and rigid
-
-% rendering text onto canvas?

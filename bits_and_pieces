@@ -1,0 +1,782 @@
+
+% more on innovation
+%This ``dual'' representation of the language 
+%%
+%exploring various features across different languages
+% and [[analyze, compare, other things]]
+%Approach presented here can be generalized to any number of representations
+%The scope of this research
+%Exploratory
+%I intend to develop this further
+%I also look at programming language design in general and try to find establish a balance of features for a modern language
+
+%mainly  have been growing in popularity [[citation]]. I intend to further this growth with this research. 
+
+%Literature and existing solutions
+%Explore the [[unexplored]]
+
+
+
+I create a unique design, which combines [[]] and seems to be, certainly not to this extend and not with these technologies, a previously unexplored ground.
+
+It's also a good text-based language designed with rapid prototyping of computer games and web applications in mind, but fairly applicable as a more general-purpose solution.
+
+Not tied to any commercial product, dependent only on the ubiquitous web platform.
+
+Furthermore ideas regarding programming language design presented here are applicable in general, regardless of technology.
+
+
+%The goal is not to simply go through the motions of implementing a programming language, while changing some superficial aspect of it -- such as syntax -- though this is incidentally done as well. But the point here is exploring some of the fundamental concepts and in language design and trying to innovate there.
+
+
+
+
+
+\comment{Czy rozwiązania
+istniejące w~danej dziedzinie nie są wystarczające? Czy problem można rozwiązać
+inaczej? Czy podejmowany problem jest aktywnym tematem badawczym? Przed jakimi
+wyzwaniami stoi osoba podejmująca tematykę? Na tym etapie należy zarysować
+problem w~sposób ogólny.}
+
+\comment{Cele muszą być sformułowane w~sposób zwięzły i~\textbf{ścisły}.}
+
+\comment{Alternatywnie, zamiast zakładać tutaj cele do realizacji, można
+  opisywać wkład pracy dyplomowej w stan wiedzy w danej dziedzinie.  W ten
+  sposób czytelnik już na wstępie wie, jakie są osiągnięcia autora.}
+
+
+\comment{W tym podrozdziale należy szczegółowo uzasadnić dlaczego wybrany został taki
+a~nie inny temat pracy. Trzeba przede wszystkim zaprezentować aktualny stan
+wiedzy w~danej dziedzinie. Oznacza to konieczność omówienia książek
+(ew. artykułów naukowych bądź dokumentacji technicznej) z~których będzie się
+korzystać w~trakcie rozprawy. Następnie należy wskazać -- tym razem już
+konkretnie -- co nowego zamierza się zrobić. Podstawowymi celami tego
+podrozdziału jest wprowadzenie czytelnika w~aktualny stand danej dziedziny
+i~przekonanie go że \textbf{naprawdę warto zajmować się podjętym tematem}.}
+
+***
+
+
+\comment{Ten rozdział powinien zawierać teorię z~której autor będzie korzystał w~dalszej
+części pracy.  Podstawowym celem istnieniem tego rozdziału jest umożliwienie
+czytelnikowi zrozumienie teorii rozwijanej w pracy oraz osiągniętych wyników
+praktycznych.  Jeżeli jakieś informacje nie są niezbędne do zrozumienia
+osiągnięć autora nie należy o nich pisać.}
+
+%\section{Tools}
+
+%The most important 
+%WebAssembly?
+
+%My most recent and significant experience both professional and non-professional is with the JavaScript language.
+
+%I find this language well-suited to a great range of tasks []
+
+
+
+The popularity of JavaScript grew over time\footnote{\url{http://www.r-bloggers.com/the-most-popular-programming-languages-on-stackoverflow/}}
+
+%EcmaScript 2015
+%Now 2016
+
+%\url{https://en.wikipedia.org/wiki/Measuring_programming_language_popularity}
+
+%In my design I 
+% Class-free OOP -> design discussion
+
+
+
+%Lisp distills some fundamental  
+
+
+``It's surprising that you can write in a language without using its syntax. Usually when we're reviewing languages syntax is all we look at. We look at the most superficial aspect of it. And often it could be years before we discover what's in the deeper layers.''
+-- Douglas Crockford, \url{https://www.youtube.com/watch?v=Nlqv6NtBXcA} ~4:00
+
+JavaScript design time: 10 days
+Smalltalk design time: 10 years
+
+
+%\subsection{Abstract syntax tree}
+
+% detailed bibliography: http://web.engr.oregonstate.edu/~burnett/vpl.html
+
+
+
+\comment{
+An example application built with the language 
+Canvas element
+
+Programming languages build on top of each other and cross over to form complex taxonomies.
+
+Lisp family
+Pattern matching languages (ML-family?)
+JavaScript
+
+Lisp
+    apply // link
+    eval // link
+    
+    Scheme
+    Common Lisp
+
+prefix (polish) notation
+
+what are language primitives/special forms
+I'll use the term language primitive
+
+etc.
+functional purity and why not
+
+This section 
+means of research, that are rather heuristic in nature and not formal
+provide a starting point and a reference for design
+}
+
+***
+
+% perhaps different (earlier) chapter -- background? philosophical?
+I recognize that the textual representation is very useful and will be used by programmers if available.
+
+
+First prototype
+
+iterations
+
+background: BNF? just mention?
+
+Advantages of a textual representation:
+Find and replace
+Block editing
+Flexibility
+Quick editing
+
+
+The Pac-Man clone is implemented in a stable subset of the language [[]]
+% perhaps list which primitives belong to this subset?
+
+
+
+% my experience with lisp
+% perhaps a natural tendency
+% BUT we may observe:
+
+% fix this:
+It seems that if we reduce a design of a programming language design to its essentials, we are left with Lisp. Such essentials are:
+\begin{itemize}
+    \item Syntax. Lisp has a very minimal syntax that is built on the principle of %%
+    Any scope is marked with a beginning and an end symbol. Operators are recognized by their position in the source. If we exclude various extensions, flavors and modifications, there's no extraneous characters or symbols
+    \item Definitions, declarations
+    \item Eval \& apply
+\end{itemize}
+
+
+\section{Name}
+The name of the language reflects the original core concept of the two concurrent representations: the visual and text. Throughout this research however, I was able [[]] to generalize the concept to any number of possible representations.
+
+But duality is present in many aspects of the language [[see definition/evaluation duality, chap:design]] and in a more general, philosophical sense it's a fundamental principle of reality. The language is something of an exploration of this and other fundamental principles, if not of reality, then at least of programming language design. So, since ``Basic'' is already taken and ``Fundamental'' sounds somewhat pejorative, I stuck with the original name. 
+:D
+
+
+% introduce features as needed
+
+
+% note: the footnote should be a citation
+
+% shorten this and move details to the end
+
+    % perhaps the remark about C-like syntax should be moved to Background and extended
+    
+    
+
+% might elaborate on that
+% this means that in '[[string]] the inner brackets would have to be escaped
+% if this was legal, than any string of text would be a syntactically legal program, provided that [ and ] are balanced
+% a naive scheme implementation would have that property
+% http://stackoverflow.com/questions/4900342/why-is-the-hyphen-conventional-in-symbol-names-in-lisp arbitrary lisp symbol names |this *@^! symbol is valid - why is that po_ss_ib_le?|
+
+
+% describe comments
+
+
+% describe
+
+ % elaborate
+ 
+% pattern matching:
+% this is actually more powerful than in Common Lisp http://nullprogram.com/blog/2013/01/20/\#Destructuring
+
+        \item % rest parameters
+        
+        
+% ???
+
+
+% ??? discard?:
+
+
+% match
+
+
+% quotation, substitution
+
+
+    % FIXME, clarify or throw away
+    %If the name of last parameter of the function is between curly braces, then this name will be associated with a (possibly empty) list, which holds the first value at the position of the rest parameter and all subsequent values
+    
+
+on duality of binding and evaluation
+expand in chapter 6 \ref{chap:desgin}
+    optional parameters
+
+% http://nullprogram.com/blog/2013/01/20/
+% pattern matching gives a simple way to define optional parameters and give them default values
+% http://nullprogram.com/blog/2013/01/20/\#clojure-parameters
+% Common Lisp also has destructuring
+% Clojure, ClojureScript -- popular Lisp-like
+% Crockford: mistakes in C-syntax; rise of langs w/ different syntax (CoffeeScript)
+
+%%%
+Strings can be represented structurally, as syntax trees. This, in combination with pattern matching allows for 
+
+\cite{eloquentjs}
+Between S and M expressions 
+
+    introduce it, but state that BNF ain't good and that it's not the best way of looking at such a simple language, only complicates reasoning
+
+ 
+ {}
+ rest parameters and spread
+ 
+ log
+ 
+ list/\$
+
+
+
+[[]] Mapping to a JavaScript equivalent
+
+see text files ideas
+
+language's syntax/grammar
+    language's grammar in BNF-notation, without left-recursion, a bit verbose:
+    <expression>     ::= <word> | <call>
+    <call>           ::= <operator> <argument-list>
+    <operator>       ::= <word> <argument-lists>
+    <argument-list>  ::= "[" <arguments> "]"
+    <word>           ::= /^[^\s\[\]]+/
+    <argument-lists> ::= <argument-list> <argument-lists> | ""
+    <arguments>      ::= <expression> <arguments> | ""
+
+    less verbose (not sure if correct):
+    <expression>       ::= <word> <expression-lists>
+    <word>           ::= /^[^\s\[\]]+/
+    <expression-lists> ::= "[" <expressions> "]" <expression-lists> | ""
+    <expressions>      ::= <expression> <expressions> | ""
+
+    whitespace is mostly non-significant;
+    it doesn't influence the semantics of a program, although it is stored in the syntax tree and can be accessed by special primitives, such as `string`
+
+language's semantics
+    AST is a tree of nested expression objects
+    there are two types of expressions:
+        word
+            an identifier/name
+            usually refers to some value in the accessible scope
+            could also be treated as literal string (possibly parsed to a number), depending on the operator that evaluates it
+        call
+            an application
+            consists of an operator (which is an expression that is being applied) and arguments (which are fed to the operator)
+            should produce a value
+
+    every language element is an expression and has a value
+
+    define
+        aliases: :
+        arity: 2
+        arguments: name, value
+        description:
+            creates a value accessible in the closest scope under the `name` label; the value is the result of evaluating `value`
+        returns: the result of evaluating `value`
+
+    sequence
+        aliases: seq, do
+        arity: * (0..infinity)
+        description: evaluates its arguments in order
+        return: the value of its last argument
+
+    string
+        aliases: $
+        arity: *
+        description:
+            returns its arguments' names and the whitespace between them as a string value, as in:
+                $[Hello, wolrd!]
+            would be more-or-less equivalent to Java string:
+                "Hello, world!"
+        notes:
+            this kind of string is multiline and could work with embedded expressions, as in:
+                $[Hello, \$[name]!]
+            if `name` would refer to another string of value e.g. "Alan" this would produce a string like:
+                "Hello, Alan!"
+
+    if
+        aliases: conditional
+        arity: 3
+        arguments: condition, then-expression, else-expression
+        returns:
+            if `condition` evaluates to `true`, the value of `then-expression`, otherwise the value of `else-expression`
+            alternatively the condition could be checked against a non-zero value instead of `true`
+        note:
+            I will most likely drop the concept of booleans entirely and treat 0 as a special value, representing `false`, `null`, `undefined`, empty
+            any non-zero value would then represent `true`
+
+    while
+        arity: 2
+        arguments: condition, loop-body
+        description: a basic loop construct; if `condition` is equivalent to `true`, evaluates `loop-body`; repeats these steps until `condition` evaluates to `false` (0)
+        returns: `false` (0)
+
+    number
+        aliases: \#
+        arity: 1
+        description:
+            parses its argument's name as a number, as in:
+                \#[3]
+            evaluates to the number 3
+        returns: a number parsed from its argument's name
+
+    boolean
+        aliases: ?
+        arity: 1
+        description:
+            parses its argument's name as a boolean, as in:
+                ?[true]
+            evaluates to `true`
+        returns: `true` or `false`, depending on its argument name
+        note: likely will be dropped from the language
+
+    print$
+        arity: *
+        description:
+            works like `string`, but also prints its value to the JavaScript console
+
+
+    todo:
+        greater-than
+        aliases: >, gt
+        arity: 2
+        arguments: a, b
+        description: checks if `a` is greater than `b`
+        returns:
+            `true` if `a` greater than `b`, `false` otherwise
+            alternatively `a` if `a` greater than `b` and non-zero, infinity if `a` equal to zero, but greater than `b` and zero otherwise
+
+        less-than
+        aliases: <, lt
+        description: analogous to greater-than, only checks if `a` less than `b`
+
+        ...other operators and common functions
+
+        function
+            aliases: fun, /
+            arity: 1..*
+            arguments: arg* (zero or more), function-body
+            description:
+                creates a function value
+                all the arguments up to the last are the names of the function arguments (must be identifiers); the last argument is the `function-body`
+            returns:
+                a function that accepts the defined number of arguments and evaluates them in the context of the `function-body`;
+                such a function creates its own local environment on top of the environment it is defined in,
+                puts the argumens it was called with in this environment, under the defined labels and evaluates the `function-body` in this environment;
+                the return value is the value of the `function-body`
+
+        // branch
+        // switch
+        // array
+        // set
+
+    special elements (not implemeted):
+        \
+        description: interpreter switch; precedes an interpreter command (which is a valid language identifier), which changes (possibly temporarily) the behaviour of the interpreter
+        for example:
+            if\3 flag then-do-this else-do-this
+        would be equivalent to:
+            if[flag then-do-this else-do-this]
+       here \ executes a numerical command (3) that makes the interpreter treat next 3 expressions as arguments to the preceding expression, which would be applied to them
+       this would be a simple way of getting rid of excess closing brackets ']'
+       I have a few other ideas to utilize the interpreter switch, such as comments/documentation.
+
+\section{Basic functions}
+
+
+
+\section{Memory model}
+
+language's "memory model"
+    to call it a memory model is a stretch;
+    every program is evaluated in an environment, which is a JavaScript object (basically a string key-any value map);
+    the keys in the environment object are variable names/identifiers;
+    the values are the values associated with the corresponding identifiers;
+    the environment that is accessible at all times is the root environment, where all globally-accessible values live
+    it should be populated with basic arithmetic and logic operators, functions and constructs that are not special language primitives (such as if, while, string, etc.)
+    all functions defined in the language have their local environment, build on top of the environment that contains the function definition (closures work)
+    functions have access to values in their local environments and all containing environments
+    the local environment can have identifiers defined that override outer enivronments' identifiers (but they don't overwrite them)
+    this mechanism is built on top of JavaScript's prototype-based inheritance
+    
+Since it is a thin wrapper over JavaScript it shares its memory model.
+Event loop
+Single-threadedness
+
+
+\section{Syntax extensions}
+rest parameters
+spread operator
+built-in template strings, quotation mechanism
+html strings 
+
+
+***
+
+
+A naive implementation of 
+
+
+The templates prepared for the prototype use 
+
+Saving own templates
+
+Possible improvements and enhancments to the visual editor:
+Support for more ways of manipulating the DOM representation, such as drag and drop.
+
+Interactive visualisation of the syntax tree.
+
+Inputing symbols
+Unicode
+
+Slots
+
+Easy to see different relationships
+
+An useful technique even for visualisation of existing code
+
+The connections between blocks 
+
+
+
+I actually intended to represent 
+
+
+
+Not my final form.
+
+A good design is not made overnight.
+
+Smalltalk was perfected over 10 years.
+
+Improvements:
+icons, graphic controls
+Specialized controls for editing different types of values
+Some values have a very natural visual representation:
+colors, perhaps vectors
+
+%I considered using AngularJS\footnote{\url{https://angular.io/}}, but it would be an additional dependency .
+
+Describe how the representations are \textit{dynamically} mapped into each other. 
+
+angular
+data binding
+
+simple syntax can be easily mapped into a visual, tree-like representation:
+basically we visualise the EST, with additional visual cues, widgets, etc. for language primitives, different datatypes, and other distinguishable elements
+
+compare to unreal engine:
+see chapter 7\ref{chap:comparison}
+
+the interface is somewhat cumbersome, but allows for assembling any code that can be assembled with text
+rapid editing: replacing any subtree
+
+Inefficient -- unnecessary amount of DOM nodes is kept
+
+Could be based on the canvas element
+
+comparisons
+
+vs Unreal: // very static and cumbersome
+    first-class functions
+    first-class macros
+    substitution
+    
+    in 4.9.2 no sorting function implemented
+        and it's a commercial product
+        
+        one of the possible areas where a visual language would be handy for anyone, regardless of programming experience is rapid prototyping
+        
+        if it's static like Blueprint this advantage is greatly diminished
+    w/o first-class functions the more cumbersome to implement
+    
+
+General desirable characteristics of a scripting language:
+	dynamic
+	flexible
+	suitable for rapid prototyping
+	library of basic functions
+	complementary to a non-scripting language
+	
+Unreal Engine
+	nope
+	static
+	rigid
+	no sort
+	
+	does not really complement C++, which is also static and rigid
+
+% rendering text onto canvas?
+
+***
+
+
+% put a firefox version as a separate example
+
+	
+iterative-evaluate.js excerpt:
+\begin{lstlisting}
+\end{lstlisting}
+
+
+% REFER to my previous work?
+
+pacman
+
+vs Links
+vs JS
+vs Unreal Engine
+    BLUI
+    Coherent
+        web platform for UIs everywhere
+
+early user feedback
+
+event loop
+js event model
+fight with garbage collector
+game loop
+requestAnimationFrame
+
+\comment{Ten rozdział zawiera opis wyników uzyskanych w~ramach pracy. Jeśli praca miała
+cel badawczy należy skupić się na opisie przeprowadzonych eksperymentów oraz
+prezentacji i~analizie uzyskanych wyników. Jeśli praca nie miała na celu
+uzyskania nowatorskich wyników, należy skupić się na opisie architektury
+stworzonej aplikacji. W~obu przypadkach podstawowym celem tego rozdziału jest
+realizacja celów postawionych w~rozdziale \ref{sec:cele_pracy}. Rozdział ten ma
+bezspornie pokazywać, że cele pracy zostały zrealizowane}
+
+
+***
+
+
+more proposed features
+
+own front-end framework
+angular
+react
+data binding
+
+modern ide
+
+vs code
+
+few general and powerful features
+rather than a lot of specific features
+
+the less primitives/axioms the better
+Arc
+goto
+
+lazy evaluation
+    if
+    
+    
+try-bind: explicit pattern matching
+
+editor manipulation
+
+internals of the language available
+    first-class environments
+    cite wouter
+    
+
+% only single-word comments could matter: http://c2.com/cgi/wiki?HotComments
+% or perhaps this could be a different meta-construct, extension mechanism
+
+% arguments: positional, keywords/keys
+% lisp keywords
+
+
+\section{Module system}
+
+
+\section{Extensions to parameter pattern matching}
+
+    proposed syntax
+        optional parameters {a b c}
+        default args {?[a 3] ?[b 4] ?[c 5]}
+
+    elaborate on the duality/symmetry of binding/definition and evaluation
+    
+    destructuring code for macros
+    
+    matching arbitrary expressions/types
+    
+    
+ \section{First-class macros}
+ implemented, but turned off/discarded in the final prototype
+ need a rewrite (not within time scope of this thesis)
+ 
+ jit-expanded
+ 
+ work on zero-cost
+    for simple cases works, but
+    if nontrivial, in loops, nested, etc. then it's a complex problem
+    
+possibilities:
+    compile-time macros
+    
+even more flexible system:
+    read (parse) time macros // link to json in lisp
+ 
+gensym, hygiene
+ 
+ \section{A better evaluation model}
+ better suited to the browser environment
+ Explicit-stack execution model
+% syntaxation, emotions
+% cite the same thing? ref to previous~ chapter?
+direct mapping to the bare syntax
+
+make syntax more heterogenous
+
+.[a b c]
+a.b.c -- THIS
+
+minimalist approach to language design
+Paul Graham's Arc
+
+renamed define to bind
+shorter, slightly specific meaning
+
+mental gymnastics and thesaurus at hand
+
+I prefer short but complete words
+
+disadvantage is that changing the name of something fundamental makes it seem unfamiliar
+which is not necessary if the only thing that actually changed is the name/syntax and not the semantics
+
+infix notation inside ()
+\url{https://en.wikipedia.org/wiki/Shunting-yard_algorithm}
+
+
+% having added so much complexity already might as well
+ []
+
+
+
+
+\section{Modules}
+In principle
+import and module keywor
+
+
+\section{Editor}
+Synchronized scrolling to keep track of the point in code in both representations.
+
+Vault for code fragments
+Snippets = expanded macros
+
+Other features
+Support for opening files outside of projects.
+
+Experimenting with application architecture. JSON over WebSockets, only generated HTML, Shared Web Workers and other web technologies.
+
+
+\subsection{Debugging}
+
+There's limited support for debugging in the current version:
+debug expression
+
+one of the former iterations had a mechanism for setting breakpoints on individual expressions
+
+%%%%
+
+dynamic scope
+http://letoverlambda.com/index.cl/guest/chap3.html
+see: Duality of syntax
+
+\section{Future work}
+Compilation
+    bytecode?
+    JS
+    WebAssembly
+
+Brendan Eich:
+Tool time
+    Static type checking
+Compile time
+Runtime
+
+\section{General considerations}
+
+Pros of minimal syntax
+
+Cons of minimal syntax
+
+Operator precedence
+http://www.ozonehouse.com/mark/blog/code/PeriodicTable.pdf
+% periodic table of operators in Perl 6
+
+***
+
+
+reiterate intro
+
+intend to make it a platform
+open source
+manual
+basics of programming
+games
+web development
+
+reddit
+
+inefficiency factors
+    implementation against event loop
+        solved with generator-like explicit-stack evaluate
+    codemirror does parsing again
+    visualisation is not optimized at all
+    
+    
+    
+Podsumowanie jest, obok Wstępu, najważniejszym rozdziałem pracy. Należy tutaj
+jeszcze raz podsumować wykonane prace. Szczególny nacisk należy położyć na wkład
+własny autora i~uzyskane oryginalne rezultaty. Należy odwołać się do celów pracy
+z~rozdziału \ref{sec:cele_pracy} -- można je powtórzyć -- i~jasno wskazać, że
+zostały one zrealizowane (należy powołać się na wyniki z~rozdziału
+\ref{chap:badania}). Wyniki należy podsumować zwięźle i~precyzyjnie, np.
+\textit{uzyskano przyspieszenie algorytmu o~X\%..., skrócono czas o~...}  itd.
+Należy wskazać perspektywy dalszych badań bądź zastosowanie uzyskanych
+rezultatów do rozwiązania problemów znanych z literatury.
+
+***
+
+
+%\item[dat] : {\color{red} pliki z~danymi wykorzystane w~trakcie badań}
+%\item[db] : {\color{red} Zrzut bazy danych potrzebnej do działania aplikacji}
+% may want to show example folder here
+% sth like dist/examples: 
+
+% perhaps in a subfolder
+% this will be one presentation:
+{\color{red} Do pracy należy dołączyć podpisaną płytę CD w~papierowej
+  kopercie.  Poniżej należy zamieścić opis zawartości katalogów.}
+
+
+% this is included in dist:

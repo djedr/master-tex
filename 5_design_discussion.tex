@@ -1,35 +1,5 @@
 \chapter{Design discussion}\label{chap:design}
 
-more proposed features
-
-own front-end framework
-angular
-react
-data binding
-
-modern ide
-
-vs code
-
-few general and powerful features
-rather than a lot of specific features
-
-the less primitives/axioms the better
-Arc
-goto
-
-lazy evaluation
-    if
-    
-    
-try-bind: explicit pattern matching
-
-editor manipulation
-
-internals of the language available
-    first-class environments
-    cite wouter
-    
 \section{Comments}\label{sec:comments}
 If multiline comments were implemented as expressions on parser-level then, in combination with \texttt{|} special character we could have one-word comments, which could be useful for describing arguments to facilitate reading of expressions. For example we could implement list comprehensions, where:
 \begin{lstlisting}
@@ -85,92 +55,19 @@ Or even, at the cost of complicating the parser, introduce a separate syntax for
     ]
 \end{lstlisting}
 
-% only single-word comments could matter: http://c2.com/cgi/wiki?HotComments
-% or perhaps this could be a different meta-construct, extension mechanism
-
-% arguments: positional, keywords/keys
-% lisp keywords
-
 In future versions of the language, comments will be stored separately from whitespace in the EST. This enables easy smart indentation -- only a prefix of the relevant expression has to be looked at, no need to filter out comments. It also enables using comments structurally, as a metalanguage for annotations, documentation, etc.
-
-\section{Module system}
-
-
-\section{Extensions to parameter pattern matching}
-
-    proposed syntax
-        optional parameters {a b c}
-        default args {?[a 3] ?[b 4] ?[c 5]}
-
-    elaborate on the duality/symmetry of binding/definition and evaluation
-    
-    destructuring code for macros
-    
-    matching arbitrary expressions/types
 
 \section{Structural string manipulation}
 \begin{lstlisting}
     words[_ _ _ fourth _ sixth] -- supa fast, out of the box
     characters[_ _ _ _ fifth]
 \end{lstlisting}
-
- \section{First-class macros}
- implemented, but turned off/discarded in the final prototype
- need a rewrite (not within time scope of this thesis)
- 
- jit-expanded
- 
- work on zero-cost
-    for simple cases works, but
-    if nontrivial, in loops, nested, etc. then it's a complex problem
-    
-possibilities:
-    compile-time macros
-    
-even more flexible system:
-    read (parse) time macros // link to json in lisp
- 
-gensym, hygiene
- 
- \section{A better evaluation model}
- better suited to the browser environment
- Explicit-stack execution model
  
 \section{C-like syntax}
 Throughout this thesis I introduced multiple ways in which the basic, Lisp-like syntax of Dual can be easily extended with simple enhancements, such as adding more general-purpose special characters, macros, single-word comments (as described in Section \ref{sec:comments}), etc.
 
-Going further along this path, keeping in mind that a real-world language should appeal to its users 
-% syntaxation, emotions
-we find ourselves introducing more and more elements of C-like syntax. This section describes more possible ways in which the simple syntax could be morphed to resemble the most popular languages.
-% cite the same thing? ref to previous~ chapter?
-
-
-direct mapping to the bare syntax
-
-make syntax more heterogenous
-
-.[a b c]
-a.b.c -- THIS
-
-minimalist approach to language design
-Paul Graham's Arc
-
-renamed define to bind
-shorter, slightly specific meaning
-
-mental gymnastics and thesaurus at hand
-
-I prefer short but complete words
-
-disadvantage is that changing the name of something fundamental makes it seem unfamiliar
-which is not necessary if the only thing that actually changed is the name/syntax and not the semantics
-
-infix notation inside ()
-\url{https://en.wikipedia.org/wiki/Shunting-yard_algorithm}
-
-
-% having added so much complexity already might as well
-Ultimately all this could be implemented with a conventional complex parser for a C-like language that translates to bare Dual syntax. []
+Going further along this path, keeping in mind that a real-world language should appeal to its users we find ourselves introducing more and more elements of C-like syntax. This section describes more possible ways in which the simple syntax could be morphed to resemble the most popular languages.
+Ultimately all this could be implemented with a conventional complex parser for a C-like language that translates to bare Dual syntax.
 
 Below I present a snapshot from one of designs I have been working on in order to achieve some goals described in this section:
 \begin{lstlisting}
@@ -211,60 +108,6 @@ One may observe that:
     \item \texttt{(())} introduce an infix expression, which respects basic operator precedence: (\texttt{((a + b * 2))} would translate to \texttt{+[a *[b 2]]}. This could be implemented with a separate parser based on the shunting-yard\footnote{\url{www.cs.utexas.edu/~EWD/MCReps/MR35.PDF}} or similar algorithm that is triggered by the \texttt{((} sequence. It would translate these infix expressions to prefix form and return them back to the original parser.
 \end{itemize}
 
-\section{Modules}
-In principle
-import and module keywor
-
-
-\section{Editor}
-Synchronized scrolling to keep track of the point in code in both representations.
-
-Vault for code fragments
-Snippets = expanded macros
-
-Other features
-Support for opening files outside of projects.
-
-Experimenting with application architecture. JSON over WebSockets, only generated HTML, Shared Web Workers and other web technologies.
-
-
-\subsection{Debugging}
-
-There's limited support for debugging in the current version:
-debug expression
-
-one of the former iterations had a mechanism for setting breakpoints on individual expressions
-
-%%%%
-
-dynamic scope
-http://letoverlambda.com/index.cl/guest/chap3.html
-see: Duality of syntax
-
-\section{Future work}
-Compilation
-    bytecode?
-    JS
-    WebAssembly
-
-Brendan Eich:
-Tool time
-    Static type checking
-Compile time
-Runtime
-
-\section{General considerations}
-
-Pros of minimal syntax
-
-Cons of minimal syntax
-
-Operator precedence
-http://www.ozonehouse.com/mark/blog/code/PeriodicTable.pdf
-% periodic table of operators in Perl 6
-
 \section{Universal visual editor}
-
-
 The structure produced by a visual editor does not have to necessarily be a syntax tree of a particular language.
 Text editors allow inputing arbitrary sequences of characters, which are transformed into a syntax tree by a specialized parser. Analogously, an universal visual editor could allow insertion, connection and mainpulation of arbitrary generalized blocks, thus forming a truly abstract syntax tree (language-independent). This tree could then be ``parsed'' to produce a syntax tree for a particular language.

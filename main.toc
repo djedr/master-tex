@@ -44,11 +44,11 @@
 \contentsline {section}{\numberline {5.1}Comments}{47}{section.5.1}
 \contentsline {section}{\numberline {5.2}Structural string manipulation}{48}{section.5.2}
 \contentsline {section}{\numberline {5.3}Just-in-time macros}{49}{section.5.3}
-\contentsline {section}{\numberline {5.4}C-like syntax}{49}{section.5.4}
-\contentsline {section}{\numberline {5.5}Universal visual editor}{51}{section.5.5}
-\contentsline {chapter}{\numberline {6}Summary and conclusions}{53}{chapter.6}
-\contentsline {chapter}{Bibliography}{55}{chapter*.7}
-\contentsline {chapter}{Glossary}{57}{section*.8}
-\contentsline {chapter}{Acronyms}{59}{section*.10}
-\contentsline {chapter}{\numberline {A}P\IeC {\l }yta CD}{61}{appendix.A}
-\contentsline {section}{\numberline {A.1}Running the application}{62}{section.A.1}
+\contentsline {section}{\numberline {5.4}C-like syntax}{51}{section.5.4}
+\contentsline {section}{\numberline {5.5}Universal visual editor}{53}{section.5.5}
+\contentsline {chapter}{\numberline {6}Summary and conclusions}{55}{chapter.6}
+\contentsline {chapter}{Bibliography}{57}{chapter*.7}
+\contentsline {chapter}{Glossary}{59}{section*.8}
+\contentsline {chapter}{Acronyms}{61}{section*.10}
+\contentsline {chapter}{\numberline {A}P\IeC {\l }yta CD}{63}{appendix.A}
+\contentsline {section}{\numberline {A.1}Running the application}{64}{section.A.1}

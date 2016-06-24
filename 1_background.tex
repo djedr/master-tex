@@ -1,16 +1,15 @@
 \chapter{Background}\label{chap:background}
 This chapter briefly introduces the theoretical and practical components
 involved in design and implementation of the Dual programming language and its
-environment. I may further use the terms ``Dual system'' or simply ``system'' to
-refer to the language and the environment \js{``its environment''?} as a whole.
+environment. 
 
 \section{Web technologies}
-One of the main design goals of the system is accessibility.
-\js{Może rozwinąć myśl?  Chodzi o dostępność dla osób które nie znają się w ogóle na programowaniu? O dostepność dla osób które znają już JavaScript?}
- This is
+As stated in the introduction, one of the main design goals of the system is usability.
+%\js{Może rozwinąć myśl?  Chodzi o dostępność dla osób które nie znają się w ogóle na programowaniu? O dostepność dla osób które znają już JavaScript?}
+This is
 accomplished in practice by building it on top of the most accessible and
 ubiquitous platform -- the web
-platform\footnote{\url{https://platform.html5.org/}}.
+platform\cite{web_platform}\footnote{Also referred to as the \textit{open} web platform\cite{open_web_platform}}.
 
 The language's interpreter and development environment are intended to work with
 and are built on web technologies: JavaScript, HTML5 and CSS. The prototype
@@ -23,15 +22,6 @@ philosophy\footnote{\url{https://en.wikipedia.org/wiki/Comparison_of_JavaScript-
 such as Visual Studio Code\footnote{\url{https://code.visualstudio.com/}},
 Brackets\footnote{\url{http://brackets.io/}},
 Atom\footnote{\url{https://atom.io/}} and many others.
-
-The design of Dual's visual representation draws from many visual programming
-languages. Analyzing these, we can observe many distinct approaches of which two
-particular designs are the most widespread and successful. These can be
-described as ``line-connected block-based'' and ``snap-together block-based''
-visual languages. The former family is exemplified by the Blueprints Visual
-Scripting system of Unreal Engine
-4\footnote{\url{https://docs.unrealengine.com/latest/INT/Engine/Blueprints/}}
-and the latter by MIT Scratch\footnote{\url{https://scratch.mit.edu/}}.
 
 \subsection{JavaScript}
 From a programming language design perspective, JavaScript has many great
@@ -223,10 +213,29 @@ I classified each of nearly 160 languages listed in \cite{snapshots}, according
 to type of their visual representation, to one of three categories:
 \js{Może Pan wyjaśnić czym się różni 1 od 2?  Mam poczucie, że wrzucenie obrazków pokazujących jedno i drugie mogło by pomóc.}
 \begin{enumerate}
-    \item Line-connected blocks: about 66\%
-    \item Snap-together blocks
+    \item Line-connected block-based, exemplified by Blueprints Visual
+    Scripting system of Unreal Engine 4\cite{blueprint}: about 66\%
+    \item Snap-together block-based, exemplified by MIT Scratch\cite{scratch, scratch_wikipedia}
     \item Other
 \end{enumerate}
+
+
+\begin{figure}[h!]
+\centering \includegraphics[width=0.9\textwidth]{scratch}
+\caption{ MIT Scratch programming language editor\protect\footnote{ Screenshot
+        from \url{
+            http://mypad.northampton.ac.uk/12406702/files/2013/05/Screen-Shot-2013-05-02-at-23.19.19-1s0qp26.png
+        } } }
+\label{fig:scratch}
+\end{figure}
+
+\begin{figure}[h!]
+\centering \includegraphics[width=0.9\textwidth]{blueprint}
+\caption{Blueprints Visual Scripting\protect\footnote{Screenshot from
+        \url{https://docs.unrealengine.com/latest/images/Engine/Blueprints/HowTo/BPHT_6/GetScore.jpg}}}
+\label{fig:blueprint}
+\end{figure}
+
 
 Additionally, I associated each language with a number $s \in [0, 3]$, which
 descirbes its ``structure factor''. This tries to quantify my subjective

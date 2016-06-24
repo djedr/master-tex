@@ -1,4 +1,78 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{pacman_complete}
+\url{https://twitter.com/folone/status/494017847585415168}.
+\newblock A twitter message with a quote from Edwin Brady.
+
+\bibitem{blueprint}
+{B}lueprints {V}isual {S}cripting.
+\newblock \url{https://docs.unrealengine.com/latest/INT/Engine/Blueprints/}.
+\newblock From Unreal Engine 4 Documentation.
+
+\bibitem{idris}
+{I}dris | {A} {L}anguage with {D}ependent {T}ypes.
+\newblock \url{http://www.idris-lang.org/}.
+\newblock Homepage of the Idris programming language.
+
+\bibitem{lisp_powerful}
+{L}isp {I}s {T}oo {P}owerful.
+\newblock \url{http://c2.com/cgi/wiki?LispIsTooPowerful}.
+\newblock An entry from the c2 Wiki: \url{http://c2.com/cgi/wiki}.
+
+\bibitem{lisp_wikipedia}
+{L}isp (programming language).
+\newblock \url{https://en.wikipedia.org/wiki/Lisp_(programming_language)}.
+\newblock Wikipedia definition of Lisp.
+
+\bibitem{unreal_list}
+{L}ist of {U}nreal {E}ngine games.
+\newblock \url{https://en.wikipedia.org/wiki/List_of_Unreal_Engine_games}.
+\newblock ``[A] list of notable games using a version of the Unreal Engine.''
+  From Wikipedia.
+
+\bibitem{unreal_guinness}
+{M}ost successful videogame engine.
+\newblock
+  \url{http://www.guinnessworldrecords.com/world-records/most-successful-game-engine}.
+\newblock From Guinness World Records webpage. Record as of 16 July 2014.
+
+\bibitem{open_web_platform}
+{O}pen {W}eb {P}latform.
+\newblock \url{https://www.w3.org/wiki/Open_Web_Platform}.
+\newblock ``The Open Web Platform is the collection of open (royalty-free)
+  technologies which enables the Web.''.
+
+\bibitem{web_platform}
+{T}he {W}eb platform: {B}rowser technologies.
+\newblock \url{https://platform.html5.org/}.
+\newblock A list of browser technologies that are the components of the
+  platform with links to their specifications.
+
+\bibitem{vpl_wikipedia}
+{V}isual programming language.
+\newblock \url{https://en.wikipedia.org/wiki/Visual_programming_language}.
+\newblock Wikipedia definition of a visual programming language.
+
+\bibitem{ecmascript}
+{ECMAS}cript® 2016 {L}anguage {S}pecification.
+\newblock \url{http://www.ecma-international.org/ecma-262/7.0/index.html}, June
+  2016.
+
+\bibitem{lisp_expressive}
+Donnie Berkholz.
+\newblock {P}rogramming languages ranked by expressiveness.
+\newblock
+  \url{http://redmonk.com/dberkholz/2013/03/25/programming-languages-ranked-by-expressiveness/},
+  March 2013.
+\newblock A blog post by a RedMonk (A ``developer focused industry analyst
+  firm.'') analyst.
+
+\bibitem{visual_languages}
+Margaret~M. Burnett.
+\newblock {V}isual {L}anguage {R}esearch {B}ibliography.
+\newblock \url{http://web.engr.oregonstate.edu/~burnett/vpl.html}.
+\newblock ``This page is a structured bibliography of papers pertaining to
+  visual language (VL) research.''. From Oregon State University.
 
 \bibitem{syntaxation}
 Douglas Crockford.
@@ -8,6 +82,13 @@ Douglas Crockford.
   September 2013.
 \newblock Presentation from the 2013 edition of the ``goto'' conference,
   \url{http://gotocon.com/aarhus-2013/}.
+
+\bibitem{vpl_maturity}
+Rémi Dehouck.
+\newblock {T}he maturity of visual programming.
+\newblock \url{http://www.craft.ai/blog/the-maturity-of-visual-programming/},
+  September 2015.
+\newblock A blog post.
 
 \bibitem{sicp_meta}
 Julie~Sussman Harold~Abelson, Gerald Jay~Sussman.
@@ -23,19 +104,33 @@ Eric Hosick.
   \url{http://blog.interfacevision.com/design/design-visual-progarmming-languages-snapshots/},
   2014.
 
-\bibitem{mexpr}
+\bibitem{lisp_simple}
+Nicholas H.Tollervey.
+\newblock {L}isp ~ {C}oncise and {S}imple.
+\newblock \url{http://ntoll.org/article/lisp-concise-and-simple}, March 2013.
+\newblock An article from the author's personal website:
+  \url{http://ntoll.org/}.
+
+\bibitem{lisp_draft}
 John McCarthy.
-\newblock {T}he implementation of {LISP}.
-\newblock \url{http://www-formal.stanford.edu/jmc/history/lisp/node3.html},
+\newblock {H}istory of {L}isp.
+\newblock \url{http://www-formal.stanford.edu/jmc/history/lisp/lisp.html},
   February 1979.
-\newblock Part of the ``History of Lisp'' draft,
-  \url{http://www-formal.stanford.edu/jmc/history/lisp/lisp.html}.
+\newblock A draft.
 
 \bibitem{macros}
 Matt Might.
 \newblock {F}irst-class (run-time) macros and meta-circular evaluation.
 \newblock
   \url{http://matt.might.net/articles/metacircular-evaluation-and-first-class-run-time-macros/}.
+
+\bibitem{unreal_script}
+Christian Nutt.
+\newblock {E}pic's {T}im {S}weeney lays out the case for {U}nreal {E}ngine 4.
+\newblock
+  \url{http://www.gamasutra.com/view/news/213647/Epics_Tim_Sweeney_lays_out_the_case_for_Unreal_Engine_4.php},
+  March 2014.
+\newblock An article from the Gamasutra website.
 
 \bibitem{wadler_critique}
 Philip Wadler.

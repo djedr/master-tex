@@ -1,17 +1,17 @@
 \chapter{Introduction}\label{chap:intro}
 
-\js{Rozdziały zwyczajowo numeruje się od 1, nie od 0.}
-
-\section{Title}
-\js{To jest tutaj od czapy, wstawiłbym dalej}
-The term ``Pac-Man-complete'' in the title refers to a somewhat humorous description of the Idris programming language\footnote{\url{http://www.idris-lang.org/}}
-\js{Tutaj i wszędzie dalej w pracy: nie robić footnote tylko cite, żeby było cytowanie bibliografii}
- attributed to the language's author, Edwin Brady\footnote{\url{https://twitter.com/folone/status/494017847585415168}}. In the context of this thesis it means that the designed programming language provides enough features to allow one to write a clone of the classic Pac-Man game in it.
+%\js{Rozdziały zwyczajowo numeruje się od 1, nie od 0.}
+%\js{Tutaj i wszędzie dalej w pracy: nie robić footnote tylko cite, żeby było cytowanie bibliografii}
 
 \section{Scope}
-This research explores various topics in the field of programming language design. Particularly, the possibilities of integrating and combining multiple representations of the same programming language in a dynamic way. I try to find ways of combining features of visual languages with text-based languages by creating a development environment which lets the programmer work with both representations in parallel or intertwine them in any way.
+This research explores various topics in the field of programming language 
+design. Particularly, the possibilities of integrating and combining multiple 
+representations of the same programming language in a dynamic way. I try to 
+find ways of combining features of visual languages with text-based languages 
+by creating a development environment which lets the programmer work with both 
+representations in parallel or intertwine them in any way.
 
-The created language is used to implement a Pac-Man clone. This provides a demonstration of Dual's capabilities and is a reference for assessing the performance of the implementation. \js{Może tutaj by pasowało to wyjaśnienie pac-man complete?}
+The created language is used to implement a Pac-Man clone\footnote{The term ``Pac-Man-complete'' in the title of this thesis refers to a somewhat humorous description of the Idris programming language\cite{idris} attributed to the language's author, Edwin Brady\cite{pacman_complete}. In the context of this dissertation it means that the designed programming language provides enough features to allow one to write a clone of the classic Pac-Man game in it.}. This provides a demonstration of Dual's capabilities and is a reference for assessing the performance of the implementation.
 
 I discuss further possible improvements in the language's design and performance, as well as set down directions for any future research, which I intend to take on. The exploratory nature of this work lets me cover a fairly broad area, connecting programming language design, computer game development as well as web technologies and web application development.
 
@@ -19,21 +19,30 @@ I discuss further possible improvements in the language's design and performance
 The choice of this particular subject stems from my deep personal interest in programming language design. This research is an opportunity for me to create a project that demonstrates various ideas in this area that I developed over time and to explore and refine them further.
 
 \section{Related work}
-\js{Czy mi się wydaje, czy lista języków wizualnych zrobiona kiedyś na seminarium była baaardzo długa?  Jeśli tak, to jednak należy dokładnie omówić to co jest w literaturze, najlepiej wskazując czym pański język będzie się różnił od tego co już istnieje.}
-Visual languages are not especially popular compared to text-based languages. But recently they have been gaining more popularity, particularly in game development. Chief example and the main cause of this is Unreal Engine, the highly popular and mainstream\footnote{\url{https://en.wikipedia.org/wiki/List_of_Unreal_Engine_games}, \url{http://www.guinnessworldrecords.com/world-records/most-successful-game-engine}} game engine, which in the latest version introduced a visual programming language\footnote{\url{https://docs.unrealengine.com/latest/INT/Engine/Blueprints/}} as its primary scripting language. In fact this is the only scripting language that the engine supports, having dropped the UnrealScript language\footnote{\url{http://www.gamasutra.com/view/news/213647/Epics_Tim_Sweeney_lays_out_the_case_for_Unreal_Engine_4.php}} included in the previous versions. 
+%\js{Czy mi się wydaje, czy lista języków wizualnych zrobiona kiedyś na seminarium była baaardzo długa?  Jeśli tak, to jednak należy dokładnie omówić to co jest w literaturze, najlepiej wskazując czym pański język będzie się różnił od tego co już istnieje.}
+With this research, I intend to explore certain aspects of programming language design as well as further the growth of visual programming languages, proposing a solution that improves over any existing comparable technology in terms of simplicity, expressive power of the language and usability.
 
-With this research, I intend to further the growth of visual programming languages, propose an even more accessible solution and explore possible improvements over comparable technologies.
+The first part of this research is concerned with designing and implementing a programming language, which is the basis for the second part. This language, Dual, is mostly based on one of the oldest \acrshort{pl}\footnote{I will sometimes use the acronym \acrshort{pl} to abbreviate ``programming language'' for the sake of terseness.} families, the Lisp\cite{lisp_draft}\cite{lisp_wikipedia} family. Lisp and its various dialects are consistently regarded as one of the most expressive PLs\cite{lisp_expressive, lisp_powerful}, despite having a very simple syntactical and semantic core\cite{lisp_simple}. Dual is also influenced by many modern PLs, such as JavaScript (as defined by the ECMAScript\cite{ecmascript}), which is the implementation language of its interpreter. Similarly to Lisp, Dual has a minimal syntax, although with some modifications and improvements (see Chapter \ref{chap:lang}). 
+
+The second part of this research builds on top of theoretical\cite{visual_languages} as well as practical\cite{snapshots} achievements in the field of \acrlong{vpl}s (\acrshort{vpl}s), focusing on examining the latter. VPLs can be classified in various ways: \cite[Section~VPL-II.B]{visual_languages}, \cite[Section~Types~of~VPLs]{vpl_maturity}, \cite[Section~Definition]{vpl_wikipedia}. I introduce my own classification by examining lanugages enumerated in \cite{snapshots}. Two major categories\footnote{By amount of languages that fall into each.} that emerge from this classification are ``line-connected block-based'' and ``snap-together block-based'' VPLs. I design and implement a visual representation for Dual, which combines features characteristic to both of these categories. The development environment that is built for the language provides the ability to dynamically\footnote{As in the changes made to one representation are mapped and are visible in the other immediately.} edit the text representation and the visual representation in parallel.
+
+Visual languages are not especially popular compared to text-based languages. But recently they have been gaining more popularity, particularly in game development. Chief example and the main cause of this is Unreal Engine, the highly popular and mainstream\cite{unreal_list, unreal_guinness} game engine, which in the latest version introduced a visual programming language\cite{blueprint} as its primary scripting language. In fact this is the only scripting language that the engine supports, having dropped the UnrealScript language\cite{unreal_script} included in the previous versions. This visual programming language will be compared to Dual to highlight its advantages.
+
+The Dual language, both its representations and its environment -- I will further use the terms ``Dual system'' or simply ``system'' to refer to these as a whole -- are built entirely on top of the open web platform\cite{open_web_platform}, which is ubiquitous. This gives the system great portability and makes the difficulty for the potential user to start working with it minimal. This is how the usability mentioned in the first paragraph of this section is defined.
 
 \section{Goals}
 In line with the above, the purpose of this work is to introduce innovation as well as show a practical application of the developed solution. The concrete goals are:
 \begin{itemize}
 	\item To explore and establish directions where innovation is possible in programming language design and implementation.
-	\item To design and implement a programming language, whose \textit{complete} textual representation must be directly and dynamically mappable to a visual representation and vice versa.
-	\item To create a prototype of the development environment for the language on top of the web platform.
-	\item To evaluate the usability and performance of the system by implementing a clone of Pac-Man and examining the process as well as the results.
+	\item To design and implement a programming language, which will meet the criteria of expressiveness and usability as outlined in the previous section.
+    \item To design and implement a visual representation for the language, which will be directly and dynamically mappable to the text-based form. The same must be true in the other direction -- text to visual.
+	\item To create a prototype of the development environment for the language.
+    \item To contrast the features of the language with an existing visual language system, the Unreal Blueprints Scripting system.
+    \item To show, by this comparison, that the proposed solution is indeed superior with respect to theoretical expressiveness and usability and as such it presents possible ways of improving not just the aforementioned but any similar existing system. 
+	\item To evaluate the practical usability and performance of the system by implementing a clone of Pac-Man and examining the process as well as the results.
 	\item To explore and discuss further refinements and possible future design directions.
-	\item All throughout this, the designs and implementations shall be compared and contrased with existing solutions.
-          \js{Znaczy że w trakcie pracy będą robione porównania?  Można oczywiście tak zrobić, zeby kontrastować na bieżąco opisywane rozwiązanie z tym co jest w literaturze, ale mimo wszystko powinno być jedno miejsce w pracy które zbiera przegląd literatury.}
+	%\item All throughout this, the designs and implementations shall be compared and contrased with existing solutions.
+    %      \js{Znaczy że w trakcie pracy będą robione porównania?  Można oczywiście tak zrobić, zeby kontrastować na bieżąco opisywane rozwiązanie z tym co jest w literaturze, ale mimo wszystko powinno być jedno miejsce w pracy które zbiera przegląd literatury.}
 \end{itemize}
 
 \section{Structure}

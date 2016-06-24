@@ -190,10 +190,13 @@ language. It can be defined\footnote{This definition is included here only for
 the addition of a regular expression (between \texttt{/} delimiters) in the
 definition of \texttt{<word>}, as follows:
 \begin{lstlisting}
-    <expression> ::= <word> | <call> <call> ::= <operator> <argument-list>
-    <operator> ::= <word> <argument-lists> <argument-list> ::= "[" <arguments>
-      "]" <word> ::= /[^\s\[\]]+/ <argument-lists> ::= <argument-list>
-    <argument-lists> | "" <arguments> ::= <expression> <arguments> | ""
+    <expression> ::= <word> | <call>
+    <call> ::= <operator> <argument-list>
+    <operator> ::= <word> <argument-lists>
+    <argument-list> ::= "[" <arguments> "]"
+    <word> ::= /[^\s\[\]]+/
+    <argument-lists> ::= <argument-list> <argument-lists> | ""
+    <arguments> ::= <expression> <arguments> | ""
 \end{lstlisting}
 
 The regular expression can be read as ``any character which is not whitespace,

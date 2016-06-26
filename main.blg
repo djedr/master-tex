@@ -1,7 +1,11 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
+White space in argument---line 64 of file main.aux
+ : \citation{tiobe.
+ :                  pypl}
+I'm skipping whatever remains of this command
 The style file: plain.bst
 Database file #1: bibliography.bib
-I was expecting a `,' or a `}'---line 117 of file bibliography.bib
+I was expecting a `,' or a `}'---line 205 of file bibliography.bib
  :     
  :     % ?
 (Error may have been on previous line)
@@ -18,4 +22,15 @@ Warning--to sort, need author or key in unreal_guinness
 Warning--to sort, need author or key in blueprint
 Warning--to sort, need author or key in open_web_platform
 Warning--to sort, need author or key in web_platform
-(There was 1 error message)
+Warning--to sort, need author or key in nodejs_site
+Warning--to sort, need author or key in codemirror_site
+Warning--to sort, need author or key in js_text_editors_wikipedia
+Warning--to sort, need author or key in vscode_site
+Warning--to sort, need author or key in brackets_site
+Warning--to sort, need author or key in atom_site
+Warning--to sort, need author or key in so_developer_survey_2016
+Warning--to sort, need author or key in redmonk
+Warning--to sort, need author or key in mdn_concurrency
+Warning--to sort, need author or key in scratch
+Warning--to sort, need author or key in scratch_wikipedia
+(There were 2 error messages)

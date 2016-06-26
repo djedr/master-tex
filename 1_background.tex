@@ -6,42 +6,38 @@ environment.
 \section{Web technologies}
 As stated in the introduction, one of the main design goals of the system is usability.
 %\js{Może rozwinąć myśl?  Chodzi o dostępność dla osób które nie znają się w ogóle na programowaniu? O dostepność dla osób które znają już JavaScript?}
-This is
-accomplished in practice by building it on top of the most accessible and
-ubiquitous platform -- the web
-platform\cite{web_platform}\footnote{Also referred to as the \textit{open} web platform\cite{open_web_platform}}.
+This is accomplished in practice by building it on top of the most accessible and ubiquitous platform -- the web platform\cite{web_platform}\footnote{Also referred to as the \textit{open} web platform\cite{open_web_platform}}.
 
 The language's interpreter and development environment are intended to work with
 and are built on web technologies: JavaScript, HTML5 and CSS. The prototype
-implementation makes use of Node.js, a server-side JavaScript runtime and
-CodeMirror\footnote{\url{http://codemirror.net/}}, a JavaScript library which
-provides basic facilities for the text-based code editor part of the
-system. This part is modeled after modern web-oriented code editors with similar
-design
-philosophy\footnote{\url{https://en.wikipedia.org/wiki/Comparison_of_JavaScript-based_source_code_editors}},
-such as Visual Studio Code\footnote{\url{https://code.visualstudio.com/}},
-Brackets\footnote{\url{http://brackets.io/}},
-Atom\footnote{\url{https://atom.io/}} and many others.
+implementation makes use of Node.js, a server-side JavaScript runtime\cite{nodejs_site} and
+CodeMirror, a JavaScript library which provides basic facilities for the text-based code editor part of the system\cite{codemirror_site}. This part is modeled after modern web-oriented code editors with similar design philosophy\cite{js_text_editors_wikipedia}, such as Visual Studio Code\cite{vscode_site}, Brackets\cite{brackets_site}, Atom\cite{atom_site} and many others.
 
 \subsection{JavaScript}
+The JavaScript programming language was created by Brendan Eich for Netscape\cite[Introduction]{ecmascript}, the company which created the Netscape Navigator web browser. There is a line of evolution that leads from Netscape and its browser to Mozilla and Firefox\cite{netscape_mozilla, mozilla_story}. The language was developed in 10 days in April 1995\cite{js_ten_days}.
+
+Despite significant design flaws, JavaScript has became \textit{one of} the most\cite{tiobe. pypl}, if not \textit{the most}\cite[Section~Most Popular Technologies per Dev Type]{so_developer_survey_2016}\cite{redmonk} popular programming languages in the world. In this section I will briefly look at some of the probable reasons for that from a programming language design perspective.
+
+On the surface, JavaScript has a familiar curly-brace syntax known from C or Java.
+
 From a programming language design perspective, JavaScript has many great
-features, borrowed from other excellent languages and packaged in a familiar
-syntax. For this reason and because it is distributed with a ubiquitous
-environment, which is the web browser, it became one of the
-most\footnote{\url{http://www.tiobe.com/tiobe_index},
-  \url{http://pypl.github.io/PYPL.html}}, if not the
-most\footnote{\url{http://stackoverflow.com/research/developer-survey-2016\#most-popular-technologies-per-occupation},
-  \url{http://redmonk.com/sogrady/2016/02/19/language-rankings-1-16/}} popular
-programming lanugages in the world.
-\js{Tutaj wstawić cytowania na koniec zdania, nie w miejscach gdzie są footnote'y}
+features, borrowed from other excellent languages\cite[Section~4~Overview]{ecmascript}, most notably:
+\begin{itemize}
+   \item Scheme, one of two main dialects of Lisp\cite{r7rs}. It is a minimalist, but very extensible functional programming language. The features drawn from this language include first-class functions (treating functions as values), anonymous functions (also known as lambdas or function literals) and lexical closures.
+   \item Self, a pioneering prototype-based \acrlong{oop} language\cite{self_handbook}, which evolved from Smalltalk-80\cite{smalltalk_history}. It introduced the concept of prototypes, which is an approach to \acrshort{oop}, where inheritance is implemented by reusing existing objects instead of defining classes. Prototype-based programming is the feature that JavaScript adopted from this language.
+\end{itemize}
+The two above languages are characterized by a very minimalist nature
+
+The final advantage of JavaScript is the fact that it is distributed with a ubiquitous environment of the web browser. This makes the language straightforward for developers to use.
+Easy to get started -- attract novice developers
+Reach billions of users\cite{internet_stats}
+
+The above mixture turns out to create a very powerful and usable language.
 
 \subsubsection{Concurrency model}
 In the context of the concurrency model, the JavaScript runtime conceptually
 consists of three parts: the call stack, the heap and the message queue. All
-these are bound together by the event
-loop\footnote{\url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop}},
-which is the crucial part of this model.  An iteration of this loop involves the
-following steps:
+these are bound together by the event loop\cite{mdn_concurrency}, which is the crucial part of this model.  An iteration of this loop involves the following steps:
 \begin{enumerate}
 	\item Take the next message from the queue or wait for one to arrive. At
           this point the call stack is empty.
@@ -52,28 +48,17 @@ following steps:
           completing the iteration.
 \end{enumerate}
 
-This means\footnote{At least conceptually. In practice it is much more
-  complicated and there are exceptions to these rules. But this explanation is
-  sufficient for further discussion.}\js{Chyba warto z tego footnote'a zrobić część głównego tekstu}
- that messages are processed one by one, in
-a single thread and an executing function cannot be preempted by any other
-function before it completes.
+This means, at least conceptually, that messages are processed one by one, in a single thread and an executing function cannot be preempted by any other function before it completes. In practice this is more complicated and there are exceptions to these rules. But this explanation is sufficient for further discussion.
 
 This model makes reasoning about the program execution very straightforward, but
 is problematic when a single message takes long to execute. This problem is
-observed in practice when web applications cause browsers to hang or display a
+observed e.g. when web applications cause browsers to hang or display a
 dialog asking the user if he wishes to terminate an unresponsive script.
 
 For this reason it is best to write programs in JavaScript that block the event
-loop for as short as possible and divide the processing into more messages.
+loop for as short as possible and divide the processing into multiple messages.
 
-The mechanism\js{Nie było dla mnie w pierwszej chwili jasne który mechanizm.
-  Myślałem, że to z ostatniego akapitu z rozdzielaniem na jak najwięcej
-  komunikatów} is called the \textit{event} loop, because the messages are added
-to the queue any time an event occurs (an has an associated handler), such as a
-click or a scroll. In general input and output in JavaScript is performed
-asynchronously, through events, so it does not block program execution.
-
+This concurrency model is called the \textit{event} loop, because the messages are added to the queue any time an event occurs (an has an associated handler), such as a click or a scroll. In general input and output in JavaScript is performed asynchronously, through events, so it does not block program execution.
 
 \section{Programming language design and implementation}
 A very important family of programming languages and one which had the most

@@ -4,10 +4,40 @@
 \url{https://twitter.com/folone/status/494017847585415168}.
 \newblock A twitter message with a quote from Edwin Brady.
 
+\bibitem{atom_site}
+{A}tom.
+\newblock \url{https://atom.io/}.
+\newblock Atom website. Atom is ``[a] hackable text editor for the 21st
+  Century''.
+
 \bibitem{blueprint}
 {B}lueprints {V}isual {S}cripting.
 \newblock \url{https://docs.unrealengine.com/latest/INT/Engine/Blueprints/}.
 \newblock From Unreal Engine 4 Documentation.
+
+\bibitem{brackets_site}
+{B}rackets - {A} modern, open source code editor that understands web design.
+\newblock \url{http://brackets.io/}.
+\newblock Brackets website.
+
+\bibitem{codemirror_site}
+{C}ode{M}irror.
+\newblock \url{http://codemirror.net/}.
+\newblock CodeMirror website. ``CodeMirror is a versatile text editor
+  implemented in JavaScript for the browser.''.
+
+\bibitem{js_text_editors_wikipedia}
+{C}omparison of {J}ava{S}cript-based source code editors.
+\newblock
+  \url{https://en.wikipedia.org/wiki/Comparison_of_JavaScript-based_source_code_editors}.
+\newblock Wikipedia comparison article.
+
+\bibitem{mdn_concurrency}
+{C}oncurrency model and {E}vent {L}oop.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
 
 \bibitem{idris}
 {I}dris | {A} {L}anguage with {D}ependent {T}ypes.
@@ -36,11 +66,41 @@
   \url{http://www.guinnessworldrecords.com/world-records/most-successful-game-engine}.
 \newblock From Guinness World Records webpage. Record as of 16 July 2014.
 
+\bibitem{nodejs_site}
+{N}ode.js.
+\newblock \url{https://nodejs.org}.
+\newblock Node.js website. ``Node.js® is a JavaScript runtime built on
+  Chrome's V8 JavaScript engine.''.
+
 \bibitem{open_web_platform}
 {O}pen {W}eb {P}latform.
 \newblock \url{https://www.w3.org/wiki/Open_Web_Platform}.
 \newblock ``The Open Web Platform is the collection of open (royalty-free)
   technologies which enables the Web.''.
+
+\bibitem{scratch}
+{S}cratch.
+\newblock \url{https://wiki.scratch.mit.edu/wiki/Scratch}.
+\newblock Description of the language from the Scratch Wiki. See also the
+  language's homepage: \url{https://scratch.mit.edu/}.
+
+\bibitem{scratch_wikipedia}
+{S}cratch (programming language).
+\newblock \url{https://en.wikipedia.org/wiki/Scratch_(programming_language)}.
+\newblock Wikipedia definition of Scratch.
+
+\bibitem{so_developer_survey_2016}
+{S}tack {O}verflow {D}eveloper {S}urvey 2016 {R}esults.
+\newblock \url{http://stackoverflow.com/research/developer-survey-2016}.
+\newblock Stack Overflow's annual developer survey. ``[T]he most comprehensive
+  developer survey ever conducted.''.
+
+\bibitem{redmonk}
+{T}he {R}ed{M}onk {P}rogramming {L}anguage {R}ankings: {J}anuary 2016 –
+  tecosystems.
+\newblock \url{http://redmonk.com/sogrady/2016/02/19/language-rankings-1-16/}.
+\newblock A ranking of programming languages by popularity. ``[C]correlates
+  language discussion (Stack Overflow) and usage (GitHub)[.]''.
 
 \bibitem{web_platform}
 {T}he {W}eb platform: {B}rowser technologies.
@@ -52,6 +112,11 @@
 {V}isual programming language.
 \newblock \url{https://en.wikipedia.org/wiki/Visual_programming_language}.
 \newblock Wikipedia definition of a visual programming language.
+
+\bibitem{vscode_site}
+{V}isual {S}tudio {C}ode - {C}ode {E}diting. {R}edefined.
+\newblock \url{https://code.visualstudio.com/}.
+\newblock Visual Studio Code website.
 
 \bibitem{ecmascript}
 {ECMAS}cript® 2016 {L}anguage {S}pecification.

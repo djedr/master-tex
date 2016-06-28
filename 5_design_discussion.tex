@@ -51,11 +51,16 @@ a different comment ``operator'', such as \texttt{\%}:
 Or even, at the cost of complicating the parser, introduce a separate syntax for
 one-word comments:
 \begin{lstlisting}
-    -- `%:type` could be a type annotation bind [a 3 %:integer] bind [b 5
-    %:integer]
+    -- `%:type` could be a type annotation
+    bind [a 3 %:integer]
+    bind [b 5 %:integer]
 
-    -- will print "lesser-or-equal" if [>[a b] %then log['|greater] %else
-      log['|lesser-or-equal] ]
+    -- will print "lesser-or-equal"
+    if [>[a b] %then
+        log['|greater]
+    %else
+        log['|lesser-or-equal]
+    ]
 \end{lstlisting}
 
 In future versions of the language, comments will be stored separately from
@@ -263,6 +268,78 @@ The structure produced by a visual editor does not have to necessarily be a
 syntax tree of a particular language.  Text editors allow inputing arbitrary
 sequences of characters, which are transformed into a syntax tree by a
 specialized parser. Analogously, an universal visual editor could allow
-insertion, connection and mainpulation of arbitrary generalized blocks, thus
+insertion, connection and manipulation of arbitrary generalized blocks, thus
 forming a truly abstract syntax tree (language-independent). This tree could
 then be ``parsed'' to produce a syntax tree for a particular language.
+
+\section{Lua}
+A very interesting programming language, predating and somewhat similar to JavaScript is Lua. It is designed to be a minimalist, embeddable scripting language. Similarly to JavaScript, it draws heavily from Scheme. Some of the major and interesting features of the language include:
+\begin{itemize}
+    \item First-class functions, closures and lexical scoping.
+    \item Tables as the basic data structure, similar to JavaScript's WeakMaps; more powerful than plain JavaScript objects, because they additionally support:
+    Non-string keys -- any value can be used as a key, except nil and NaN
+    \item Extension through metatables
+    \item Excellent interoperability with C
+\end{itemize} 
+
+
+Many computer games use Lua as a scripting language\cite{lua_games_category_wikipedia}
+Prototype-based OOP with syntactic sugar for method definitions and calls
+
+There also exists a very efficient implementation of the language called LuaJIT\cite{LuaJIT}. It is actually one of the fastest JIT-compiled language implementations, rivaling or surpassing performance of most other JIT-compiled languages, including modern JavaScript engines and even, in some benchmarks, native-compiled languages such as C++, D or C\cite[Speed vs other languages]{lua_perl}\cite[Section~Results]{mateo_benchmarks}\cite{wren_performance, pl_benchmarks, lua_c_performance}.
+
+Recent version of Lua (5.3)\cite{lua_5_3} introduces support for integer type, basic unicode (UTF-8) support and bitwise operators, which were long-missing features.
+
+It has many features that I
+
+\section{Performance}
+JIT-compilation
+Bytecode
+
+Problem:
+no more web platform
+
+Solution:
+WebAssembly
+
+\section{Class-free Object-Oriented Programming}
+A major paradigm I intend to support in future versions of Dual is class-free \acrshort{oop}.
+
+In \cite{crockford_class_free} Douglas Crockford states:
+\begin{quote}
+    I used to think that the important innovation of JavaScript was prototypal inheritance. I now think it is class-free object oriented programming. I think that is JavaScript’s gift to humanity. That is the thing that makes it really interesting, special, and an important language. 
+\end{quote}
+
+He defines a constructor template that demonstrates this paradigm. Below is a slightly more verbose and annotated for clarity version of this constructor:
+\begin{lstlisting}
+function constructor(specification) { // [0]
+    let { member1, member2 } = specification, // [1]
+        { other }  = other_constructor(specification), // [2]
+        private_method = function () { // [3]
+            // accesses member, other, method, spec
+        },
+        public_method = function () { // [4]
+            // accesses member, other, method, spec
+        };
+    
+    return Object.freeze({ // [5]
+        public_method,
+        other
+    });
+}
+\end{lstlisting}
+
+This is Crockford's simplification and evolution of prototype-based OOP. It actually gets rid of references to the \texttt{prototype} property as well as any use of the keyword \texttt{this}. It relies on composition with destructuring and copying instead of delegation, prototype chains and sharing of properties.
+
+This has a disadvantage in increased memory consumption, but disables what Crockford calls ``retroactive heredity'', which means changing an object's prototype after it is created, at runtime. But, as he rightly notes, this feature of prototype-based OOP is rather harmful than beneficial. It can create all kinds of errors, can be confusing, has a big performance impact, as it gets in the way of optimization techniques employed by modern JavaScript engines\cite{mdn_set_prototype_of, v8_design}.
+
+This approach to OOP is very flexible. It allows for creation of private, protected (privileged) and public members through standard JavaScript patterns, such as (revealing) module pattern\cite[Chapter~JavaScript Design Patterns, Section~The Revealing Module Pattern]{js_design_patterns}, \cite{crockford_private}. It is also easy to emulate multiple inheritance, traits and mixins.
+
+We can observe that:
+\begin{itemize}
+    \item The constructor takes as an argument a \texttt{specification} object [0]. This object contains the properties that define the initial state of the object being created.
+    \item This object is then deconstructed [1] to extract those properties and 
+    \item A \texttt{method} 
+\end{itemize}
+
+

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.4.4)  26 JUN 2016 15:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.4.4)  28 JUN 2016 03:08
 entering extended mode
 **main.tex
 (D:\master-project\master-thesis\main.tex
@@ -898,7 +898,7 @@ LaTeX Info: Redefining \nameref on input line 11.
 \@outlinefile=\write6
 
 (D:\master-project\master-thesis\title_page.tex
-<img/logo.pdf, id=199, 386.24298pt x 566.2656pt>
+<img/logo.pdf, id=211, 386.24298pt x 566.2656pt>
 File: img/logo.pdf Graphic file (type pdf)
  <use img/logo.pdf>
 Package pdftex.def Info: img/logo.pdf used on input line 6.
@@ -950,180 +950,178 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (D:\master-project\master-thesis\1_background.tex [3] [4]
 Chapter 1.
 
-LaTeX Warning: Citation `tiobe. pypl' on page 5 undefined on input line 20.
+Overfull \hbox (7.6032pt too wide) in paragraph at lines 17--18
+\T1/cmr/m/n/12 The JavaScript pro-gram-ming lan-guage was cre-ated by Bren-dan 
+Eich for Netscape[[],
+ []
 
 [5
 
 ]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 61.
+Overfull \hbox (9.18596pt too wide) in paragraph at lines 27--28
+[]\T1/cmr/m/n/12 Self, a pi-o-neer-ing prototype-based []Object-Oriented Pro-gr
+am-ming language[[]],
+ []
+
+[6]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 82.
  (D:\programs\MiKTeX\tex\latex\base\t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (23.61336pt too wide) in paragraph at lines 61--69
+Overfull \hbox (9.72775pt too wide) in paragraph at lines 82--89
 []\T1/cmr/m/n/12 The two core com-po-nents of a Lisp in-ter-preter are the \T1/
 cmtt/m/n/12 apply \T1/cmr/m/n/12 and \T1/cmtt/m/n/12 eval \T1/cmr/m/n/12 functi
-ons[[]][][][].
+ons[[],
  []
 
-[6] [7] [8] <img/scratch.png, id=410, 854.19125pt x 571.13374pt>
+[7] [8] [9] <img/scratch.png, id=467, 854.19125pt x 571.13374pt>
 File: img/scratch.png Graphic file (type png)
 
 <use img/scratch.png>
-Package pdftex.def Info: img/scratch.png used on input line 196.
+Package pdftex.def Info: img/scratch.png used on input line 216.
 (pdftex.def)             Requested size: 377.24702pt x 252.2321pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 200--200
-[][][] \T1/cmr/m/n/10 Screen-shot from []$\T1/cmtt/m/n/10 http : / / mypad . no
-rthampton . ac . uk / 12406702 / files / 2013 / 05 /$
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<img/blueprint.jpg, id=413, 607.51968pt x 228.855pt>
+ <img/blueprint.jpg, id=469, 607.51968pt x 228.855pt>
 File: img/blueprint.jpg Graphic file (type jpg)
- <use img/blueprint.jpg>
-Package pdftex.def Info: img/blueprint.jpg used on input line 205.
+
+<use img/blueprint.jpg>
+Package pdftex.def Info: img/blueprint.jpg used on input line 225.
 (pdftex.def)             Requested size: 377.24702pt x 142.1121pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[9] [10 <D:/master-project/master-thesis/img/scratch.png> <D:/master-project/ma
-ster-thesis/img/blueprint.jpg>])
+[10 <D:/master-project/master-thesis/img/scratch.png>] [11 <D:/master-project/m
+aster-thesis/img/blueprint.jpg>])
 (D:\master-project\master-thesis\2_language.tex
-Overfull \hbox (13.09752pt too wide) in paragraph at lines 279--1
+Overfull \hbox (13.09752pt too wide) in paragraph at lines 300--1
 []\T1/cmr/m/n/12 This ap-proach in com-bi-na-tion with a dy-namic and flex-i-bl
 e lan-guage like JavaScript
  []
 
-[11] [12
-
-]
+[12]
 Chapter 2.
-[13] [14]
-Overfull \hbox (5.50253pt too wide) in paragraph at lines 123--126
+[13
+
+] [14]
+Overfull \hbox (5.50253pt too wide) in paragraph at lines 100--103
 []\T1/cmr/m/n/12 There are many ap-proaches to im-ple-ment-ing in-ter-preters f
 or LISP in JavaScript[][][],
  []
 
-
-LaTeX Warning: Citation `mexpr' on page 15 undefined on input line 149.
-
 [15]
-Overfull \hbox (17.43542pt too wide) in paragraph at lines 182--192
+Overfull \hbox (17.43542pt too wide) in paragraph at lines 159--169
 []\T1/cmr/m/n/12 This gives a no-ta-tion that is some-what in be-tween S-expres
 sions and M-expressions.
  []
 
 [16]
-Overfull \hbox (5.60307pt too wide) in paragraph at lines 234--245
+Overfull \hbox (5.60307pt too wide) in paragraph at lines 211--222
 []\T1/cmr/m/n/12 Easier to parse by a hu-man. Op-er-a-tors are clearer dis-tin-
 guished from operands.
  []
 
 
-Overfull \hbox (26.09967pt too wide) in paragraph at lines 245--252
+Overfull \hbox (26.09967pt too wide) in paragraph at lines 222--229
 \T1/cmr/m/n/12 with mul-ti-ple lev-els: \T1/cmtt/m/n/12 op[args-1][args-2][args
 -3][args-4] \T1/cmr/m/n/12 vs \T1/cmtt/m/n/12 ((((op args-1)
  []
 
 [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 352--352
+Underfull \hbox (badness 10000) in paragraph at lines 329--329
 [][][]\T1/cmr/m/n/10 See: []$\T1/cmtt/m/n/10 https : / / reference . wolfram . 
 com / language / tutorial /$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 352--352
+Underfull \hbox (badness 10000) in paragraph at lines 329--329
 $\T1/cmtt/m/n/10 WorkingWithStringPatterns . html$[] \T1/cmr/m/n/10 and []$\T1/
 cmtt/m/n/10 https : / / en . wikipedia . org / wiki / Pattern _$
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 387--387
+Underfull \hbox (badness 10000) in paragraph at lines 364--364
 [][][]\T1/cmr/m/n/10 Defined by the IEEE 754 stan-dard: []$\T1/cmtt/m/n/10 http
  : / / www . iso . org / iso / iso _ catalogue /$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 387--387
+Underfull \hbox (badness 10000) in paragraph at lines 364--364
 $\T1/cmtt/m/n/10 catalogue _ tc / catalogue _ detail . htm ? csnumber = 57469$[
 ]\T1/cmr/m/n/10 , []$\T1/cmtt/m/n/10 http : / / www . 2ality . com / 2012 /$
  []
 
 [20]
-Overfull \hbox (5.2756pt too wide) in paragraph at lines 437--439
+Overfull \hbox (5.2756pt too wide) in paragraph at lines 414--416
 []\T1/cmr/m/n/12 Another spe-cial char-ac-ter (\T1/cmtt/m/n/12 !\T1/cmr/m/n/12 
 ) was in-tro-duced for anal-o-gous use for zero-argument
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 473--473
+Underfull \hbox (badness 10000) in paragraph at lines 450--450
 [][][][]$\T1/cmtt/m/n/10 https : / / en . wikipedia . org / wiki / Standard _ M
 L # Algebraic _ datatypes _ and _ pattern _$
  []
 
-[22]
-Overfull \hbox (6.37688pt too wide) in paragraph at lines 502--505
+
+Overfull \hbox (6.37688pt too wide) in paragraph at lines 479--482
 []\T1/cmr/m/n/12 Pattern match-ing works with bind-ings, func-tions (al-though 
 the pri-mary function-
  []
 
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 552--552
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 529--529
 [][][][]$\T1/cmtt/m/n/10 https : / / en . wikibooks . org / wiki / F _ Sharp _ 
 Programming / Pattern _ Matching _ Basics #$
  []
 
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 631--631
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 608--608
 [][][][]$\T1/cmtt/m/n/10 https : / / developer . mozilla . org / pl / docs / We
 b / JavaScript / Reference / Functions /$
  []
 
-
-Overfull \hbox (13.54892pt too wide) in paragraph at lines 649--651
+[24]
+Overfull \hbox (13.54892pt too wide) in paragraph at lines 626--628
 []\T1/cmr/m/n/12 Spread op-er-a-tor (also in-spired by the anal-o-gous fea-ture
  from EC-MAScript2015): 
  []
 
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 673--673
+
+Underfull \hbox (badness 10000) in paragraph at lines 650--650
 [][][][]$\T1/cmtt/m/n/10 https : / / developer . mozilla . org / en-[]US / docs
  / Web / JavaScript / Reference / Template _$
  []
 
-[26]
-Underfull \hbox (badness 10000) in paragraph at lines 736--736
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 713--713
 [][][][]$\T1/cmtt/m/n/10 https : / / developer . mozilla . org / pl / docs / We
 b / JavaScript / Reference / Operators /$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 741--741
+Underfull \hbox (badness 10000) in paragraph at lines 718--718
 [][][][]$\T1/cmtt/m/n/10 https : / / developer . mozilla . org / en-[]US / docs
  / Web / JavaScript / Reference /$
  []
 
-[27] [28]) (D:\master-project\master-thesis\3_editor.tex [29] [30
-
-]
+[26] [27]) (D:\master-project\master-thesis\3_editor.tex [28]
 Chapter 3.
-[31] <img/editor.png, id=820, 1131.22626pt x 637.38126pt>
+[29
+
+] <img/editor.png, id=862, 1131.22626pt x 637.38126pt>
 File: img/editor.png Graphic file (type png)
  <use img/editor.png>
 Package pdftex.def Info: img/editor.png used on input line 54.
 (pdftex.def)             Requested size: 377.24702pt x 212.55391pt.
 
-[32 <D:/master-project/master-thesis/img/editor.png (PNG copy)>] [33]
-<img/editor-menu.png, id=838, 401.24907pt x 97.11281pt>
+[30 <D:/master-project/master-thesis/img/editor.png (PNG copy)>] [31]
+<img/editor-menu.png, id=879, 401.24907pt x 97.11281pt>
 File: img/editor-menu.png Graphic file (type png)
 
 <use img/editor-menu.png>
 Package pdftex.def Info: img/editor-menu.png used on input line 138.
 (pdftex.def)             Requested size: 377.24702pt x 91.30975pt.
- [34 <D:/master-project/master-thesis/img/editor-menu.png>]
+ [32 <D:/master-project/master-thesis/img/editor-menu.png>]
 File: img/scratch.png Graphic file (type png)
  <use img/scratch.png>
 Package pdftex.def Info: img/scratch.png used on input line 180.
@@ -1134,14 +1132,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 184--184
 rthampton . ac . uk / 12406702 / files / 2013 / 05 /$
  []
 
-[35] <img/blueprint_more.png, id=860, 700.11563pt x 338.01282pt>
+[33] <img/blueprint_more.png, id=902, 700.11563pt x 338.01282pt>
 File: img/blueprint_more.png Graphic file (type png)
 
 <use img/blueprint_more.png>
 Package pdftex.def Info: img/blueprint_more.png used on input line 211.
 (pdftex.def)             Requested size: 377.24702pt x 182.13736pt.
 
-<img/designs_01234.png, id=862, 628.3475pt x 467.7475pt>
+<img/designs_01234.png, id=904, 628.3475pt x 467.7475pt>
 File: img/designs_01234.png Graphic file (type png)
 
 <use img/designs_01234.png>
@@ -1151,15 +1149,15 @@ Package pdftex.def Info: img/designs_01234.png used on input line 219.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[36 <D:/master-project/master-thesis/img/blueprint_more.png>] [37 <D:/master-pr
+[34 <D:/master-project/master-thesis/img/blueprint_more.png>] [35 <D:/master-pr
 oject/master-thesis/img/designs_01234.png>]
-<img/design_3.png, id=878, 606.265pt x 320.19624pt>
+<img/design_3.png, id=920, 606.265pt x 320.19624pt>
 File: img/design_3.png Graphic file (type png)
  <use img/design_3.png>
 Package pdftex.def Info: img/design_3.png used on input line 296.
 (pdftex.def)             Requested size: 377.24702pt x 199.2427pt.
 
-<img/design_4.png, id=879, 353.32pt x 163.61125pt>
+<img/design_4.png, id=921, 353.32pt x 163.61125pt>
 File: img/design_4.png Graphic file (type png)
  <use img/design_4.png>
 Package pdftex.def Info: img/design_4.png used on input line 304.
@@ -1168,16 +1166,16 @@ Package pdftex.def Info: img/design_4.png used on input line 304.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[38 <D:/master-project/master-thesis/img/design_3.png>]
+[36 <D:/master-project/master-thesis/img/design_3.png>]
 File: img/blueprint.jpg Graphic file (type jpg)
 
 <use img/blueprint.jpg>
 Package pdftex.def Info: img/blueprint.jpg used on input line 329.
 (pdftex.def)             Requested size: 377.24702pt x 142.1121pt.
 ) (D:\master-project\master-thesis\4_case_study.tex
-[39 <D:/master-project/master-thesis/img/design_4.png>] [40]
+[37 <D:/master-project/master-thesis/img/design_4.png>] [38]
 Chapter 4.
-<img/pacman.png, id=909, 450.18187pt x 359.84438pt>
+<img/pacman.png, id=950, 450.18187pt x 359.84438pt>
 File: img/pacman.png Graphic file (type png)
  <use img/pacman.png>
 Package pdftex.def Info: img/pacman.png used on input line 29.
@@ -1198,10 +1196,10 @@ Overfull \hbox (28.37753pt too wide) in paragraph at lines 35--42
  on the \T1/cmtt/m/n/12 requestAnimationFrame
  []
 
-[41
+[39
 
-] [42 <D:/master-project/master-thesis/img/pacman.png>]
-<img/profiling.png, id=938, 571.13374pt x 438.63875pt>
+] [40 <D:/master-project/master-thesis/img/pacman.png>]
+<img/profiling.png, id=980, 571.13374pt x 438.63875pt>
 File: img/profiling.png Graphic file (type png)
  <use img/profiling.png>
 Package pdftex.def Info: img/profiling.png used on input line 95.
@@ -1210,186 +1208,287 @@ Package pdftex.def Info: img/profiling.png used on input line 95.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[43]) (D:\master-project\master-thesis\5_design_discussion.tex [44 <D:/master-p
+[41]) (D:\master-project\master-thesis\5_design_discussion.tex [42 <D:/master-p
 roject/master-thesis/img/profiling.png (PNG copy)>]
 Chapter 5.
-[45
+[43
 
-] [46] [47] [48] [49]) (D:\master-project\master-thesis\6_summary.tex
-[50]
+] [44] [45] [46] [47] [48]
+Overfull \hbox (12.73245pt too wide) in paragraph at lines 289--290
+[]\T1/cmr/m/n/12 There also ex-ists a very ef-fi-cient im-ple-men-ta-tion of th
+e lan-guage called LuaJIT[[]].
+ []
+
+[49]) (D:\master-project\master-thesis\6_summary.tex [50]
 Chapter 6.
-) (D:\master-project\master-thesis\main.bbl [51
+) [51
 
-] [52
-
-]
-Underfull \hbox (badness 1205) in paragraph at lines 4--6
-[][]$\T1/cmtt/m/n/12 https : / / twitter . com / folone / status / 494017847585
-415168$[]\T1/cmr/m/n/12 .  A twit-ter
+] (D:\master-project\master-thesis\main.bbl [52]
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+[]\T1/cmr/m/n/12 Anonymous.  Pro-gram-ming Lan-guages Bench-marks.  []$\T1/cmtt
+/m/n/12 https :$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--34
-[]\T1/cmr/m/n/12 Comparison of JavaScript-based source code ed-i-tors.  []$\T1/
-cmtt/m/n/12 https :$
+Underfull \hbox (badness 1527) in paragraph at lines 31--35
+$\T1/cmtt/m/n/12 / / attractivechaos . github . io / plb/$[]\T1/cmr/m/n/12 .  A
+ web-site with bench-mark re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--34
-$\T1/cmtt/m/n/12 / / en . wikipedia . org / wiki / Comparison _ of _ JavaScript
--[]based _ source _$
- []
-
-
-Underfull \hbox (badness 5331) in paragraph at lines 64--68
-$\T1/cmtt/m/n/12 com / world-[]records / most-[]successful-[]game-[]engine$[]\T
-1/cmr/m/n/12 .  From Guin-ness
- []
-
-[53]
-Underfull \hbox (badness 3746) in paragraph at lines 88--91
-[]\T1/cmr/m/n/12 Scratch (pro-gram-ming lan-guage).  []$\T1/cmtt/m/n/12 https :
- / / en . wikipedia . org / wiki /$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 99--104
-[]\T1/cmr/m/n/12 The Red-Monk Pro-gram-ming Lan-guage Rank-ings: Jan-uary 2016
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 99--104
-\T1/cmr/m/n/12  tecosys-tems.  []$\T1/cmtt/m/n/12 http : / / redmonk . com / s
-ogrady / 2016 / 02 / 19 /$
- []
-
-
-Underfull \hbox (badness 1199) in paragraph at lines 99--104
-$\T1/cmtt/m/n/12 language-[]rankings-[]1-[]16/$[]\T1/cmr/m/n/12 .  A rank-ing o
-f pro-gram-ming lan-guages by
- []
-
-
-Underfull \hbox (badness 5954) in paragraph at lines 117--120
-[]\T1/cmr/m/n/12 Visual Stu-dio Code - Code Edit-ing. Re-de-fined.  []$\T1/cmtt
-/m/n/12 https : / / code .$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 122--125
-[]\T1/cmr/m/n/12 ECMAScript[] 2016 Lan-guage Spec-i-fi-ca-tion.  []$\T1/cmtt/m/
-n/12 http : / / www .$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 127--134
+Underfull \hbox (badness 10000) in paragraph at lines 45--52
 []\T1/cmr/m/n/12 Donnie Berkholz.  Pro-gram-ming lan-guages ranked by ex-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--134
+Underfull \hbox (badness 10000) in paragraph at lines 45--52
 \T1/cmr/m/n/12 pres-sive-ness.  []$\T1/cmtt/m/n/12 http : / / redmonk . com / d
 berkholz / 2013 / 03 / 25 /$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--134
+Underfull \hbox (badness 10000) in paragraph at lines 45--52
 $\T1/cmtt/m/n/12 programming-[]languages-[]ranked-[]by-[]expressiveness/$[]\T1/
 cmr/m/n/12 , March 2013.
  []
 
 
-Underfull \hbox (badness 2626) in paragraph at lines 143--150
+Underfull \hbox (badness 5189) in paragraph at lines 54--60
+[]\T1/cmr/m/n/12 Craig Bick-nell and Chris Oakes.  Mozilla Stomps Ahead Un-der
+ []
+
+
+Underfull \hbox (badness 1845) in paragraph at lines 54--60
+$\T1/cmtt/m/n/12 wired . com / techbiz / media / news / 1998 / 11 / 16466$[]\T1
+/cmr/m/n/12 , Novem-ber 1998.  An
+ []
+
+[53
+
+]
+Underfull \hbox (badness 2626) in paragraph at lines 88--95
 []\T1/cmr/m/n/12 Douglas Crock-ford.  Syn-tax-a-tion.  []$\T1/cmtt/m/n/12 gotoc
 on . com / dl / goto-[]aar-[]2013 /$
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--114
+[]\T1/cmr/m/n/12 Andrie de Vries.  The most pop-u-lar pro-gram-ming lan-guages
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--114
+\T1/cmr/m/n/12 on Stack-Over-flow | R-bloggers.  []$\T1/cmtt/m/n/12 http : / / 
+www . r-[]bloggers . com /$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--114
+$\T1/cmtt/m/n/12 the-[]most-[]popular-[]programming-[]languages-[]on-[]stackove
+rflow/$[]\T1/cmr/m/n/12 , July
+ []
+
+
+Underfull \hbox (badness 2726) in paragraph at lines 129--135
+[]\T1/cmr/m/n/12 Unreal En-gine 4 Doc-u-men-ta-tion.  []$\T1/cmtt/m/n/12 https 
+: / / docs . unrealengine . com /$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--135
+$\T1/cmtt/m/n/12 latest / images / Engine / Blueprints / HowTo / BPHT _ 6 / Get
+Score . jpg$[]\T1/cmr/m/n/12 .  A
+ []
+
 [54]
-Underfull \hbox (badness 10000) in paragraph at lines 166--171
+Underfull \hbox (badness 4595) in paragraph at lines 174--179
+$\T1/cmtt/m/n/12 / / www . oreilly . com / openbook / opensources / book / netr
+ev . html$[]\T1/cmr/m/n/12 , Jan-uary
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--193
 []\T1/cmr/m/n/12 Eric Hosick.  Vi-sual Pro-gram-ming Lan-guages - Snap-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--171
+Underfull \hbox (badness 10000) in paragraph at lines 188--193
 \T1/cmr/m/n/12 shots.  []$\T1/cmtt/m/n/12 http : / / blog . interfacevision . c
 om / design /$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--191
+Underfull \hbox (badness 10000) in paragraph at lines 213--217
+[]\T1/cmr/m/n/12 Ecma In-ter-na-tional.  TC39 - EC-MAScript.  []$\T1/cmtt/m/n/1
+2 http : / / www .$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--217
+$\T1/cmtt/m/n/12 ecma-[]international . org / memento / TC39 . htm$[]\T1/cmr/m/
+n/12 .  Tech-ni-cal Com-mit-tee
+ []
+
+
+Underfull \hbox (badness 1442) in paragraph at lines 219--223
+[]\T1/cmr/m/n/12 Ecma In-ter-na-tional.  Wel-come to Ecma In-ter-na-tional.  []
+$\T1/cmtt/m/n/12 http : / / www .$
+ []
+
+[55]
+Underfull \hbox (badness 3029) in paragraph at lines 242--247
+[]\T1/cmr/m/n/12 Alan C. Kay.  The early his-tory of smalltalk.  \T1/cmr/m/it/1
+2 SIG-PLAN Not.\T1/cmr/m/n/12 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--252
+[]\T1/cmr/m/n/12 George Leon-tiev.  []$\T1/cmtt/m/n/12 https : / / twitter . co
+m / folone / status /$
+ []
+
+
+Underfull \hbox (badness 1603) in paragraph at lines 249--252
+$\T1/cmtt/m/n/12 494017847585415168$[]\T1/cmr/m/n/12 .  A twit-ter mes-sage wit
+h a quote from Ed-win
+ []
+
+
+Underfull \hbox (badness 5652) in paragraph at lines 280--284
+[]\T1/cmr/m/n/12 Microsoft.  Type-Script - JavaScript that scales.  []$\T1/cmtt
+/m/n/12 https : / / www .$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 292--296
 []\T1/cmr/m/n/12 Matt Might.  First-class (run-time) macros and meta-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--191
+Underfull \hbox (badness 10000) in paragraph at lines 292--296
 \T1/cmr/m/n/12 circular eval-u-a-tion.  []$\T1/cmtt/m/n/12 http : / / matt . mi
 ght . net / articles /$
  []
 
-) (D:\master-project\master-thesis\main.gls [55] [56
 
-])
-(D:\master-project\master-thesis\main.acr [57
+Underfull \hbox (badness 1418) in paragraph at lines 298--304
+[]\T1/cmr/m/n/12 Mozilla De-vel-oper Net-work and in-di-vid-ual con-trib-u-tors
+.  Con-cur-rency
+ []
 
-] [58
 
-])
-(D:\master-project\master-thesis\a_dvd.tex [59
+Underfull \hbox (badness 10000) in paragraph at lines 314--320
+[]\T1/cmr/m/n/12 Mozilla De-vel-oper Net-work and in-di-vid-ual con-trib-u-tors
+.  Ob-
+ []
+
+
+Underfull \hbox (badness 3623) in paragraph at lines 314--320
+$\T1/cmtt/m/n/12 JavaScript / Reference / Global _ Objects / Object / setProtot
+ypeOf$[]\T1/cmr/m/n/12 .  An
+ []
+
+[56]
+Underfull \hbox (badness 1237) in paragraph at lines 337--343
+\T1/cmr/m/n/12 uary 2016  tecosys-tems.  []$\T1/cmtt/m/n/12 http : / / redmonk
+ . com / sogrady / 2016 / 02 / 19 /$
+ []
+
+
+Underfull \hbox (badness 1199) in paragraph at lines 337--343
+$\T1/cmtt/m/n/12 language-[]rankings-[]1-[]16/$[]\T1/cmr/m/n/12 .  A rank-ing o
+f pro-gram-ming lan-guages by
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 372--377
+[]\T1/cmr/m/n/12 Guinness World Records.  Most suc-cess-ful videogame en-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 372--377
+\T1/cmr/m/n/12 gine.  []$\T1/cmtt/m/n/12 http : / / www . guinnessworldrecords 
+. com / world-[]records /$
+ []
+
+
+Underfull \hbox (badness 1454) in paragraph at lines 372--377
+$\T1/cmtt/m/n/12 most-[]successful-[]game-[]engine$[]\T1/cmr/m/n/12 .  From Gui
+n-ness World Records web-
+ []
+
+[57]
+Underfull \hbox (badness 2359) in paragraph at lines 431--435
+[]\T1/cmr/m/n/12 Wikipedia, the free en-cy-clo-pe-dia.  []$\T1/cmtt/m/n/12 http
+s : / / en . wikipedia . org / wiki /$
+ []
+
+
+Underfull \hbox (badness 4060) in paragraph at lines 437--442
+[]\T1/cmr/m/n/12 Wikipedia, the free en-cy-clo-pe-dia.  Com-par-i-son of JavaSc
+ript-based
+ []
+
+
+Underfull \hbox (badness 3281) in paragraph at lines 475--479
+[]\T1/cmr/m/n/12 WikiWikiWeb.  Lisp Is Too Pow-er-ful.  []$\T1/cmtt/m/n/12 http
+ : / / c2 . com / cgi / wiki ?$
+ []
+
+) (D:\master-project\master-thesis\main.gls [58])
+(D:\master-project\master-thesis\main.acr [59
+
 
 ] [60
+
+])
+(D:\master-project\master-thesis\a_dvd.tex [61
+
+] [62
 
 ]
 Appendix A.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [61]
+ [63]
 Overfull \hbox (2.26456pt too wide) in paragraph at lines 27--28
 \T1/cmr/m/n/12 uses ports in the range 8079-8082, spec-i-fied in the \T1/cmtt/m
 /n/12 server-options.json
  []
 
-[62])
+[64])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 39.
- [63]
+ [65]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 39.
  (D:\master-project\master-thesis\main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 39.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 39.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8F7B9320C21A15E3EB018A0F46DAD428;3125.
-
-
-LaTeX Warning: There were undefined references.
+(rerunfilecheck)             Checksum: FA7897CDD258D5D9F6F9B0C4B656FC84;3321.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 19968 strings out of 493921
- 325288 string characters out of 3150895
- 535471 words of memory out of 3000000
- 22451 multiletter control sequences out of 15000+200000
+ 20095 strings out of 493921
+ 327178 string characters out of 3150895
+ 537072 words of memory out of 3000000
+ 22519 multiletter control sequences out of 15000+200000
  22618 words of font info for 58 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 53i,12n,56p,10356b,1821s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.49} has been referenced but does not ex
+ 53i,12n,56p,10356b,1879s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{Hfootnote.45} has been referenced but does not ex
 ist, replaced by a fixed one
 
-pdfTeX warning (dest): name{Hfootnote.46} has been referenced but does not exis
+pdfTeX warning (dest): name{Hfootnote.42} has been referenced but does not exis
 t, replaced by a fixed one
 
-pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.8} has been referenced but does not exist
-, replaced by a fixed one
-
- <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecc
-c1000.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\d
-pi600\eccc1200.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkna
-ppen\ec\dpi600\ectt1000.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\lj
+ <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ect
+t1000.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\d
+pi600\eccc1000.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkna
+ppen\ec\dpi600\eccc1200.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\lj
 four\jknappen\ec\dpi600\ectt1200.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fo
 nts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\snsv\AppData\Local\MiKT
 eX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk> <C:\Users\snsv\AppData\L
@@ -1409,10 +1508,10 @@ Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440
 .pk><D:/programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/programs/
 MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmr12.pfb><D:/programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb>
-Output written on main.pdf (67 pages, 1424475 bytes).
+cm/cmr8.pfb><D:/programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on main.pdf (69 pages, 1482621 bytes).
 PDF statistics:
- 2050 PDF objects out of 2073 (max. 8388607)
- 510 named destinations out of 1000 (max. 500000)
- 448 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2259 PDF objects out of 2487 (max. 8388607)
+ 569 named destinations out of 1000 (max. 500000)
+ 472 words of extra memory for PDF output out of 10000 (max. 10000000)
 

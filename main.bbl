@@ -1,127 +1,45 @@
 \begin{thebibliography}{10}
 
-\bibitem{pacman_complete}
-\url{https://twitter.com/folone/status/494017847585415168}.
-\newblock A twitter message with a quote from Edwin Brady.
+\bibitem{sicp}
+Harold Abelson, Gerald~Jay Sussman, and Julie Sussman.
+\newblock {\em {S}tructure and {I}nterpretation of {C}omputer {P}rograms}.
+\newblock MIT Press, 1996.
+\newblock Also available online: \url{https://mitpress.mit.edu/sicp/}.
 
-\bibitem{atom_site}
-{A}tom.
-\newblock \url{https://atom.io/}.
-\newblock Atom website. Atom is ``[a] hackable text editor for the 21st
-  Century''.
-
-\bibitem{blueprint}
-{B}lueprints {V}isual {S}cripting.
-\newblock \url{https://docs.unrealengine.com/latest/INT/Engine/Blueprints/}.
-\newblock From Unreal Engine 4 Documentation.
+\bibitem{sicp_meta}
+Harold Abelson, Gerald~Jay Sussman, and Julie Sussman.
+\newblock {T}he {M}etacircular {E}valuator.
+\newblock In {\em {S}tructure and {I}nterpretation of {C}omputer {P}rograms},
+  chapter 4.1. MIT Press, 1996.
+\newblock Also available online: \url{https://mitpress.mit.edu/sicp/}.
 
 \bibitem{brackets_site}
-{B}rackets - {A} modern, open source code editor that understands web design.
+Adobe and Brackets' community.
+\newblock {B}rackets - {A} modern, open source code editor that understands web
+  design.
 \newblock \url{http://brackets.io/}.
 \newblock Brackets website.
 
-\bibitem{codemirror_site}
-{C}ode{M}irror.
-\newblock \url{http://codemirror.net/}.
-\newblock CodeMirror website. ``CodeMirror is a versatile text editor
-  implemented in JavaScript for the browser.''.
-
-\bibitem{js_text_editors_wikipedia}
-{C}omparison of {J}ava{S}cript-based source code editors.
+\bibitem{fig_scratch}
+Anonymous.
 \newblock
-  \url{https://en.wikipedia.org/wiki/Comparison_of_JavaScript-based_source_code_editors}.
-\newblock Wikipedia comparison article.
+  \url{http://mypad.northampton.ac.uk/12406702/files/2013/05/Screen-Shot-2013-05-02-at-23.19.19-1s0qp26.png}.
+\newblock A screenshot from the MIT Scratch environment. From
+  \url{https://mypad.northampton.ac.uk/12406702/2013/01/17/computer-programming-scratch/}.
 
-\bibitem{mdn_concurrency}
-{C}oncurrency model and {E}vent {L}oop.
+\bibitem{pl_benchmarks}
+Anonymous.
+\newblock {P}rogramming {L}anguages {B}enchmarks.
+\newblock \url{https://attractivechaos.github.io/plb/}.
+\newblock A website with benchmark results for various programming languages.
+
+\bibitem{lua_perl}
+Douglas Bagnall.
+\newblock {L}ua for {P}erlmongers.
 \newblock
-  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop}.
-\newblock An article from Mozilla Developer Network
-  (\url{https://developer.mozilla.org}).
-
-\bibitem{idris}
-{I}dris | {A} {L}anguage with {D}ependent {T}ypes.
-\newblock \url{http://www.idris-lang.org/}.
-\newblock Homepage of the Idris programming language.
-
-\bibitem{lisp_powerful}
-{L}isp {I}s {T}oo {P}owerful.
-\newblock \url{http://c2.com/cgi/wiki?LispIsTooPowerful}.
-\newblock An entry from the c2 Wiki: \url{http://c2.com/cgi/wiki}.
-
-\bibitem{lisp_wikipedia}
-{L}isp (programming language).
-\newblock \url{https://en.wikipedia.org/wiki/Lisp_(programming_language)}.
-\newblock Wikipedia definition of Lisp.
-
-\bibitem{unreal_list}
-{L}ist of {U}nreal {E}ngine games.
-\newblock \url{https://en.wikipedia.org/wiki/List_of_Unreal_Engine_games}.
-\newblock ``[A] list of notable games using a version of the Unreal Engine.''
-  From Wikipedia.
-
-\bibitem{unreal_guinness}
-{M}ost successful videogame engine.
-\newblock
-  \url{http://www.guinnessworldrecords.com/world-records/most-successful-game-engine}.
-\newblock From Guinness World Records webpage. Record as of 16 July 2014.
-
-\bibitem{nodejs_site}
-{N}ode.js.
-\newblock \url{https://nodejs.org}.
-\newblock Node.js website. ``Node.js® is a JavaScript runtime built on
-  Chrome's V8 JavaScript engine.''.
-
-\bibitem{open_web_platform}
-{O}pen {W}eb {P}latform.
-\newblock \url{https://www.w3.org/wiki/Open_Web_Platform}.
-\newblock ``The Open Web Platform is the collection of open (royalty-free)
-  technologies which enables the Web.''.
-
-\bibitem{scratch}
-{S}cratch.
-\newblock \url{https://wiki.scratch.mit.edu/wiki/Scratch}.
-\newblock Description of the language from the Scratch Wiki. See also the
-  language's homepage: \url{https://scratch.mit.edu/}.
-
-\bibitem{scratch_wikipedia}
-{S}cratch (programming language).
-\newblock \url{https://en.wikipedia.org/wiki/Scratch_(programming_language)}.
-\newblock Wikipedia definition of Scratch.
-
-\bibitem{so_developer_survey_2016}
-{S}tack {O}verflow {D}eveloper {S}urvey 2016 {R}esults.
-\newblock \url{http://stackoverflow.com/research/developer-survey-2016}.
-\newblock Stack Overflow's annual developer survey. ``[T]he most comprehensive
-  developer survey ever conducted.''.
-
-\bibitem{redmonk}
-{T}he {R}ed{M}onk {P}rogramming {L}anguage {R}ankings: {J}anuary 2016 –
-  tecosystems.
-\newblock \url{http://redmonk.com/sogrady/2016/02/19/language-rankings-1-16/}.
-\newblock A ranking of programming languages by popularity. ``[C]correlates
-  language discussion (Stack Overflow) and usage (GitHub)[.]''.
-
-\bibitem{web_platform}
-{T}he {W}eb platform: {B}rowser technologies.
-\newblock \url{https://platform.html5.org/}.
-\newblock A list of browser technologies that are the components of the
-  platform with links to their specifications.
-
-\bibitem{vpl_wikipedia}
-{V}isual programming language.
-\newblock \url{https://en.wikipedia.org/wiki/Visual_programming_language}.
-\newblock Wikipedia definition of a visual programming language.
-
-\bibitem{vscode_site}
-{V}isual {S}tudio {C}ode - {C}ode {E}diting. {R}edefined.
-\newblock \url{https://code.visualstudio.com/}.
-\newblock Visual Studio Code website.
-
-\bibitem{ecmascript}
-{ECMAS}cript® 2016 {L}anguage {S}pecification.
-\newblock \url{http://www.ecma-international.org/ecma-262/7.0/index.html}, June
-  2016.
+  \url{http://wellington.pm.org/archive/201010/douglas-bagnall_diff-lua-perl/}.
+\newblock A presentation comparing Lua to Perl. Also includes comparisons to
+  other languages.
 
 \bibitem{lisp_expressive}
 Donnie Berkholz.
@@ -132,12 +50,39 @@ Donnie Berkholz.
 \newblock A blog post by a RedMonk (A ``developer focused industry analyst
   firm.'') analyst.
 
+\bibitem{netscape_mozilla}
+Craig Bicknell and Chris Oakes.
+\newblock {M}ozilla {S}tomps {A}head {U}nder {A}{O}{L}.
+\newblock
+  \url{https://web.archive.org/web/20140603235609/http://archive.wired.com/techbiz/media/news/1998/11/16466},
+  November 1998.
+\newblock An archived Wired (\url{http://www.wired.com/}) blog post.
+
+\bibitem{idris}
+Edwin Brady and Idris' community.
+\newblock {I}dris | {A} {L}anguage with {D}ependent {T}ypes.
+\newblock \url{http://www.idris-lang.org/}.
+\newblock Homepage of the Idris programming language.
+
 \bibitem{visual_languages}
 Margaret~M. Burnett.
 \newblock {V}isual {L}anguage {R}esearch {B}ibliography.
 \newblock \url{http://web.engr.oregonstate.edu/~burnett/vpl.html}.
 \newblock ``This page is a structured bibliography of papers pertaining to
   visual language (VL) research.''. From Oregon State University.
+
+\bibitem{pypl}
+Pierre Carbonnelle.
+\newblock {P}{Y}{P}{L} {P}opularit{Y} of {P}rogramming {L}anguage index.
+\newblock \url{http://pypl.github.io/PYPL.html}.
+\newblock A ranking of programming languages by popularity. ``[C]reated by
+  analyzing how often language tutorials are searched on Google.''.
+
+\bibitem{crockford_private}
+Douglas Crockford.
+\newblock {P}rivate {M}embers in {J}ava{S}cript.
+\newblock \url{http://javascript.crockford.com/private.html}, 2001.
+\newblock An article from Crockford's personal website.
 
 \bibitem{syntaxation}
 Douglas Crockford.
@@ -148,6 +93,25 @@ Douglas Crockford.
 \newblock Presentation from the 2013 edition of the ``goto'' conference,
   \url{http://gotocon.com/aarhus-2013/}.
 
+\bibitem{crockford_class_free}
+Douglas Crockford.
+\newblock {D}ouglas {C}rockford: {T}he {B}etter {P}arts - {J}{S}{C}onf{U}{Y}
+  2014.
+\newblock \url{https://www.youtube.com/watch?v=bo36MrBfTk4#t=2020}, September
+  2014.
+\newblock A video from Crockford's appearance at JSConfUY 2014.
+
+\bibitem{js_growth}
+Andrie de~Vries.
+\newblock {T}he most popular programming languages on {S}tack{O}verflow |
+  {R}-bloggers.
+\newblock
+  \url{http://www.r-bloggers.com/the-most-popular-programming-languages-on-stackoverflow/},
+  July 2015.
+\newblock An R-bloggers (\url{http://www.r-bloggers.com/}) blog post which
+  includes charts illustrating JavaScript's popularity on StackOverflow between
+  2008 and 2015.
+
 \bibitem{vpl_maturity}
 Rémi Dehouck.
 \newblock {T}he maturity of visual programming.
@@ -155,12 +119,70 @@ Rémi Dehouck.
   September 2015.
 \newblock A blog post.
 
-\bibitem{sicp_meta}
-Julie~Sussman Harold~Abelson, Gerald Jay~Sussman.
-\newblock {T}he {M}etacircular {E}valuator.
-\newblock In {\em {S}tructure and {I}nterpretation of {C}omputer {P}rograms},
-  chapter 4.1. MIT Press, 1996.
-\newblock Also available online: \url{https://mitpress.mit.edu/sicp/}.
+\bibitem{v8_design}
+Google Developers.
+\newblock {D}esign {E}lements | {C}hrome {V}8 | {G}oogle {D}evelopers.
+\newblock \url{https://developers.google.com/v8/design}.
+\newblock From Google's V8 JavaScript engine website.
+
+\bibitem{fig_blueprint}
+Unreal Engine~4 Documentation.
+\newblock
+  \url{https://docs.unrealengine.com/latest/images/Engine/Blueprints/HowTo/BPHT_6/GetScore.jpg}.
+\newblock A screenshot from Blueprints Visual Scripting system from Unreal
+  Engine 4's official documentation:
+  \url{https://docs.unrealengine.com/latest/INT/Engine/Blueprints/index.html}.
+
+\bibitem{blueprint}
+{Epic Games, Inc.}
+\newblock {B}lueprints {V}isual {S}cripting.
+\newblock \url{https://docs.unrealengine.com/latest/INT/Engine/Blueprints/}.
+\newblock From Unreal Engine 4 Documentation.
+
+\bibitem{self_handbook}
+Russell~Allen et~al.
+\newblock {S}elf {H}andbook for {S}elf 4.5.0 documentation.
+\newblock \url{http://handbook.selflanguage.org/4.5/}, January 2014.
+
+\bibitem{nodejs_site}
+Node.js Foundation.
+\newblock {N}ode.js.
+\newblock \url{https://nodejs.org}.
+\newblock Node.js website. ``Node.js® is a JavaScript runtime built on
+  Chrome's V8 JavaScript engine.''.
+
+\bibitem{atom_site}
+GitHub.
+\newblock {A}tom.
+\newblock \url{https://atom.io/}.
+\newblock Atom website. Atom is ``[a] hackable text editor for the 21st
+  Century''.
+
+\bibitem{arc}
+Paul Graham and Robert Morris.
+\newblock {A}rc {F}orum | {A}rc.
+\newblock \url{http://arclanguage.org/}.
+\newblock Arc programming language website.
+
+\bibitem{internet_stats}
+Miniwatts~Marketing Group.
+\newblock {W}orld {I}nternet {U}sers {S}tatistics and 2015 {W}orld {P}opulation
+  {S}tats.
+\newblock \url{http://www.internetworldstats.com/stats.htm}.
+
+\bibitem{mozilla_story}
+Jim Hamerly, Tom Paquin, and Susan Walton.
+\newblock {T}he {S}tory of {M}ozilla.
+\newblock \url{http://www.oreilly.com/openbook/opensources/book/netrev.html},
+  January 1999.
+\newblock From ``Open Sources: Voices from the Open Source Revolution''.
+
+\bibitem{codemirror_site}
+Marijn Haverbeke and CodeMirror's community.
+\newblock {C}ode{M}irror.
+\newblock \url{http://codemirror.net/}.
+\newblock CodeMirror website. ``CodeMirror is a versatile text editor
+  implemented in JavaScript for the browser.''.
 
 \bibitem{snapshots}
 Eric Hosick.
@@ -176,6 +198,71 @@ Nicholas H.Tollervey.
 \newblock An article from the author's personal website:
   \url{http://ntoll.org/}.
 
+\bibitem{js_flow}
+Facebook Inc.
+\newblock {F}low | {A} static type checker for {J}ava{S}cript.
+\newblock \url{https://flowtype.org/}.
+\newblock Flow webpage.
+
+\bibitem{ecmascript_2017}
+Ecma International.
+\newblock {ECMAS}cript® 2017 {L}anguage {S}pecification.
+\newblock \url{https://tc39.github.io/ecma262/}.
+
+\bibitem{tc39}
+Ecma International.
+\newblock {TC39} - {ECMAS}cript.
+\newblock \url{http://www.ecma-international.org/memento/TC39.htm}.
+\newblock Technical Committee 39 webpage at Ecma International.
+
+\bibitem{ecma}
+Ecma International.
+\newblock {W}elcome to {E}cma {I}nternational.
+\newblock \url{http://www.ecma-international.org/}.
+\newblock Ecma International webpage.
+
+\bibitem{ecmascript_2015}
+Ecma International.
+\newblock {ECMAS}cript® 2015 {L}anguage {S}pecification.
+\newblock \url{http://www.ecma-international.org/ecma-262/6.0/}, June 2015.
+
+\bibitem{ecmascript}
+Ecma International.
+\newblock {ECMAS}cript® 2016 {L}anguage {S}pecification.
+\newblock \url{http://www.ecma-international.org/ecma-262/7.0/index.html}, June
+  2016.
+
+\bibitem{ecma_github}
+Ecma International and Technical~Committee 39.
+\newblock tc39/ecma262: {S}tatus, process, and documents for {ECMA262}.
+\newblock \url{https://github.com/tc39/ecma262}.
+\newblock Official ECMAScript's GitHub repository.
+
+\bibitem{smalltalk_history}
+Alan~C. Kay.
+\newblock The early history of smalltalk.
+\newblock {\em SIGPLAN Not.}, 28(3):69--95, March 1993.
+\newblock Also available here:
+  \url{http://worrydream.com/EarlyHistoryOfSmalltalk/}.
+
+\bibitem{pacman_complete}
+George Leontiev.
+\newblock \url{https://twitter.com/folone/status/494017847585415168}.
+\newblock A twitter message with a quote from Edwin Brady.
+
+\bibitem{lua_5_3}
+Lua.org.
+\newblock {L}ua 5.3 readme.
+\newblock \url{https://www.lua.org/manual/5.3/readme.html}.
+\newblock A readme file for Lua 5.3.
+
+\bibitem{mateo_benchmarks}
+Carles Mateo.
+\newblock {P}erformance of several languages.
+\newblock
+  \url{http://blog.carlesmateo.com/2014/10/13/performance-of-several-languages/}.
+\newblock A blog post comparing the performance of several languages.
+
 \bibitem{lisp_draft}
 John McCarthy.
 \newblock {H}istory of {L}isp.
@@ -183,11 +270,53 @@ John McCarthy.
   February 1979.
 \newblock A draft.
 
+\bibitem{pl_checklist}
+Colin McMillen, Jason Reed, and Elly Jones.
+\newblock {P}rogramming {L}anguage {C}hecklist.
+\newblock \url{http://colinm.org/language_checklist.html}.
+\newblock A humorous illustration of why new programming languages fail.
+
+\bibitem{typescript}
+Microsoft.
+\newblock {T}ype{S}cript - {J}ava{S}cript that scales.
+\newblock \url{https://www.typescriptlang.org/}.
+\newblock TypeScript webpage.
+
+\bibitem{vscode_site}
+Microsoft.
+\newblock {V}isual {S}tudio {C}ode - {C}ode {E}diting. {R}edefined.
+\newblock \url{https://code.visualstudio.com/}.
+\newblock Visual Studio Code website.
+
 \bibitem{macros}
 Matt Might.
 \newblock {F}irst-class (run-time) macros and meta-circular evaluation.
 \newblock
   \url{http://matt.might.net/articles/metacircular-evaluation-and-first-class-run-time-macros/}.
+
+\bibitem{mdn_concurrency}
+Mozilla~Developer Network and individual contributors.
+\newblock {C}oncurrency model and {E}vent {L}oop.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\bibitem{js_types}
+Mozilla~Developer Network and individual contributors.
+\newblock {J}ava{S}cript data types and data structures.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\bibitem{mdn_set_prototype_of}
+Mozilla~Developer Network and individual contributors.
+\newblock {O}bject.set{P}rototype{O}f().
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
 
 \bibitem{unreal_script}
 Christian Nutt.
@@ -197,6 +326,78 @@ Christian Nutt.
   March 2014.
 \newblock An article from the Gamasutra website.
 
+\bibitem{wren_performance}
+Bob Nystrom.
+\newblock {P}erformance – {W}ren.
+\newblock \url{http://wren.io/performance.html}.
+\newblock A performance comparison of the Wren programming language a few other
+  languages. From \url{http://wren.io}.
+
+\bibitem{redmonk}
+Stephen O'Grady.
+\newblock {T}he {R}ed{M}onk {P}rogramming {L}anguage {R}ankings: {J}anuary 2016
+  – tecosystems.
+\newblock \url{http://redmonk.com/sogrady/2016/02/19/language-rankings-1-16/}.
+\newblock A ranking of programming languages by popularity. ``[C]correlates
+  language discussion (Stack Overflow) and usage (GitHub)[.]''.
+
+\bibitem{js_design_patterns}
+Addy Osmani.
+\newblock {\em {L}earning {J}ava{S}cript {D}esign {P}atterns}.
+\newblock O'Reilly Media, July 2012.
+\newblock Also available online:
+  \url{https://addyosmani.com/resources/essentialjsdesignpatterns/book/}.
+
+\bibitem{so_developer_survey_2016}
+Stack Overflow.
+\newblock {S}tack {O}verflow {D}eveloper {S}urvey 2016 {R}esults.
+\newblock \url{http://stackoverflow.com/research/developer-survey-2016}.
+\newblock Stack Overflow's annual developer survey. ``[T]he most comprehensive
+  developer survey ever conducted.''.
+
+\bibitem{lua_c_performance}
+Mike Pall.
+\newblock {R}e: [{ANN}] llvm-lua 1.0.
+\newblock \url{http://lua-users.org/lists/lua-l/2009-06/msg00071.html}.
+\newblock An archived post from lua-l, the official mailing list of Lua
+  programming language. Compares Lua to C performance-wise.
+
+\bibitem{LuaJIT}
+Mike Pall.
+\newblock {T}he {L}ua{J}{I}{T} {P}roject.
+\newblock \url{http://luajit.org/}.
+\newblock LuaJIT website.
+
+\bibitem{unreal_guinness}
+Guinness~World Records.
+\newblock {M}ost successful videogame engine.
+\newblock
+  \url{http://www.guinnessworldrecords.com/world-records/most-successful-game-engine}.
+\newblock From Guinness World Records webpage. Record as of 16 July 2014.
+
+\bibitem{js_ten_days}
+Charles Severance.
+\newblock Javascript: Designing a language in 10 days.
+\newblock {\em Computer}, 45(2):7--8, 2012.
+
+\bibitem{r7rs}
+Alex Shinn, John Cowan, Arthur~A. Gleckler, and et~al.
+\newblock {T}he {R}evised$^7$ {R}eport on the {A}lgorithmic {L}anguage
+  {S}cheme.
+\newblock \url{trac.sacrideo.us/wg/raw-attachment/wiki/WikiStart/r7rs.pdf},
+  July 2013.
+\newblock The latest version of the de facto standard for the Scheme
+  programming language.
+
+\bibitem{tiobe}
+TIOBE software BV.
+\newblock {T}{I}{O}{B}{E} {I}ndex | {T}iobe - {T}he {S}oftware {Q}uality
+  {C}ompany.
+\newblock \url{http://www.tiobe.com/tiobe_index}.
+\newblock A ranking of programming languages by popularity. Based on ``the
+  number of search engine results for queries containing the name of the
+  language'' (\url{https://en.wikipedia.org/wiki/TIOBE_index}).
+
 \bibitem{wadler_critique}
 Philip Wadler.
 \newblock {A} critique of {A}belson and {S}ussman or why calculating is better
@@ -204,5 +405,76 @@ Philip Wadler.
 \newblock {\em SIGPLAN Notices}, 22(3):83--94, March 1987.
 \newblock Available online:
   \url{https://www.cs.kent.ac.uk/people/staff/dat/miranda/wadler87.pdf}.
+
+\bibitem{web_platform}
+WHATWG.
+\newblock {T}he {W}eb platform: {B}rowser technologies.
+\newblock \url{https://platform.html5.org/}.
+\newblock A list of browser technologies that are the components of the
+  platform with links to their specifications.
+
+\bibitem{scratch}
+Scratch Wiki.
+\newblock {S}cratch.
+\newblock \url{https://wiki.scratch.mit.edu/wiki/Scratch}.
+\newblock Description of the language from the Scratch Wiki. See also the
+  language's homepage: \url{https://scratch.mit.edu/}.
+
+\bibitem{open_web_platform}
+W3C Wiki.
+\newblock {O}pen {W}eb {P}latform.
+\newblock \url{https://www.w3.org/wiki/Open_Web_Platform}.
+\newblock ``The Open Web Platform is the collection of open (royalty-free)
+  technologies which enables the Web.''.
+
+\bibitem{lua_games_category_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock
+  \url{https://en.wikipedia.org/wiki/Category:Lua-scripted_video_games}.
+\newblock A Wikipedia category.
+
+\bibitem{js_text_editors_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {C}omparison of {J}ava{S}cript-based source code editors.
+\newblock
+  \url{https://en.wikipedia.org/wiki/Comparison_of_JavaScript-based_source_code_editors}.
+\newblock Wikipedia comparison article.
+
+\bibitem{lisp_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {L}isp (programming language).
+\newblock \url{https://en.wikipedia.org/wiki/Lisp_(programming_language)}.
+\newblock Wikipedia definition of Lisp.
+
+\bibitem{unreal_list}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {L}ist of {U}nreal {E}ngine games.
+\newblock \url{https://en.wikipedia.org/wiki/List_of_Unreal_Engine_games}.
+\newblock ``[A] list of notable games using a version of the Unreal Engine.''
+  From Wikipedia.
+
+\bibitem{scratch_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {S}cratch (programming language).
+\newblock \url{https://en.wikipedia.org/wiki/Scratch_(programming_language)}.
+\newblock Wikipedia definition of Scratch.
+
+\bibitem{vpl_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {V}isual programming language.
+\newblock \url{https://en.wikipedia.org/wiki/Visual_programming_language}.
+\newblock Wikipedia definition of a visual programming language.
+
+\bibitem{c2_eval_apply}
+WikiWikiWeb.
+\newblock {E}val {A}pply.
+\newblock \url{http://c2.com/cgi/wiki?EvalApply}.
+\newblock An entry from WikiWikiWeb \url{http://c2.com/cgi/wiki/FrontPage}.
+
+\bibitem{lisp_powerful}
+WikiWikiWeb.
+\newblock {L}isp {I}s {T}oo {P}owerful.
+\newblock \url{http://c2.com/cgi/wiki?LispIsTooPowerful}.
+\newblock An entry from WikiWikiWeb: \url{http://c2.com/cgi/wiki}.
 
 \end{thebibliography}

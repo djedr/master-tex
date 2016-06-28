@@ -9,46 +9,49 @@
 \contentsline {section}{\numberline {1.1}Web technologies}{5}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}JavaScript}{5}{subsection.1.1.1}
 \contentsline {subsubsection}{Concurrency model}{6}{section*.2}
-\contentsline {section}{\numberline {1.2}Programming language design and implementation}{6}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Syntax}{7}{subsection.1.2.1}
+\contentsline {section}{\numberline {1.2}Programming language design and implementation}{7}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Syntax}{8}{subsection.1.2.1}
 \contentsline {subsection}{\numberline {1.2.2}Visual programming languages}{9}{subsection.1.2.2}
-\contentsline {section}{\numberline {1.3}Programming discipline}{11}{section.1.3}
+\contentsline {section}{\numberline {1.3}Programming discipline}{12}{section.1.3}
 \contentsline {chapter}{\numberline {2}Dual programming language}{13}{chapter.2}
 \contentsline {section}{\numberline {2.1}Introduction}{13}{section.2.1}
 \contentsline {section}{\numberline {2.2}Grammar and syntactic features}{15}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Basic syntax}{16}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Comments, whitespace and the syntax tree}{18}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Basic syntax}{15}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Comments, whitespace and the syntax tree}{17}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Numbers}{20}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Zero and single argument expressions}{21}{subsection.2.2.4}
-\contentsline {subsubsection}{In combination with macros}{22}{section*.3}
-\contentsline {subsection}{\numberline {2.2.5}Pattern matching}{23}{subsection.2.2.5}
-\contentsline {subsection}{\numberline {2.2.6}Rest parameters and spread operator}{25}{subsection.2.2.6}
+\contentsline {subsection}{\numberline {2.2.4}Zero and single argument expressions}{20}{subsection.2.2.4}
+\contentsline {subsubsection}{In combination with macros}{21}{section*.3}
+\contentsline {subsection}{\numberline {2.2.5}Pattern matching}{22}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}Rest parameters and spread operator}{24}{subsection.2.2.6}
 \contentsline {section}{\numberline {2.3}Basic primitives and functions}{26}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Language primitives}{27}{subsection.2.3.1}
-\contentsline {chapter}{\numberline {3}Development environment}{31}{chapter.3}
-\contentsline {section}{\numberline {3.1}Overview}{31}{section.3.1}
-\contentsline {section}{\numberline {3.2}Text editor}{33}{section.3.2}
-\contentsline {section}{\numberline {3.3}Visual editor}{35}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}The visual representation}{35}{subsection.3.3.1}
-\contentsline {subsubsection}{Flexibility}{36}{section*.4}
-\contentsline {subsubsection}{Design}{36}{section*.5}
-\contentsline {subsubsection}{Structure}{37}{section*.6}
-\contentsline {section}{\numberline {3.4}Performance}{39}{section.3.4}
-\contentsline {section}{\numberline {3.5}Comparison}{40}{section.3.5}
-\contentsline {chapter}{\numberline {4}Case study}{41}{chapter.4}
-\contentsline {section}{\numberline {4.1}The game}{41}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Main loop}{41}{subsection.4.1.1}
-\contentsline {section}{\numberline {4.2}Performance}{43}{section.4.2}
-\contentsline {section}{\numberline {4.3}Possible improvements}{44}{section.4.3}
-\contentsline {chapter}{\numberline {5}Design discussion}{45}{chapter.5}
-\contentsline {section}{\numberline {5.1}Comments}{45}{section.5.1}
-\contentsline {section}{\numberline {5.2}Structural string manipulation}{46}{section.5.2}
-\contentsline {section}{\numberline {5.3}Just-in-time macros}{46}{section.5.3}
-\contentsline {section}{\numberline {5.4}C-like syntax}{49}{section.5.4}
-\contentsline {section}{\numberline {5.5}Universal visual editor}{50}{section.5.5}
+\contentsline {subsection}{\numberline {2.3.1}Language primitives}{26}{subsection.2.3.1}
+\contentsline {chapter}{\numberline {3}Development environment}{29}{chapter.3}
+\contentsline {section}{\numberline {3.1}Overview}{29}{section.3.1}
+\contentsline {section}{\numberline {3.2}Text editor}{31}{section.3.2}
+\contentsline {section}{\numberline {3.3}Visual editor}{33}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}The visual representation}{33}{subsection.3.3.1}
+\contentsline {subsubsection}{Flexibility}{34}{section*.4}
+\contentsline {subsubsection}{Design}{34}{section*.5}
+\contentsline {subsubsection}{Structure}{35}{section*.6}
+\contentsline {section}{\numberline {3.4}Performance}{37}{section.3.4}
+\contentsline {section}{\numberline {3.5}Comparison}{38}{section.3.5}
+\contentsline {chapter}{\numberline {4}Case study}{39}{chapter.4}
+\contentsline {section}{\numberline {4.1}The game}{39}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Main loop}{39}{subsection.4.1.1}
+\contentsline {section}{\numberline {4.2}Performance}{41}{section.4.2}
+\contentsline {section}{\numberline {4.3}Possible improvements}{42}{section.4.3}
+\contentsline {chapter}{\numberline {5}Design discussion}{43}{chapter.5}
+\contentsline {section}{\numberline {5.1}Comments}{43}{section.5.1}
+\contentsline {section}{\numberline {5.2}Structural string manipulation}{44}{section.5.2}
+\contentsline {section}{\numberline {5.3}Just-in-time macros}{44}{section.5.3}
+\contentsline {section}{\numberline {5.4}C-like syntax}{47}{section.5.4}
+\contentsline {section}{\numberline {5.5}Universal visual editor}{48}{section.5.5}
+\contentsline {section}{\numberline {5.6}Lua}{48}{section.5.6}
+\contentsline {section}{\numberline {5.7}Performance}{49}{section.5.7}
+\contentsline {section}{\numberline {5.8}Class-free Object-Oriented Programming}{49}{section.5.8}
 \contentsline {chapter}{\numberline {6}Summary and conclusions}{51}{chapter.6}
 \contentsline {chapter}{Bibliography}{53}{chapter*.7}
-\contentsline {chapter}{Glossary}{57}{section*.8}
-\contentsline {chapter}{Acronyms}{59}{section*.10}
-\contentsline {chapter}{\numberline {A}P\IeC {\l }yta CD}{61}{appendix.A}
-\contentsline {section}{\numberline {A.1}Running the application}{62}{section.A.1}
+\contentsline {chapter}{Glossary}{59}{section*.8}
+\contentsline {chapter}{Acronyms}{61}{section*.10}
+\contentsline {chapter}{\numberline {A}P\IeC {\l }yta CD}{63}{appendix.A}
+\contentsline {section}{\numberline {A.1}Running the application}{64}{section.A.1}

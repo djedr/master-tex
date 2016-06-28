@@ -16,7 +16,7 @@ CodeMirror, a JavaScript library which provides basic facilities for the text-ba
 \subsection{JavaScript}
 The JavaScript programming language was created by Brendan Eich for Netscape\cite[Introduction]{ecmascript}, the company which created the Netscape Navigator web browser. There is a line of evolution that leads from Netscape and its browser to Mozilla and Firefox\cite{netscape_mozilla, mozilla_story}. The language was developed in 10 days in April 1995\cite{js_ten_days}.
 
-Despite significant design flaws, JavaScript has became \textit{one of} the most\cite{tiobe. pypl}, if not \textit{the most}\cite[Section~Most Popular Technologies per Dev Type]{so_developer_survey_2016}\cite{redmonk} popular programming languages in the world. In this section I will briefly look at some of the probable reasons for that from a programming language design perspective.
+Despite significant design flaws, JavaScript has became \textit{one of} the most\cite{tiobe, pypl}, if not \textit{the most}\cite[Section~Most Popular Technologies per Dev Type]{so_developer_survey_2016}\cite{redmonk} popular programming languages in the world. In this section I will briefly look at some of the probable reasons for that from a programming language design perspective.
 
 On the surface, JavaScript has a familiar curly-brace syntax known from C or Java.
 
@@ -27,12 +27,20 @@ features, borrowed from other excellent languages\cite[Section~4~Overview]{ecmas
    \item Self, a pioneering prototype-based \acrlong{oop} language\cite{self_handbook}, which evolved from Smalltalk-80\cite{smalltalk_history}. It introduced the concept of prototypes, which is an approach to \acrshort{oop}, where inheritance is implemented by reusing existing objects instead of defining classes. Prototype-based programming is the feature that JavaScript adopted from this language.
 \end{itemize}
 The two above languages are characterized by a very minimalist nature
+Both languages as well as JavaScript\cite{js_types} are dynamically typed -- types can be checked only at runtime. 
 
 The final advantage of JavaScript is the fact that it is distributed with a ubiquitous environment of the web browser. This makes the language straightforward for developers to use.
 Easy to get started -- attract novice developers
 Reach billions of users\cite{internet_stats}
 
 The above mixture turns out to create a very powerful and usable language.
+
+
+In the recent years JavaScript's popularity has been steadily growing\cite{js_growth}. This translated to significant improvements in the language's standarization efforts. Since 2015, ECMA International's\cite{ecma} Technical Commitee 39\cite{tc39}, the commitee which defines ECMAScript -- the official standard for JavaScript -- adopted a new process. Under this process, a new version of the standard is released annually\cite{ecmascript, ecmascript_2015, ecmascript_2017}. The documents and proposals are publicly available at GitHub\cite{ecma_github}.
+
+
+Static type checking for JavaScript is also possible with Flow\cite{js_flow} -- a static type checker, which works either as a syntax extension or through comment annotations -- or TypeScript\cite{typescript} -- which is a superset of JavaScript.
+
 
 \subsubsection{Concurrency model}
 In the context of the concurrency model, the JavaScript runtime conceptually
@@ -72,8 +80,7 @@ expressions and no statements in the language. This means that every language
 construct represents a value. There's also no notion of operator precedence.
 
 The two core components of a Lisp interpreter are the \texttt{apply} and
-\texttt{eval}
-functions\cite{sicp_meta}\footnote{\url{http://c2.com/cgi/wiki?EvalApply}}. The
+\texttt{eval} functions\cite[Section~4.1]{sicp, c2_eval_apply}. The
 former takes as arguments another function and a list of arguments and applies
 this function to these arguments. The latter takes as arguments an
 \texttt{expression} and an \texttt{environment} and evaluates this expression in
@@ -207,17 +214,19 @@ to type of their visual representation, to one of three categories:
 
 \begin{figure}[h!]
 \centering \includegraphics[width=0.9\textwidth]{scratch}
-\caption{ MIT Scratch programming language editor\protect\footnote{ Screenshot
-        from \url{
-            http://mypad.northampton.ac.uk/12406702/files/2013/05/Screen-Shot-2013-05-02-at-23.19.19-1s0qp26.png
-        } } }
+\caption{
+    MIT Scratch programming language editor;
+    screenshot from \protect\cite{fig_scratch}
+}
 \label{fig:scratch}
 \end{figure}
 
 \begin{figure}[h!]
 \centering \includegraphics[width=0.9\textwidth]{blueprint}
-\caption{Blueprints Visual Scripting\protect\footnote{Screenshot from
-        \url{https://docs.unrealengine.com/latest/images/Engine/Blueprints/HowTo/BPHT_6/GetScore.jpg}}}
+\caption{
+    Blueprints Visual Scripting system;
+    screenshot from \protect\cite{fig_blueprint}
+}
 \label{fig:blueprint}
 \end{figure}
 
@@ -255,8 +264,7 @@ Taking into account the above and looking at the most popular visual programming
 languages\footnote{I was not able to find and am not aware of any official or
   even unofficial ranking of popularity of visual programming languages, but
   analyzing the top hits when google searching the phrase ``visual programming
-  language'' in combination with
-  \url{https://en.wikipedia.org/wiki/Visual_programming_language} and my
+  language'' in combination with\cite{vpl_wikipedia} and my
   personal experience suggest that we can find these among the most popular: MIT
   Scratch Unreal Engine 4's Blueprints}
 \js{Urwane zdanie?}
@@ -287,7 +295,7 @@ representation all the advantages of the latter need to be kept.
 \js{mam poczucie, że ten podrozdział jest nie na miejscu. Lepiej napisać to gdzieś przy opisie implementacji}
 The prototype was implemented largely in the spirit of exploratory programming:
 ``the kind where you decide what to write by writing
-it.''\footnote{\url{http://arclanguage.org/}}.
+it.''\cite{arc}.
 
 This approach in combination with a dynamic and flexible language like
 JavaScript enables one to quickly transform ideas to working prototypes and

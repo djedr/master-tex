@@ -72,12 +72,12 @@ This concurrency model is called the \textit{event} loop, because the messages a
 A very important family of programming languages and one which had the most
 influence on the design of Dual is the Lisp family. In this thesis I use the
 singular form ``Lisp'' to refer to the whole family rather that a concrete
-dialect or implementation, such as Common Lisp or Scheme.
+dialect or implementation -- such as Common Lisp\cite{common_lisp_hyperspec}, Scheme\cite{r7rs}, SBCL\cite{sbcl_site} or Racket\cite{racket_site} -- unless otherwise noted.
 
 Lisp is characterized by a very minimal syntax, which relies on Polish (prefix)
 notation for expressions and parentheses to indicate nesting. There are only
 expressions and no statements in the language. This means that every language
-construct represents a value. There's also no notion of operator precedence.
+construct represents a value. There is also no notion of operator precedence.
 
 The two core components of a Lisp interpreter are the \texttt{apply} and
 \texttt{eval} functions\cite[Section~4.1]{sicp, c2_eval_apply}. The
@@ -118,23 +118,70 @@ between a few types of expressions. The essential are:
 	\end{itemize}
 \end{itemize}
 
-\js{Brakuje mi tu gdzieś jasnego powiedzenia, że listy którymi manipuluje lisp
-  mogą być zarówno przetwarzane jako dane, jak i wykonywane jako kod.  Chyba że
-  nie jest to szczególnie istotna własność z punktu widzenia Dual -- wtedy można
-  to pominąć.}
+A Lisp expression can look like this:
+\begin{lstlisting}[label={lst:lisp_expression}]
+(+ 2 (* 3 5))
+\end{lstlisting}
 
-For detailed explanation please refer to \cite{sicp_meta}.
+Words are delimited by white space. Each sequence of words between parentheses can be viewed as a list\footnote{Originally the name Lisp was an acronym, which stood for ``LISt Processing''\cite[Section~1.2]{emacs_lisp_reference}\cite[Chapter~12]{practical_lisp}}. Lists can be nested inside each other. Each list represents an expression, where the first element of the list is the expression's operator and the following elements are its arguments.
+
+This parenthesized notation is called S-expressions\cite[Section~Recursive Functions of Symbolic Expressions; Section~The LISP Programming System]{s_expressions}. These are used to represent both code and data. For example the code from Listing \ref{lst:lisp_expression} can be represented (in Common Lisp\footnote{All the remaining listings in this section contain code in Common Lisp.}) as data:
+\begin{lstlisting}
+(list '+ 2 (list '* 3 5))
+
+; or shorter equivalent:
+'(+ 2 (* 3 5))
+\end{lstlisting}
+
+Where \texttt{list} is a function that produces a list that contains the values of its arguments.
+
+\texttt{'} is a \textit{quote} symbol. It prevents an expression from being evaluated.
+
+\texttt{;} begins a comment that extends to the end of current line.
+
+\texttt{+} and \texttt{*} are functions that perform their corresponding arithmetic operations: addition and multiplication respectively.
+
+This data representation can now be manipulated. For example:
+\begin{lstlisting}
+; set the `expression` variable to hold the same list value
+; as in the above listing:
+(setf expression '(+ 2 (* 3 5)))
+
+; the variable `expression` now represents the expression `(+ 2 (* 3 5))`
+
+; replace `*` with `exp` in the `expression`
+; since it is just an ordinary list,
+; this is done with ordinary data manipulation functions:
+(setf (first (third expression)) 'expt)
+
+; the variable `expression` now represents the expression `(+ 2 (expt 3 5))`
+\end{lstlisting}
+
+Where \texttt{setf} evaluates its second argument and stores it in a variable represented by its first argument. The first argument can be -- among other things\cite[Section~11.15.1]{emacs_lisp_reference} -- the name of the new variable or a place in an existing list. 
+
+\texttt{first} and \texttt{third} take a list as an argument and extract the first or the third element from that list accordingly.
+
+\texttt{expt} is a function that performs exponentiation: it takes two numerical arguments and returns the value of the first raised to the power determined by the value of the second.
+
+We can now evaluate the \texttt{expression}:
+\begin{lstlisting}
+; returns 245, which is the result of evaluating (+ 2 (expt 3 5)):
+(eval expression)
+\end{lstlisting}
+
+\texttt{eval} here is a function of one argument -- an expression to be evaluated in the current environment. This is ``a user interface to the evaluator''\cite[Section~3.8, Function~EVAL]{common_lisp_hyperspec} (which can be understood as the internal function \texttt{eval} described at the beginning of this section).
+
+The property of representing code and data in essentially the same form is known as homoiconicity\cite{homoiconicity_wikipedia, c2_homoiconicity, homoiconicity}. In the case of Lisp an S-expression can be very straightforwardly mapped to a corresponding \acrlong{ast} (\acrshort{ast}) node.
+
+%For detailed explanation please refer to \cite{sicp}.
 
 \subsection{Syntax}
-The term ``\acrlong{ast}'' refers to a tree data structure that is often \js{skreśliłbym often} built
+The term \acrshort{ast} refers to a tree data structure that is built
 by parsers of programming languages to represent syntactic structure of source
-code in an abstract and easily traversable and manipulable way. In the simplest
-form, in expression-only languages such as Lisp each node of such tree
+code in an abstract as well as easily traversable and manipulable way. In the simplest form, in expression-only languages such as Lisp each node of such tree
 represents a single expression. The tree is abstract in the sense that it does
 not necessarily contain all the syntax constructs that occur in the source code
-or encodes them in some ``abstract'' way. In case of Lisp, there's no need to
-store or represent bracketing characters \texttt{()} in the AST, as nesting is
-inherent in the structure itself.
+or encodes them in some \textit{abstract} way. In case of Lisp, there's no need to store or represent bracketing characters \texttt{()} in the AST, as nesting is inherent in the data structure itself.
 
 In theory, a programming language does not require a text representation and
 could be defined only in terms of a data structure such as a syntax
@@ -142,15 +189,9 @@ tree. Practically, for a language to be useful, it needs to come with an
 editable representation that provides a convenient way for a programmer to
 construct programs. Currently the most successful representation for that is the
 human-readable text-based representation, which evolved from more primitive and
-less convenient representations, such as punched cards.
+less convenient representations, such as punched cards\cite{columbia_history_cards, punched_cards_wikipedia}.
 
-Constructing programs with this \js{this -> text} representation can be done with any text editor.
-
-This means that the representation is largely independent of a tool, which is an
-advantage. Any application capable of editing text can theoretically be used to
-edit any source code (ignoring details such as encoding, etc.). Such
-applications are universally available, so source code stored in text files can
-be edited freely on any platform with any tool.
+Constructing programs with text representation can be done with any text editor. This means that the representation is largely independent of a tool, which is an advantage. Any application capable of editing text can theoretically be used to edit any source code (ignoring details such as encoding, etc.). Such applications are universally available, so source code stored in text files can be edited freely on any platform with any tool.
 
 But for complex programs a simple text editor quickly becomes inconvenient and a
 more specialized one is preferable. Such code editors introduce various features

@@ -23,7 +23,7 @@ net win
 
 \section{The game}
 It is actually a port of my earlier clone of the game, which was written in
-Links\footnote{\url{http://groups.inf.ed.ac.uk/links/}}, a functional language.
+Links\cite{links_site}, a functional language.
 
 \begin{figure}[h!]
 \centering \includegraphics[width=0.9\textwidth]{pacman}
@@ -33,9 +33,9 @@ Links\footnote{\url{http://groups.inf.ed.ac.uk/links/}}, a functional language.
 
 \subsection{Main loop}
 A typical game loop in a modern JavaScript
-game\footnote{\url{https://developer.mozilla.org/en-US/docs/Games/Anatomy}}
+game\cite{mdn_game_anatomy}
 relies on the \texttt{requestAnimationFrame}
-method\footnote{\url{https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame}}. This
+method\cite{mdn_requestanimationframe}. This
 method takes a single argument, which is a function callback. This function is
 invoked by the browser before it repaints the contents of the window. Thus, it
 allows the game rendering to be synchronized with the browser.

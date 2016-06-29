@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.4.4)  28 JUN 2016 03:08
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.4.4)  29 JUN 2016 23:53
 entering extended mode
 **main.tex
 (D:\master-project\master-thesis\main.tex
@@ -829,25 +829,37 @@ Package: xparse 2016/05/18 v6512 L3 Experimental document command parser
 \l__xparse_processor_int=\count174
 \l__xparse_v_nesting_int=\count175
 )
+(D:\programs\MiKTeX\tex\latex\natbib\natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip78
+\bibsep=\skip79
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count176
+)
+(D:\programs\MiKTeX\tex\latex\bibtopic\bibtopic.sty
+Package: bibtopic 2006/09/08 v1.1a Sectioned Bibliographies
+\c@btauxfile=\count177
+\bt@infilea=\read1
+\bt@infileb=\read2
+\bt@outfile=\write3
+\bt@tempboxa=\box51
+)
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \newdualentry with sig. ' O{} O{} m m m m ' on line 68.
+. Defining command \newdualentry with sig. ' O{} O{} m m m m ' on line 69.
 .................................................
 )
-\glswrite=\write3
-\glo@main@file=\write4
+\glswrite=\write4
+\glo@main@file=\write5
 Package glossaries Info: Writing glossary file main.glo on input line 5.
-\glo@acronym@file=\write5
+\glo@acronym@file=\write6
 Package glossaries Info: Writing glossary file main.acn on input line 5.
 
 (D:\master-project\master-thesis\glossary.tex)
 (D:\master-project\master-thesis\main.aux
 
 LaTeX Warning: Label `fig:scratch' multiply defined.
-
-
-LaTeX Warning: Label `fig:blueprint' multiply defined.
 
 )
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -866,20 +878,20 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
  (D:\programs\MiKTeX\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count176
+\scratchcounter=\count178
 \scratchdimen=\dimen165
-\scratchbox=\box51
-\nofMPsegments=\count177
-\nofMParguments=\count178
+\scratchbox=\box52
+\nofMPsegments=\count179
+\nofMParguments=\count180
 \everyMPshowfont=\toks40
-\MPscratchCnt=\count179
+\MPscratchCnt=\count181
 \MPscratchDim=\dimen166
-\MPnumerator=\count180
-\makeMPintoPDFobject=\count181
+\MPnumerator=\count182
+\makeMPintoPDFobject=\count183
 \everyMPtoPDFconversion=\toks41
 )
-\c@lstlisting=\count182
-\AtBeginShipoutBox=\box52
+\c@lstlisting=\count184
+\AtBeginShipoutBox=\box53
 Package hyperref Info: Link coloring OFF on input line 11.
  (D:\programs\MiKTeX\tex\latex\hyperref\nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -887,7 +899,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (D:\programs\MiKTeX\tex\generic\oberdiek\gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count183
+\c@section@level=\count185
 )
 LaTeX Info: Redefining \ref on input line 11.
 LaTeX Info: Redefining \pageref on input line 11.
@@ -895,7 +907,7 @@ LaTeX Info: Redefining \nameref on input line 11.
 
 (D:\master-project\master-thesis\main.out)
 (D:\master-project\master-thesis\main.out)
-\@outlinefile=\write6
+\@outlinefile=\write7
 
 (D:\master-project\master-thesis\title_page.tex
 <img/logo.pdf, id=211, 386.24298pt x 566.2656pt>
@@ -925,7 +937,7 @@ $[]$ []
 thesis/img/logo.pdf>]) [2
 
 ] (D:\master-project\master-thesis\main.toc [3])
-\tf@toc=\write7
+\tf@toc=\write8
 
 [4] (D:\master-project\master-thesis\0_introduction.tex
 Chapter 0.
@@ -974,172 +986,116 @@ cmtt/m/n/12 apply \T1/cmr/m/n/12 and \T1/cmtt/m/n/12 eval \T1/cmr/m/n/12 functi
 ons[[],
  []
 
-[7] [8] [9] <img/scratch.png, id=467, 854.19125pt x 571.13374pt>
+[7] [8] [9] [10] <img/scratch.png, id=522, 854.19125pt x 571.13374pt>
 File: img/scratch.png Graphic file (type png)
 
 <use img/scratch.png>
-Package pdftex.def Info: img/scratch.png used on input line 216.
+Package pdftex.def Info: img/scratch.png used on input line 257.
 (pdftex.def)             Requested size: 377.24702pt x 252.2321pt.
- <img/blueprint.jpg, id=469, 607.51968pt x 228.855pt>
-File: img/blueprint.jpg Graphic file (type jpg)
 
-<use img/blueprint.jpg>
-Package pdftex.def Info: img/blueprint.jpg used on input line 225.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<img/blueprint.jpg, id=524, 607.51968pt x 228.855pt>
+File: img/blueprint.jpg Graphic file (type jpg)
+ <use img/blueprint.jpg>
+Package pdftex.def Info: img/blueprint.jpg used on input line 266.
 (pdftex.def)             Requested size: 377.24702pt x 142.1121pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[10 <D:/master-project/master-thesis/img/scratch.png>] [11 <D:/master-project/m
+[11] [12 <D:/master-project/master-thesis/img/scratch.png> <D:/master-project/m
 aster-thesis/img/blueprint.jpg>])
 (D:\master-project\master-thesis\2_language.tex
-Overfull \hbox (13.09752pt too wide) in paragraph at lines 300--1
+Overfull \hbox (13.09752pt too wide) in paragraph at lines 341--1
 []\T1/cmr/m/n/12 This ap-proach in com-bi-na-tion with a dy-namic and flex-i-bl
 e lan-guage like JavaScript
  []
 
-[12]
-Chapter 2.
-[13
+[13] [14
 
-] [14]
-Overfull \hbox (5.50253pt too wide) in paragraph at lines 100--103
+]
+Chapter 2.
+[15] [16]
+Overfull \hbox (19.02686pt too wide) in paragraph at lines 94--97
 []\T1/cmr/m/n/12 There are many ap-proaches to im-ple-ment-ing in-ter-preters f
-or LISP in JavaScript[][][],
+or LISP in JavaScript[[]],
  []
 
-[15]
-Overfull \hbox (17.43542pt too wide) in paragraph at lines 159--169
+[17]
+Overfull \hbox (17.43542pt too wide) in paragraph at lines 153--163
 []\T1/cmr/m/n/12 This gives a no-ta-tion that is some-what in be-tween S-expres
 sions and M-expressions.
  []
 
-[16]
-Overfull \hbox (5.60307pt too wide) in paragraph at lines 211--222
+[18]
+Overfull \hbox (5.60307pt too wide) in paragraph at lines 204--215
 []\T1/cmr/m/n/12 Easier to parse by a hu-man. Op-er-a-tors are clearer dis-tin-
 guished from operands.
  []
 
 
-Overfull \hbox (26.09967pt too wide) in paragraph at lines 222--229
+Overfull \hbox (26.09967pt too wide) in paragraph at lines 215--222
 \T1/cmr/m/n/12 with mul-ti-ple lev-els: \T1/cmtt/m/n/12 op[args-1][args-2][args
 -3][args-4] \T1/cmr/m/n/12 vs \T1/cmtt/m/n/12 ((((op args-1)
  []
 
-[17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 329--329
-[][][]\T1/cmr/m/n/10 See: []$\T1/cmtt/m/n/10 https : / / reference . wolfram . 
-com / language / tutorial /$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 329--329
-$\T1/cmtt/m/n/10 WorkingWithStringPatterns . html$[] \T1/cmr/m/n/10 and []$\T1/
-cmtt/m/n/10 https : / / en . wikipedia . org / wiki / Pattern _$
- []
-
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 364--364
-[][][]\T1/cmr/m/n/10 Defined by the IEEE 754 stan-dard: []$\T1/cmtt/m/n/10 http
- : / / www . iso . org / iso / iso _ catalogue /$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 364--364
-$\T1/cmtt/m/n/10 catalogue _ tc / catalogue _ detail . htm ? csnumber = 57469$[
-]\T1/cmr/m/n/10 , []$\T1/cmtt/m/n/10 http : / / www . 2ality . com / 2012 /$
- []
-
-[20]
-Overfull \hbox (5.2756pt too wide) in paragraph at lines 414--416
+[19] [20] [21] [22]
+Overfull \hbox (5.2756pt too wide) in paragraph at lines 406--408
 []\T1/cmr/m/n/12 Another spe-cial char-ac-ter (\T1/cmtt/m/n/12 !\T1/cmr/m/n/12 
 ) was in-tro-duced for anal-o-gous use for zero-argument
  []
 
-[21]
-Underfull \hbox (badness 10000) in paragraph at lines 450--450
-[][][][]$\T1/cmtt/m/n/10 https : / / en . wikipedia . org / wiki / Standard _ M
-L # Algebraic _ datatypes _ and _ pattern _$
+
+Overfull \hbox (19.61655pt too wide) in paragraph at lines 441--444
+[]\T1/cmr/m/n/12 which is some-what sim-i-lar syn-tac-ti-cally to ML-style[[], 
+Sec-tion Al-ge-braic datatypes
  []
 
-
-Overfull \hbox (6.37688pt too wide) in paragraph at lines 479--482
+[23]
+Overfull \hbox (6.37688pt too wide) in paragraph at lines 471--474
 []\T1/cmr/m/n/12 Pattern match-ing works with bind-ings, func-tions (al-though 
 the pri-mary function-
  []
 
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 529--529
-[][][][]$\T1/cmtt/m/n/10 https : / / en . wikibooks . org / wiki / F _ Sharp _ 
-Programming / Pattern _ Matching _ Basics #$
- []
-
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 608--608
-[][][][]$\T1/cmtt/m/n/10 https : / / developer . mozilla . org / pl / docs / We
-b / JavaScript / Reference / Functions /$
- []
-
-[24]
-Overfull \hbox (13.54892pt too wide) in paragraph at lines 626--628
+[24] [25] [26]
+Overfull \hbox (13.54892pt too wide) in paragraph at lines 618--620
 []\T1/cmr/m/n/12 Spread op-er-a-tor (also in-spired by the anal-o-gous fea-ture
  from EC-MAScript2015): 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 650--650
-[][][][]$\T1/cmtt/m/n/10 https : / / developer . mozilla . org / en-[]US / docs
- / Web / JavaScript / Reference / Template _$
- []
-
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 713--713
-[][][][]$\T1/cmtt/m/n/10 https : / / developer . mozilla . org / pl / docs / We
-b / JavaScript / Reference / Operators /$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 718--718
-[][][][]$\T1/cmtt/m/n/10 https : / / developer . mozilla . org / en-[]US / docs
- / Web / JavaScript / Reference /$
- []
-
-[26] [27]) (D:\master-project\master-thesis\3_editor.tex [28]
+[27] [28] [29]) (D:\master-project\master-thesis\3_editor.tex [30]
 Chapter 3.
-[29
+[31
 
-] <img/editor.png, id=862, 1131.22626pt x 637.38126pt>
+] <img/editor.png, id=895, 1131.22626pt x 637.38126pt>
 File: img/editor.png Graphic file (type png)
  <use img/editor.png>
 Package pdftex.def Info: img/editor.png used on input line 54.
 (pdftex.def)             Requested size: 377.24702pt x 212.55391pt.
 
-[30 <D:/master-project/master-thesis/img/editor.png (PNG copy)>] [31]
-<img/editor-menu.png, id=879, 401.24907pt x 97.11281pt>
+[32 <D:/master-project/master-thesis/img/editor.png (PNG copy)>] [33]
+<img/editor-menu.png, id=912, 401.24907pt x 97.11281pt>
 File: img/editor-menu.png Graphic file (type png)
 
 <use img/editor-menu.png>
 Package pdftex.def Info: img/editor-menu.png used on input line 138.
 (pdftex.def)             Requested size: 377.24702pt x 91.30975pt.
- [32 <D:/master-project/master-thesis/img/editor-menu.png>]
+ [34 <D:/master-project/master-thesis/img/editor-menu.png>]
 File: img/scratch.png Graphic file (type png)
  <use img/scratch.png>
 Package pdftex.def Info: img/scratch.png used on input line 180.
 (pdftex.def)             Requested size: 377.24702pt x 252.2321pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 184--184
-[][][] \T1/cmr/m/n/10 Screen-shot from []$\T1/cmtt/m/n/10 http : / / mypad . no
-rthampton . ac . uk / 12406702 / files / 2013 / 05 /$
- []
-
-[33] <img/blueprint_more.png, id=902, 700.11563pt x 338.01282pt>
+ [35]
+<img/blueprint_more.png, id=931, 700.11563pt x 338.01282pt>
 File: img/blueprint_more.png Graphic file (type png)
 
 <use img/blueprint_more.png>
 Package pdftex.def Info: img/blueprint_more.png used on input line 211.
 (pdftex.def)             Requested size: 377.24702pt x 182.13736pt.
 
-<img/designs_01234.png, id=904, 628.3475pt x 467.7475pt>
+<img/designs_01234.png, id=933, 628.3475pt x 467.7475pt>
 File: img/designs_01234.png Graphic file (type png)
 
 <use img/designs_01234.png>
@@ -1149,15 +1105,15 @@ Package pdftex.def Info: img/designs_01234.png used on input line 219.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[34 <D:/master-project/master-thesis/img/blueprint_more.png>] [35 <D:/master-pr
+[36 <D:/master-project/master-thesis/img/blueprint_more.png>] [37 <D:/master-pr
 oject/master-thesis/img/designs_01234.png>]
-<img/design_3.png, id=920, 606.265pt x 320.19624pt>
+<img/design_3.png, id=949, 606.265pt x 320.19624pt>
 File: img/design_3.png Graphic file (type png)
  <use img/design_3.png>
 Package pdftex.def Info: img/design_3.png used on input line 296.
 (pdftex.def)             Requested size: 377.24702pt x 199.2427pt.
 
-<img/design_4.png, id=921, 353.32pt x 163.61125pt>
+<img/design_4.png, id=950, 353.32pt x 163.61125pt>
 File: img/design_4.png Graphic file (type png)
  <use img/design_4.png>
 Package pdftex.def Info: img/design_4.png used on input line 304.
@@ -1166,16 +1122,17 @@ Package pdftex.def Info: img/design_4.png used on input line 304.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[36 <D:/master-project/master-thesis/img/design_3.png>]
 File: img/blueprint.jpg Graphic file (type jpg)
-
 <use img/blueprint.jpg>
 Package pdftex.def Info: img/blueprint.jpg used on input line 329.
 (pdftex.def)             Requested size: 377.24702pt x 142.1121pt.
-) (D:\master-project\master-thesis\4_case_study.tex
-[37 <D:/master-project/master-thesis/img/design_4.png>] [38]
+ [38 <D:/master-project/master-thesis/img/design_3.png>]) (D:\master-project\ma
+ster-thesis\4_case_study.tex [39 <D:/master-project/master-thesis/img/design_4.
+png>] [40
+
+]
 Chapter 4.
-<img/pacman.png, id=950, 450.18187pt x 359.84438pt>
+<img/pacman.png, id=976, 450.18187pt x 359.84438pt>
 File: img/pacman.png Graphic file (type png)
  <use img/pacman.png>
 Package pdftex.def Info: img/pacman.png used on input line 29.
@@ -1185,333 +1142,441 @@ Package pdftex.def Info: img/pacman.png used on input line 29.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--38
-[][][][]$\T1/cmtt/m/n/10 https : / / developer . mozilla . org / en-[]US / docs
- / Web / API / Window /$
+Overfull \hbox (41.90186pt too wide) in paragraph at lines 35--42
+\T1/cmr/m/n/12 A typ-i-cal game loop in a mod-ern JavaScript game[[]] re-lies o
+n the \T1/cmtt/m/n/12 requestAnimationFrame
  []
 
-
-Overfull \hbox (28.37753pt too wide) in paragraph at lines 35--42
-\T1/cmr/m/n/12 A typ-i-cal game loop in a mod-ern JavaScript game[][][] re-lies
- on the \T1/cmtt/m/n/12 requestAnimationFrame
- []
-
-[39
-
-] [40 <D:/master-project/master-thesis/img/pacman.png>]
-<img/profiling.png, id=980, 571.13374pt x 438.63875pt>
+[41] [42 <D:/master-project/master-thesis/img/pacman.png>]
+<img/profiling.png, id=1005, 571.13374pt x 438.63875pt>
 File: img/profiling.png Graphic file (type png)
- <use img/profiling.png>
+
+<use img/profiling.png>
 Package pdftex.def Info: img/profiling.png used on input line 95.
 (pdftex.def)             Requested size: 377.24702pt x 289.73003pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[41]) (D:\master-project\master-thesis\5_design_discussion.tex [42 <D:/master-p
-roject/master-thesis/img/profiling.png (PNG copy)>]
+) (D:\master-project\master-thesis\5_design_discussion.tex [43] [44 <D:/master-
+project/master-thesis/img/profiling.png (PNG copy)>]
 Chapter 5.
-[43
 
-] [44] [45] [46] [47] [48]
-Overfull \hbox (12.73245pt too wide) in paragraph at lines 289--290
-[]\T1/cmr/m/n/12 There also ex-ists a very ef-fi-cient im-ple-men-ta-tion of th
-e lan-guage called LuaJIT[[]].
+Package natbib Warning: Citation `flow_site' on page 45 undefined on input line
+ 36.
+
+[45
+
+] [46] [47] [48] [49] [50]
+
+Package natbib Warning: Citation `LuaJIT' on page 51 undefined on input line 28
+9.
+
+
+Overfull \hbox (8.42773pt too wide) in paragraph at lines 289--290
+\T1/cmr/m/n/12 guages such as C++, D or C[[], Speed vs other languages][[], Sec
+-tion Results][[],
  []
 
-[49]) (D:\master-project\master-thesis\6_summary.tex [50]
+[51]) (D:\master-project\master-thesis\6_summary.tex [52]
 Chapter 6.
-) [51
+) [53
 
-] (D:\master-project\master-thesis\main.bbl [52]
-Underfull \hbox (badness 10000) in paragraph at lines 31--35
-[]\T1/cmr/m/n/12 Anonymous.  Pro-gram-ming Lan-guages Bench-marks.  []$\T1/cmtt
-/m/n/12 https :$
- []
-
-
-Underfull \hbox (badness 1527) in paragraph at lines 31--35
-$\T1/cmtt/m/n/12 / / attractivechaos . github . io / plb/$[]\T1/cmr/m/n/12 .  A
- web-site with bench-mark re-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--52
-[]\T1/cmr/m/n/12 Donnie Berkholz.  Pro-gram-ming lan-guages ranked by ex-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--52
-\T1/cmr/m/n/12 pres-sive-ness.  []$\T1/cmtt/m/n/12 http : / / redmonk . com / d
-berkholz / 2013 / 03 / 25 /$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 45--52
-$\T1/cmtt/m/n/12 programming-[]languages-[]ranked-[]by-[]expressiveness/$[]\T1/
-cmr/m/n/12 , March 2013.
- []
-
-
-Underfull \hbox (badness 5189) in paragraph at lines 54--60
-[]\T1/cmr/m/n/12 Craig Bick-nell and Chris Oakes.  Mozilla Stomps Ahead Un-der
- []
-
-
-Underfull \hbox (badness 1845) in paragraph at lines 54--60
-$\T1/cmtt/m/n/12 wired . com / techbiz / media / news / 1998 / 11 / 16466$[]\T1
-/cmr/m/n/12 , Novem-ber 1998.  An
- []
-
-[53
-
-]
-Underfull \hbox (badness 2626) in paragraph at lines 88--95
-[]\T1/cmr/m/n/12 Douglas Crock-ford.  Syn-tax-a-tion.  []$\T1/cmtt/m/n/12 gotoc
-on . com / dl / goto-[]aar-[]2013 /$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 105--114
-[]\T1/cmr/m/n/12 Andrie de Vries.  The most pop-u-lar pro-gram-ming lan-guages
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 105--114
-\T1/cmr/m/n/12 on Stack-Over-flow | R-bloggers.  []$\T1/cmtt/m/n/12 http : / / 
-www . r-[]bloggers . com /$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 105--114
-$\T1/cmtt/m/n/12 the-[]most-[]popular-[]programming-[]languages-[]on-[]stackove
-rflow/$[]\T1/cmr/m/n/12 , July
- []
-
-
-Underfull \hbox (badness 2726) in paragraph at lines 129--135
-[]\T1/cmr/m/n/12 Unreal En-gine 4 Doc-u-men-ta-tion.  []$\T1/cmtt/m/n/12 https 
-: / / docs . unrealengine . com /$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 129--135
-$\T1/cmtt/m/n/12 latest / images / Engine / Blueprints / HowTo / BPHT _ 6 / Get
-Score . jpg$[]\T1/cmr/m/n/12 .  A
- []
-
-[54]
-Underfull \hbox (badness 4595) in paragraph at lines 174--179
-$\T1/cmtt/m/n/12 / / www . oreilly . com / openbook / opensources / book / netr
-ev . html$[]\T1/cmr/m/n/12 , Jan-uary
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 188--193
-[]\T1/cmr/m/n/12 Eric Hosick.  Vi-sual Pro-gram-ming Lan-guages - Snap-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 188--193
-\T1/cmr/m/n/12 shots.  []$\T1/cmtt/m/n/12 http : / / blog . interfacevision . c
-om / design /$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 213--217
-[]\T1/cmr/m/n/12 Ecma In-ter-na-tional.  TC39 - EC-MAScript.  []$\T1/cmtt/m/n/1
-2 http : / / www .$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 213--217
-$\T1/cmtt/m/n/12 ecma-[]international . org / memento / TC39 . htm$[]\T1/cmr/m/
-n/12 .  Tech-ni-cal Com-mit-tee
- []
-
-
-Underfull \hbox (badness 1442) in paragraph at lines 219--223
-[]\T1/cmr/m/n/12 Ecma In-ter-na-tional.  Wel-come to Ecma In-ter-na-tional.  []
-$\T1/cmtt/m/n/12 http : / / www .$
- []
-
-[55]
-Underfull \hbox (badness 3029) in paragraph at lines 242--247
+] (D:\master-project\master-thesis\bibliography.tex [54]
+(D:\master-project\master-thesis\main1.bbl
+Underfull \hbox (badness 2401) in paragraph at lines 37--42
 []\T1/cmr/m/n/12 Alan C. Kay.  The early his-tory of smalltalk.  \T1/cmr/m/it/1
 2 SIG-PLAN Not.\T1/cmr/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--252
-[]\T1/cmr/m/n/12 George Leon-tiev.  []$\T1/cmtt/m/n/12 https : / / twitter . co
-m / folone / status /$
+Underfull \hbox (badness 1005) in paragraph at lines 66--70
+$\T1/cmtt/m/n/12 org / wiki / F _ Sharp _ Programming$[]\T1/cmr/m/n/12 .  A Wik
+-i-books project: []$\T1/cmtt/m/n/12 https : / / en .$
+ []
+
+) (D:\master-project\master-thesis\main2.bbl [55
+
+]
+Underfull \hbox (badness 1584) in paragraph at lines 9--14
+[]\T1/cmr/m/n/12 Matthew Flatt and PLT.  The Racket Ref-er-ence.  []$\T1/cmtt/m
+/n/12 https : / / docs .$
  []
 
 
-Underfull \hbox (badness 1603) in paragraph at lines 249--252
-$\T1/cmtt/m/n/12 494017847585415168$[]\T1/cmr/m/n/12 .  A twit-ter mes-sage wit
-h a quote from Ed-win
+Underfull \hbox (badness 10000) in paragraph at lines 39--46
+$\T1/cmtt/m/n/12 iso _ catalogue / catalogue _ tc / catalogue _ detail . htm ? 
+csnumber = 57469$[]\T1/cmr/m/n/12 ,
  []
 
-
-Underfull \hbox (badness 5652) in paragraph at lines 280--284
-[]\T1/cmr/m/n/12 Microsoft.  Type-Script - JavaScript that scales.  []$\T1/cmtt
-/m/n/12 https : / / www .$
+) (D:\master-project\master-thesis\main3.bbl
+Underfull \hbox (badness 2932) in paragraph at lines 19--25
+$\T1/cmtt/m/n/12 Reference / Operators / Destructuring _ assignment$[]\T1/cmr/m
+/n/12 .  An ar-ti-cle from
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 292--296
-[]\T1/cmr/m/n/12 Matt Might.  First-class (run-time) macros and meta-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 292--296
-\T1/cmr/m/n/12 circular eval-u-a-tion.  []$\T1/cmtt/m/n/12 http : / / matt . mi
-ght . net / articles /$
- []
-
-
-Underfull \hbox (badness 1418) in paragraph at lines 298--304
-[]\T1/cmr/m/n/12 Mozilla De-vel-oper Net-work and in-di-vid-ual con-trib-u-tors
-.  Con-cur-rency
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 314--320
+[56]
+Underfull \hbox (badness 10000) in paragraph at lines 44--50
 []\T1/cmr/m/n/12 Mozilla De-vel-oper Net-work and in-di-vid-ual con-trib-u-tors
 .  Ob-
  []
 
 
-Underfull \hbox (badness 3623) in paragraph at lines 314--320
-$\T1/cmtt/m/n/12 JavaScript / Reference / Global _ Objects / Object / setProtot
-ypeOf$[]\T1/cmr/m/n/12 .  An
- []
-
-[56]
-Underfull \hbox (badness 1237) in paragraph at lines 337--343
-\T1/cmr/m/n/12 uary 2016  tecosys-tems.  []$\T1/cmtt/m/n/12 http : / / redmonk
- . com / sogrady / 2016 / 02 / 19 /$
+Underfull \hbox (badness 2698) in paragraph at lines 44--50
+\T1/cmr/m/n/12 ject.setPrototypeOf().  []$\T1/cmtt/m/n/12 https : / / developer
+ . mozilla . org / en-[]US / docs /$
  []
 
 
-Underfull \hbox (badness 1199) in paragraph at lines 337--343
-$\T1/cmtt/m/n/12 language-[]rankings-[]1-[]16/$[]\T1/cmr/m/n/12 .  A rank-ing o
-f pro-gram-ming lan-guages by
+Underfull \hbox (badness 10000) in paragraph at lines 44--50
+$\T1/cmtt/m/n/12 Web / JavaScript / Reference / Global _ Objects / Object / set
+PrototypeOf$[]\T1/cmr/m/n/12 .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 372--377
-[]\T1/cmr/m/n/12 Guinness World Records.  Most suc-cess-ful videogame en-
+Underfull \hbox (badness 2828) in paragraph at lines 52--58
+[]\T1/cmr/m/n/12 Mozilla De-vel-oper Net-work and in-di-vid-ual con-trib-u-tors
+.  Rest pa-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 372--377
-\T1/cmr/m/n/12 gine.  []$\T1/cmtt/m/n/12 http : / / www . guinnessworldrecords 
-. com / world-[]records /$
+Underfull \hbox (badness 10000) in paragraph at lines 68--74
+[]\T1/cmr/m/n/12 Mozilla De-vel-oper Net-work and in-di-vid-ual con-trib-u-tors
+.  var.
  []
 
 
-Underfull \hbox (badness 1454) in paragraph at lines 372--377
-$\T1/cmtt/m/n/12 most-[]successful-[]game-[]engine$[]\T1/cmr/m/n/12 .  From Gui
-n-ness World Records web-
+Underfull \hbox (badness 10000) in paragraph at lines 68--74
+[]$\T1/cmtt/m/n/12 https : / / developer . mozilla . org / en-[]US / docs / Web
+ / JavaScript /$
  []
 
-[57]
-Underfull \hbox (badness 2359) in paragraph at lines 431--435
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--89
+[]\T1/cmr/m/n/12 Mozilla De-vel-oper Net-work and in-di-vid-ual con-trib-u-tors
+.  Win-
+ []
+
+
+Underfull \hbox (badness 2142) in paragraph at lines 83--89
+\T1/cmr/m/n/12 dow.localStorage.  []$\T1/cmtt/m/n/12 https : / / developer . mo
+zilla . org / en-[]US / docs / Web /$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--97
+[]\T1/cmr/m/n/12 Mozilla De-vel-oper Net-work and in-di-vid-ual con-trib-u-tors
+.  win-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--97
+\T1/cmr/m/n/12 dow.requestAnimationFrame().  []$\T1/cmtt/m/n/12 https : / / dev
+eloper . mozilla . org /$
+ []
+
+) (D:\master-project\master-thesis\main4.bbl [57]
+Underfull \hbox (badness 1325) in paragraph at lines 18--22
 []\T1/cmr/m/n/12 Wikipedia, the free en-cy-clo-pe-dia.  []$\T1/cmtt/m/n/12 http
 s : / / en . wikipedia . org / wiki /$
  []
 
 
-Underfull \hbox (badness 4060) in paragraph at lines 437--442
+Underfull \hbox (badness 2875) in paragraph at lines 30--35
 []\T1/cmr/m/n/12 Wikipedia, the free en-cy-clo-pe-dia.  Com-par-i-son of JavaSc
 ript-based
  []
 
 
-Underfull \hbox (badness 3281) in paragraph at lines 475--479
+Underfull \hbox (badness 10000) in paragraph at lines 62--67
+[]$\T1/cmtt/m/n/12 https : / / en . wikipedia . org / wiki / List _ of _ C-[]fa
+mily _ programming _$
+ []
+
+
+Underfull \hbox (badness 1337) in paragraph at lines 76--80
+[]\T1/cmr/m/n/12 Wikipedia, the free en-cy-clo-pe-dia.  Pat-tern match-ing.  []
+$\T1/cmtt/m/n/12 https : / / en .$
+ []
+
+
+Underfull \hbox (badness 1803) in paragraph at lines 82--86
+[]\T1/cmr/m/n/12 Wikipedia, the free en-cy-clo-pe-dia.  Scratch (pro-gram-ming 
+lan-guage).
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--86
+[]$\T1/cmtt/m/n/12 https : / / en . wikipedia . org / wiki / Scratch _ (program
+ming _ language)$[]\T1/cmr/m/n/12 .
+ []
+
+[58]
+Underfull \hbox (badness 2591) in paragraph at lines 106--110
+[]\T1/cmr/m/n/12 WikiWikiWeb.  Ab-stract Syn-tax Tree.  []$\T1/cmtt/m/n/12 http
+ : / / c2 . com / cgi / wiki ?$
+ []
+
+
+Underfull \hbox (badness 2351) in paragraph at lines 124--128
 []\T1/cmr/m/n/12 WikiWikiWeb.  Lisp Is Too Pow-er-ful.  []$\T1/cmtt/m/n/12 http
  : / / c2 . com / cgi / wiki ?$
  []
 
-) (D:\master-project\master-thesis\main.gls [58])
-(D:\master-project\master-thesis\main.acr [59
+) (D:\master-project\master-thesis\main5.bbl [59]
+Underfull \hbox (badness 10000) in paragraph at lines 68--72
+[]\T1/cmr/m/n/12 Ecma In-ter-na-tional.  TC39 - EC-MAScript.  []$\T1/cmtt/m/n/1
+2 http : / / www .$
+ []
 
 
-] [60
+Underfull \hbox (badness 5939) in paragraph at lines 68--72
+$\T1/cmtt/m/n/12 ecma-[]international . org / memento / TC39 . htm$[]\T1/cmr/m/
+n/12 .  Tech-ni-cal Com-mit-tee
+ []
+
+
+Underfull \hbox (badness 4429) in paragraph at lines 86--90
+[]\T1/cmr/m/n/12 Microsoft.  Type-Script - JavaScript that scales.  []$\T1/cmtt
+/m/n/12 https : / / www .$
+ []
+
+) (D:\master-project\master-thesis\main6.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 4--11
+[]\T1/cmr/m/n/12 Donnie Berkholz.  Pro-gram-ming lan-guages ranked by ex-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--11
+\T1/cmr/m/n/12 pres-sive-ness.  []$\T1/cmtt/m/n/12 http : / / redmonk . com / d
+berkholz / 2013 / 03 / 25 /$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--11
+$\T1/cmtt/m/n/12 programming-[]languages-[]ranked-[]by-[]expressiveness/$[]\T1/
+cmr/m/n/12 , March 2013.
+ []
+
+[60]
+Underfull \hbox (badness 6708) in paragraph at lines 13--19
+[]\T1/cmr/m/n/12 Craig Bick-nell and Chris Oakes.  Mozilla Stomps Ahead Un-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--19
+\T1/cmr/m/n/12 der AOL.  []$\T1/cmtt/m/n/12 https : / / web . archive . org / w
+eb / 20140603235609 / http :$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--19
+$\T1/cmtt/m/n/12 / / archive . wired . com / techbiz / media / news / 1998 / 11
+ / 16466$[]\T1/cmr/m/n/12 , Novem-ber
+ []
+
+
+Underfull \hbox (badness 1642) in paragraph at lines 50--57
+[]\T1/cmr/m/n/12 Douglas Crock-ford.  Syn-tax-a-tion.  []$\T1/cmtt/m/n/12 gotoc
+on . com / dl / goto-[]aar-[]2013 /$
+ []
+
+
+Underfull \hbox (badness 4144) in paragraph at lines 80--84
+[]\T1/cmr/m/n/12 Epic Games, Inc.  Blueprints Vi-sual Script-ing.  []$\T1/cmtt/
+m/n/12 https : / / docs .$
+ []
+
+[61]
+Underfull \hbox (badness 10000) in paragraph at lines 137--142
+[]\T1/cmr/m/n/12 Eric Hosick.  Vi-sual Pro-gram-ming Lan-guages - Snap-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--142
+\T1/cmr/m/n/12 shots.  []$\T1/cmtt/m/n/12 http : / / blog . interfacevision . c
+om / design /$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 151--154
+[]\T1/cmr/m/n/12 George Leon-tiev.  []$\T1/cmtt/m/n/12 https : / / twitter . co
+m / folone / status /$
+ []
+
+
+Underfull \hbox (badness 1097) in paragraph at lines 151--154
+$\T1/cmtt/m/n/12 494017847585415168$[]\T1/cmr/m/n/12 .  A twit-ter mes-sage wit
+h a quote from Ed-win
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--187
+[]\T1/cmr/m/n/12 Matt Might.  First-class (run-time) macros and meta-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--187
+\T1/cmr/m/n/12 circular eval-u-a-tion.  []$\T1/cmtt/m/n/12 http : / / matt . mi
+ght . net / articles /$
+ []
+
+[62]
+Underfull \hbox (badness 10000) in paragraph at lines 210--215
+[]\T1/cmr/m/n/12 Guinness World Records.  Most suc-cess-ful videogame en-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 210--215
+\T1/cmr/m/n/12 gine.  []$\T1/cmtt/m/n/12 http : / / www . guinnessworldrecords 
+. com / world-[]records /$
+ []
+
+) (D:\master-project\master-thesis\main7.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 4--8
+[]\T1/cmr/m/n/12 Anonymous.  Pro-gram-ming Lan-guages Bench-marks.  []$\T1/cmtt
+/m/n/12 https :$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--34
+[]\T1/cmr/m/n/12 Andrie de Vries.  The most pop-u-lar pro-gram-ming lan-guages
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--34
+\T1/cmr/m/n/12 on Stack-Over-flow | R-bloggers.  []$\T1/cmtt/m/n/12 http : / / 
+www . r-[]bloggers . com /$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--34
+$\T1/cmtt/m/n/12 the-[]most-[]popular-[]programming-[]languages-[]on-[]stackove
+rflow/$[]\T1/cmr/m/n/12 , July
+ []
+
+[63]
+Underfull \hbox (badness 2941) in paragraph at lines 42--47
+[]\T1/cmr/m/n/12 Carles Ma-teo.  Per-for-mance of sev-eral lan-guages.  []$\T1/
+cmtt/m/n/12 http : / / blog .$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--82
+[]\T1/cmr/m/n/12 Martin Rine-hart.  The Briefest Ge-neal-ogy of Pro-gram-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--82
+\T1/cmr/m/n/12 ming Lan-guages.  []$\T1/cmtt/m/n/12 http : / / www . martinrine
+hart . com / pages /$
+ []
+
+) (D:\master-project\master-thesis\main8.bbl
+Underfull \hbox (badness 1577) in paragraph at lines 11--17
+[]\T1/cmr/m/n/12 Unreal En-gine 4 Doc-u-men-ta-tion.  []$\T1/cmtt/m/n/12 https 
+: / / docs . unrealengine . com /$
+ []
+
+
+Underfull \hbox (badness 4001) in paragraph at lines 11--17
+$\T1/cmtt/m/n/12 latest / images / Engine / Blueprints / HowTo / BPHT _ 6 / Get
+Score . jpg$[]\T1/cmr/m/n/12 .  A
+ []
+
+[64]
+Underfull \hbox (badness 1577) in paragraph at lines 19--25
+[]\T1/cmr/m/n/12 Unreal En-gine 4 Doc-u-men-ta-tion.  []$\T1/cmtt/m/n/12 https 
+: / / docs . unrealengine . com /$
+ []
+
+
+Underfull \hbox (badness 4001) in paragraph at lines 19--25
+$\T1/cmtt/m/n/12 latest / images / Engine / Blueprints / HowTo / BPHT _ 6 / Get
+Score . jpg$[]\T1/cmr/m/n/12 .  A
+ []
+
+)) (D:\master-project\master-thesis\main.gls [65] [66
 
 ])
-(D:\master-project\master-thesis\a_dvd.tex [61
+(D:\master-project\master-thesis\main.acr [67
 
-] [62
+] [68
+
+])
+(D:\master-project\master-thesis\a_dvd.tex [69
+
+] [70
 
 ]
 Appendix A.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [63]
+ [71]
 Overfull \hbox (2.26456pt too wide) in paragraph at lines 27--28
 \T1/cmr/m/n/12 uses ports in the range 8079-8082, spec-i-fied in the \T1/cmtt/m
 /n/12 server-options.json
  []
 
-[64])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 39.
- [65]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 39.
- (D:\master-project\master-thesis\main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 39.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 39.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: FA7897CDD258D5D9F6F9B0C4B656FC84;3321.
+[72])
 
+Package natbib Warning: There were undefined citations.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 38.
+[73]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 38.
+ (D:\master-project\master-thesis\main.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 38.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 38.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 6D376A56FD82AC3D25320CAF032C2F7E;3322
+(rerunfilecheck)             After:  4A982C358C575DA4121824C6B308C1F1;3321.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 20095 strings out of 493921
- 327178 string characters out of 3150895
- 537072 words of memory out of 3000000
- 22519 multiletter control sequences out of 15000+200000
+ 21137 strings out of 493921
+ 344416 string characters out of 3150895
+ 532846 words of memory out of 3000000
+ 23472 multiletter control sequences out of 15000+200000
  22618 words of font info for 58 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 53i,12n,56p,10356b,1879s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{Hfootnote.45} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.42} has been referenced but does not exis
-t, replaced by a fixed one
-
- <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ect
-t1000.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\d
-pi600\eccc1000.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkna
-ppen\ec\dpi600\eccc1200.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\lj
-four\jknappen\ec\dpi600\ectt1200.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fo
-nts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\snsv\AppData\Local\MiKT
-eX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk> <C:\Users\snsv\AppData\L
-ocal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C:\Users\snsv\
-AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0700.pk> <C:\Us
-ers\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.p
-k> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\e
-cbx1728.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
-\dpi600\ecsl1200.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
-nappen\ec\dpi600\ecbx1200.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\
-ljfour\jknappen\ec\dpi600\ecbx2488.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\
-fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\snsv\AppData\Local\Mi
-KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm2488.pk> <C:\Users\snsv\AppData
-\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk> <C:\Users\sns
-v\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\
-Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440
-.pk><D:/programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/programs/
-MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmr12.pfb><D:/programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmr8.pfb><D:/programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (69 pages, 1482621 bytes).
+ 53i,12n,56p,10384b,1821s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\e
+ccc1000.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
+\dpi600\eccc1200.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
+nappen\ec\dpi600\ectt1000.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\
+ljfour\jknappen\ec\dpi600\ectt1200.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\
+fonts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\snsv\AppData\Local\Mi
+KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk> <C:\Users\snsv\AppData
+\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk> <C:\Users\sns
+v\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0700.pk> <C:\
+Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800
+.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
+\ecbx1728.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
+ec\dpi600\ecsl1200.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\
+jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\p
+k\ljfour\jknappen\ec\dpi600\ecbx2488.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.
+9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\snsv\AppData\Local\
+MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm2488.pk> <C:\Users\snsv\AppDa
+ta\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1728.pk> <C:\Users\s
+nsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C
+:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx14
+40.pk><D:/programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmr12.pfb><D:/programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmr8.pfb><D:/programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on main.pdf (77 pages, 1518657 bytes).
 PDF statistics:
- 2259 PDF objects out of 2487 (max. 8388607)
- 569 named destinations out of 1000 (max. 500000)
+ 2439 PDF objects out of 2487 (max. 8388607)
+ 625 named destinations out of 1000 (max. 500000)
  472 words of extra memory for PDF output out of 10000 (max. 10000000)
 

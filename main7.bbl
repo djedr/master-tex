@@ -1,0 +1,92 @@
+\begin{thebibliography}{10}
+
+\bibitem{pl_benchmarks}
+Anonymous.
+\newblock {P}rogramming {L}anguages {B}enchmarks.
+\newblock \url{https://attractivechaos.github.io/plb/}.
+\newblock A website with benchmark results for various programming languages.
+
+\bibitem{lua_perl}
+Douglas Bagnall.
+\newblock {L}ua for {P}erlmongers.
+\newblock
+  \url{http://wellington.pm.org/archive/201010/douglas-bagnall_diff-lua-perl/}.
+\newblock A presentation comparing Lua to Perl. Also includes comparisons to
+  other languages.
+
+\bibitem{pypl}
+Pierre Carbonnelle.
+\newblock {P}{Y}{P}{L} {P}opularit{Y} of {P}rogramming {L}anguage index.
+\newblock \url{http://pypl.github.io/PYPL.html}.
+\newblock A ranking of programming languages by popularity. ``[C]reated by
+  analyzing how often language tutorials are searched on Google.''.
+
+\bibitem{js_growth}
+Andrie de~Vries.
+\newblock {T}he most popular programming languages on {S}tack{O}verflow |
+  {R}-bloggers.
+\newblock
+  \url{http://www.r-bloggers.com/the-most-popular-programming-languages-on-stackoverflow/},
+  July 2015.
+\newblock An R-bloggers (\url{http://www.r-bloggers.com/}) blog post which
+  includes charts illustrating JavaScript's popularity on StackOverflow between
+  2008 and 2015.
+
+\bibitem{internet_stats}
+Miniwatts~Marketing Group.
+\newblock {W}orld {I}nternet {U}sers {S}tatistics and 2015 {W}orld {P}opulation
+  {S}tats.
+\newblock \url{http://www.internetworldstats.com/stats.htm}.
+
+\bibitem{mateo_benchmarks}
+Carles Mateo.
+\newblock {P}erformance of several languages.
+\newblock
+  \url{http://blog.carlesmateo.com/2014/10/13/performance-of-several-languages/}.
+\newblock A blog post comparing the performance of several languages.
+
+\bibitem{wren_performance}
+Bob Nystrom.
+\newblock {P}erformance – {W}ren.
+\newblock \url{http://wren.io/performance.html}.
+\newblock A performance comparison of the Wren programming language a few other
+  languages. From \url{http://wren.io}.
+
+\bibitem{redmonk}
+Stephen O'Grady.
+\newblock {T}he {R}ed{M}onk {P}rogramming {L}anguage {R}ankings: {J}anuary 2016
+  – tecosystems.
+\newblock \url{http://redmonk.com/sogrady/2016/02/19/language-rankings-1-16/}.
+\newblock A ranking of programming languages by popularity. ``[C]correlates
+  language discussion (Stack Overflow) and usage (GitHub)[.]''.
+
+\bibitem{so_developer_survey_2016}
+Stack Overflow.
+\newblock {S}tack {O}verflow {D}eveloper {S}urvey 2016 {R}esults.
+\newblock \url{http://stackoverflow.com/research/developer-survey-2016}.
+\newblock Stack Overflow's annual developer survey. ``[T]he most comprehensive
+  developer survey ever conducted.''.
+
+\bibitem{lua_c_performance}
+Mike Pall.
+\newblock {R}e: [{ANN}] llvm-lua 1.0.
+\newblock \url{http://lua-users.org/lists/lua-l/2009-06/msg00071.html}.
+\newblock An archived post from lua-l, the official mailing list of Lua
+  programming language. Compares Lua to C performance-wise.
+
+\bibitem{pl_genealogy}
+Martin Rinehart.
+\newblock {T}he {B}riefest {G}enealogy of {P}rogramming {L}anguages.
+\newblock
+  \url{http://www.martinrinehart.com/pages/genealogy-programming-languages.html}.
+
+\bibitem{tiobe}
+TIOBE software BV.
+\newblock {T}{I}{O}{B}{E} {I}ndex | {T}iobe - {T}he {S}oftware {Q}uality
+  {C}ompany.
+\newblock \url{http://www.tiobe.com/tiobe_index}.
+\newblock A ranking of programming languages by popularity. Based on ``the
+  number of search engine results for queries containing the name of the
+  language'' (\url{https://en.wikipedia.org/wiki/TIOBE_index}).
+
+\end{thebibliography}

@@ -1,0 +1,14 @@
+pdflatex main
+pdflatex main
+bibtex main1
+bibtex main2
+bibtex main3
+bibtex main4
+bibtex main5
+bibtex main6
+bibtex main7
+bibtex main8
+bibtex main9
+bibtex main10
+pdflatex main
+pdflatex main

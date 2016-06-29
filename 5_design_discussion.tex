@@ -9,7 +9,7 @@ expressions. For example we could implement list comprehensions, where:
     $<-[^[x 2] x range[0 10]] $<-[$[x y] x $[1 2 3] y $[3 1 4] <>[x y]]
 \end{lstlisting}
 would be equivalent to
-Python's\footnote{\url{https://docs.python.org/3/tutorial/datastructures.html\#list-comprehensions}}:
+Python's\cite[Section~5.1.3]{python_tutorial}:
 \begin{lstlisting}
     [x**2 for x in range(10)] [(x, y) for x in [1,2,3] for y in [3,1,4] if x !=
       y]
@@ -33,7 +33,7 @@ Except that it is not validated by the parser. But we could imagine a separate
 or extend the existing syntax analyzer, so it could validate such ``keyword''
 comments or even use them in some way. For example, we could add a static type
 checker to the language -- in a similar manner that TypeScript or
-Flow\footnote{\url{https://flowtype.org/}} extends JavaScript. This would be
+Flow\cite{flow_site} extends JavaScript. This would be
 completely transparent to the rest of the language, so any program that uses
 this feature would be valid without it and it could be turned on and off as
 needed.
@@ -257,7 +257,7 @@ One may observe that:
       operator precedence: (\texttt{((a + b * 2))} would translate to
       \texttt{+[a *[b 2]]}. This could be implemented with a separate parser
       based on the
-      shunting-yard\footnote{\url{www.cs.utexas.edu/~EWD/MCReps/MR35.PDF}} or
+      shunting-yard\cite{shunting_yard} or
       similar algorithm that is triggered by the \texttt{((} sequence. It would
       translate these infix expressions to prefix form and return them back to
       the original parser.

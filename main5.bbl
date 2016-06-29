@@ -1,0 +1,117 @@
+\begin{thebibliography}{10}
+
+\bibitem{brackets_site}
+Adobe and Brackets' community.
+\newblock {B}rackets - {A} modern, open source code editor that understands web
+  design.
+\newblock \url{http://brackets.io/}.
+\newblock Brackets website.
+
+\bibitem{idris}
+Edwin Brady and Idris' community.
+\newblock {I}dris | {A} {L}anguage with {D}ependent {T}ypes.
+\newblock \url{http://www.idris-lang.org/}.
+\newblock Homepage of the Idris programming language.
+
+\bibitem{c9_website}
+{Cloud9 IDE, Inc.}
+\newblock {C}loud9 - {Y}our development environment, in the cloud.
+\newblock \url{https://c9.io/}.
+\newblock Cloud9 webpage.
+
+\bibitem{codeanywhere_website}
+{Codeanywhere, Inc.}
+\newblock {C}odeanywhere · {C}ross {P}latform {C}loud {I}{D}{E}.
+\newblock \url{https://codeanywhere.com/}.
+\newblock Codeanywhere webpage.
+
+\bibitem{nodejs_site}
+Node.js Foundation.
+\newblock {N}ode.js.
+\newblock \url{https://nodejs.org}.
+\newblock Node.js website. ``Node.js® is a JavaScript runtime built on
+  Chrome's V8 JavaScript engine.''.
+
+\bibitem{links_site}
+Simon Fowler, Sam Lindley, Garrett Morris, Philip Wadler, et~al.
+\newblock {L}inks: {L}inking {T}heory to {P}ractice for the {W}eb.
+\newblock \url{http://groups.inf.ed.ac.uk/links/}.
+\newblock Links programming language website.
+
+\bibitem{atom_site}
+GitHub.
+\newblock {A}tom.
+\newblock \url{https://atom.io/}.
+\newblock Atom website. Atom is ``[a] hackable text editor for the 21st
+  Century''.
+
+\bibitem{arc}
+Paul Graham and Robert Morris.
+\newblock {A}rc {F}orum | {A}rc.
+\newblock \url{http://arclanguage.org/}.
+\newblock Arc programming language website.
+
+\bibitem{codemirror_site}
+Marijn Haverbeke and CodeMirror's community.
+\newblock {C}ode{M}irror.
+\newblock \url{http://codemirror.net/}.
+\newblock CodeMirror website. ``CodeMirror is a versatile text editor
+  implemented in JavaScript for the browser.''.
+
+\bibitem{js_flow}
+Facebook Inc.
+\newblock {F}low | {A} static type checker for {J}ava{S}cript.
+\newblock \url{https://flowtype.org/}.
+\newblock Flow webpage.
+
+\bibitem{tc39}
+Ecma International.
+\newblock {TC39} - {ECMAS}cript.
+\newblock \url{http://www.ecma-international.org/memento/TC39.htm}.
+\newblock Technical Committee 39 webpage at Ecma International.
+
+\bibitem{ecma}
+Ecma International.
+\newblock {W}elcome to {E}cma {I}nternational.
+\newblock \url{http://www.ecma-international.org/}.
+\newblock Ecma International webpage.
+
+\bibitem{ecma_github}
+Ecma International and Technical~Committee 39.
+\newblock tc39/ecma262: {S}tatus, process, and documents for {ECMA262}.
+\newblock \url{https://github.com/tc39/ecma262}.
+\newblock Official ECMAScript's GitHub repository.
+
+\bibitem{typescript}
+Microsoft.
+\newblock {T}ype{S}cript - {J}ava{S}cript that scales.
+\newblock \url{https://www.typescriptlang.org/}.
+\newblock TypeScript webpage.
+
+\bibitem{vscode_site}
+Microsoft.
+\newblock {V}isual {S}tudio {C}ode - {C}ode {E}diting. {R}edefined.
+\newblock \url{https://code.visualstudio.com/}.
+\newblock Visual Studio Code website.
+
+\bibitem{luajit}
+Mike Pall.
+\newblock {T}he {L}ua{J}{I}{T} {P}roject.
+\newblock \url{http://luajit.org/}.
+\newblock LuaJIT website.
+
+\bibitem{racket_site}
+PLT et~al.
+\newblock {T}he {R}acket {L}anguage.
+\newblock \url{https://racket-lang.org/}.
+\newblock Racket programming language website. For detailed authorship
+  information see \url{https://racket-lang.org/people.html}.
+
+\bibitem{sbcl_site}
+Various.
+\newblock {A}bout - {S}teel {B}ank {C}ommon {L}isp.
+\newblock \url{http://www.sbcl.org/}.
+\newblock Steel Bank Common Lisp programming language website. For detailed
+  copyright information see \url{http://www.sbcl.org/history.html}.
+
+\end{thebibliography}

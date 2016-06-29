@@ -1,0 +1,9 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: main1.aux
+The style file: plain.bst
+Database file #1: articles.bib
+Warning--string name "pub-apress" is undefined
+--line 4 of file articles.bib
+Warning--string name "pub-apress:adr" is undefined
+--line 5 of file articles.bib
+Warning--empty publisher in practical_lisp
+(There were 3 warnings)

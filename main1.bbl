@@ -1,0 +1,79 @@
+\begin{thebibliography}{10}
+
+\bibitem{sicp}
+Harold Abelson, Gerald~Jay Sussman, and Julie Sussman.
+\newblock {\em {S}tructure and {I}nterpretation of {C}omputer {P}rograms}.
+\newblock MIT Press, 1996.
+\newblock Also available online: \url{https://mitpress.mit.edu/sicp/}.
+
+\bibitem{sicp_meta}
+Harold Abelson, Gerald~Jay Sussman, and Julie Sussman.
+\newblock {T}he {M}etacircular {E}valuator.
+\newblock In {\em {S}tructure and {I}nterpretation of {C}omputer {P}rograms},
+  chapter 4.1. MIT Press, 1996.
+\newblock Also available online: \url{https://mitpress.mit.edu/sicp/}.
+
+\bibitem{shunting_yard}
+E.W. Dijkstra.
+\newblock {Algol 60 translation: An algol 60 translator for the x1 and making a
+  translator for algol 60}.
+\newblock Technical report, Stichting Mathematisch Centrum, 1961.
+
+\bibitem{eloquentjs}
+Marijn Haverbeke.
+\newblock {\em {E}loquent {J}ava{S}cript}.
+\newblock No Starch Press, 2nd edition, December 2014.
+\newblock Also available online: \url{http://eloquentjavascript.net/}.
+
+\bibitem{eloquentjs_chap_11}
+Marijn Haverbeke.
+\newblock {P}roject: {A} {P}rogramming {L}anguage.
+\newblock In {\em {E}loquent {J}ava{S}cript}, chapter~11. No Starch Press, 2nd
+  edition, December 2014.
+\newblock Also available online:
+  \url{http://eloquentjavascript.net/11_language.html}.
+
+\bibitem{smalltalk_history}
+Alan~C. Kay.
+\newblock The early history of smalltalk.
+\newblock {\em SIGPLAN Not.}, 28(3):69--95, March 1993.
+\newblock Also available here:
+  \url{http://worrydream.com/EarlyHistoryOfSmalltalk/}.
+
+\bibitem{homoiconicity}
+M.~Douglas McIlroy.
+\newblock Macro instruction extensions of compiler languages.
+\newblock {\em Commun. ACM}, 3(4):214--220, April 1960.
+
+\bibitem{js_design_patterns}
+Addy Osmani.
+\newblock {\em {L}earning {J}ava{S}cript {D}esign {P}atterns}.
+\newblock O'Reilly Media, July 2012.
+\newblock Also available online:
+  \url{https://addyosmani.com/resources/essentialjsdesignpatterns/book/}.
+
+\bibitem{practical_lisp}
+Peter Seibel.
+\newblock {\em Practical {Common Lisp}}.
+\newblock 2005.
+
+\bibitem{js_ten_days}
+Charles Severance.
+\newblock Javascript: Designing a language in 10 days.
+\newblock {\em Computer}, 45(2):7--8, 2012.
+
+\bibitem{f_sharp_wikibooks}
+Various~Wikibooks users.
+\newblock {F\#} {P}rogramming.
+\newblock \url{https://en.wikibooks.org/wiki/F_Sharp_Programming}.
+\newblock A Wikibooks project: \url{https://en.wikibooks.org/wiki/Main_Page}.
+
+\bibitem{wadler_critique}
+Philip Wadler.
+\newblock {A} critique of {A}belson and {S}ussman or why calculating is better
+  than scheming.
+\newblock {\em SIGPLAN Notices}, 22(3):83--94, March 1987.
+\newblock Available online:
+  \url{https://www.cs.kent.ac.uk/people/staff/dat/miranda/wadler87.pdf}.
+
+\end{thebibliography}

@@ -1,0 +1,231 @@
+\begin{thebibliography}{10}
+
+\bibitem{lisp_expressive}
+Donnie Berkholz.
+\newblock {P}rogramming languages ranked by expressiveness.
+\newblock
+  \url{http://redmonk.com/dberkholz/2013/03/25/programming-languages-ranked-by-expressiveness/},
+  March 2013.
+\newblock A blog post by a RedMonk (A ``developer focused industry analyst
+  firm.'') analyst.
+
+\bibitem{netscape_mozilla}
+Craig Bicknell and Chris Oakes.
+\newblock {M}ozilla {S}tomps {A}head {U}nder {A}{O}{L}.
+\newblock
+  \url{https://web.archive.org/web/20140603235609/http://archive.wired.com/techbiz/media/news/1998/11/16466},
+  November 1998.
+\newblock An archived Wired (\url{http://www.wired.com/}) blog post.
+
+\bibitem{visual_languages}
+Margaret~M. Burnett.
+\newblock {V}isual {L}anguage {R}esearch {B}ibliography.
+\newblock \url{http://web.engr.oregonstate.edu/~burnett/vpl.html}.
+\newblock ``This page is a structured bibliography of papers pertaining to
+  visual language (VL) research.''. From Oregon State University.
+
+\bibitem{vpl_journal}
+Elsevier B.V.
+\newblock {J}ournal of {V}isual {L}anguages and {C}omputing.
+\newblock
+  \url{http://www.journals.elsevier.com/journal-of-visual-languages-and-computing/}.
+\newblock ``The Journal of Visual Languages and Computing is a forum for
+  researchers, practitioners, and developers to exchange ideas and results for
+  the advancement of visual languages and its implication to the art of
+  computing.''.
+
+\bibitem{maryrose_lisp}
+Mary~Rose Cook.
+\newblock {L}ittle {L}isp interpreter.
+\newblock \url{https://maryrosecook.com/blog/post/little-lisp-interpreter}.
+\newblock A blog post from, \url{https://maryrosecook.com/blog/}.
+
+\bibitem{crockford_private}
+Douglas Crockford.
+\newblock {P}rivate {M}embers in {J}ava{S}cript.
+\newblock \url{http://javascript.crockford.com/private.html}, 2001.
+\newblock An article from Crockford's personal website.
+
+\bibitem{syntaxation}
+Douglas Crockford.
+\newblock {S}yntaxation.
+\newblock
+  \url{gotocon.com/dl/goto-aar-2013/slides/DouglasCrockford_Syntaxation.pdf},
+  September 2013.
+\newblock Presentation from the 2013 edition of the ``goto'' conference,
+  \url{http://gotocon.com/aarhus-2013/}.
+
+\bibitem{crockford_class_free}
+Douglas Crockford.
+\newblock {D}ouglas {C}rockford: {T}he {B}etter {P}arts - {J}{S}{C}onf{U}{Y}
+  2014.
+\newblock \url{https://www.youtube.com/watch?v=bo36MrBfTk4#t=2020}, September
+  2014.
+\newblock A video from Crockford's appearance at JSConfUY 2014.
+
+\bibitem{vpl_maturity}
+Rémi Dehouck.
+\newblock {T}he maturity of visual programming.
+\newblock \url{http://www.craft.ai/blog/the-maturity-of-visual-programming/},
+  September 2015.
+\newblock A blog post.
+
+\bibitem{v8_design}
+Google Developers.
+\newblock {D}esign {E}lements | {C}hrome {V}8 | {G}oogle {D}evelopers.
+\newblock \url{https://developers.google.com/v8/design}.
+\newblock From Google's V8 JavaScript engine website.
+
+\bibitem{blueprint}
+{Epic Games, Inc.}
+\newblock {B}lueprints {V}isual {S}cripting.
+\newblock \url{https://docs.unrealengine.com/latest/INT/Engine/Blueprints/}.
+\newblock From Unreal Engine 4 Documentation.
+
+\bibitem{js_lisps}
+Moritz~Heidkamp et~al.
+\newblock {J}ava{S}cript {L}isp {I}mplementations.
+\newblock \url{http://ceaude.twoticketsplease.de/js-lisps.html}.
+\newblock A list of various Lisp interpreters implemented in JavaScript.
+
+\bibitem{bf_turing_complete}
+Frans Faase.
+\newblock {BF} is {T}uring-complete.
+\newblock \url{http://www.iwriteiam.nl/Ha_bf_Turing.html}.
+\newblock An article from author's personal website.
+
+\bibitem{columbia_history}
+{Frank da Cruz}.
+\newblock {C}olumbia {U}niversity {C}omputing {H}istory.
+\newblock \url{http://www.columbia.edu/cu/computinghistory/index.html}.
+\newblock ``A Chronology of Computing at Columbia University''.
+
+\bibitem{columbia_history_cards}
+{Frank da Cruz}.
+\newblock {IBM} {P}unch {C}ards.
+\newblock \url{http://www.columbia.edu/cu/computinghistory/cards.html}.
+\newblock From Columbia University Computing History:
+  \url{http://www.columbia.edu/cu/computinghistory/index.html}.
+
+\bibitem{lisp_bnf_2}
+Jacques Guyot.
+\newblock {BNF} rules of {LISP}.
+\newblock
+  \url{http://cui.unige.ch/db-research/Enseignement/analyseinfo/LISP/BNFlisp.html}.
+\newblock A BNF formulation of Lisp syntax.
+
+\bibitem{mozilla_story}
+Jim Hamerly, Tom Paquin, and Susan Walton.
+\newblock {T}he {S}tory of {M}ozilla.
+\newblock \url{http://www.oreilly.com/openbook/opensources/book/netrev.html},
+  January 1999.
+\newblock From ``Open Sources: Voices from the Open Source Revolution''.
+
+\bibitem{cm_internals}
+Marijn Haverbeke.
+\newblock {C}ode{M}irror: {I}nternals.
+\newblock \url{http://codemirror.net/doc/internals.html}.
+\newblock Description of CodeMirror's implementation.
+
+\bibitem{cm_realworld}
+Marijn Haverbeke.
+\newblock {C}ode{M}irror: {R}eal-world {U}ses.
+\newblock \url{http://codemirror.net/doc/realworld.html}.
+\newblock List of projects that use CodeMirror.
+
+\bibitem{snapshots}
+Eric Hosick.
+\newblock {V}isual {P}rogramming {L}anguages - {S}napshots.
+\newblock
+  \url{http://blog.interfacevision.com/design/design-visual-progarmming-languages-snapshots/},
+  2014.
+
+\bibitem{lisp_simple}
+Nicholas H.Tollervey.
+\newblock {L}isp ~ {C}oncise and {S}imple.
+\newblock \url{http://ntoll.org/article/lisp-concise-and-simple}, March 2013.
+\newblock An article from the author's personal website:
+  \url{http://ntoll.org/}.
+
+\bibitem{pacman_complete}
+George Leontiev.
+\newblock \url{https://twitter.com/folone/status/494017847585415168}.
+\newblock A twitter message with a quote from Edwin Brady.
+
+\bibitem{lisp_bnf_1}
+Barry Margolin.
+\newblock {R}e: {L}isp {BNF} available?
+\newblock
+  \url{http://www.cs.cmu.edu/Groups//AI/util/lang/lisp/doc/notes/lisp_bnf.txt}.
+\newblock An archived message from comp.lang.lisp discussion group.
+
+\bibitem{s_expressions}
+John McCarthy.
+\newblock {R}ecursive {F}unctions of {S}ymbolic {E}xpressions and {T}heir
+  {C}omputation by {M}achine, {P}art {I}.
+\newblock \url{http://www-formal.stanford.edu/jmc/recursive/recursive.html}.
+\newblock A paper.
+
+\bibitem{lisp_draft}
+John McCarthy.
+\newblock {H}istory of {L}isp.
+\newblock \url{http://www-formal.stanford.edu/jmc/history/lisp/lisp.html},
+  February 1979.
+\newblock A draft.
+
+\bibitem{pl_checklist}
+Colin McMillen, Jason Reed, and Elly Jones.
+\newblock {P}rogramming {L}anguage {C}hecklist.
+\newblock \url{http://colinm.org/language_checklist.html}.
+\newblock A humorous illustration of why new programming languages fail.
+
+\bibitem{macros}
+Matt Might.
+\newblock {F}irst-class (run-time) macros and meta-circular evaluation.
+\newblock
+  \url{http://matt.might.net/articles/metacircular-evaluation-and-first-class-run-time-macros/}.
+
+\bibitem{unreal_script}
+Christian Nutt.
+\newblock {E}pic's {T}im {S}weeney lays out the case for {U}nreal {E}ngine 4.
+\newblock
+  \url{http://www.gamasutra.com/view/news/213647/Epics_Tim_Sweeney_lays_out_the_case_for_Unreal_Engine_4.php},
+  March 2014.
+\newblock An article from the Gamasutra website.
+
+\bibitem{python_tutorial}
+{Python Software Foundation}.
+\newblock {T}he {P}ython {T}utorial.
+\newblock \url{https://docs.python.org/3/tutorial/}.
+\newblock From Python 3 official documentation:
+  \url{https://docs.python.org/3/index.html}.
+
+\bibitem{js_numbers}
+Axel Rauschmayer.
+\newblock {H}ow numbers are encoded in {J}ava{S}cript.
+\newblock \url{http://www.2ality.com/2012/04/number-encoding.html}.
+\newblock An article from author's personal blog \url{http://www.2ality.com}.
+
+\bibitem{unreal_guinness}
+Guinness~World Records.
+\newblock {M}ost successful videogame engine.
+\newblock
+  \url{http://www.guinnessworldrecords.com/world-records/most-successful-game-engine}.
+\newblock From Guinness World Records webpage. Record as of 16 July 2014.
+
+\bibitem{web_platform}
+WHATWG.
+\newblock {T}he {W}eb platform: {B}rowser technologies.
+\newblock \url{https://platform.html5.org/}.
+\newblock A list of browser technologies that are the components of the
+  platform with links to their specifications.
+
+\bibitem{wolfram_string_patterns}
+Wolfram.
+\newblock {W}orking with {S}tring {P}atterns.
+\newblock
+  \url{https://reference.wolfram.com/language/tutorial/WorkingWithStringPatterns.html}.
+\newblock An article from Wolfram Language Documentation
+  \url{http://reference.wolfram.com/language/}.
+
+\end{thebibliography}

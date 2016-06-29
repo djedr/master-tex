@@ -1,0 +1,135 @@
+\begin{thebibliography}{10}
+
+\bibitem{scratch}
+Scratch Wiki.
+\newblock {S}cratch.
+\newblock \url{https://wiki.scratch.mit.edu/wiki/Scratch}.
+\newblock Description of the language from the Scratch Wiki. See also the
+  language's homepage: \url{https://scratch.mit.edu/}.
+
+\bibitem{open_web_platform}
+W3C Wiki.
+\newblock {O}pen {W}eb {P}latform.
+\newblock \url{https://www.w3.org/wiki/Open_Web_Platform}.
+\newblock ``The Open Web Platform is the collection of open (royalty-free)
+  technologies which enables the Web.''.
+
+\bibitem{lua_games_category_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock
+  \url{https://en.wikipedia.org/wiki/Category:Lua-scripted_video_games}.
+\newblock A Wikipedia category.
+
+\bibitem{ast_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {A}bstract syntax tree.
+\newblock \url{https://en.wikipedia.org/wiki/Abstract_syntax_tree}.
+\newblock Wikipedia definition of abstract syntax tree.
+
+\bibitem{js_text_editors_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {C}omparison of {J}ava{S}cript-based source code editors.
+\newblock
+  \url{https://en.wikipedia.org/wiki/Comparison_of_JavaScript-based_source_code_editors}.
+\newblock Wikipedia comparison article.
+
+\bibitem{punched_cards_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {C}omputer programming in the punched card era.
+\newblock
+  \url{https://en.wikipedia.org/wiki/Computer_programming_in_the_punched_card_era}.
+\newblock Wikipedia article about programming in the punched card era.
+
+\bibitem{homoiconicity_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {H}omoiconicity.
+\newblock \url{https://en.wikipedia.org/wiki/Homoiconicity}.
+\newblock Wikipedia definition of homoiconicity.
+
+\bibitem{jsdoc_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {JSD}oc.
+\newblock \url{https://en.wikipedia.org/wiki/JSDoc}.
+\newblock Wikipedia definition of JSDoc.
+
+\bibitem{lisp_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {L}isp (programming language).
+\newblock \url{https://en.wikipedia.org/wiki/Lisp_(programming_language)}.
+\newblock Wikipedia definition of Lisp.
+
+\bibitem{c_family_list_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {L}ist of {C}-family programming languages.
+\newblock
+  \url{https://en.wikipedia.org/wiki/List_of_C-family_programming_languages}.
+\newblock A list from Wikipedia.
+
+\bibitem{unreal_list}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {L}ist of {U}nreal {E}ngine games.
+\newblock \url{https://en.wikipedia.org/wiki/List_of_Unreal_Engine_games}.
+\newblock ``[A] list of notable games using a version of the Unreal Engine.''
+  From Wikipedia.
+
+\bibitem{pattern_matching_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {P}attern matching.
+\newblock \url{https://en.wikipedia.org/wiki/Pattern_matching}.
+\newblock Wikipedia definition of pattern matching.
+
+\bibitem{scratch_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {S}cratch (programming language).
+\newblock \url{https://en.wikipedia.org/wiki/Scratch_(programming_language)}.
+\newblock Wikipedia definition of Scratch.
+
+\bibitem{spa_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {S}ingle-page application.
+\newblock \url{https://en.wikipedia.org/wiki/Single-page_application}.
+\newblock Wikipedia definition of Single-page application.
+
+\bibitem{standard_ml_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {S}tandard {ML}.
+\newblock \url{https://en.wikipedia.org/wiki/Standard_ML}.
+\newblock Wikipedia definition of Standard ML.
+
+\bibitem{vpl_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {V}isual programming language.
+\newblock \url{https://en.wikipedia.org/wiki/Visual_programming_language}.
+\newblock Wikipedia definition of a visual programming language.
+
+\bibitem{c2_ast}
+WikiWikiWeb.
+\newblock {A}bstract {S}yntax {T}ree.
+\newblock \url{http://c2.com/cgi/wiki?AbstractSyntaxTree}.
+\newblock An entry from WikiWikiWeb \url{http://c2.com/cgi/wiki/FrontPage}.
+
+\bibitem{c2_homoiconicity}
+WikiWikiWeb.
+\newblock {D}efinition {O}f {H}omoiconic.
+\newblock \url{http://c2.com/cgi/wiki?DefinitionOfHomoiconic}.
+\newblock An entry from WikiWikiWeb \url{http://c2.com/cgi/wiki/FrontPage}.
+
+\bibitem{c2_eval_apply}
+WikiWikiWeb.
+\newblock {E}val {A}pply.
+\newblock \url{http://c2.com/cgi/wiki?EvalApply}.
+\newblock An entry from WikiWikiWeb \url{http://c2.com/cgi/wiki/FrontPage}.
+
+\bibitem{lisp_powerful}
+WikiWikiWeb.
+\newblock {L}isp {I}s {T}oo {P}owerful.
+\newblock \url{http://c2.com/cgi/wiki?LispIsTooPowerful}.
+\newblock An entry from WikiWikiWeb: \url{http://c2.com/cgi/wiki}.
+
+\bibitem{c2_parentheses}
+WikiWikiWeb.
+\newblock {L}ost {I}na {S}eaof {P}arentheses.
+\newblock \url{http://c2.com/cgi/wiki?LostInaSeaofParentheses}.
+\newblock An entry from WikiWikiWeb \url{http://c2.com/cgi/wiki/FrontPage}.
+
+\end{thebibliography}

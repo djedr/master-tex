@@ -1,0 +1,98 @@
+\begin{thebibliography}{10}
+
+\bibitem{mdn_game_anatomy}
+Mozilla~Developer Network and individual contributors.
+\newblock {A}natomy of a video game.
+\newblock \url{https://developer.mozilla.org/en-US/docs/Games/Anatomy}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\bibitem{mdn_concurrency}
+Mozilla~Developer Network and individual contributors.
+\newblock {C}oncurrency model and {E}vent {L}oop.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\bibitem{mdn_destructuring}
+Mozilla~Developer Network and individual contributors.
+\newblock {D}estructuring assignment.
+\newblock
+  \url{https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\bibitem{js_types}
+Mozilla~Developer Network and individual contributors.
+\newblock {J}ava{S}cript data types and data structures.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\bibitem{mdn_js_reference}
+Mozilla~Developer Network and individual contributors.
+\newblock {J}ava{S}cript reference.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}). ``[S]erves as a repository of facts
+  about the JavaScript language.''.
+
+\bibitem{mdn_set_prototype_of}
+Mozilla~Developer Network and individual contributors.
+\newblock {O}bject.set{P}rototype{O}f().
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\bibitem{mdn_rest}
+Mozilla~Developer Network and individual contributors.
+\newblock {R}est parameters.
+\newblock
+  \url{https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Functions/rest_parameters}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\bibitem{mdn_template_strings}
+Mozilla~Developer Network and individual contributors.
+\newblock {T}emplate literals.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\bibitem{mdn_var}
+Mozilla~Developer Network and individual contributors.
+\newblock var.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\bibitem{mdn_websockets}
+Mozilla~Developer Network and individual contributors.
+\newblock {W}eb{S}ockets.
+\newblock \url{https://developer.mozilla.org/pl/docs/WebSockets}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\bibitem{mdn_localstorage}
+Mozilla~Developer Network and individual contributors.
+\newblock {W}indow.local{S}torage.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\bibitem{mdn_requestanimationframe}
+Mozilla~Developer Network and individual contributors.
+\newblock window.request{A}nimation{F}rame().
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\end{thebibliography}

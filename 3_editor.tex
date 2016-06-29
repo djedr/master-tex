@@ -1,7 +1,7 @@
 \chapter{Development environment}\label{chap:editor}
 The goal is to build an online \acrlong{ide} IDE, similar to
-Codeanywhere\footnote{\url{https://codeanywhere.com/}} or
-Cloud9\footnote{\url{https://c9.io/}}, works offline as well.
+Codeanywhere\cite{codeanywhere_website} or
+Cloud9\cite{c9_website}, works offline as well.
 
 \section{Overview}
 A folder is considered a project, similarly to modern code editors, such as
@@ -29,7 +29,7 @@ consists of three parts:
       part also handles persisting changes to files and configuration.
     \item The project manager part, which communicates directly with the server
       part. The connection is maintained over a
-      WebSocket\footnote{\url{https://developer.mozilla.org/pl/docs/WebSockets}}. This
+      WebSocket\cite{mdn_websockets}. This
       part provides access to user's file system via a custom folder selection
       interface. Basic configuration of server communication, such as changing
       the address and ports is also possible. Once a project is selected, the
@@ -37,18 +37,18 @@ consists of three parts:
     \item The editor part, which is the main component and can function as a
       stand-alone application. It can communicate with the server indirectly,
       through the \texttt{localStorage}
-      mechanism\footnote{\url{https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage}}.
+      mechanism\cite{mdn_localstorage}.
 \end{itemize}
 
 The project manager and the editor, which can be considered the front-end parts
 of the system are designed to be a
-\acrlong{spa}\footnote{\url{https://en.wikipedia.org/wiki/Single-page_application}}. The
+\acrlong{spa}\cite{spa_wikipedia}. The
 project manager exchanges JSON messages with the server through a
 WebSocket. This is used for updating the view with dynamic data. In order to
 facilitate the manipulation of the HTML structure of the page, which is the main
 application's view, I implemented a very simple web application framework, which
 binds the data from the server with the data on the client and the
-\acrlong{dom}\footnote{\url{http://eloquentjavascript.net/13_dom.html}}.
+\acrlong{dom}\cite[Chapter~13]{eloquentjs}.
 
 \begin{figure}[h!]
 \centering \includegraphics[width=0.9\textwidth]{editor}
@@ -100,7 +100,7 @@ cursor hovers over them.
 
 \section{Text editor}
 The text editor is built on top of the CodeMirror
-framework\footnote{\url{https://codemirror.net/}}. It was integrated with the
+framework\cite{codemirror_site}. It was integrated with the
 editor in the following way:
 \begin{itemize}
     \item A custom syntax highlighting mode for Dual was defined.  % crucial:
@@ -178,10 +178,10 @@ The templates could also be selected by the user from a visual library of puzzle
 pieces, like the one in Scratch (Fig. \ref{fig:scratch}).
 \begin{figure}[h!]
 \centering \includegraphics[width=0.9\textwidth]{scratch}
-\caption{ MIT Scratch programming language editor\protect\footnote{ Screenshot
-    from \url{
-      http://mypad.northampton.ac.uk/12406702/files/2013/05/Screen-Shot-2013-05-02-at-23.19.19-1s0qp26.png
-} } }
+\caption{
+    MIT Scratch programming language editor;
+    screenshot from\protect\cite{fig_scratch}
+}
 \label{fig:scratch}
 \end{figure}
 
@@ -314,9 +314,9 @@ is virtual and controlled by the editor rather than the browser.
 
 Text editors like CodeMirror use similar amount of DOM nodes [[]], but thanks to
 these optimizations are able to handle
-megabyte-sized\footnote{\url{http://codemirror.net/doc/internals.html\#approach}}
+megabyte-sized\cite[Section~General Approach]{cm_internals}
 text files and are used in many real-world
-applications\footnote{\url{http://codemirror.net/doc/realworld.html}}, which
+applications\cite{cm_realworld}, which
 includes being a built-in editor in developer tools in major web browsers.
 
 Another source of inefficiency is that parsing is done twice -- once by Dual's
@@ -327,9 +327,11 @@ work with Dual's parser.
 
 \begin{figure}[h!]
 \centering \includegraphics[width=0.9\textwidth]{blueprint}
-\caption{Blueprints Visual Scripting\protect\footnote{Screenshot from
-    \url{https://docs.unrealengine.com/latest/images/Engine/Blueprints/HowTo/BPHT_6/GetScore.jpg}}}
-\label{fig:blueprint}
+\caption{
+    Blueprints Visual Scripting;
+    screenshot from \protect\cite{fig_blueprint2}
+}
+\label{fig:blueprint2}
 \end{figure}
 
 \section{Comparison}

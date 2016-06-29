@@ -43,13 +43,7 @@ use in developing complex applications. The degree of completeness of the
 project is reflected in:
 \begin{itemize}
     \item The core language, which is sufficiently expressive to implement any
-      algorithm, i.e. Turing-complete in the practical sense\footnote{That is,
-        it is as Turing-complete as JavaScript or C. No existing language is
-        really Turing-complete in the absolute sense, because of physical
-        hardware limitations.}. A simple Brainfuck\footnote{Which is easily
-        demostrable to be Turing-complete:
-        \url{http://www.iwriteiam.nl/Ha_bf_Turing.html} and thus} interpreter is
-      included as an example program [[resources]] to demonstrate this
+      algorithm, i.e. Turing-complete\footnote{In the same sense as JavaScript or C. No existing language is Turing-complete in the absolute sense, because of physical hardware limitations.}. A simple Brainfuck interpreter is included as an example program (see Appendix \ref{app:plyta}) to demonstrate this\cite{bf_turing_complete}.   
     \item Implementation of several interesting additional features of the core
       language, which are described in this chapter \js{wymienić jakich}
     \item The ablility of the language to implement also non-trivial
@@ -98,7 +92,7 @@ An interpreter for Lisp is also trivial to implement, so this is a good starting
 point.
 
 There are many approaches to implementing interpreters for LISP in
-JavaScript\footnote{\url{http://ceaude.twoticketsplease.de/js-lisps.html}}, but
+JavaScript\cite{js_lisps}, but
 the general principles are the same.
 
 Although I opted for a minimal syntax, I did not want it to be exactly
@@ -115,12 +109,12 @@ There primary criticisms of Lisp's syntax are:
     \item The more nested the syntax tree, the harder it is to keep track of and
       balance parentheses; there tends to be a lot of closing parentheses next
       to each other in the
-      source\footnote{\url{http://c2.com/cgi/wiki?LostInaSeaofParentheses}}
+      source\cite{c2_parentheses}
 \end{itemize}
 
 \subsection{Basic syntax}
 Before the primary notation of Lisp, namely
-S-expressions\footnote{\url{http://www-formal.stanford.edu/jmc/recursive/node3.html}},
+S-expressions,
 was established -- a slightly different and, in my opinion, slightly more
 readable notation was used in the early theoretical publications about the
 language, called meta-expressions or M-expressions\cite[Section~The implementation of LISP]{lisp_draft}. I first
@@ -184,13 +178,12 @@ trivial to implement.
 
 The above -- somewhat verbose -- definition is obviously somewhat similar to a
 Lisp BNF
-description\footnote{\url{http://www.cs.cmu.edu/Groups//AI/util/lang/lisp/doc/notes/lisp_bnf.txt},
-  \url{http://cui.unige.ch/db-research/Enseignement/analyseinfo/LISP/BNFlisp.html}}.
+description\cite{lisp_bnf_1, lisp_bnf_2}.
 
 An example of a valid expression in light of this definition would be:
 \begin{lstlisting}
     do [ bind [a 3] bind [b 5] bind [is-a-greater if [>[a b] true false]]
-      is-a-greater ]
+      ia-greater ]
 \end{lstlisting}
 
 Where\footnote{Note: I will introduce brief definitions of language constructs
@@ -212,12 +205,12 @@ Advantages of this M-expression-based notation over S-expressions are:
       operands. This is arguably because this notation is more familiar, bearing
       a similarity to the general mathematical notation (as in \texttt{f(x)})
       and the most popular programming language syntax -- the C-like
-      syntax\footnote{See \url{http://www.tiobe.com/tiobe_index}; 11 out of the
-        top 20 languages as of June 2016 have C-based syntax (by this
+      syntax\footnote{11 out of the
+        top 20 languages as of June 2016\cite{tiobe} have C-based syntax (by this
         classification:
-        \url{https://en.wikipedia.org/wiki/List_of_C-family_programming_languages}). If
+        \cite{c_family_list_wikipedia}). If
         we extend the syntax family to Algol-like, its virtually 20 out of 20 --
-        \url{http://www.martinrinehart.com/pages/genealogy-programming-languages.html}. There
+        \cite{pl_genealogy}. There
         are no languages with Lisp-based syntax among the most popular ones.}
     \item If an expression has another expression as its operator, it is written
       as \texttt{op[args-1][args-2]}, which reduces the amount of nesting and
@@ -267,7 +260,7 @@ analyzer checking the operator of the expression being parsed, and if it is
 expression was already parsed and transformed into a structural tree-like form
 could be taken advantage of while generating documentation from comments. For
 example we could define a following \acrlong{dsl}\footnote{Inspired by
-  \url{https://en.wikipedia.org/wiki/JSDoc})} for documentation:
+  \cite{jsdoc_wikipedia})} for documentation:
 \begin{lstlisting}
     --[ the below is a documentation comment followed by the documented piece of
         -- code: [[ Calculates the circumference of the Circle.
@@ -299,8 +292,7 @@ interesting ``smart'' language and editor features.
 
 A thing to note at this point is that such syntax tree can't be described as
 ``abstract''\footnote{According to these definitions:
-  \url{https://en.wikipedia.org/wiki/Abstract_syntax_tree},
-  \url{http://c2.com/cgi/wiki?AbstractSyntaxTree}}, as it includes all of the
+  \cite{ast_wikipedia, c2_ast}}, as it includes all of the
 ``concrete'' syntax, with its runtime-insignificant elements. The syntax tree
 that is built for the Dual language is also later extended with references to
 other representations of code. For these reasons, I will later on use the
@@ -323,16 +315,10 @@ the language the following features:
       such structural form -- as syntax trees -- in combination with pattern
       matching enables language-native structural manipulation of
       strings\footnote{See:
-        \url{https://reference.wolfram.com/language/tutorial/WorkingWithStringPatterns.html}
+        \cite{wolfram_string_patterns}
         and
-        \url{https://en.wikipedia.org/wiki/Pattern_matching\#Pattern_matching_and_strings}
-        for similar concepts.}\footnote{I chose the structural representation as
-        the only representation, because the performance penalty is acceptable
-        in the prototype implementation. An obvious and very simple optimization
-        would be to keep the raw form of the string as a value in the
-        corresponding syntax tree node. Having these two forms alongside each
-        other would enable the programmer to use the familiar string
-        manipulation methods as well as structural manipulation.}. For example
+        \cite[Section~Pattern matching and strings]{pattern_matching_wikipedia}
+        for similar concepts.}. For example
       we could write:
     \begin{lstlisting}
         bind [str '[A quick brown fox jumps over the lazy dog]]
@@ -350,6 +336,13 @@ an analogous operation on the single character-level. The notation
 \texttt{\{rest\}} matches zero or more arguments (see Section \ref{sub:rest} for
 details). \texttt{log} outputs the values of its arguments to the JavaScript
 console.
+
+Note that I chose the structural representation as
+the only representation for strings, because the performance penalty is acceptable in the prototype implementation. An obvious and very simple optimization
+would be to keep the raw form of the string as a value in the
+corresponding syntax tree node. Having these two forms alongside each
+other would enable the programmer to use the familiar string
+manipulation methods as well as structural manipulation.
 \end{itemize}
 
 Such representation was implemented in order to fulfill the design goal of
@@ -359,9 +352,8 @@ representation.
 \subsection{Numbers}
 Numbers in the language are represented as JavaScript numbers. This means that
 there's only one number type -- 64-bit floating point\footnote{Defined by the
-  IEEE 754 standard:
-  \url{http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=57469},
-  \url{http://www.2ality.com/2012/04/number-encoding.html}}. They are
+  ISO/IEC/IEEE 60559:2011 (IEEE 754) standard:
+  \cite{60559_2011, js_numbers}}. They are
 implemented as follows:
 \begin{itemize}
     \item When a word is tokenized by the parser, it is converted to a
@@ -447,7 +439,7 @@ described, the following expression:
 \end{lstlisting}
 
 which is somewhat similar syntactically to
-ML-style\footnote{\url{https://en.wikipedia.org/wiki/Standard_ML\#Algebraic_datatypes_and_pattern_matching}}
+ML-style\cite[Section~Algebraic datatypes and pattern matching]{standard_ml_wikipedia}
 languages, could be translated into the following:
 \begin{lstlisting}
     bind [x 99]
@@ -526,7 +518,7 @@ this feature (e.g. ML family). The general rules are\footnote{For brevity I
         \item Comparison operators (\texttt{= < <= >= <>}) match if a value
           passes the comparison; it can be viewed as a shorthand notation for
           simple
-          guards\footnote{\url{https://en.wikibooks.org/wiki/F_Sharp_Programming/Pattern_Matching_Basics\#Using_Guards_within_Patterns}}:
+          guards\cite[Chapter~Pattern Matching Basics, Section Using Guards within Patterns]{f_sharp_wikibooks}:
         \begin{lstlisting}
             -- returns the sign of a number note: `-#` is the unary `-`
             -- operator: bind [sign of [=|0 0 of [<|0 -#|1 of [>|0 1]]] ]
@@ -603,9 +595,9 @@ bracketing characters: \texttt{\{} and \texttt{\}}, which serve several
 purposes:
 \begin{itemize}
     \item Rest parameters mechanism known from
-      Lisp\footnote{\url{https://www.gnu.org/software/emacs/manual/html_node/elisp/Argument-List.html}},
+      Lisp\cite[Section~12.2.3]{emacs_lisp_reference},
       recently also adopted in JavaScript (as of the ECMAScript2015
-      standard\footnote{\url{https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Functions/rest_parameters}}). That
+      standard\cite{mdn_rest}). That
       is, for example:
     \begin{lstlisting}
         bind [variadic-function of [a b {args} log [a b args] ]]
@@ -647,7 +639,7 @@ purposes:
     
     As we can see this gives us a very convenient notation for string
     interpolation, similar to e.g. template literals in
-    JavaScript\footnote{\url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals}}.
+    JavaScript\cite{mdn_template_strings}.
     In order to escape curly braces, they should be doubled:
     \begin{lstlisting}
         -- logs `Hello, {name}.` log ['[Hello, {{name}}.]]
@@ -668,8 +660,8 @@ purposes:
     
     \item Unquote notation for macros\footnote{Analogous to \texttt{unquote} or
       \texttt{,} in Lisp:
-      \url{https://docs.racket-lang.org/reference/reader.html\#\%28part._parse-quote\%29}}
-      -- see Chapter \ref{chap:design}.
+      \cite[Section~1.3.8]{racket_reference}
+      -- see Chapter \ref{chap:design}}.
 \end{itemize}
 
 \section{Basic primitives and functions}\label{sec:primitives}
@@ -710,12 +702,12 @@ primitives:
     primitive also supports pattern matching to deconstruct the value and bind
     its components to possibly several variables. In that regard it works a lot
     like JavaScript's destructuring
-    assignment\footnote{\url{https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment}}
+    assignment\cite{mdn_destructuring}
     or similar features in other languages, such as Perl or Python. This
     primitive can be used only for binding names that don't exist in the scope
     at the point of its invocation. There are other constructs for mutating and
     modifying existing variables. There is no
-    hoisting\footnote{\url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var\#var_hoisting}},
+    hoisting\cite[Section~var hoisting]{mdn_var},
     as definitions are processed in order in which they appear in code.
     
     \item \texttt{if [condition consequent alternative]}

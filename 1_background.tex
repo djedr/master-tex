@@ -175,7 +175,7 @@ The property of representing code and data in essentially the same form is known
 
 %For detailed explanation please refer to \cite{sicp}.
 
-\subsection{Syntax}
+\subsection{Abstract syntax tree and program representation}
 The term \acrshort{ast} refers to a tree data structure that is built
 by parsers of programming languages to represent syntactic structure of source
 code in an abstract as well as easily traversable and manipulable way. In the simplest form, in expression-only languages such as Lisp each node of such tree
@@ -191,6 +191,7 @@ construct programs. Currently the most successful representation for that is the
 human-readable text-based representation, which evolved from more primitive and
 less convenient representations, such as punched cards\cite{columbia_history_cards, punched_cards_wikipedia}.
 
+\subsection{Text representation and code editors}
 Constructing programs with text representation can be done with any text editor. This means that the representation is largely independent of a tool, which is an advantage. Any application capable of editing text can theoretically be used to edit any source code (ignoring details such as encoding, etc.). Such applications are universally available, so source code stored in text files can be edited freely on any platform with any tool.
 
 But for complex programs a simple text editor quickly becomes inconvenient and a
@@ -209,11 +210,12 @@ of a programming language. For example:
           definitions, other modules or files
 	\item Etc.
 \end{itemize}
+
 Most of these features require that the editor makes use of a parser to
 recognize the syntactic structure of a program.
 
 Other advantages of a text representation, that stem from the multitude of ways
-that raw text can be manipulated and processed:
+that raw text can be manipulated and processed and are not related to any particular syntax:
 \begin{itemize}
 	\item Find and replace with regular expressions
 	\item Selecting/processing many lines or even blocks of text
@@ -221,14 +223,14 @@ that raw text can be manipulated and processed:
           row and column of such grid can be numbered
 	\item Debuggers, compilers and other elements of a programming language
           system can use row and column numbers in error messages
-	\item Version control systems can easily diff and keep track of changes
-          in text files
+	\item Version control systems can easily compare (diff) and keep track of changes in text files
 \end{itemize}
 
-
-\subsection{Visual programming languages}
+\subsection{Visual programming languages}\label{sec:vpls}
 An alternative representation is the one employed by visual programming
-languages. Such languages are usually tied to a particular editor, which allows
+languages. By a visual programming language I mean a language that ``lets users create programs by manipulating program elements graphically rather than by specifying them textually''\cite{vpl_wikipedia, vpl_maturity}.
+
+Such languages are usually tied to a particular editor, which allows
 the programmer to edit the source code with a mouse rather than the
 keyboard. That is instead of typing in streams of characters to be parsed and
 assembled into a structural form, he inserts, arranges and connects together
@@ -237,109 +239,214 @@ programming can be defined at the lowest level as manipulating a visual form of
 a language's syntax tree.
 
 The design of the visual representation for my language involved a rough survey
-of visual programming languages. In this section I will briefly describe the
-results obtained from this survey\footnote{A formal study of visual programming
-  languages, proper classification in terms of statistics and methodical
-  examination are not the focus of this thesis. \js{No ja bym jednak tego nie pisał i zamiast tego zrobił solidny przegląd literatury.}}.
+of visual programming languages. In this section I will describe the results obtained from this survey.
+
+%\footnote{A formal study of visual programming languages, proper classification in terms of statistics and methodical examination are not the focus of this thesis. \js{No ja bym jednak tego nie pisał i zamiast tego zrobił solidny przegląd literatury.}}.
 
 I classified each of nearly 160 languages listed in \cite{snapshots}, according
-to type of their visual representation, to one of three categories:
-\js{Może Pan wyjaśnić czym się różni 1 od 2?  Mam poczucie, że wrzucenie obrazków pokazujących jedno i drugie mogło by pomóc.}
-\begin{enumerate}
-    \item Line-connected block-based, exemplified by Blueprints Visual
-    Scripting system of Unreal Engine 4\cite{blueprint}: about 66\%
-    \item Snap-together block-based, exemplified by MIT Scratch\cite{scratch, scratch_wikipedia}
-    \item Other
-\end{enumerate}
-
-
-\begin{figure}[h!]
-\centering \includegraphics[width=0.9\textwidth]{scratch}
-\caption{
-    MIT Scratch programming language editor;
-    screenshot from \protect\cite{fig_scratch}
-}
-\label{fig:scratch}
-\end{figure}
-
-\begin{figure}[h!]
-\centering \includegraphics[width=0.9\textwidth]{blueprint}
-\caption{
-    Blueprints Visual Scripting system;
-    screenshot from \protect\cite{fig_blueprint}
-}
-\label{fig:blueprint}
-\end{figure}
-
+to type of their visual representation into several categories.
 
 Additionally, I associated each language with a number $s \in [0, 3]$, which
-descirbes its ``structure factor''. This tries to quantify my subjective
-assessment of the readability of the representation compared to familiar text
-representation ($s = 3$)\footnote{This is based solely on the screen shots from
-  the editors. For example, if it appears that the representation consists of
-  scattered blocks, connected by lines and the layout seems to be arranged by
-  the user, with no automatic structuring by the editor, $s$ will be low.}.
-\js{Może po prostu napisać że im więcej tym lepiej?}
+descirbes its ``structure factor''. This quantifies my subjective assessment of the readability of the representation compared to familiar text representation ($s = 3$). For example, if it appears that the representation consists of scattered blocks, connected by lines and the layout seems to be arranged by the user, with no editor-support for automatic structuring, $s$ will be low. In other words, the greater the number, the better structured the representation.
 
-Below I present the results of this classification. The elements are structured
-as follows: name of category -- percentage of languages that fall into the
-category -- the average ``structure factor'' $s$ for the category This yielded
-the following results:
-\begin{enumerate}
-    \item Arrow/line connected blocks -- 66\% -- 0.61
-    \item Snap-together blocks -- 11\% -- 2.4
+This analysis is not strict and systematic, but rather heuristic-based. A language is classified based solely on the screen shots from its environment. Its purpose is to assess general trends and determine which solutions gained the greatest adoption in practice. This is to aid the further design process. 
+
+Below I present the results of this classification in the form of a list. The items are organized as follows:
+
+\begin{itemize}
+    \item <<Name of category>> -- <<percentage of languages that fall into the
+category>> -- <<the average ``structure factor'' $s$ for the category>>
+
+    <<short description>>
+\end{itemize}
+
+Here are the compiled results:
+\begin{itemize}
+    \item Line-connected block-based -- 66\% -- 0.61
+    
+    Blocks or boxes connected with lines or arrows.
+    
+    
+    \item Snap-together block-based -- 11\% -- 2.4
+    
+    Resembles familiar text representation, except that the structure is produced by snapping together blocks, as in jigsaw puzzles.
+    
+    
     \item Other representations -- 23\% -- 1.39, notably:
-    \begin{enumerate}
-        \item Lists -- 2.5\% -- 2
-        \item GUI -- 2.5\% -- 1
+    \begin{itemize}
+        \item List-based -- 2.5\% -- 2
+        
+        Nested lists, possibly with icons. 
+        
+        
+        \item \acrshort{gui}-based -- 2.5\% -- 1
+        
+        Buttons with icons that represent various components.
+        
+        
         \item Nested -- 2.5\% -- 2
+        
+        Nested windows, boxes, circles or other ``scopes''. A border of each scope is clearly distinguishable.
+        
+        
         \item Enhanced text -- 2.5\% -- 2.75
-        \item Timeline -- 2\% -- 1.17
-        \item \textit{The remaining 11\% are various other representations:
-          in-game \acrshort{vpl}s, hybrid, specialized, esoteric, etc.}
-    \end{enumerate}
-\end{enumerate}
-\js{No ja mam poczucie, że powyższe jednak wymagają bliższego wyjaśnienia.}
+        
+        Similar to text representation, but with differing font sizes, embedded widgets, or other enhancements.
+        
+        
+        \item Timeline-based -- 2\% -- 1.17
+        
+        Specialized for animations or music. Elements are placed on a timeline.
+        
+        
+        \item Others -- 11\% -- \textit{varying}
+        
+        \textit{The remaining 11\% are various other representations: experimental, in-game or game-based \acrshort{vpl}s, hybrid, specialized, esoteric, etc. A few examples are presented at the end of this chapter, in Section \ref{sec:screenshots}}
+  
+    \end{itemize}
+\end{itemize}
 
-Taking into account the above and looking at the most popular visual programming
-languages\footnote{I was not able to find and am not aware of any official or
-  even unofficial ranking of popularity of visual programming languages, but
-  analyzing the top hits when google searching the phrase ``visual programming
-  language'' in combination with\cite{vpl_wikipedia} and my
-  personal experience suggest that we can find these among the most popular: MIT
-  Scratch Unreal Engine 4's Blueprints}
-\js{Urwane zdanie?}
+The section \ref{sec:screenshots} at the end of this chapter contains screenshots from editors and environments for VPLs in each of the categories, in order in which they appear in the above list.
 
-\js{Coś jest nie tak z początkiem tego zdania}
-From this and a I drew the conclusion that there are basically two main
-representations. A flowchart-like representation, exemplified by the Blueprints,
-with blocks connected by lines or arrows, which usually leaves the layout of the
-program source completely to the user, providing no automatic
-structuring. Another representation is exemplified by MIT Scratch. There, the
-code is represented and manipulated in terms of snap-together blocks, similarly
-to a jigsaw-puzzle. This representation is self-structuring and is designed to
-resemble a faimiliar text-based, indent-structured representations.
+%\js{No ja mam poczucie, że powyższe jednak wymagają bliższego wyjaśnienia.}
 
-The advantages of the first representation is that it clearly separates
-\js{Znowu coś nie tak ze zdaniem}
+The above results help set possible design directions. We may conclude that in practice there are basically two main types of visual representations: ``line-connected block-based'' and ``snap-together block-based''.
 
-The lack of support for automatic structuring, which is an essential feature of
-modern text-based code editors is obviously a regression.
-\js{To zdanie wydaje mi się całkowicie wyrwane z kontektsu.}
+I used two more heuristics to verify this conclusion:
+\begin{itemize}
+    \item I analyzed the top hits when searching the phrase ``visual programming language'' with popular search engines, especially by images. Most results link to websites with information about VPLs based on these two main representations. I searched the phrase in Bing, Google, Yahoo and DuckDuckGo and out of the top 20 hits I counted 14-18 (depending on the search engine), which would qualify.
+    
+    \item I analyzed the Wikipedia article about VPLs\cite{vpl_wikipedia}. The first paragraphs of the definition state:
+    \begin{quote}
+        [M]any VPLs (known as dataflow or diagrammatic programming)\cite{381508} are based on the idea of "boxes and arrows", where boxes or other screen objects are treated as entities, connected by arrows, lines or arcs which represent relations.
+    \end{quote}
+    
+    This is essentially a description of the ``line-connected block-based'' representation.
+    
+    The example screenshot at the top of the article presents the MIT Scratch programming language, which falls into the ``snap-together block-based'' category. \cite[Section~VPL-II.B]{visual_languages}.
+\end{itemize}
 
-To design a visual representation that can be an improvement over the text-based
-representation all the advantages of the latter need to be kept.
+\subsection{Line-connected block-based representation}
+The results presented in Section \ref{sec:vpls} suggest that the most popular VPL representation is the flowchart-like ``line-connected block-based''. Editors which use this representation usually leave the layout of the program source completely to the user, providing no automatic structuring. This may easily result in disorder and true ``spaghetti-code'', where free-floating blocks are scattered around, connected by many intersecting lines. This is especially true for complex programs.
 
-\js{Jakiś chaos się tutaj wkradł. Może czytam pracę trochę za szybko, ale nie przypominam sobie jakie były te zalety tekstowej reprezentacj. Pamiętam że były cechy, ale bez podziału na zalety i wady.}
+This lack of support for automatic structuring, which is an essential feature of
+modern text-based code editors is clearly a regression.
 
-\section{Programming discipline}
-\js{mam poczucie, że ten podrozdział jest nie na miejscu. Lepiej napisać to gdzieś przy opisie implementacji}
-The prototype was implemented largely in the spirit of exploratory programming:
-``the kind where you decide what to write by writing
-it.''\cite{arc}.
+% other disadvantages and features
+% Unreal
 
-This approach in combination with a dynamic and flexible language like
-JavaScript enables one to quickly transform ideas to working prototypes and
-shape them as one goes along. But the usefulness of this method is limited, as
-it may quickly produce fairly low-quality code, as it is not focused on future
-maintainability.
+\subsection{Snap-together block-based representation}
+The second most popular VPL representation is the ``snap-together block-based''. There, the code is presented and manipulated in terms of visual blocks, which can be dragged and dropped by mouse and snapped together like jigsaw puzzle pieces. This representation is self-structuring and is designed to resemble the familiar text-based, indent-structured representations.
+
+The prime example of a VPL that utilizes this representation is MIT Scratch. This is because of its popularity\cite[Section~Community of users]{scratch_wikipedia} -- it is even referred to as ``the most popular VPL''\cite{vpl_infograph}. One classification even refers to the VPLs that use the ``snap-together block-based'' representation as ``Scratch \& friends''\cite[Section~Types~of~VPLs]{vpl_maturity}.
+
+However Scratch was not the first language to use this representation. It was preceded by logoBlocks and earlier similar projects\cite{vpl_history}.
+
+In fact, if we go far back in history of VPLs, we eventually arrive at the Logo programming language, which was a dialect of Lisp\cite{logo_history, logo_wikipedia}. It was not a VPL by the definition quoted at the beginning of Section \ref{sec:vpls}, as it did not have a way to manipulate \textit{program elements} visually. Nonetheless, one author calls it ``the first real mainstream VPL''\cite{vpl_infograph}. This is because it pioneered many ideas related to visual programming and was inclined in that direction. As is reflected in its many derivatives, which were indeed VPLs\cite{cricket_logo}, such as the visual programming environment of LEGO Mindstorms\cite{mindstorms_history, mindstorms_wikipedia, mindstorms_site}.
+
+% advantages and disadvantages of VPLs
+
+\clearpage
+\section{Screenshots}\label{sec:screenshots}
+This section presents screenshots that show examples of visual programming languages that fall into each of the categories discussed in Section \ref{sec:vpls}.
+
+\begin{figure}[h!]
+    \centering \includegraphics[width=0.9\textwidth]{blueprint}
+    \caption{
+        Blueprints Visual Scripting system;
+        An example of a ``line-connected block-based'' \acrshort{vpl};
+        screenshot from \protect\cite{fig_blueprint}
+    }
+    \label{fig:blueprint}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering \includegraphics[width=0.9\textwidth]{scratch}
+    \caption{
+        MIT Scratch programming language editor;
+        An example of a ``snap-together block-based'' \acrshort{vpl};
+        screenshot from \protect\cite{fig_scratch}
+    }
+    \label{fig:scratch}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering \includegraphics[width=0.75\textwidth]{lava}
+    \caption{
+        Lava programming language editor;
+        An example of a ``list-based'' \acrshort{vpl};
+        screenshot from \protect\cite{fig_lava}
+    }
+    \label{fig:lava}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering \includegraphics[width=0.9\textwidth]{appmaker}
+    \caption{
+        Mozilla Appmaker;
+        An example of a ``GUI-based'' \acrshort{vpl};
+        screenshot from \protect\cite{fig_appmaker}
+    }
+    \label{fig:appmaker}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering \includegraphics[width=0.9\textwidth]{stroy}
+    \caption{
+        StroyCode editor;
+        An example of a ``nested'' \acrshort{vpl};
+        screenshot from \protect\cite{fig_stroy}
+    }
+    \label{fig:stroy}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering \includegraphics[width=0.9\textwidth]{lamdu}
+    \caption{
+        Lamdu visual environment;
+        An example of an ``enhanced text'' \acrshort{vpl};
+        screenshot from \protect\cite{fig_lamdu}
+    }
+    \label{fig:lamdu}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering \includegraphics[width=0.75\textwidth]{google_web_designer}
+    \caption{
+        Google Web Designer;
+        An example of a ``timeline-based'' \acrshort{vpl};
+        screenshot from \protect\cite{fig_google_web_designer}
+    }
+    \label{fig:google_web_designer}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering \includegraphics[width=0.5\textwidth]{piet}
+    \caption{
+        The esoteric programming language Piet;
+        An example of an esoteric \acrshort{vpl};
+        screenshot from \protect\cite{fig_piet}
+    }
+    \label{fig:piet}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering \includegraphics[width=0.5\textwidth]{lily}
+    \caption{
+        ``Lily was a browser-based, visual programming environment written in JavaScript.''\protect\cite{lily_github};
+        An example of an experimental \acrshort{vpl};
+        screenshot from \protect\cite{fig_lily}
+    }
+    \label{fig:lily}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering \includegraphics[width=0.9\textwidth]{minecraft}
+    \caption{
+        Minecraft\cite{minecraft_site} can be considered a visual programming lanugage.
+        It's an example of a ``game-based'' \acrshort{vpl};
+        ``[S]omeone has created a fully programmable computer using Minecraft''\cite{snapshots};
+        screenshot from \protect\cite{fig_minecraft}
+    }
+    \label{fig:minecraft}
+\end{figure}

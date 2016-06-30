@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.4.4)  29 JUN 2016 23:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.4.4)  30 JUN 2016 18:02
 entering extended mode
 **main.tex
 (D:\master-project\master-thesis\main.tex
@@ -910,7 +910,7 @@ LaTeX Info: Redefining \nameref on input line 11.
 \@outlinefile=\write7
 
 (D:\master-project\master-thesis\title_page.tex
-<img/logo.pdf, id=211, 386.24298pt x 566.2656pt>
+<img/logo.pdf, id=219, 386.24298pt x 566.2656pt>
 File: img/logo.pdf Graphic file (type pdf)
  <use img/logo.pdf>
 Package pdftex.def Info: img/logo.pdf used on input line 6.
@@ -986,50 +986,204 @@ cmtt/m/n/12 apply \T1/cmr/m/n/12 and \T1/cmtt/m/n/12 eval \T1/cmr/m/n/12 functi
 ons[[],
  []
 
-[7] [8] [9] [10] <img/scratch.png, id=522, 854.19125pt x 571.13374pt>
-File: img/scratch.png Graphic file (type png)
-
-<use img/scratch.png>
-Package pdftex.def Info: img/scratch.png used on input line 257.
-(pdftex.def)             Requested size: 377.24702pt x 252.2321pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<img/blueprint.jpg, id=524, 607.51968pt x 228.855pt>
-File: img/blueprint.jpg Graphic file (type jpg)
- <use img/blueprint.jpg>
-Package pdftex.def Info: img/blueprint.jpg used on input line 266.
-(pdftex.def)             Requested size: 377.24702pt x 142.1121pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[11] [12 <D:/master-project/master-thesis/img/scratch.png> <D:/master-project/m
-aster-thesis/img/blueprint.jpg>])
-(D:\master-project\master-thesis\2_language.tex
-Overfull \hbox (13.09752pt too wide) in paragraph at lines 341--1
+[7] [8] [9] [10] [11] [12]
+Overfull \hbox (13.09752pt too wide) in paragraph at lines 351--356
 []\T1/cmr/m/n/12 This ap-proach in com-bi-na-tion with a dy-namic and flex-i-bl
 e lan-guage like JavaScript
  []
 
-[13] [14
+[13] <img/blueprint.jpg, id=557, 607.51968pt x 228.855pt>
+File: img/blueprint.jpg Graphic file (type jpg)
 
-]
+<use img/blueprint.jpg>
+Package pdftex.def Info: img/blueprint.jpg used on input line 362.
+(pdftex.def)             Requested size: 377.24702pt x 142.1121pt.
+ <img/scratch.png, id=560, 854.19125pt x 571.13374pt>
+File: img/scratch.png Graphic file (type png)
+
+<use img/scratch.png>
+Package pdftex.def Info: img/scratch.png used on input line 372.
+(pdftex.def)             Requested size: 377.24702pt x 252.2321pt.
+ <img/lava.png, id=563, 779.02809pt x 754.58382pt>
+File: img/lava.png Graphic file (type png)
+
+<use img/lava.png>
+Package pdftex.def Info: img/lava.png used on input line 382.
+(pdftex.def)             Requested size: 314.37465pt x 304.51094pt.
+
+
+Package natbib Warning: Citation `fig_lava' on page 14 undefined on input line 
+387.
+
+
+Package natbib Warning: Citation `fig_lava' on page 14 undefined on input line 
+387.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<img/appmaker.png, id=564, 1284.8pt x 803.0pt>
+File: img/appmaker.png Graphic file (type png)
+ <use img/appmaker.png>
+Package pdftex.def Info: img/appmaker.png used on input line 392.
+(pdftex.def)             Requested size: 377.24702pt x 235.7802pt.
+
+
+Package natbib Warning: Citation `fig_appmaker' on page 14 undefined on input l
+ine 397.
+
+
+Package natbib Warning: Citation `fig_appmaker' on page 14 undefined on input l
+ine 397.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<img/stroy.png, id=565, 597.23125pt x 492.84125pt>
+File: img/stroy.png Graphic file (type png)
+ <use img/stroy.png>
+Package pdftex.def Info: img/stroy.png used on input line 402.
+(pdftex.def)             Requested size: 377.24702pt x 311.31131pt.
+
+
+Package natbib Warning: Citation `fig_stroy' on page 14 undefined on input line
+ 407.
+
+
+Package natbib Warning: Citation `fig_stroy' on page 14 undefined on input line
+ 407.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<img/lamdu.jpg, id=566, 1027.84pt x 504.88625pt>
+File: img/lamdu.jpg Graphic file (type jpg)
+ <use img/lamdu.jpg>
+Package pdftex.def Info: img/lamdu.jpg used on input line 412.
+(pdftex.def)             Requested size: 377.24702pt x 185.31041pt.
+
+
+Package natbib Warning: Citation `fig_lamdu' on page 14 undefined on input line
+ 417.
+
+
+Package natbib Warning: Citation `fig_lamdu' on page 14 undefined on input line
+ 417.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<img/google_web_designer.png, id=567, 737.75626pt x 489.83pt>
+File: img/google_web_designer.png Graphic file (type png)
+
+<use img/google_web_designer.png>
+Package pdftex.def Info: img/google_web_designer.png used on input line 422.
+(pdftex.def)             Requested size: 314.37465pt x 208.72433pt.
+
+
+Package natbib Warning: Citation `fig_google_web_designer' on page 14 undefined
+ on input line 427.
+
+
+Package natbib Warning: Citation `fig_google_web_designer' on page 14 undefined
+ on input line 427.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<img/piet.png, id=568, 189.70876pt x 189.70876pt>
+File: img/piet.png Graphic file (type png)
+ <use img/piet.png>
+Package pdftex.def Info: img/piet.png used on input line 432.
+(pdftex.def)             Requested size: 209.5831pt x 209.5863pt.
+
+
+Package natbib Warning: Citation `fig_piet' on page 14 undefined on input line 
+437.
+
+
+Package natbib Warning: Citation `fig_piet' on page 14 undefined on input line 
+437.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<img/lily.png, id=570, 1442.38875pt x 1445.4pt>
+File: img/lily.png Graphic file (type png)
+ <use img/lily.png>
+Package pdftex.def Info: img/lily.png used on input line 442.
+(pdftex.def)             Requested size: 209.5831pt x 210.0077pt.
+
+
+Package natbib Warning: Citation `lily_github' on page 14 undefined on input li
+ne 447.
+
+
+Package natbib Warning: Citation `fig_lily' on page 14 undefined on input line 
+447.
+
+
+Package natbib Warning: Citation `lily_github' on page 14 undefined on input li
+ne 447.
+
+
+Package natbib Warning: Citation `fig_lily' on page 14 undefined on input line 
+447.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<img/minecraft.png, id=571, 1027.84pt x 634.37pt>
+File: img/minecraft.png Graphic file (type png)
+ <use img/minecraft.png>
+Package pdftex.def Info: img/minecraft.png used on input line 452.
+(pdftex.def)             Requested size: 377.24702pt x 232.83536pt.
+
+
+Package natbib Warning: Citation `minecraft_site' on page 14 undefined on input
+ line 458.
+
+
+Package natbib Warning: Citation `fig_minecraft' on page 14 undefined on input 
+line 458.
+
+
+Package natbib Warning: Citation `minecraft_site' on page 14 undefined on input
+ line 458.
+
+
+Package natbib Warning: Citation `fig_minecraft' on page 14 undefined on input 
+line 458.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (D:\master-project\master-thesis\2_language.tex [14
+
+ <D:/master-project/master-thesis/img/blueprint.jpg> <D:/master-project/master-
+thesis/img/scratch.png>]
+[15 <D:/master-project/master-thesis/img/lava.png> <D:/master-project/master-th
+esis/img/appmaker.png (PNG copy)>] [16 <D:/master-project/master-thesis/img/str
+oy.png (PNG copy)> <D:/master-project/master-thesis/img/lamdu.jpg>] [17 <D:/mas
+ter-project/master-thesis/img/google_web_designer.png> <D:/master-project/maste
+r-thesis/img/piet.png>] [18 <D:/master-project/master-thesis/img/lily.png> <D:/
+master-project/master-thesis/img/minecraft.png>]
 Chapter 2.
-[15] [16]
+[19
+
+] [20]
 Overfull \hbox (19.02686pt too wide) in paragraph at lines 94--97
 []\T1/cmr/m/n/12 There are many ap-proaches to im-ple-ment-ing in-ter-preters f
 or LISP in JavaScript[[]],
  []
 
-[17]
+[21]
 Overfull \hbox (17.43542pt too wide) in paragraph at lines 153--163
 []\T1/cmr/m/n/12 This gives a no-ta-tion that is some-what in be-tween S-expres
 sions and M-expressions.
  []
 
-[18]
+[22]
 Overfull \hbox (5.60307pt too wide) in paragraph at lines 204--215
 []\T1/cmr/m/n/12 Easier to parse by a hu-man. Op-er-a-tors are clearer dis-tin-
 guished from operands.
@@ -1041,7 +1195,7 @@ Overfull \hbox (26.09967pt too wide) in paragraph at lines 215--222
 -3][args-4] \T1/cmr/m/n/12 vs \T1/cmtt/m/n/12 ((((op args-1)
  []
 
-[19] [20] [21] [22]
+[23] [24] [25] [26]
 Overfull \hbox (5.2756pt too wide) in paragraph at lines 406--408
 []\T1/cmr/m/n/12 Another spe-cial char-ac-ter (\T1/cmtt/m/n/12 !\T1/cmr/m/n/12 
 ) was in-tro-duced for anal-o-gous use for zero-argument
@@ -1053,49 +1207,49 @@ Overfull \hbox (19.61655pt too wide) in paragraph at lines 441--444
 Sec-tion Al-ge-braic datatypes
  []
 
-[23]
+[27]
 Overfull \hbox (6.37688pt too wide) in paragraph at lines 471--474
 []\T1/cmr/m/n/12 Pattern match-ing works with bind-ings, func-tions (al-though 
 the pri-mary function-
  []
 
-[24] [25] [26]
+[28] [29] [30]
 Overfull \hbox (13.54892pt too wide) in paragraph at lines 618--620
 []\T1/cmr/m/n/12 Spread op-er-a-tor (also in-spired by the anal-o-gous fea-ture
  from EC-MAScript2015): 
  []
 
-[27] [28] [29]) (D:\master-project\master-thesis\3_editor.tex [30]
+[31] [32] [33]) (D:\master-project\master-thesis\3_editor.tex [34]
 Chapter 3.
-[31
+[35
 
-] <img/editor.png, id=895, 1131.22626pt x 637.38126pt>
+] <img/editor.png, id=932, 1131.22626pt x 637.38126pt>
 File: img/editor.png Graphic file (type png)
  <use img/editor.png>
 Package pdftex.def Info: img/editor.png used on input line 54.
 (pdftex.def)             Requested size: 377.24702pt x 212.55391pt.
 
-[32 <D:/master-project/master-thesis/img/editor.png (PNG copy)>] [33]
-<img/editor-menu.png, id=912, 401.24907pt x 97.11281pt>
+[36 <D:/master-project/master-thesis/img/editor.png (PNG copy)>] [37]
+<img/editor-menu.png, id=948, 401.24907pt x 97.11281pt>
 File: img/editor-menu.png Graphic file (type png)
 
 <use img/editor-menu.png>
 Package pdftex.def Info: img/editor-menu.png used on input line 138.
 (pdftex.def)             Requested size: 377.24702pt x 91.30975pt.
- [34 <D:/master-project/master-thesis/img/editor-menu.png>]
+ [38 <D:/master-project/master-thesis/img/editor-menu.png>]
 File: img/scratch.png Graphic file (type png)
  <use img/scratch.png>
 Package pdftex.def Info: img/scratch.png used on input line 180.
 (pdftex.def)             Requested size: 377.24702pt x 252.2321pt.
- [35]
-<img/blueprint_more.png, id=931, 700.11563pt x 338.01282pt>
+ [39]
+<img/blueprint_more.png, id=970, 700.11563pt x 338.01282pt>
 File: img/blueprint_more.png Graphic file (type png)
 
 <use img/blueprint_more.png>
 Package pdftex.def Info: img/blueprint_more.png used on input line 211.
 (pdftex.def)             Requested size: 377.24702pt x 182.13736pt.
 
-<img/designs_01234.png, id=933, 628.3475pt x 467.7475pt>
+<img/designs_01234.png, id=971, 628.3475pt x 467.7475pt>
 File: img/designs_01234.png Graphic file (type png)
 
 <use img/designs_01234.png>
@@ -1105,15 +1259,15 @@ Package pdftex.def Info: img/designs_01234.png used on input line 219.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[36 <D:/master-project/master-thesis/img/blueprint_more.png>] [37 <D:/master-pr
+[40 <D:/master-project/master-thesis/img/blueprint_more.png>] [41 <D:/master-pr
 oject/master-thesis/img/designs_01234.png>]
-<img/design_3.png, id=949, 606.265pt x 320.19624pt>
+<img/design_3.png, id=987, 606.265pt x 320.19624pt>
 File: img/design_3.png Graphic file (type png)
  <use img/design_3.png>
 Package pdftex.def Info: img/design_3.png used on input line 296.
 (pdftex.def)             Requested size: 377.24702pt x 199.2427pt.
 
-<img/design_4.png, id=950, 353.32pt x 163.61125pt>
+<img/design_4.png, id=988, 353.32pt x 163.61125pt>
 File: img/design_4.png Graphic file (type png)
  <use img/design_4.png>
 Package pdftex.def Info: img/design_4.png used on input line 304.
@@ -1126,13 +1280,13 @@ File: img/blueprint.jpg Graphic file (type jpg)
 <use img/blueprint.jpg>
 Package pdftex.def Info: img/blueprint.jpg used on input line 329.
 (pdftex.def)             Requested size: 377.24702pt x 142.1121pt.
- [38 <D:/master-project/master-thesis/img/design_3.png>]) (D:\master-project\ma
-ster-thesis\4_case_study.tex [39 <D:/master-project/master-thesis/img/design_4.
-png>] [40
+ [42 <D:/master-project/master-thesis/img/design_3.png>]) (D:\master-project\ma
+ster-thesis\4_case_study.tex [43 <D:/master-project/master-thesis/img/design_4.
+png>] [44
 
 ]
 Chapter 4.
-<img/pacman.png, id=976, 450.18187pt x 359.84438pt>
+<img/pacman.png, id=1013, 450.18187pt x 359.84438pt>
 File: img/pacman.png Graphic file (type png)
  <use img/pacman.png>
 Package pdftex.def Info: img/pacman.png used on input line 29.
@@ -1147,8 +1301,8 @@ Overfull \hbox (41.90186pt too wide) in paragraph at lines 35--42
 n the \T1/cmtt/m/n/12 requestAnimationFrame
  []
 
-[41] [42 <D:/master-project/master-thesis/img/pacman.png>]
-<img/profiling.png, id=1005, 571.13374pt x 438.63875pt>
+[45] [46 <D:/master-project/master-thesis/img/pacman.png>]
+<img/profiling.png, id=1043, 571.13374pt x 438.63875pt>
 File: img/profiling.png Graphic file (type png)
 
 <use img/profiling.png>
@@ -1158,18 +1312,18 @@ Package pdftex.def Info: img/profiling.png used on input line 95.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) (D:\master-project\master-thesis\5_design_discussion.tex [43] [44 <D:/master-
+) (D:\master-project\master-thesis\5_design_discussion.tex [47] [48 <D:/master-
 project/master-thesis/img/profiling.png (PNG copy)>]
 Chapter 5.
 
-Package natbib Warning: Citation `flow_site' on page 45 undefined on input line
+Package natbib Warning: Citation `flow_site' on page 49 undefined on input line
  36.
 
-[45
+[49
 
-] [46] [47] [48] [49] [50]
+] [50] [51] [52] [53] [54]
 
-Package natbib Warning: Citation `LuaJIT' on page 51 undefined on input line 28
+Package natbib Warning: Citation `LuaJIT' on page 55 undefined on input line 28
 9.
 
 
@@ -1178,11 +1332,11 @@ Overfull \hbox (8.42773pt too wide) in paragraph at lines 289--290
 -tion Results][[],
  []
 
-[51]) (D:\master-project\master-thesis\6_summary.tex [52]
+[55]) (D:\master-project\master-thesis\6_summary.tex [56]
 Chapter 6.
-) [53
+) [57
 
-] (D:\master-project\master-thesis\bibliography.tex [54]
+] (D:\master-project\master-thesis\bibliography.tex [58]
 (D:\master-project\master-thesis\main1.bbl
 Underfull \hbox (badness 2401) in paragraph at lines 37--42
 []\T1/cmr/m/n/12 Alan C. Kay.  The early his-tory of smalltalk.  \T1/cmr/m/it/1
@@ -1195,7 +1349,7 @@ $\T1/cmtt/m/n/12 org / wiki / F _ Sharp _ Programming$[]\T1/cmr/m/n/12 .  A Wik
 -i-books project: []$\T1/cmtt/m/n/12 https : / / en .$
  []
 
-) (D:\master-project\master-thesis\main2.bbl [55
+) (D:\master-project\master-thesis\main2.bbl [59
 
 ]
 Underfull \hbox (badness 1584) in paragraph at lines 9--14
@@ -1215,7 +1369,7 @@ $\T1/cmtt/m/n/12 Reference / Operators / Destructuring _ assignment$[]\T1/cmr/m
 /n/12 .  An ar-ti-cle from
  []
 
-[56]
+[60]
 Underfull \hbox (badness 10000) in paragraph at lines 44--50
 []\T1/cmr/m/n/12 Mozilla De-vel-oper Net-work and in-di-vid-ual con-trib-u-tors
 .  Ob-
@@ -1275,7 +1429,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 91--97
 eloper . mozilla . org /$
  []
 
-) (D:\master-project\master-thesis\main4.bbl [57]
+) (D:\master-project\master-thesis\main4.bbl [61]
 Underfull \hbox (badness 1325) in paragraph at lines 18--22
 []\T1/cmr/m/n/12 Wikipedia, the free en-cy-clo-pe-dia.  []$\T1/cmtt/m/n/12 http
 s : / / en . wikipedia . org / wiki /$
@@ -1311,7 +1465,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 82--86
 ming _ language)$[]\T1/cmr/m/n/12 .
  []
 
-[58]
+[62]
 Underfull \hbox (badness 2591) in paragraph at lines 106--110
 []\T1/cmr/m/n/12 WikiWikiWeb.  Ab-stract Syn-tax Tree.  []$\T1/cmtt/m/n/12 http
  : / / c2 . com / cgi / wiki ?$
@@ -1323,7 +1477,7 @@ Underfull \hbox (badness 2351) in paragraph at lines 124--128
  : / / c2 . com / cgi / wiki ?$
  []
 
-) (D:\master-project\master-thesis\main5.bbl [59]
+) (D:\master-project\master-thesis\main5.bbl [63]
 Underfull \hbox (badness 10000) in paragraph at lines 68--72
 []\T1/cmr/m/n/12 Ecma In-ter-na-tional.  TC39 - EC-MAScript.  []$\T1/cmtt/m/n/1
 2 http : / / www .$
@@ -1358,7 +1512,7 @@ $\T1/cmtt/m/n/12 programming-[]languages-[]ranked-[]by-[]expressiveness/$[]\T1/
 cmr/m/n/12 , March 2013.
  []
 
-[60]
+[64]
 Underfull \hbox (badness 6708) in paragraph at lines 13--19
 []\T1/cmr/m/n/12 Craig Bick-nell and Chris Oakes.  Mozilla Stomps Ahead Un-
  []
@@ -1387,7 +1541,7 @@ Underfull \hbox (badness 4144) in paragraph at lines 80--84
 m/n/12 https : / / docs .$
  []
 
-[61]
+[65]
 Underfull \hbox (badness 10000) in paragraph at lines 137--142
 []\T1/cmr/m/n/12 Eric Hosick.  Vi-sual Pro-gram-ming Lan-guages - Snap-
  []
@@ -1421,7 +1575,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 183--187
 ght . net / articles /$
  []
 
-[62]
+[66]
 Underfull \hbox (badness 10000) in paragraph at lines 210--215
 []\T1/cmr/m/n/12 Guinness World Records.  Most suc-cess-ful videogame en-
  []
@@ -1455,7 +1609,7 @@ $\T1/cmtt/m/n/12 the-[]most-[]popular-[]programming-[]languages-[]on-[]stackove
 rflow/$[]\T1/cmr/m/n/12 , July
  []
 
-[63]
+[67]
 Underfull \hbox (badness 2941) in paragraph at lines 42--47
 []\T1/cmr/m/n/12 Carles Ma-teo.  Per-for-mance of sev-eral lan-guages.  []$\T1/
 cmtt/m/n/12 http : / / blog .$
@@ -1484,7 +1638,7 @@ $\T1/cmtt/m/n/12 latest / images / Engine / Blueprints / HowTo / BPHT _ 6 / Get
 Score . jpg$[]\T1/cmr/m/n/12 .  A
  []
 
-[64]
+[68]
 Underfull \hbox (badness 1577) in paragraph at lines 19--25
 []\T1/cmr/m/n/12 Unreal En-gine 4 Doc-u-men-ta-tion.  []$\T1/cmtt/m/n/12 https 
 : / / docs . unrealengine . com /$
@@ -1496,63 +1650,57 @@ $\T1/cmtt/m/n/12 latest / images / Engine / Blueprints / HowTo / BPHT _ 6 / Get
 Score . jpg$[]\T1/cmr/m/n/12 .  A
  []
 
-)) (D:\master-project\master-thesis\main.gls [65] [66
+)) (D:\master-project\master-thesis\main.gls [69] [70
 
 ])
-(D:\master-project\master-thesis\main.acr [67
+(D:\master-project\master-thesis\main.acr [71
 
-] [68
+] [72
 
 ])
-(D:\master-project\master-thesis\a_dvd.tex [69
+(D:\master-project\master-thesis\a_dvd.tex [73
 
-] [70
+] [74
 
 ]
 Appendix A.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [71]
+ [75]
 Overfull \hbox (2.26456pt too wide) in paragraph at lines 27--28
 \T1/cmr/m/n/12 uses ports in the range 8079-8082, spec-i-fied in the \T1/cmtt/m
 /n/12 server-options.json
  []
 
-[72])
+[76])
 
 Package natbib Warning: There were undefined citations.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 38.
-[73]
+[77]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 38.
  (D:\master-project\master-thesis\main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 38.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 38.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 1D4C30DB8DE85F379D307DB82F36C2CA;3512.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 6D376A56FD82AC3D25320CAF032C2F7E;3322
-(rerunfilecheck)             After:  4A982C358C575DA4121824C6B308C1F1;3321.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 21137 strings out of 493921
- 344416 string characters out of 3150895
- 532846 words of memory out of 3000000
- 23472 multiletter control sequences out of 15000+200000
+ 21241 strings out of 493921
+ 346069 string characters out of 3150895
+ 534404 words of memory out of 3000000
+ 23566 multiletter control sequences out of 15000+200000
  22618 words of font info for 58 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  53i,12n,56p,10384b,1821s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\e
-ccc1000.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
-\dpi600\eccc1200.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
+ccc1200.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
+\dpi600\eccc1000.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
 nappen\ec\dpi600\ectt1000.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\fonts\pk\
 ljfour\jknappen\ec\dpi600\ectt1200.pk> <C:\Users\snsv\AppData\Local\MiKTeX\2.9\
 fonts\pk\ljfour\jknappen\ec\dpi600\ecti1000.pk> <C:\Users\snsv\AppData\Local\Mi
@@ -1574,9 +1722,9 @@ nsv\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C
 s/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><D:/programs/MiKTeX/fonts/ty
 pe1/public/amsfonts/cm/cmr12.pfb><D:/programs/MiKTeX/fonts/type1/public/amsfont
 s/cm/cmr8.pfb><D:/programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (77 pages, 1518657 bytes).
+Output written on main.pdf (81 pages, 3114126 bytes).
 PDF statistics:
- 2439 PDF objects out of 2487 (max. 8388607)
- 625 named destinations out of 1000 (max. 500000)
- 472 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2483 PDF objects out of 2487 (max. 8388607)
+ 627 named destinations out of 1000 (max. 500000)
+ 528 words of extra memory for PDF output out of 10000 (max. 10000000)
 

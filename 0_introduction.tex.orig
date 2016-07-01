@@ -39,10 +39,17 @@ In line with the above, the purpose of this work is to introduce innovation as w
 	\item To design and implement a programming language, which will meet \js{meets, zamiast will meet?} the criteria of expressiveness and usability as outlined in the previous section.
     \item To design and implement a visual representation for the language, which will be directly and dynamically mappable to the text-based form. The same must be true in the other direction -- text to visual.
 	\item To create a prototype of the development environment for the language.
+<<<<<<< 84ff875a57990c3da1c20502bb211d6d49a38ffc
+    \item To contrast the features of the language with an existing visual language system, the Unreal Blueprints Scripting system.
+    \item To show, by this comparison, that the proposed solution is indeed superior with respect to theoretical expressiveness and usability and as such it presents possible ways of improving not just the aforementioned but any similar existing system.
+\js{Nie rozumiem: chce Pan pokazać, że zaproponowane rozwiązanie jest w praktyce lepsze niż by wynikało z teorii? To by sugerowało błędy w teorii... zakładam że chodziło tu o coś innego.}
+	\item To evaluate the practical usability and performance of the system by implementing a clone of Pac-Man and examining the process as well as the results.
+	\item To explore and discuss further refinements and possible future design directions.
+=======
     \item To evaluate the practical usability and performance of the prototype by implementing a clone of Pac-Man and examining the process as well as the results.
     \item To contrast the features of the language with existing visual language systems.
     \item To show, by this comparison, that the proposed solution is indeed superior with respect to theoretical expressiveness and usability and as such it presents possible ways of improving any similar existing system. 
-	\js{Nie rozumiem: chce Pan pokazać, że zaproponowane rozwiązanie jest w praktyce lepsze niż by wynikało z teorii? To by sugerowało błędy w teorii... zakładam że chodziło tu o coś innego.}
+>>>>>>> Further reorganization. Refining chapter 2.
 	%\item All throughout this, the designs and implementations shall be compared and contrased with existing solutions.
     %      \js{Znaczy że w trakcie pracy będą robione porównania?  Można oczywiście tak zrobić, zeby kontrastować na bieżąco opisywane rozwiązanie z tym co jest w literaturze, ale mimo wszystko powinno być jedno miejsce w pracy które zbiera przegląd literatury.}
 \end{itemize}

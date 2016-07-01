@@ -1,300 +1,196 @@
 \chapter{Dual programming language design}\label{chap:lang}
+This chapter describes the text representation of Dual, which is the basis for the executable representation for the interpreter (the syntax tree) and for the block-based visual representation discussed in the following chapters.
 
-\section{Introduction}
-To increase the chance of drawing the attention of an average programmer, who composes programs with text, the designed language must have a solid text representation. This way the programmer always has a fallback and can use whichever is convenient.
+The evolution of programming languages is a gradual process. And so is the process of designing a single language. The approach that I found effective was iterative refinement, addition, testing, and sometimes subtraction of features. In practice this translates to intermediate designs and implementations being rearranged into new forms, with some discarded. I did not arrive at something that I could call the final form of the language, so a lot of the features described here are subject to change and improvement. I intend to work on this project further beyond the scope of this thesis.
 
+The language was not originally intended to be a Lisp-like language or clone thereof, but throughout the research I ended up learning a lot about Lisp, sometimes by reinventing parts of this language. A somewhat philosophical interpretation of this would be that Lisp is built on fundamental principles that are (re)discoverable rather than invented.
 
-This chapter describes the text representation of Dual, which is the basis for the executable representation for the interpreter (the syntax tree) and for
-any other editable representation -- including the block-based visual
-representation implemented in the prototype.
-
-
-
-\js{Dalsze akapity mogą zostać.}
-
-The evolution of programming languages is a gradual process. And so is the
-process of designing a single language. The approach that I found effective was
-iterative refinement, addition, testing, and sometimes subtraction of
-features. In practice this translates to intermediate designs and
-implementations being rearranged into new forms, with some discarded. I did not
-arrive at something that I could call the final form of the language, so a lot
-of the features described here are subject to change and improvement. This might
-show in descriptions, where along with talking about the prototype
-implementation I propose alternatives and refinements.
-
-In chapter \ref{chap:design} I discuss features and ideas that reached only the
-design stage and were not implemented, although some of them will be further
-researched outside of scope of this thesis.
-
-Most of the features of the language and editor in the prototype are implemented
-as a proof-of-concept, although some are more refined than others in order to
-fulfil the major goals of this thesis, one of which was to implement a working
-non-trivial application in the language. I cover a lot of design and
-implementation surface, only delving deep into some features that are relevant
-to core ideas that I wanted to convey in this thesis. The other features are
-implemented necessarily, as steps along the path to practical application of
-those ideas.
-
-For these reasons the created environment is by no means complete and ready for
-use in developing complex applications. The degree of completeness of the
-project is reflected in:
-\begin{itemize}
-    \item The core language, which is sufficiently expressive to implement any
-      algorithm, i.e. Turing-complete\footnote{In the same sense as JavaScript or C. No existing language is Turing-complete in the absolute sense, because of physical hardware limitations.}. A simple Brainfuck interpreter is included as an example program (see Appendix \ref{app:plyta}) to demonstrate this\cite{bf_turing_complete}.   
-    \item Implementation of several interesting additional features of the core
-      language, which are described in this chapter \js{wymienić jakich}
-    \item The ablility of the language to implement also non-trivial
-      applications. This is demonstrated by implementing a clone of Pac-Man,
-      described in Chapter \ref{chap:case}
-    \item The direct correspondence of the visual and text representations, with
-      the possibility of parallel dynamic editing; albeit the visual editing
-      part of the editor includes only basic features and is not optimized in
-      terms of performance; details are described in Chapter \ref{chap:editor}
-    \item Implementation of the prototype of the language's development
-      environment on top of the web platform, which includes a server-side and a
-      client-side part. It runs locally on the user's machine, but is designed
-      to be easily deployed as an online web application
-    \item The editor has several useful features, such as basic support for text
-      editing built on top of the CodeMirror JavaScript component with custom
-      syntax highlighting and integration with the editor. The text editing
-      component is integrated with the visual editing component, so that
-      navigation or changes to each representation are tracked and visible to
-      the user [[]]
-    \item [[]]
-\end{itemize}
-
-The language was not originally intended as a Lisp-like language of clone
-thereof, but throughout the research I ended up reinventing some language
-constructs characteristic of Lisp and learning a lot of and about the language.
-
-An somewhat philosophical interpretation of this would be that Lisp is built on
-some fundamental principles that are (re)discoverable rather than invented.
-
-
-
-Provided brief specification and description primarily describes the
-implementation provided with this thesis. But it is also annotated with
-suggestions for improvements or, in other words, descriptions of the more
-refined, future design, which itself is subject to change.\js{Nie zrozumiałem
-  przesłania tego akapitu.}
+In this and the following chapters I cover a lot of ``design surface'', only delving deep into some features that are relevant to core ideas that I wanted to convey in this thesis.
 
 \section{Grammar and syntactic features}
 Among the main design goals for the prototype of the language were simplicity
 and clarity. I wanted a language that is easy to parse and transform to a
 different representation. This restriction suggests that the syntax should be as
-minimal as possible. A language with one of the most (if not \textit{the} most)
-minimal syntax is Lisp\cite{syntaxation}.
+minimal as possible.  
 
-An interpreter for Lisp is also trivial to implement, so this is a good starting
-point.
-
-There are many approaches to implementing interpreters for LISP in
-JavaScript\cite{js_lisps}, but
-the general principles are the same.
-
-Although I opted for a minimal syntax, I did not want it to be exactly
-Lisp-like, as I thought the syntax of this language could be considerably
-improved -- in terms of ease of use and parsing by a human -- with a few simple
-adjustments, without significantly increasing the complexity of the interpreter.
-
-There primary criticisms of Lisp's syntax are:
+I choose Lisp's syntax as the starting point. It is indeed almost as simple as one could imagine. But because of its almost complete uniformity it is often criticized. Some of the major criticisms are:
 \begin{itemize}
-    \item Almost absolute uniformity of syntax makes the source code difficult
-      to read by a human and thus [[]]
-    \item In general it is hard to teach\cite{wadler_critique}, because complex
-      code gets easily confusing
+    \item In general it is hard to teach, because complex code gets easily confusing\cite{wadler_critique}.
     \item The more nested the syntax tree, the harder it is to keep track of and
       balance parentheses; there tends to be a lot of closing parentheses next
-      to each other in the
-      source\cite{c2_parentheses}
+      to each other in the source\cite{c2_parentheses}.
 \end{itemize}
+
+I made a few simple adjustments to the syntax in order to address these concerns, at least to some degree. These modifications do not significantly increase the complexity of a parser, but may considerably improve the syntax in terms of ease of use and readability for a human.
 
 \subsection{Basic syntax}
-Before the primary notation of Lisp, namely
-S-expressions,
-was established -- a slightly different and, in my opinion, slightly more
-readable notation was used in the early theoretical publications about the
-language, called meta-expressions or M-expressions\cite[Section~The implementation of LISP]{lisp_draft}. I first
-simplified this notation in the following way:\js{Należałoby opisać notację
-  przed przystąpieniem do opisu jak zostałą ona zmieniona.}
+Below I present the definition of Dual's grammar in left-recursion-free \acrlong{bnf}. It is included here only for the sake of formality. I believe that for such a simple grammar BNF introduces more noise and is unnecessarily more complex than a textual description, possibly with the help of regular expressions or simply verbatim parser source code. For these reasons any extensions to this basic grammar will later on be introduced in these ways.
 
-\js{Mam tutaj w ogóle taką myśl, że popełnia Pan tutaj pewien błąd w sposobie
-  prezentacji materiału.  Praca naukowa nie powinna stanowić opisu krok po kroku
-  jak doszło się do wyniku.  Tutaj mam wrażenie że właśnie coś takiego jest:
-  opisuje Pan z czego Pan wyszedł, jakich zmian i dlaczego dokonał, i dopiero na
-  końcu przedstawia rezultat.  Moim zdaniem należałoby przedstawić to co Pan
-  wymyślił (rezultat), i ewentualnie dopiero potem umotywować czemu tak, a nie
-  inaczej.}
+This is the \acrshort{bnf} definition, a bit verbose for clarity:
+\begin{lstlisting}
+<expression> ::= <word> | <call>
+<call> ::= <operator> <argument-list>
+<operator> ::= <word> <argument-lists>
+<argument-list> ::= "[" <arguments> "]"
+<word> ::= /[^\s\[\]]+/
+<argument-lists> ::= <argument-list> <argument-lists> | ""
+<arguments> ::= <expression> <arguments> | ""
+\end{lstlisting}
 
+\acrshort{bnf} here is extended with the addition of a regular expression (between \texttt{/} delimiters) in the definition of \texttt{<word>}. The regular expression can be read as ``any character which is not white space,
+\texttt{[} or \texttt{]}''. This means that aside from white space, which acts as
+expression separator there are only two special characters that the parser has to worry about -- the square brackets.
+
+The above grammar definition is obviously very similar to Lisp's BNF description\cite{lisp_bnf_1, lisp_bnf_2}.
+
+The following expression in Lisp:
+\begin{lstlisting}
+(+ 2 (expt 3 5))
+\end{lstlisting}
+
+has an equivalent expression in Dual:
+\begin{lstlisting}
++[2 expt[3 5]]
+\end{lstlisting}
+
+Comparing these, we may observe that in Dual:
 \begin{itemize}
-    \item I dropped the semicolon \texttt{;} as a separator for arguments, as it
-      is entirely superfluous and there is no need for the programmer to type it
-      or the parser to be concerned with it; this means that the only separating
-      characters are the whitespace characters, exactly as in pure S-expressions
     \item The primary bracketing characters are square brackets (\texttt{[]})
-      instead of parentheses; the reason for that design choice is that these
-      are easier to type than parentheses or curly brackets (as they do not
-      require holding the shift key), which matters considering the ubiquity of
-      these characters in the source code
-    \item Expression's operator name is written before the opening bracket that
-      precedes the list of arguments, as in \texttt{operator[argument-1
-          argument-2 ... argument-n]}
-    \item I decided not to include any other syntax in the first prototype, as
-      the one described so far is entirely sufficient to represent any Lisp-like
-      expressions -- it maps directly to S-expressions\footnote{Any additions
-        can be considered syntax sugar. Such syntax extensions were introduced
-        in later prototypes and designs and some of them are included in the
-        final prototype included with this thesis; see [][]}
+    instead of parentheses. The reason for that design choice is that these
+    are easier to type than parentheses or curly brackets (as they do not
+    require holding the shift key), which matters considering the ubiquity of
+    these characters in the source code.
+    \item Expression's operator name is written \textit{before} the opening bracket that precedes the list of arguments, as in \texttt{operator[argument-1 argument-2 ... argument-n]}.
 \end{itemize}
 
-This gives a notation that is somewhat in between S-expressions and
-M-expressions. This was the basic syntax of the first prototype of the
-language. It can be defined\footnote{This definition is included here only for
-  the sake of formality. I believe that for such a simple grammar BNF seems to
-  introduce more noise and is unnecessarily more complex than a textual
-  description in terms of regular expressions or simply verbatim parser source
-  code. For these reasons any extensions to this basic grammar will later on be
-  described in these ways.}, using pure, left-recursion-free BNF notation with
-the addition of a regular expression (between \texttt{/} delimiters) in the
-definition of \texttt{<word>}, as follows:
-\begin{lstlisting}
-    <expression> ::= <word> | <call>
-    <call> ::= <operator> <argument-list>
-    <operator> ::= <word> <argument-lists>
-    <argument-list> ::= "[" <arguments> "]"
-    <word> ::= /[^\s\[\]]+/
-    <argument-lists> ::= <argument-list> <argument-lists> | ""
-    <arguments> ::= <expression> <arguments> | ""
-\end{lstlisting}
-
-The regular expression can be read as ``any character which is not whitespace,
-\texttt{[} or \texttt{]}''. This means that aside from whitespace, which acts as
-expression separator there are only two special characters -- the square
-brackets -- that the parser have to worry about. For this reason it is very
-trivial to implement.
-
-The above -- somewhat verbose -- definition is obviously somewhat similar to a
-Lisp BNF
-description\cite{lisp_bnf_1, lisp_bnf_2}.
-
-An example of a valid expression in light of this definition would be:
-\begin{lstlisting}
-    do [ bind [a 3] bind [b 5] bind [is-a-greater if [>[a b] true false]]
-      ia-greater ]
-\end{lstlisting}
-
-Where\footnote{Note: I will introduce brief definitions of language constructs
-  as they appear in the presented listings. For a comprehensive list of
-  primitives and functions see Section \ref{sec:primitives} of this chapter.}:
+Other than these two differences, Dual's notation is equivalent to S-expressions. Its advantages are:
 \begin{itemize}
-    \item \texttt{do} is a language primitive that serves the role of a single
-      block of code, much like blocks delimited by \texttt{\{} and \texttt{\}}
-      in C-like languages.
-    \item \texttt{bind} is a basic construct for defining variables, like
-      \texttt{var} or \texttt{define} in other languages.
-    \item \texttt{if} serves as a basic conditional evaluation construct. Its
-      semantics are like those of the analogous construct in Lisp.
-\end{itemize}
-
-Advantages of this M-expression-based notation over S-expressions are:
-\begin{itemize}
-    \item Easier to parse by a human. Operators are clearer distinguished from
-      operands. This is arguably because this notation is more familiar, bearing
-      a similarity to the general mathematical notation (as in \texttt{f(x)})
-      and the most popular programming language syntax -- the C-like
-      syntax\footnote{11 out of the
-        top 20 languages as of June 2016\cite{tiobe} have C-based syntax (by this
-        classification:
-        \cite{c_family_list_wikipedia}). If
+    \item It is easier to parse by a human. Operators are clearer distinguished from operands. This is arguably because this notation is more familiar, bearing a similarity to the general mathematical notation (as in \texttt{f(x)}) and the most popular programming language syntax -- the C-like syntax\footnote{11 out of the
+        top 20 languages as of June 2016\cite{tiobe} have C-based syntax (by this classification: \cite{c_family_list_wikipedia}). If
         we extend the syntax family to Algol-like, its virtually 20 out of 20 --
-        \cite{pl_genealogy}. There
-        are no languages with Lisp-based syntax among the most popular ones.}
+        \cite{pl_genealogy}. There are no languages with Lisp-based syntax among the most popular ones.}
     \item If an expression has another expression as its operator, it is written
       as \texttt{op[args-1][args-2]}, which reduces the amount of nesting and
-      thus the amount of bracketing characters appearing next to each other in
-      the source code. Compare the equivalent S-expression: \texttt{((op args-1)
-        args-2)}; and with multiple levels:
+      thus the amount of identical bracketing characters appearing next to each other in the source code. Compare the equivalent S-expression: \texttt{((op args-1) args-2)}; and with multiple levels:
       \texttt{op[args-1][args-2][args-3][args-4]} vs \texttt{((((op args-1)
-        args-2) args-3) args-4)}
+        args-2) args-3) args-4)}.
 \end{itemize}
 
-An interesting property of this syntax, that, depending on the context could be
-classified as advantage, disadvantage or neither is that the sequence of
-characters \texttt{[[} is not legal, whereas in Lisp the analogous sequence
-    \texttt{((} is.
+An interesting property of this syntax that, depending on the context, could be
+classified as an advantage, disadvantage or neither is that the sequence of
+characters \texttt{[[} is not legal, whereas in Lisp the analogous sequence \texttt{((} is.
 
 Alas, this simple notation doesn't do away with a lot of other problems inherent
-in any minimal syntax, because such syntaxes have the property of being very
-homogenous. In the next subsections and later throughout this thesis I gradually
-introduce extensions, which make the syntax a little bit more diverse. Keep in
-mind that every special character that is introduced, is taken away from the set
-of possible \texttt{<word>}-characters, which implies that the regular
-expression for \texttt{<word>} is changed accordingly.
+in all minimal syntaxes, related to their homogenity. In the next subsections and later throughout this thesis I gradually introduce extensions and syntax sugar, which make the notation a little bit more diverse. Keep in mind that every special character that is introduced, is taken away from the set of possible \texttt{<word>}-characters, which implies that the regular expression for \texttt{<word>} is changed accordingly.
 
-\subsection{Comments, whitespace and the syntax tree}\label{sub:comments}
-\js{Rozdział o komentarzach zajmuje więcej miejsca niż opis z opisem składni!}
-
-The parser was further extended with support for comment syntax similar to the
-ones found in Ada, Haskell or Lua:
+\subsection{Comments}\label{sub:comments}
+Comments are a basic and indispensable syntax feature of any programming language. I chose to include a comment syntax similar to the one found in Ada, Haskell or Lua:
 \begin{lstlisting}
-    -- a comment that extends until the end of the line an expression that
-    -- computes square root of 81: sqrt[81]
+-- a comment that extends until the end of the line
+
+-- an expression that computes square root of 81:
+sqrt[81]
+
+--[
+    this is a multiline comment
+    --[
+        multiline comments can be nested
     
-    --[ this is a multiline comment
+        as long as [ and ] are balanced, anything can be nested within
+        multiline comments
         
-        --[ multiline comments can be nested
+        for example:
+        --[
+            this is a comment that includes a piece of code:
+            *[7 7]
             
-            as long as [ and ] are balanced, anything can be nested within
-            multiline comments
-            
-            for example: --[this is a comment that includes a piece of code *[7
-                7], which would evaluate to 49] ] ]
+            which would evaluate to 49
+        ]
+    ]
+]
 \end{lstlisting}
 
-In principle multiline comments could be implemented simply with the syntax
+In principle multi-line comments could be implemented simply with the syntax
 analyzer checking the operator of the expression being parsed, and if it is
 \texttt{--}, treating such expression as a comment. The fact that this
 expression was already parsed and transformed into a structural tree-like form
 could be taken advantage of while generating documentation from comments. For
-example we could define a following \acrlong{dsl}\footnote{Inspired by
-  \cite{jsdoc_wikipedia})} for documentation:
+example we could define a following \acrlong{dsl}\footnote{Inspired by \cite{jsdoc_wikipedia})} for documentation:
 \begin{lstlisting}
-    --[ the below is a documentation comment followed by the documented piece of
-        -- code: [[ Calculates the circumference of the Circle.
-            
-            override!  deprecated!
-            
-            this [circle]
-            
-            -- The circumference of the circle: return [number] --]]
+--[
+    the below is a documentation comment
+    followed by the documented piece of code:
+    
+    --[[
+        Calculates the circumference of the Circle.
         
-        define [calculate-circumference procedure [ mul[2 math.pi this.radius]
-    ]] ]
+        override!
+        deprecated!
+        
+        this [circle]
+        
+        -- The circumference of the circle: 
+        return [number]
+    --]]
+    
+    define [calculate-circumference procedure [
+        mul[2 math.pi this.radius]
+    ]]
+]
 \end{lstlisting}
 
-Nevertheless the implementation in the prototype treats the comments as a stream
-of characters, taking into account nesting and balancing of brackets, but
-doesn't keep them as a tree-like structure.
+\section{Enhanced Syntax Tree}
+In order to enable full mapping between any number of program representations at the syntax-level, a rather unique representation for Dual's syntax tree was designed. This is the crucial mechanism in this design. It is described in this section.
 
-Whitespace characters and comments have no semantic significance, unless serving
-as separators could be considered one. After building the syntax tree,
-bracketing characters also serve no purpose and can be safely be discarded,
-without influencing the interpretation of the program.
+The primary representation of a program in Dual is the syntax tree. Although it is not directly editable, it can contain references to any number of editable representations.
 
-Despite this, all of these are included in the syntax tree generated by the
-parser. Storing these characters in the syntax tree means that the entirety of
-the textual representation, in structural form, is accessible by any other
-representation we might devise. This allows for implementation of variety of
-interesting ``smart'' language and editor features.
+The text representation is one of possible editable representations. So is the visual one. The mechanism is designed to work with any number of representations.
+
+A syntax tree is generated. This can be done by inserting text in the text editor and parsing it or by inserting visual entities in the visual editor and transforming them to a syntax tree.
+
+While the syntax tree is generated, each its node is associated with the corresponding entity of the representation that generates it. This is a bidirectional association -- the entity is also associated with the syntax tree node. 
+
+In case of text representation this means that a reference to each fragment (span) of text corresponding to a syntax tree node is stored in the node. Also the fragment of text is assigned a reference to the node as well. On the implementation level this would require an object to represent ``a text fragment''.
+
+In case of visual representation this means that a reference to each visual element corresponding to a syntax tree node is stored in the node. Also the visual element is assigned a reference to the node as well. This could be implemented with a \acrshort{dom} tree that mirrors the syntax tree. Every node in the DOM tree would contain a reference to corresponding syntax tree node and vice versa.
+
+Every representation must provide a way to translate itself to a syntax tree and a way to generate itself given a syntax tree.
+
+In case of text representation the translation to syntax tree is done with parsing. In order to transform a syntax tree back into text, an ``unparsing'' mechanism must be provided.
+
+In case of visual representation translation to syntax tree can be implemented 
+In order to transform in the other direction, a ``visualisation'' mechanism must be provided.
+
+\section{Unparsing}
+White space characters and comments have no semantic significance, unless serving as separators could be considered one. After building the syntax tree,
+bracketing characters also serve no purpose and can be safely discarded,
+without influencing the interpretation of the program. This is indeed done when constructing an \acrshort{ast} from text in most programming languages.
+
+In case of Dual though, no characters are discarded. Instead, white space, comments brackets and any other characters are included in the syntax tree, connected to appropriate nodes. Storing all characters in the syntax tree means that the entirety of text representation, in structural form, is accessible straight from the syntax tree.
+
+
+If there is a mechanism to transform the syntax tree into any given representation, it may be used to 
+
+During syntax tree generation 
+
+Generally speaking, every node in the syntax tree is connected in both directions to at least one entity that is a part of an editable structure. When this structure is changed, the corresponding AST node is also changed. If there should be more that one editable representation, the syntax tree node will be connected to more entities. For example:
+A syntax tree is generated from a text representation by parsing. During that process, a reference to each fragment (span) of text corresponding to a syntax tree node is stored in the node. Also in the opposite direction -- the fragment of text stores a reference to the node as well.
+A visualisation of this syntax tree is generated in the form of a DOM tree. Each node in the tree stores a reference to the corresponding syntax tree node. Also in the opposite direction -- the DOM node contains a reference to the syntax node.
+
+
+
+
+
+
+This enables easy manipulation of the text source.
+
+
+This allows for implementation of variety of interesting ``smart'' language and editor features.
 
 A thing to note at this point is that such syntax tree can't be described as
-``abstract''\footnote{According to these definitions:
-  \cite{ast_wikipedia, c2_ast}}, as it includes all of the
-``concrete'' syntax, with its runtime-insignificant elements. The syntax tree
-that is built for the Dual language is also later extended with references to
-other representations of code. For these reasons, I will later on use the
-acronym \acrlong{est} to refer to the representation used internally by the Dual
-language interpreter.
+``abstract''\footnote{According to these definitions: \cite{ast_wikipedia, c2_ast}}, as it includes all of the ``concrete'' syntax, with its runtime-insignificant elements.
+
+The nodes of Dual's syntax tree are also meant to be extended with references to other representations of code -- such as the visual representation. For these reasons, I will later on use the acronym \acrshort{est} (\acrlong{est}) to refer to the syntax tree used internally by Dual's interpreter.
 
 This representation greatly simplifies the implementation of and integrates with
 the language the following features:
@@ -413,54 +309,6 @@ zero-argument expressions (procedures):
     -- procedure [42]!]  forty-two -- evaluates to 42
 \end{lstlisting}
 
-\subsubsection{In combination with macros}\label{subsub:macros}
-A unique macro system, described in Chapter \ref{chap:design}\footnote{This
-  macro system is not included in the final version of the prototype, although a
-  proof-of-concept of it that I implemented in earlier prototypes is the basis
-  for this description. \js{Dobrą strategią w takich przypadkach jest zrobienie
-    rozdziału opisującego projekt teoretyczny, a następnie rozdziału z opisem co
-    rzeczywoiście zostało zaimplementowane.  Pan ma podobnie, ale jednak pisze
-    Pan co zostało a co nie zostało zaimplementowane już tutaj.}} in combination
-with these two (\texttt{|} and \texttt{!}) special characters help reduce the
-amount of bracketing characters even further.\js{Nie podoba mi się, że żeby
-  zrozumieć co tu jest napisane muszę zajrzeć do dalszego rozdziału.}
-
-For example, if we define a \texttt{match*} and \texttt{of*} macros as
-described, the following expression:
-\begin{lstlisting}
-    bind [x 99]
-    
-    -- will log "x is greater than one": match* [x] | of* [<|0] [log|'[x is
-        negative]] | of* [0] [log|'[x is zero]] | of* [1] [log|'[x is one]] |
-    log|'[x is greater than one]
-\end{lstlisting}
-
-which is somewhat similar syntactically to
-ML-style\cite[Section~Algebraic datatypes and pattern matching]{standard_ml_wikipedia}
-languages, could be translated into the following:
-\begin{lstlisting}
-    bind [x 99]
-    
-    -- will log "x is greater than one": apply [ of [<|0 log|'[x is negative] of
-        [0 log|'[x is zero] of [1 log|'[x is one] log|'[x is greater than one] ]
-      ] ] x ]
-\end{lstlisting}
-
-where \texttt{apply} would be defined analogously to Lisp's
-\texttt{apply}. \texttt{of} would be defined as a function primitive with arity
-2..*, which treats its penultimate argument as the function's body and all the
-preceding arguments as patterns for the function's arguments. The last argument
-is used when such a function is called and the values supplied as arguments
-don't match the patterns. If the argument is a function, it will be called with
-the same values as arguments and if it's a value it will be returned.
-
-I used such a solution for pattern matching in the early prototypes, but
-replaced it with a native \texttt{match} construct (described in Section
-\ref{sec:primitives}) for performance reasons. Nevertheless this shows that a
-few simple, but general syntax rules and a powerful macro system, can be a very
-flexible tool for extending syntax.
-
-The pattern matching mechanism is explained in the next subsection.
 
 \subsection{Pattern matching}
 A simple, yet powerful pattern-matching facility was added to the language.
@@ -661,6 +509,106 @@ purposes:
       -- see Chapter \ref{chap:design}}.
 \end{itemize}
 
+\section{Just-in-time macros}
+One feature that I experimented with while creating the prototype of Dual is
+support for ``first-class just-in-time expanded macros''. By this I mean macros
+similar to those found in Lisp, but with a few key characteristics, which
+differentiate them from conventional implementations of macros in Lisp-like
+languages. These are:
+\begin{itemize}
+    \item Macros are expanded upon evaluation; when a macro invocation is
+    encountered by the interpreter, it is expanded into code; the node in
+    the EST containing the macro invocation is permanently replaced by the
+    expanded expression, which is subsequently evaluated and its value is
+    returned as the value of the invocation.
+    \item Macros can return other macros in a straightforward manner; this
+    feature nicely composes with the variation of Lisp syntax found in
+    Dual; I used it extensively to improve it, mostly with the goal of
+    reducing the amount of adjacent closing brackets in the source code.
+\end{itemize}
+
+In order to support first-class runtime macros a Lisp interpreter can be
+modified as follows\cite{macros}:
+\begin{itemize}
+    \item Primitives are moved into the top-level environment; they thus are
+    no longer treated as special case by the \texttt{eval} function.
+    \item A new primitive, \texttt{macro} is added, which is essentially
+    equivalent to \texttt{lambda}, except that it produces macro values
+    instead of function values.
+    \item The \texttt{apply} function is now responsible for checking the
+    type of an expression's operator, which can be a \texttt{primitive}, a
+    \texttt{macro} or a normal expression; this determines whether the
+    arguments are evaluated before application
+\end{itemize}
+
+This results in a simpler, more uniform and at the same time more powerful
+interpreter. A major advantage is that:
+\begin{quote}
+    Because of their first-class nature, first-class macros make it easy to add or
+    simulate any degree of laziness\cite{macros}
+\end{quote}
+
+The below listing presents an example of a macro named \texttt{if*} that wraps
+the \texttt{if} primitive in a slightly different syntax. This syntax wraps the
+condition, consequent and alternative parts of the \texttt{if} in separate
+blocks delimited by \texttt{[]}. The condition is required to be an infix
+expression in the form \texttt{a operator b}. The consequent and alternative
+blocks take care of wrapping all expressions within them in \texttt{do}
+blocks. This makes it more convenient and less error-prone to write complex
+\texttt{if} expressions:
+\begin{lstlisting}
+bind [if* macro [a op b macro [{then} macro [{else} code'[if [apply[{op} {a}
+{b}] do[{then}] do[{else}]]] ]]]
+
+if* [a < b][ log ['[a is less than b]] a ][ log ['[b is less than or equal to
+a]] b ]
+
+-- expands to: if [<[a b] do [ log ['[a is less than b]] a ] do [ log ['[b is
+less than or equal to a]] b ]]
+\end{lstlisting}
+
+%TODO: elaborate
+
+
+\subsection{In combination with zero and single argument expressions}\label{subsub:macros}
+The combination of the macro system and the syntax sugar for zero and single argument expression (\texttt{|} and \texttt{!}) helps reduce the amount of bracketing characters even further.
+
+For example, if we define a \texttt{match*} and \texttt{of*} macros as
+described, the following expression:
+\begin{lstlisting}
+bind [x 99]
+
+-- will log "x is greater than one": match* [x] | of* [<|0] [log|'[x is
+negative]] | of* [0] [log|'[x is zero]] | of* [1] [log|'[x is one]] |
+log|'[x is greater than one]
+\end{lstlisting}
+
+which is somewhat similar syntactically to
+ML-style\cite[Section~Algebraic datatypes and pattern matching]{standard_ml_wikipedia}
+languages, could be translated into the following:
+\begin{lstlisting}
+bind [x 99]
+
+-- will log "x is greater than one": apply [ of [<|0 log|'[x is negative] of
+[0 log|'[x is zero] of [1 log|'[x is one] log|'[x is greater than one] ]
+] ] x ]
+\end{lstlisting}
+
+where \texttt{apply} would be defined analogously to Lisp's
+\texttt{apply}. \texttt{of} would be defined as a function primitive with arity
+2..*, which treats its penultimate argument as the function's body and all the
+preceding arguments as patterns for the function's arguments. The last argument
+is used when such a function is called and the values supplied as arguments
+don't match the patterns. If the argument is a function, it will be called with
+the same values as arguments and if it's a value it will be returned.
+
+I used such a solution for pattern matching in the early prototypes, but
+replaced it with a native \texttt{match} construct (described in Section
+\ref{sec:primitives}) for performance reasons. Nevertheless this shows that a
+few simple, but general syntax rules and a powerful macro system, can be a very
+flexible tool for extending syntax.
+
+
 \section{Basic primitives and functions}\label{sec:primitives}
 Below is a description of the primitives and functions supported by the Dual
 language. Each item is structured as follows:
@@ -784,352 +732,3 @@ Basic functions and values:
       number of arguments. These return either \texttt{true} or \texttt{false}.
     \item \texttt{not} is the negation operator (\texttt{!})
 \end{itemize}
-
-%
-% Design discussion
-%
-
-\section{Comments}\label{sec:comments}
-If multiline comments were implemented as expressions on parser-level then, in
-combination with \texttt{|} special character we could have one-word comments,
-which could be useful for describing arguments to facilitate reading of
-expressions. For example we could implement list comprehensions, where:
-\begin{lstlisting}
-$<-[^[x 2] x range[0 10]] $<-[$[x y] x $[1 2 3] y $[3 1 4] <>[x y]]
-\end{lstlisting}
-would be equivalent to
-Python's\cite[Section~5.1.3]{python_tutorial}:
-\begin{lstlisting}
-[x**2 for x in range(10)] [(x, y) for x in [1,2,3] for y in [3,1,4] if x !=
-y]
-\end{lstlisting}
-As we see this notation is acceptable (if not cleaner) for simple
-comprehensions, but starts being less readable for complex ones. This could be
-alleviated by introducing one-word comments:
-\begin{lstlisting}
-$<-[^[x 2] --|for x --|in range[0 10]]
-
-$<-[$[x y] --|for x --|in $[1 2 3] --|for y --|in $[3 1 4] --|if <>[x y]]
-\end{lstlisting}
-which are easily inserted inline with code and have a benefit of clearly
-separating individual parts of an expression, because of being easily
-distinguished visually from the rest. This can simulate different syntactical
-constructs from other programming languages, like:
-\begin{lstlisting}
-if [>[a b] --|then log['|greater] --|else log['|lesser-or-equal] ]
-\end{lstlisting}
-Except that it is not validated by the parser. But we could imagine a separate
-or extend the existing syntax analyzer, so it could validate such ``keyword''
-comments or even use them in some way. For example, we could add a static type
-checker to the language -- in a similar manner that TypeScript or
-Flow\cite{flow_site} extends JavaScript. This would be
-completely transparent to the rest of the language, so any program that uses
-this feature would be valid without it and it could be turned on and off as
-needed.
-
-To reduce the number of characters that have to be typed, we could decide to use
-a different comment ``operator'', such as \texttt{\%}:
-\begin{lstlisting}
-$<-[^[x 2] %|for x %|in range[0 10]]
-
-$<-[$[x y] %|for x %|in $[1 2 3] %|for y %|in $[3 1 4] %|if <>[x y]]
-
-if [>[a b] %|then log['|greater] %|else log['|lesser-or-equal] ]
-\end{lstlisting}
-
-Or even, at the cost of complicating the parser, introduce a separate syntax for
-one-word comments:
-\begin{lstlisting}
--- `%:type` could be a type annotation
-bind [a 3 %:integer]
-bind [b 5 %:integer]
-
--- will print "lesser-or-equal"
-if [>[a b] %then
-log['|greater]
-%else
-log['|lesser-or-equal]
-]
-\end{lstlisting}
-
-In future versions of the language, comments will be stored separately from
-whitespace in the EST. This enables easy smart indentation -- only a prefix of
-the relevant expression has to be looked at, no need to filter out comments. It
-also enables using comments structurally, as a metalanguage for annotations,
-documentation, etc.
-
-\section{Structural string manipulation}
-\begin{lstlisting}
-words[_ _ _ fourth _ sixth] -- super fast, out of the box characters[_ _ _ _
-fifth]
-\end{lstlisting}
-
-\section{Just-in-time macros}
-One feature that I experimented with while creating the prototype of Dual is
-support for ``first-class just-in-time expanded macros''. By this I mean macros
-similar to those found in Lisp, but with a few key characteristics, which
-differentiate them from conventional implementations of macros in Lisp-like
-languages. These are:
-\begin{itemize}
-    \item Macros are expanded upon evaluation; when a macro invocation is
-    encountered by the interpreter, it is expanded into code; the node in
-    the EST containing the macro invocation is permanently replaced by the
-    expanded expression, which is subsequently evaluated and its value is
-    returned as the value of the invocation.
-    \item Macros can return other macros in a straightforward manner; this
-    feature nicely composes with the variation of Lisp syntax found in
-    Dual; I used it extensively to improve it, mostly with the goal of
-    reducing the amount of adjacent closing brackets in the source code.
-\end{itemize}
-
-In order to support first-class runtime macros a Lisp interpreter can be
-modified as follows\cite{macros}:
-\begin{itemize}
-    \item Primitives are moved into the top-level environment; they thus are
-    no longer treated as special case by the \texttt{eval} function.
-    \item A new primitive, \texttt{macro} is added, which is essentially
-    equivalent to \texttt{lambda}, except that it produces macro values
-    instead of function values.
-    \item The \texttt{apply} function is now responsible for checking the
-    type of an expression's operator, which can be a \texttt{primitive}, a
-    \texttt{macro} or a normal expression; this determines whether the
-    arguments are evaluated before application
-\end{itemize}
-
-This results in a simpler, more uniform and at the same time more powerful
-interpreter. A major advantage is that:
-\begin{quote}
-    Because of their first-class nature, first-class macros make it easy to add or
-    simulate any degree of laziness\cite{macros}
-\end{quote}
-
-The below listing presents an example of a macro named \texttt{if*} that wraps
-the \texttt{if} primitive in a slightly different syntax. This syntax wraps the
-condition, consequent and alternative parts of the \texttt{if} in separate
-blocks delimited by \texttt{[]}. The condition is required to be an infix
-expression in the form \texttt{a operator b}. The consequent and alternative
-blocks take care of wrapping all expressions within them in \texttt{do}
-blocks. This makes it more convenient and less error-prone to write complex
-\texttt{if} expressions:
-\begin{lstlisting}
-bind [if* macro [a op b macro [{then} macro [{else} code'[if [apply[{op} {a}
-{b}] do[{then}] do[{else}]]] ]]]
-
-if* [a < b][ log ['[a is less than b]] a ][ log ['[b is less than or equal to
-a]] b ]
-
--- expands to: if [<[a b] do [ log ['[a is less than b]] a ] do [ log ['[b is
-less than or equal to a]] b ]]
-\end{lstlisting}
-
-TODO: elaborate
-
-***
-
-A somewhat tangent, but interesting observation here is that a Lisp interpreter
-could be simplified further by removing all special cases from
-\texttt{apply}. It would only apply a function to arguments, without checking
-its type. This would cause the following:
-\begin{itemize}
-    \item All primitives would cease to be ``special''.
-    \item If we keep the strict evaluation strategy, a programmer would have
-    to explicitly quote all expressions that should not be immediately
-    evaluated.
-    \item We could also switch to a variation of lazy evaluation, which
-    could be best described as ``explicit evaluation'', where evaluation
-    \textit{never} happens unless explicitly requested. Under this
-    evaluation strategy, a programmer would have to explicitly evaluate
-    all expressions that should be evaluated.
-\end{itemize}
-
-Assuming the explicit evaluation strategy, the \texttt{if} primitive could be
-defined in the interpreter as follows (in JavaScript):
-\begin{lstlisting}
-// args is the list of arguments, which would be provided by apply // this is a
-greatly simplified implementation, to demonstrate the essence of the idea:
-function if (args, environment) { var condition = args[0], consequent = args[1],
-alternative = args[2]; var conditionValue = evaluate(condition, environment);
-
-if (conditionValue) { return evaluate(consequent, environment); } return
-evaluate(alternative, environment); }
-\end{lstlisting}
-
-Assuming we have \texttt{bind} and all other necessary primitives defined to
-conform to this evaluation strategy and a terse syntax for explicit evaluation
-(\texttt{'}):
-\begin{lstlisting}
--- ' causes an expression to be evaluated
-
--- bind would always evaluate its second argument: 'bind [a 5]
-
--- +, - and other arithmetic operators would always evaluate all of their
-arguments: 'bind [b +[a 7]]
-
--- log would evaluate all of its arguments logs `12`: 'log [b]
-
--- of would not evaluate any of its arguments: 'bind [factorial of [n do [ 'bind
-[n-value n] *[n-value factorial[-[n-value 1]]] ]]]
-\end{lstlisting}
-
-TODO: how this could be useful compiling to simplified Lisp
-
-\section{C-like syntax}
-Throughout this thesis I introduced multiple ways in which the basic, Lisp-like
-syntax of Dual can be easily extended with simple enhancements, such as adding
-more general-purpose special characters, macros, single-word comments (as
-described in Section \ref{sec:comments}), etc.
-
-Going further along this path, keeping in mind that a real-world language should
-appeal to its users we find ourselves introducing more and more elements of
-C-like syntax. This section describes more possible ways in which the simple
-syntax could be morphed to resemble the most popular languages.  Ultimately all
-this could be implemented with a conventional complex parser for a C-like
-language that translates to bare Dual syntax.
-
-Below I present a snapshot from one of designs I have been working on in order
-to achieve some goals described in this section:
-\begin{lstlisting}
-fit map" {f; lst} { let {i; ret} [0, []];
-
-while ((i < lst.length)) { ret.push f(lst i); set i" ((i + 1)) }; ret };
-\end{lstlisting}
-
-This would be equivalent to:
-\begin{lstlisting}
-bind ['|map of ['|f '|lst do [ bind ['[i ret] $[0 $[]]]
-
-while [<[i lst|length] do [ ret[push][f[lst|@[i]]] mutate* ['|i +[i 1]]
-]] ret ]]]
-\end{lstlisting}
-
-Using the notation presented in Chapter \ref{chap:lang}.
-
-One may observe that:
-\begin{itemize}
-    \item The syntax is much richer, somewhat C-like, but with critical
-    differences, reflecting significantly different nature of the language. At
-    a first glance, it has a familiar look defined by blocks of code delimited
-    by curly-braces, inside which statements (actually expressions) are
-    separated by semicolons; there are different kinds of bracketing
-    characters (\texttt{\{\}()[]}) with different meanings (described below)
-    \item Names of the primitives are \textit{full} English words, although as
-    short as possible. \texttt{let} introduces a variable definition --
-    similarly to \texttt{bind}. \texttt{fit <name> <args> <body>} is a
-    shorthand for \texttt{let <name> (of <args> <body>)}, where \texttt{of}
-    produces a function value. This translates to \texttt{bind [<name> of
-        [<args> <body>]]}.
-    \item \texttt{\{\}} delimit a string; inside a string words are separated by
-    \texttt{;}. Strings are stored in raw as well as structural (syntax tree)
-    form. They are a way of quoting code. This provides an explicit laziness
-    mechanism. One-word strings are denoted with \texttt{"} at the end of the
-    word, which resembles the mathematical double prime notation.
-    \item \texttt{[]} delimit list literals; inside list literals, elements are
-    separated by \texttt{,}. Lists are a basic data structure. They are
-    actually objects, somewhat like in JavaScript. If a list contains at least
-    one \texttt{:} character (not shown in the example), it will be validated
-    as key-value container; if it doesn't, it will be treated as array with
-    integer-based indices
-    \item \texttt{()} are used in function invocations; \texttt{f(a, b, c)}
-    translates to \texttt{f[a b c]}; \texttt{,} separates function arguments;
-    \texttt{f x} is a shorthand notation for \texttt{f(x)}. This, in
-    combination with currying primitives into appropriate macros allows for
-    elimination of excessive brackets and separators. Invocations of
-    primitives resemble use of keywords from other lanugages.
-    \item But at the same time primitives are defined as regular functions --
-    they are no longer treated exceptionally by the interpreter. When they are
-    invoked, all of their arguments are first evaluated. This works, because
-    now it is required that the programmer quote any words that shouldn't be
-    evaluated, such as identifier names when using \texttt{let}. So primitives
-    are just regular functions operating on code, thanks to the explicit
-    laziness provided by strings.
-    \item \texttt{(())} introduce an infix expression, which respects basic
-    operator precedence: (\texttt{((a + b * 2))} would translate to
-    \texttt{+[a *[b 2]]}. This could be implemented with a separate parser
-    based on the
-    shunting-yard\cite{shunting_yard} or
-    similar algorithm that is triggered by the \texttt{((} sequence. It would
-    translate these infix expressions to prefix form and return them back to
-    the original parser.
-\end{itemize}
-
-\section{Universal visual editor}
-The structure produced by a visual editor does not have to necessarily be a
-syntax tree of a particular language.  Text editors allow inputing arbitrary
-sequences of characters, which are transformed into a syntax tree by a
-specialized parser. Analogously, an universal visual editor could allow
-insertion, connection and manipulation of arbitrary generalized blocks, thus
-forming a truly abstract syntax tree (language-independent). This tree could
-then be ``parsed'' to produce a syntax tree for a particular language.
-
-\section{Lua}
-A very interesting programming language, predating and somewhat similar to JavaScript is Lua. It is designed to be a minimalist, embeddable scripting language. Similarly to JavaScript, it draws heavily from Scheme. Some of the major and interesting features of the language include:
-\begin{itemize}
-    \item First-class functions, closures and lexical scoping.
-    \item Tables as the basic data structure, similar to JavaScript's WeakMaps; more powerful than plain JavaScript objects, because they additionally support:
-    Non-string keys -- any value can be used as a key, except nil and NaN
-    \item Extension through metatables
-    \item Excellent interoperability with C
-\end{itemize} 
-
-
-Many computer games use Lua as a scripting language\cite{lua_games_category_wikipedia}
-Prototype-based OOP with syntactic sugar for method definitions and calls
-
-There also exists a very efficient implementation of the language called LuaJIT\cite{LuaJIT}. It is actually one of the fastest JIT-compiled language implementations, rivaling or surpassing performance of most other JIT-compiled languages, including modern JavaScript engines and even, in some benchmarks, native-compiled languages such as C++, D or C\cite[Speed vs other languages]{lua_perl}\cite[Section~Results]{mateo_benchmarks}\cite{wren_performance, pl_benchmarks, lua_c_performance}.
-
-Recent version of Lua (5.3)\cite{lua_5_3} introduces support for integer type, basic unicode (UTF-8) support and bitwise operators, which were long-missing features.
-
-It has many features that I
-
-\section{Performance}
-JIT-compilation
-Bytecode
-
-Problem:
-no more web platform
-
-Solution:
-WebAssembly
-
-\section{Class-free Object-Oriented Programming}
-A major paradigm I intend to support in future versions of Dual is class-free \acrshort{oop}.
-
-In \cite{crockford_class_free} Douglas Crockford states:
-\begin{quote}
-    I used to think that the important innovation of JavaScript was prototypal inheritance. I now think it is class-free object oriented programming. I think that is JavaScript’s gift to humanity. That is the thing that makes it really interesting, special, and an important language. 
-\end{quote}
-
-He defines a constructor template that demonstrates this paradigm. Below is a slightly more verbose and annotated for clarity version of this constructor:
-\begin{lstlisting}
-function constructor(specification) { // [0]
-let { member1, member2 } = specification, // [1]
-{ other }  = other_constructor(specification), // [2]
-private_method = function () { // [3]
-// accesses member, other, method, spec
-},
-public_method = function () { // [4]
-// accesses member, other, method, spec
-};
-
-return Object.freeze({ // [5]
-public_method,
-other
-});
-}
-\end{lstlisting}
-
-This is Crockford's simplification and evolution of prototype-based OOP. It actually gets rid of references to the \texttt{prototype} property as well as any use of the keyword \texttt{this}. It relies on composition with destructuring and copying instead of delegation, prototype chains and sharing of properties.
-
-This has a disadvantage in increased memory consumption, but disables what Crockford calls ``retroactive heredity'', which means changing an object's prototype after it is created, at runtime. But, as he rightly notes, this feature of prototype-based OOP is rather harmful than beneficial. It can create all kinds of errors, can be confusing, has a big performance impact, as it gets in the way of optimization techniques employed by modern JavaScript engines\cite{mdn_set_prototype_of, v8_design}.
-
-This approach to OOP is very flexible. It allows for creation of private, protected (privileged) and public members through standard JavaScript patterns, such as (revealing) module pattern\cite[Chapter~JavaScript Design Patterns, Section~The Revealing Module Pattern]{js_design_patterns}, \cite{crockford_private}. It is also easy to emulate multiple inheritance, traits and mixins.
-
-We can observe that:
-\begin{itemize}
-    \item The constructor takes as an argument a \texttt{specification} object [0]. This object contains the properties that define the initial state of the object being created.
-    \item This object is then deconstructed [1] to extract those properties and 
-    \item A \texttt{method} 
-\end{itemize}
-
-
-

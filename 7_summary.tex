@@ -41,3 +41,31 @@ being able to implement any algorithm and non-trivial applications, as
 exemplified by the Pac-Man clone, it is by no means a complete design. It should
 be viewed as a snapshot from a continuous design process that is intended to
 progress in the future.\js{Wydaje mi się, że ten akapit równiez pownien być w podsumowaniu}
+
+For these reasons the created environment is by no means complete and ready for
+use in developing complex applications. The degree of completeness of the
+project is reflected in:
+\begin{itemize}
+    \item The core language, which is sufficiently expressive to implement any
+    algorithm, i.e. Turing-complete\footnote{In the same sense as JavaScript or C. No existing language is Turing-complete in the absolute sense, because of physical hardware limitations.}. A simple Brainfuck interpreter is included as an example program (see Appendix \ref{app:plyta}) to demonstrate this\cite{bf_turing_complete}.   
+    \item Implementation of several interesting additional features of the core
+    language, which are described in this chapter \js{wymienić jakich}
+    \item The ablility of the language to implement also non-trivial
+    applications. This is demonstrated by implementing a clone of Pac-Man,
+    described in Chapter \ref{chap:case}
+    \item The direct correspondence of the visual and text representations, with
+    the possibility of parallel dynamic editing; albeit the visual editing
+    part of the editor includes only basic features and is not optimized in
+    terms of performance; details are described in Chapter \ref{chap:editor}
+    \item Implementation of the prototype of the language's development
+    environment on top of the web platform, which includes a server-side and a
+    client-side part. It runs locally on the user's machine, but is designed
+    to be easily deployed as an online web application
+    \item The editor has several useful features, such as basic support for text
+    editing built on top of the CodeMirror JavaScript component with custom
+    syntax highlighting and integration with the editor. The text editing
+    component is integrated with the visual editing component, so that
+    navigation or changes to each representation are tracked and visible to
+    the user [[]]
+    \item [[]]
+\end{itemize}

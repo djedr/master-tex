@@ -11,7 +11,30 @@ shape them as one goes along. But the usefulness of this method is limited, as
 it may quickly produce fairly low-quality code, as it is not focused on future
 maintainability.
 
+Most of the features of the language and editor in the prototype are implemented
+as a proof-of-concept, although some are more refined than others in order to
+fulfil the major goals of this thesis, one of which was to implement a working
+non-trivial application in the language.
+
 \section{The language}
+The prototype implementation of the language contains all the features described in Chapter \ref{chap:lang}, with the following exceptions:
+\begin{itemize}
+    \item Macros are not implemented.
+    \item Comments are treated as a streams of characters, taking into account nesting and balancing of brackets in multi-line comments, but are not preserved on the \acrshort{est} as a tree-like structure.
+\end{itemize}
+
+Lisp's syntax is as minimal as it gets\cite{syntaxation}, which makes 
+
+An interpreter for Lisp is also trivial to implement, so this is a good starting
+point.
+
+There are many approaches to implementing interpreters for LISP in
+JavaScript\cite{js_lisps}, but the general principles are the same.
+
+\subsection{Macros}
+This
+macro system is not included in the final version of the prototype, although a
+proof-of-concept of it that I implemented in earlier prototypes
 
 \section{The environment}
 

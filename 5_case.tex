@@ -1,16 +1,4 @@
-\chapter{Prototype implementation}\label{chap:case}
-\section{Programming discipline}
-The prototype was implemented largely in the spirit of exploratory programming:
-``the kind where you decide what to write by writing
-it.''\cite{arc}.
-
-This approach in combination with a dynamic and flexible language like
-JavaScript enables one to quickly transform ideas to working prototypes and
-shape them as one goes along. But the usefulness of this method is limited, as
-it may quickly produce fairly low-quality code, as it is not focused on future
-maintainability.
-
-\section{Case study}
+\chapter{Case study}\label{chap:case}
 Dynamic languages with a garbage collector have the advantage of letting the
 programmer use the exploratory style of programming, where he doesn't have to
 worry about memory management or other low level considerations. [][] Doesn't
@@ -38,9 +26,9 @@ It is actually a port of my earlier clone of the game, which was written in
 Links\cite{links_site}, a functional language.
 
 \begin{figure}[h!]
-\centering \includegraphics[width=0.9\textwidth]{pacman}
-\caption{A screenshot from the game}
-\label{fig:pacman}
+    \centering \includegraphics[width=0.9\textwidth]{pacman}
+    \caption{A screenshot from the game}
+    \label{fig:pacman}
 \end{figure}
 
 \subsection{Main loop}
@@ -62,37 +50,37 @@ I implemented the game loop in Dual as follows:
 --        50]
 
 -- the main loop function: bind [main-loop -- arguments: -- game-state --
-  current game state -- last-tick -- time of the last -- game state update --
-  fps-info -- an object used for debugging, -- which contains information about
-  -- the frame rate -- current-time -- the time of the current -- invocation of
-  the loop of [game-state last-tick fps-info current-time do [ -- [2] schedule
-      the next iteration of the loop -- using requestAnimationFrame: async [
-        .[window requestAnimationFrame] of [next-time main-loop[ game-state
-            last-tick fps-info next-time ] ] ]
-    
-    -- the timestamp of the tick after the last tick bind [next-tick +[last-tick
-        tick-length]]
-    
-    -- counts how many state updates should be performed in this iteration: bind
-    --        [tick-count 0]
-    
-    -- if the current time is past the timestamp of the next tick, the above
-    --        counter should be incremented; possibly more than by one, if the
-    --        difference is a multiply of tick-length if [>[current-time
-    --        next-tick] do [ bind [time-since-tick -[current-time last-tick]]
-    --        mutate [ tick-count .[math floor][ /[time-since-tick tick-length]
-    --        ] ] ] false]
-    
-    -- perform the calculated amount of game state updates: bind [i 0] while
-    --        [<[i tick-count] do [ keep track of the time of the last tick:
-    --        mutate [last-tick +[last-tick tick-length]]
-        
-        -- invoke the function that updates the game-state: mutate [ game-state
-        --        main-game-logic[game-state input-queue] ] mutate [i +[i 1]] ]]
+current game state -- last-tick -- time of the last -- game state update --
+fps-info -- an object used for debugging, -- which contains information about
+-- the frame rate -- current-time -- the time of the current -- invocation of
+the loop of [game-state last-tick fps-info current-time do [ -- [2] schedule
+the next iteration of the loop -- using requestAnimationFrame: async [
+.[window requestAnimationFrame] of [next-time main-loop[ game-state
+last-tick fps-info next-time ] ] ]
 
-    -- if there were game state updates, redraw game screen; else do nothing: if
-    --        [>[tick-count 0] mutate [fps-info draw[ game-state current-time
-    --        .[window performance now]!  fps-info ]] _ ] ]]]
+-- the timestamp of the tick after the last tick bind [next-tick +[last-tick
+tick-length]]
+
+-- counts how many state updates should be performed in this iteration: bind
+--        [tick-count 0]
+
+-- if the current time is past the timestamp of the next tick, the above
+--        counter should be incremented; possibly more than by one, if the
+--        difference is a multiply of tick-length if [>[current-time
+--        next-tick] do [ bind [time-since-tick -[current-time last-tick]]
+--        mutate [ tick-count .[math floor][ /[time-since-tick tick-length]
+--        ] ] ] false]
+
+-- perform the calculated amount of game state updates: bind [i 0] while
+--        [<[i tick-count] do [ keep track of the time of the last tick:
+--        mutate [last-tick +[last-tick tick-length]]
+
+-- invoke the function that updates the game-state: mutate [ game-state
+--        main-game-logic[game-state input-queue] ] mutate [i +[i 1]] ]]
+
+-- if there were game state updates, redraw game screen; else do nothing: if
+--        [>[tick-count 0] mutate [fps-info draw[ game-state current-time
+--        .[window performance now]!  fps-info ]] _ ] ]]]
 \end{lstlisting}
 
 
@@ -104,9 +92,9 @@ Issue: interpreter is blocking the event loop.  There's a lot of intermediate
 objects created that have to be garbage collected.
 
 \begin{figure}[h!]
-	\centering \includegraphics[width=0.9\textwidth]{profiling}
-	\caption{Comparison of Firefox' and Chrome's profiler outputs}
-	\label{fig:profiling}
+    \centering \includegraphics[width=0.9\textwidth]{profiling}
+    \caption{Comparison of Firefox' and Chrome's profiler outputs}
+    \label{fig:profiling}
 \end{figure}
 
 General pattern: Chrome more frequent garbage collections more regular more

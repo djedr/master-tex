@@ -1,0 +1,64 @@
+\chapter{Comparisons to other VPLs}\label{chap:comp}
+This chapter compares Dual to the Blueprints Visual Scripting system of Unreal Engine 4 and to MIT Scratch.
+
+
+General desirable characteristics of a scripting language:
+\begin{itemize}
+    \item dynamic
+    \item flexible
+    \item suitable for rapid prototyping
+    
+    \item library of basic functions
+    \item complementary to a non-scripting language
+\end{itemize}
+    
+
+Blueprints:
+\begin{itemize}
+    \item static, rigid, cumbersome
+    \item no autostructuring
+    \item no text representation
+    \item no first-class functions
+    \item no first-class macros?
+    \item no sorting function available out of the box in 4.9.2
+    
+        and it's a commercial product
+        basic functionality needs external libraries
+        "The low-entry extended standard library has a sort array by comparator function, which is what you'd need here."
+        %https://answers.unrealengine.com/questions/32489/sort-items-in-array-with-blueprints.html
+        %This plugin is now open source.  @ 2016-06-08
+        
+        %http://lambda-the-ultimate.org/node/4918
+    \item  difficult source control
+    
+    p4 was a nightmare
+    
+    diffing, etc. limited to the editor
+    
+    \item  Blueprint does not really complement C++, which is also static and rigid
+    
+    rather: it intersects C++'s feature set; and it's poor at that: slow and incomplete
+    
+    \item not very good for rapid prototyping because of the above
+\end{itemize}
+    
+BLUI, Coherent: web platform for UIs everywhere
+        
+   
+    
+Scratch:
+\begin{itemize}
+    \item  no first-class functions
+    \item  limited file I/O?
+    \item  educational
+    \item  in Flash/ActionScript
+    \item  only supports one-dimensional arrays, known as "lists"
+    \item  Floating point scalars and strings are supported as of version 1.4, but with limited string manipulation ability.
+\end{itemize}
+    
+
+Snap!
+    Scratch successor that fixes its shortcomings
+    first class truly object oriented sprites with prototyping inheritance, and nestable sprites, which are not part of Scratch
+
+% https://en.wikipedia.org/wiki/Snap!_(programming_language)

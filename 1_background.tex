@@ -4,9 +4,7 @@ involved in design and implementation of the Dual programming language and its
 environment. 
 
 \section{Web technologies}
-As stated in the introduction, one of the main design goals of the system is usability.
-%\js{Może rozwinąć myśl?  Chodzi o dostępność dla osób które nie znają się w ogóle na programowaniu? O dostepność dla osób które znają już JavaScript?}
-This is accomplished in practice by building it on top of the most accessible and ubiquitous platform -- the web platform\cite{web_platform}\footnote{Also referred to as the \textit{open} web platform\cite{open_web_platform}}.
+As stated in the introduction, one of the main design goals of the system is usability. This is accomplished in practice by building it on top of the most accessible and ubiquitous platform -- the web platform\cite{web_platform}\footnote{Also referred to as the \textit{open} web platform\cite{open_web_platform}}.
 
 The language's interpreter and development environment are intended to work with
 and are built on web technologies: JavaScript, HTML5 and CSS. The prototype
@@ -191,7 +189,7 @@ construct programs. Currently the most successful representation for that is the
 human-readable text-based representation, which evolved from more primitive and
 less convenient representations, such as punched cards\cite{columbia_history_cards, punched_cards_wikipedia}.
 
-\subsection{Text representation and code editors}
+\subsection{Text-based code editors}
 Constructing programs with text representation can be done with any text editor. This means that the representation is largely independent of a tool, which is an advantage. Any application capable of editing text can theoretically be used to edit any source code (ignoring details such as encoding, etc.). Such applications are universally available, so source code stored in text files can be edited freely on any platform with any tool.
 
 But for complex programs a simple text editor quickly becomes inconvenient and a
@@ -240,8 +238,6 @@ a language's syntax tree.
 
 The design of the visual representation for my language involved a rough survey
 of visual programming languages. In this section I will describe the results obtained from this survey.
-
-%\footnote{A formal study of visual programming languages, proper classification in terms of statistics and methodical examination are not the focus of this thesis. \js{No ja bym jednak tego nie pisał i zamiast tego zrobił solidny przegląd literatury.}}.
 
 I classified each of nearly 160 languages listed in \cite{snapshots}, according
 to type of their visual representation into several categories.
@@ -307,8 +303,6 @@ Here are the compiled results:
 \end{itemize}
 
 The section \ref{sec:screenshots} at the end of this chapter contains screenshots from editors and environments for VPLs in each of the categories, in order in which they appear in the above list.
-
-%\js{No ja mam poczucie, że powyższe jednak wymagają bliższego wyjaśnienia.}
 
 The above results help set possible design directions. We may conclude that in practice there are basically two main types of visual representations: ``line-connected block-based'' and ``snap-together block-based''.
 

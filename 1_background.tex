@@ -4,7 +4,9 @@ involved in design and implementation of the Dual programming language and its
 environment. 
 
 \section{Web technologies}
-As stated in the introduction, one of the main design goals of the system is usability. This is accomplished in practice by building it on top of the most accessible and ubiquitous platform -- the web platform\cite{web_platform}\footnote{Also referred to as the \textit{open} web platform\cite{open_web_platform}}.
+As stated in the introduction, one of the main design goals of the system is usability. This is accomplished in practice by building it
+\js{bez ``it''}
+on top of the most accessible and ubiquitous platform -- the web platform\cite{web_platform}\footnote{Also referred to as the \textit{open} web platform\cite{open_web_platform}}.
 
 The language's interpreter and development environment are intended to work with
 and are built on web technologies: JavaScript, HTML5 and CSS. The prototype
@@ -17,6 +19,7 @@ The JavaScript programming language was created by Brendan Eich for Netscape\cit
 Despite significant design flaws, JavaScript has became \textit{one of} the most\cite{tiobe, pypl}, if not \textit{the most}\cite[Section~Most Popular Technologies per Dev Type]{so_developer_survey_2016}\cite{redmonk} popular programming languages in the world. In this section I will briefly look at some of the probable reasons for that from a programming language design perspective.
 
 On the surface, JavaScript has a familiar curly-brace syntax known from C or Java.
+\js{Jakieś takie zagubione i samotne to zdanie}
 
 From a programming language design perspective, JavaScript has many great
 features, borrowed from other excellent languages\cite[Section~4~Overview]{ecmascript}, most notably:
@@ -24,7 +27,7 @@ features, borrowed from other excellent languages\cite[Section~4~Overview]{ecmas
    \item Scheme, one of two main dialects of Lisp\cite{r7rs}. It is a minimalist, but very extensible functional programming language. The features drawn from this language include first-class functions (treating functions as values), anonymous functions (also known as lambdas or function literals) and lexical closures.
    \item Self, a pioneering prototype-based \acrlong{oop} language\cite{self_handbook}, which evolved from Smalltalk-80\cite{smalltalk_history}. It introduced the concept of prototypes, which is an approach to \acrshort{oop}, where inheritance is implemented by reusing existing objects instead of defining classes. Prototype-based programming is the feature that JavaScript adopted from this language.
 \end{itemize}
-The two above languages are characterized by a very minimalist nature
+The two above languages are characterized by a very minimalist nature.
 Both languages as well as JavaScript\cite{js_types} are dynamically typed -- types can be checked only at runtime. 
 
 The final advantage of JavaScript is the fact that it is distributed with a ubiquitous environment of the web browser. This makes the language straightforward for developers to use.
@@ -57,7 +60,9 @@ these are bound together by the event loop\cite{mdn_concurrency}, which is the c
 This means, at least conceptually, that messages are processed one by one, in a single thread and an executing function cannot be preempted by any other function before it completes. In practice this is more complicated and there are exceptions to these rules. But this explanation is sufficient for further discussion.
 
 This model makes reasoning about the program execution very straightforward, but
-is problematic when a single message takes long to execute. This problem is
+is problematic when a single message takes long to execute. This
+\js{Chcę zasugerować unikanie powtarzania ``this'' poprzez użycie ``the''. Nie zawsze się da, ale tutaj jak najbardziej tak.}
+ problem is
 observed e.g. when web applications cause browsers to hang or display a
 dialog asking the user if he wishes to terminate an unresponsive script.
 
@@ -231,7 +236,9 @@ languages. By a visual programming language I mean a language that ``lets users 
 Such languages are usually tied to a particular editor, which allows
 the programmer to edit the source code with a mouse rather than the
 keyboard. That is instead of typing in streams of characters to be parsed and
-assembled into a structural form, he inserts, arranges and connects together
+assembled into a structural form, he
+\js{Musiałem wrócić do wcześniejszego zdania żeby przypomnieć sobie kim jest ten ``he''. Może lepiej ``the programmer''? Nawiasem mówiąc w literaturze dotyczącej PL jest zwyczaj używania ``she'', zamiast ``he''.}
+ inserts, arranges and connects together
 distinct visual elements to produce such a structure. Thus I contend that visual
 programming can be defined at the lowest level as manipulating a visual form of
 a language's syntax tree.

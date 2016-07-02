@@ -7,7 +7,7 @@ The language was not originally intended to be a Lisp-like language or clone the
 
 In this and the following chapters I cover a lot of ``design surface'', only delving deep into some features that are relevant to core ideas that I wanted to convey in this thesis.
 
-\section{Grammar and syntactic features}
+\section{Syntax and grammar}
 Among the main design goals for the prototype of the language were simplicity
 and clarity. I wanted a language that is easy to parse and transform to a
 different representation. This restriction suggests that the syntax should be as
@@ -83,7 +83,7 @@ characters \texttt{[[} is not legal, whereas in Lisp the analogous sequence \tex
 Alas, this simple notation doesn't do away with a lot of other problems inherent
 in all minimal syntaxes, related to their homogenity. Later in this chapter I will introduce extensions and syntax sugar, which make the notation a little bit more diverse. Keep in mind that every special character that is introduced, is taken away from the set of possible \texttt{<word>}-characters, which implies that the regular expression for \texttt{<word>} is changed accordingly.
 
-\subsection{Comments}\label{sub:comments}
+\section{Comments}\label{sub:comments}
 Comments are a basic and indispensable syntax feature of any programming language. I chose to include a comment syntax similar to the one found in Ada, Haskell or Lua:
 \begin{lstlisting}
 -- a comment that extends until the end of the line
@@ -110,7 +110,7 @@ sqrt[81]
 ]
 \end{lstlisting}
 
-\subsection{Numbers}
+\section{Numbers}
 Numbers in the language are represented as JavaScript numbers. This means that
 there's only one number type -- 64-bit floating point\footnote{Defined by the
   ISO/IEC/IEEE 60559:2011 (IEEE 754) standard:
@@ -141,7 +141,7 @@ Thus all of the following JavaScript number literals are valid in Dual:
 \end{lstlisting}
 
 \section{Escape character}
-An escape character \texttt{\\} is introduced. It allows special characters to be included in variable names.
+An escape character \texttt{\textbackslash} is introduced. It allows special characters to be included in variable names.
 
 For example:
 \begin{lstlisting}
@@ -167,7 +167,7 @@ would evaluate to:
 "A quick brown bear jumps over the lazy duck"
 \end{lstlisting}
 
-Special characters inside string can be escaped with the escape character \texttt{\\}. Note that balanced square brackets that are part of syntactically valid Dual expression do not have to be escaped.
+Special characters inside string can be escaped with the escape character \texttt{\textbackslash}. Note that balanced square brackets that are part of syntactically valid Dual expression do not have to be escaped.
 
 The implementation of strings is explained in detail in Section \ref{sec:est}. String interpolation is explained in Section \ref{sec:sub}.
 
@@ -229,7 +229,7 @@ The following basic functions are defined in the language:
     
     The modulus (\texttt{\%}) operator.
     
-    \item \texttt{-# [arg]} 
+    \item \texttt{-\# [arg]} 
     
     The unary minus operator. It negates its argument.
     
@@ -289,7 +289,18 @@ bind [greeting '[Hello]]
     otherwise.
     \item \texttt{do [0..*]}
         
-    Evaluates its arguments in order and returns the value of the last argument.
+    Evaluates its arguments in order and returns the value of the last argument. Fulfils the role of a block of expressions.
+    
+    For example:
+\begin{lstlisting}
+if [<[a 2] do [
+    bind [b -[2 a]]
+    log['[difference b:] b]
+] do [
+    bind [c -[a 2]]
+    log ['[difference c:] c]
+]]
+\end{lstlisting}
     
     \item \texttt{while [condition body]}
     
@@ -340,13 +351,36 @@ bind [car dict [
     
     Returns a function value. The last argument is the function's body. The preceding arguments are the patterns for the macro's arguments. See Section \ref{sec:pat} for details.
     
+    \item \texttt{of~ [2..*]} 
+    
+    Returns a function value. Treats its penultimate argument as the function's body and all the preceding arguments as patterns for the function's arguments. See Section \ref{sec:pat} for details.
+    
+    The last argument is used when the function is called and the values supplied as arguments do not match the patterns. If the argument is a function, it will be called with the same values as arguments and if it is a value it will be returned.
+    
+    This enables chaining functions together like so:
+\begin{lstlisting}
+
+bind [f
+    of~ [a b c log['[called with three arguments]]
+        of~ [a b log['[called with two arguments]]
+            of~ [a log['[called with one argument]]
+                log['[called with zero or more than three arguments]]
+            ]
+        ]
+    ]
+]
+
+-- will log "called with two arguments":
+f[3 2]
+\end{lstlisting}
+    
     \item \texttt{procedure [body]}
     
     Returns a function value. Its only argument is the function's body.
     
     \item \texttt{match [2..*]}
     
-    Performs pattern matching. Its first argument is an expression to be matched. The following arguments are two-element lists, where the first element is the pattern to be matched and the second the expression to be evaluated if it matches. See Section \ref{sec:pat} for details.
+    Performs pattern matching. Its first argument is an expression to be matched. The following arguments are two-element lists, where the first element is the pattern to be matched and the second the expression to be evaluated if it matches. See Section \ref{sub:match} for details.
         
     \item \texttt{cond [1..*]}
     
@@ -357,14 +391,14 @@ bind [car dict [
     Property accessor. Essentially works like JavaScript's \texttt{.} operator\cite{mdn_dot}:
     
     For example:
-    \begin{lstlisting}
-    .[window Date now][]
-    \end{lstlisting}
+\begin{lstlisting}
+.[window Date now][]
+\end{lstlisting}
     
     translates to JavaScript as:
-    \begin{lstlisting}
-    window.Date.now();
-    \end{lstlisting}
+\begin{lstlisting}
+window.Date.now();
+\end{lstlisting}
     
     If a property cannot be accessed, an error is thrown.
     
@@ -373,14 +407,14 @@ bind [car dict [
     Works symmetrically to \texttt{.} -- it sets a property to a value specified by its last argument.
     
     For example:
-    \begin{lstlisting}
-    :[game-state hero ammo 5]
-    \end{lstlisting}
+\begin{lstlisting}
+:[game-state hero ammo 5]
+\end{lstlisting}
     
     translates to JavaScript as:
-    \begin{lstlisting}
-    gameState.hero.ammo = 5;
-    \end{lstlisting}
+\begin{lstlisting}
+gameState.hero.ammo = 5;
+\end{lstlisting}
        
     If a property cannot be accessed, an error is thrown.
     
@@ -408,7 +442,6 @@ The following values are also defined:
     
     Provides access to JavaScript's global \texttt{window} object\cite{mdn_window}.
 \end{itemize}
-
 
 \section{Enhanced Syntax Tree}\label{sec:est}
 In order to enable full mapping between any number of program representations at the syntax-level, a modification of an \acrshort{ast} was designed as a data structure representation of Dual's syntax. I call this structure the \acrlong{est} (\acrshort{est}). This crucial element in the language's design is described in this section.
@@ -440,389 +473,528 @@ White space characters and comments have no semantic significance, unless servin
 In case of Dual though, no characters are discarded. Instead, white space, comments, brackets and any other characters are included in the EST, connected to appropriate nodes. Storing all characters in the EST means that the entirety of text representation, in structural form, is accessible straight from the syntax tree. This allows an unparser to recreate it \textit{exactly}.
 
 Such design greatly simplifies the implementation of and integrates with
-the language the following features:
+the language features such as:
 \begin{itemize}
-    \item Automatic indentation
+    \item Automatic indentation. The \acrshort{est} contains all white space. If a new node is inserted into it, it can be initialized with white space of its siblings and/or ancestors, etc..
     \item Documentation comments. Comments can easily be associated with
-      corresponding code blocks (syntax tree nodes), which can be useful for
-      automatically generating documentation in any format
+      corresponding code blocks (EST nodes), which can be useful for
+      automatically generating documentation in any format.
     \item Any expression can be unparsed to its original form straight from
-      syntax tree, which can be used for debugging
-    \item This also means that any expression can be stringified on-the-fly and
-      this string can be used as a value in the program. This feature allowed me
-      to completely omit definition of strings at the parser level, although
-      this is not a very efficient solution. Nevertheless keeping strings in
-      such structural form -- as syntax trees -- in combination with pattern
-      matching enables language-native structural manipulation of
-      strings\footnote{See:
-        \cite{wolfram_string_patterns}
-        and
-        \cite[Section~Pattern matching and strings]{pattern_matching_wikipedia}
-        for similar concepts.}. For example
-      we could write:
-    \begin{lstlisting}
-        bind [str '[A quick brown fox jumps over the lazy dog]]
-                    
-        bind [words [_ _ third-word {rest}] str]
-        
-        bind [characters [_ _ third-letter {rest}] third-word]
-        
-        -- logs "o" to the console: log [third-letter]
-    \end{lstlisting}
+      syntax tree, which can be used for debugging. For example, if a Dual program is built by manipulating visual representation entirely without the use of text and an error occurs while interpreting it, a single EST node -- the one that contains the erroneous expression -- can be unparsed and presented by the debugger in editable form. This may allow the user to fix the error quicker than manipulating blocks, without the need to unparse the entire program.
+  \item Any expression can be stringified (serialized) on-the-fly and
+        this string can be used as a value in the program or stored in a file.
+\end{itemize}
+
+\subsection{Structural representation of strings}\label{sub:str}
+The last feature from the above list provides an interesting way of implementing strings in the language. Instead as streams of characters, they could be kept in structural form -- as syntax trees. In combination with pattern matching this enables language-native structural manipulation of strings\footnote{See: \cite{wolfram_string_patterns} and \cite[Section~Pattern matching and strings]{pattern_matching_wikipedia} for similar concepts.}. For example we could write:
+\begin{lstlisting}
+bind [str '[A quick brown fox jumps over the lazy dog]]
+            
+bind [words [_ _ third-word {rest}] str]
+
+bind [characters [_ _ third-letter {rest}] third-word]
+
+-- logs "o" to the console:
+log [third-letter]
+\end{lstlisting}
     
-Where \texttt{words} deconstructs a string into single words and binds these
-words to identifiers provided as its arguments and \texttt{characters} performs
-an analogous operation on the single character-level. The notation
+Where \texttt{words} deconstructs a string into individual words and binds these
+words to identifiers provided as its arguments. \texttt{characters} performs
+an analogous operation on the character-level. The notation
 \texttt{\{rest\}} matches zero or more arguments (see Section \ref{sub:rest} for
 details). \texttt{log} outputs the values of its arguments to the JavaScript
 console.
 
- An obvious and very simple optimization
-would be to keep the raw form of the string as a value in the
-corresponding syntax tree node. Having these two forms alongside each
-other would enable the programmer to use the familiar string
-manipulation methods as well as structural manipulation.
-\end{itemize}
+A downside here is that such representation of strings is not very efficient. A simple optimization would be to keep the raw form of the string (a stream of characters) as a value in the corresponding syntax tree node. So the raw representation is extended instead of replaced. Having these two forms alongside each other would enable the programmer to use the familiar string
+manipulation methods as well as structural manipulation without significant performance impact.
 
-\subsection{Zero and single argument expressions}
+\section{Syntax sugar for function invocations}
 In order to reduce the amount of \textit{closing} brackets appearing next to
 each other in program's text, two additional simple notations were
 introduced. The first is addition of the pipe special character
-(\texttt{|}). This character is used for single-argument expressions, as in:
-\js{Najpierw należałoby wyjaśnić jak to działa, a dopiero potem dawać przykłady.
-  Swoją drogą warto napisac że | wiąże od prawej, tzn. foo | bar | baz to to
-  samo co foo [bar [baz]]}
+(\texttt{|}). It is used for single-argument functions.
 
-\js{jestem za dopracowaniem wyglądu listingów - czcionka o stałej szerokości
-  mile widziana.}
+If a function is invoked with only one argument, we can omit the closing bracket \texttt{]} and replace the opening bracket \texttt{[} with \texttt{|}. \texttt{|} can be viewed as a right-associative ``invocation operator''. For example:
 \begin{lstlisting}
-    -- compute factorial of 32: factorial|32 -- equivalent to factorial[32]
-    
-    -- find 9th Fibonacci number: fibonacci|9 -- <=> fibonacci[9]
-    
-    -- compute sine of pi sin|pi -- <=> sin[pi]
-    
-    -- compute cosine of the number that is the result of multiplication of pi
-    -- and 5!: cos|*[pi factorial|5] -- <=> cos[*[pi factorial[5]]]
-    
-    -- convert 33.2 to an integer (truncate .2): to-int|33.2 -- <=> to-int[33.2]
-    
-    -- construct a list with one item, which is a string "hello" list|'|hello --
-    -- <=> list['[hello]]
+foo | bar | baz
+\end{lstlisting}
+is equivalent to:
+\begin{lstlisting}
+foo [bar [baz]]
 \end{lstlisting}
 
-The above example shows that if a function is invoked with one argument, we can
-omit the closing brace and replace the opening brace with \texttt{|}. The parser
-produces equivalent syntax tree.
+The parser produces equivalent syntax trees for the above cases.
 
-Another special character (\texttt{!}) was introduced for analogous use for
+Below I present more examples to illustrate the utility of this syntax. Note that \texttt{<=>} symbol used in comments means ``equivalent to'':
+\begin{lstlisting}
+-- compute factorial of 32:
+-- <=> factorial[32]
+factorial|32
+
+-- find 9th Fibonacci number:
+-- <=> fibonacci[9]
+fibonacci|9
+
+-- compute sine of pi:
+-- <=> sin[pi]
+sin|pi
+
+-- compute cosine of the number that is
+-- the result of multiplication of pi and 5!:
+-- <=> cos[*[pi factorial[5]]]
+cos|*[pi factorial|5]
+
+-- convert 33.2 to an integer (truncate .2):
+-- <=> to-int[33.2]
+to-int|33.2
+
+-- construct a list with one item,
+-- which is a string "hello":
+-- <=> list['[hello]]
+list|'|hello
+\end{lstlisting}
+
+Another special character (\texttt{!}) was introduced for analogous use in
 zero-argument expressions (procedures):
 \begin{lstlisting}
-    -- invoke a procedure that changes some state variables in its outer scope:
-    -- set-initial-state! -- <=> set-initial-state[]
-    
-    -- sum two random numbers: <=> +[random[] random[]]: +[random! random!]
-    
-    -- bind a value returned by an immediately invoked procedure to an
-    -- identifier <=> bind [forty-two procedure [42][]] bind [forty-two
-    -- procedure [42]!]  forty-two -- evaluates to 42
+-- invoke a procedure that changes
+-- some state variables in its outer scope:
+-- <=> set-initial-state[]
+set-initial-state!
+
+-- sum two random numbers:
+-- <=> +[random[] random[]]
++[random! random!]
+
+-- bind a value returned by an immediately
+-- invoked procedure to an identifier:
+-- <=> bind [forty-two procedure [42][]]
+bind [forty-two procedure [42]!]
+
+-- evaluates to 42:
+forty-two
 \end{lstlisting}
 
+\section{Pattern matching}\label{sec:pat}
+A simple, yet powerful pattern-matching facilities were added to the language, which further extend its expressive power.
 
-\subsection{Pattern matching}\label{sec:pat}
-A simple, yet powerful pattern-matching facility was added to the language.
-
-Pattern matching works with bindings, functions (although the primary
-function-producing expression in the prototype doesn't use it by default),
-\texttt{match} primitive and macros (not available in the prototype).
+Pattern matching works with bindings, functions, \texttt{match} primitive and macros.
 
 The pattern matching works in a way similar to most other languages that support
-this feature (e.g. ML family). The general rules are\footnote{For brevity I
-  assume here that `of` is a primitive that works like described in
-  \ref{subsub:macros}, where the alternative argument is optional. This is how
-  it was implemented in an early prototype of the language. If no viable
-  alternative was present, an error was thrown.}:
+this feature (e.g. ML family). The general rules are:
 \begin{itemize}
     \item A literal (strings or numbers are supported) value matches itself:
-    \begin{lstlisting}
-        -- computes factorial of a number bind [factorial of [0 1 of [n *[n
-                factorial[-[n 1]]]]] ]
-        
-        -- logs `120`: log [factorial|5]
-    \end{lstlisting}
+\begin{lstlisting}
+-- computes factorial of a number:
+bind [factorial
+    of~ [0 1
+    of~ [n *[n factorial[-[n 1]]]]]
+]
+
+-- logs `120`:
+log [factorial|5]
+\end{lstlisting}
+
     \item An identifier (word) matches any value, which is then bound to the
       identifier:
-    \begin{lstlisting}
-        bind [simple-print of [x log|x]]
-        
-        -- logs `3`: simple-print[3]
-    \end{lstlisting}
-    \item A wildcard pattern (\texttt{\_}) matches any value, but doesn't bind:
-    \begin{lstlisting}
-        -- returns its third argument, discards the rest: bind [get-third of [_
-        -- _ x x]]
-        
-        -- logs `3`: log [get-third[1 2 3]]
-    \end{lstlisting}
+\begin{lstlisting}
+bind [simple-print of [x log|x]]
+
+-- logs `3`:
+simple-print[3]
+\end{lstlisting}
+
+    \item A wildcard pattern (\texttt{\_}) matches any value, but does not bind:
+\begin{lstlisting}
+-- returns its third argument, discards the rest:
+bind [get-third of [_ _ x x]]
+
+-- logs `3`:
+log [get-third[1 2 3]]
+\end{lstlisting}
     As such it can be useful for discarding some values, depending on other
     values or extracting some values from a structure (see next point).
-    \item The following expression-patterns are supported:
-    \begin{itemize}
-        \item \texttt{list} or \texttt{\$} is used to destructure lists:
-        \begin{lstlisting}
-            bind [$[_ _ third-element] $[0 1 2]]
-            
-            -- logs `3` log [third-element]
-            
-            -- it works for arbitrarily nested lists as well bind [ $[ _ $[ _
-            -- pick _ _] _] $['|a $['|b '|c '|d '|e] '|f] ]
-            
-            -- logs `c`: log [pick]
-        \end{lstlisting}
-        \item Comparison operators (\texttt{= < <= >= <>}) match if a value
-          passes the comparison; it can be viewed as a shorthand notation for
-          simple
-          guards\cite[Chapter~Pattern Matching Basics, Section Using Guards within Patterns]{f_sharp_wikibooks}:
-        \begin{lstlisting}
-            -- returns the sign of a number note: `-#` is the unary `-`
-            -- operator: bind [sign of [=|0 0 of [<|0 -#|1 of [>|0 1]]] ]
-            
-            -- logs `-1`: log [sign|-77]
-        \end{lstlisting}
-        \item Other pattern-expressions are not supported and using them will
-          result in a mismatch.
-    \end{itemize}
 \end{itemize}
 
-The above examples show pattern matching used for destructuring values and
-binding their components to identifiers and for function definitions. There's
-also a \texttt{match} primitive, which can serve the role of a \texttt{switch}
-statement from C-like languages. Although pattern matching makes it much more
-powerful than that, as any values supported by the pattern matching system can
-be matched, including lists, which allow us to switch on multiple values and in
-any combinations.
+Also the following expression-patterns are supported:
+\begin{itemize}
+    \item \texttt{list} or \texttt{\$} is used to destructure lists:
+\begin{lstlisting}
+bind [$[_ _ third-element] $[0 1 2]]
+
+-- logs `3`:
+log [third-element]
+
+-- it works for arbitrarily nested lists as well:
+bind [
+    $[  _ $[  _  pick  _   _]   _] 
+    $['|a $['|b  '|c '|d '|e] '|f]
+]
+
+-- logs `c`:
+log [pick]
+\end{lstlisting}
+
+    \item Comparison operators (\texttt{= < <= >= <>}) match if a value
+      passes the comparison; it can be viewed as a shorthand notation for
+      simple
+      guards\cite[Chapter~Pattern Matching Basics, Section Using Guards within Patterns]{f_sharp_wikibooks}:
+\begin{lstlisting}
+-- returns the sign of a number
+-- note: `-#` is the unary `-` operator:
+bind [sign
+    of [=|0 0
+    of [<|0 -#|1
+    of [>|0 1]]]
+]
+
+-- logs `-1`:
+log [sign|-77]
+\end{lstlisting}
+\end{itemize}
+
+Other pattern-expressions are not supported and using them will result in a mismatch.
+
+\subsection{Destructuring}
+Pattern matching works with bindings, the language allows destructuring assignments and definitions\cite{mdn_destructuring}. An example of a such definition would be:
+\begin{lstlisting}
+bind [
+    $[a b $[c d]]
+    $[1 2 $[3 4]]
+]
+
+bind [
+    $[  _   x   y  {   rest   }]
+    $['|a '|b '|c  '|d '|e  '|f]
+]
+
+-- logs `1 2 3 4`:
+log [a b c d]
+
+-- logs `b c ["d", "e", "f"]`:
+log [x y rest]
+\end{lstlisting}
+
+\subsection{\texttt{match} primitive}\label{sub:match}
+The above examples show pattern matching used in function definitions and for destructuring values by binding their components to identifiers. There is also the \texttt{match} primitive, which can serve the role of a \texttt{switch} statement from C-like languages. It is however much more powerful, as any complex values supported by the pattern matching system can be matched, including lists. This allows switching on multiple values and in any combination.
 
 The \texttt{match} primitive's first argument is a value to match and all
-subsequent arguments are two-element lists, where the firs element is the
+subsequent arguments are two-element lists, where the first element is the
 pattern to match and the second is the expression to evaluate in case of a
 match. The primitive tries the matches in order and only evaluates the
-expression, related to the successful match, which is the first one that
-matches. The subsequent matches are not evaluated.
+expression related to the first successful match. The subsequent matches are not evaluated.
 
+Here are example uses for \texttt{match}:
 \begin{lstlisting}
-    bind [state '|game-on]
-    
-    -- will execute the `play` procedure: match [state $['|game-on play!]
-      $['|game-paused display-pause-menu!]  $['|game-screenshot
-        capture-screenshot!]  ]
-    
-    -- ...
+bind [state '|game-on]
 
-    -- note: . is the access operator .[a b c] is equivalent to a.b.c in other
-    -- languages bind [$[x y] .[player postion]]
-    
-    -- we can easily replace complex conditions: match [$[x x y y] $[ $[>|0
-          <|screen-width >|0 <|screen-height] log|'[player visible] ] $[_
-        log|'[player not visible]] ]
-    
+-- will execute the `play` procedure:
+match [state
+    $['|game-on play!]
+    $['|game-paused display-pause-menu!]
+    $['|game-screenshot capture-screenshot!]
+]
+
+-- ...
+
+-- note: . is the access operator 
+-- .[a b c] is equivalent to a.b.c in other languages
+bind [$[x y] .[player postion]]
+
+-- we can easily replace complex conditions:
+match [$[x x y y]
+    $[
+        $[>|0 <|screen-width >|0 <|screen-height]
+        log|'[player visible]
+    ]
+    $[_ log|'[player not visible]]
+]
 \end{lstlisting}
-\begin{itemize}
-    \item 
-\end{itemize}
 
-With an arsenal of these few simple pattern matching tools we can use a lot of
-useful features, which further add expressivity to the language. We can also
-imagine many possible extensions and generalizations, as briefly discussed in
-Chapter \ref{chap:design}.
-
-\begin{itemize}
-    \item Destructuring assignments or, more precisely, destructuring
-      definitions.\footnote{Destructuring could easily be extended to mutation
-        as well, although I have found it sufficient to be usable only in
-        definitions, while implementing the prototype.}. An example of such
-      definition would be:
-    \begin{lstlisting}
-        bind [$[a b $[c d]] $[1 2 $[3 4]] bind [ $[ _ x y { rest }] $['|a '|b
-              '|c '|d '|e '|f] ]
-        
-        -- logs `1 2 3 4`: log [a b c d]
-        
-        -- logs `b c ["d", "e", "f"]`: log [x y rest]
-    \end{lstlisting}
-\end{itemize}
-
-
-\subsection{Rest parameters and spread operator}\label{sub:rest}
-\js{Przyznaję, ze czytałem szybko, ale nie zrozumiałem do końca tych operatorów.}
-Another syntax extension that I introduced involved two additional special
+\section{Rest parameters and spread operator}\label{sub:rest}
+Another syntax extension that I introduced involves two additional special
 bracketing characters: \texttt{\{} and \texttt{\}}, which serve several
 purposes:
 \begin{itemize}
-    \item Rest parameters mechanism known from
-      Lisp\cite[Section~12.2.3]{emacs_lisp_reference},
-      recently also adopted in JavaScript (as of the ECMAScript2015
-      standard\cite{mdn_rest}). That
-      is, for example:
-    \begin{lstlisting}
-        bind [variadic-function of [a b {args} log [a b args] ]]
-        
-        -- logs `1 2 [3, 4, 5, 6]`: variadic-function[1 2 3 4 5 6]
-    \end{lstlisting}
-    This enables the user to easily define variadic functions, which can be
-    called with a variable number of arguments.  This works in any place, where
-    pattern matching works:
-    \begin{lstlisting}
-        bind [$[a b {rest}] $['|a '|b '|c '|d '|e]]
-        
-        -- logs `["c", "d", "e"]` log [rest]
-    \end{lstlisting}
+    \item If used in function definitions, they indicate that a function or macro is variadic -- it accepts a variable number of arguments\cite{vararg_wikipedia}.
     
-    thus enabling non-exact matching.
+    If a function is invoked with an equal or greater number of arguments than stated in its definition and the last argument's name in this definition is specified between \texttt{\{} and \texttt{\}} then any extraneous arguments are available in the function's body in a list with the name that was specified inside the curly braces. The order of arguments is preserved. For example:
+\begin{lstlisting}
+bind [variadic-function of [a b {args}
+    log [a b args]
+]]
+
+-- logs `1 2 [3, 4, 5, 6]`:
+variadic-function[1 2 3 4 5 6]
+\end{lstlisting}
     
-    \item Spread operator (also inspired by the analogous feature from
-      ECMAScript2015):
-    \begin{lstlisting}
-        bind [f of [a b c d e f log [a b c d e f]]] bind [args $[8 7 6]]
-        
-        -- logs `9 8 7 6 5 4`: f[9 {args} {$[5 4]}]
-    \end{lstlisting}
-    This provides a much nicer and more powerful alternative to \texttt{apply},
-    Lisp's fundamental function, which applies a function to a list of
-    arguments. It's a way to flatten any list onto a list of arguments. This
-    works for multiple values and lists as well:
-    \begin{lstlisting}
-        -- alternative way to achieve the same result as in the previous listing
-        -- logs `9 8 7 6 5 4`: f[{9 args $[5 4]}]
-    \end{lstlisting}
-    \item String interpolation notation:
-    \begin{lstlisting}
-        bind [name '|Bill]
-        
-        -- logs `Hello, Bill.` log ['[Hello, {name}.]]
-    \end{lstlisting}
+    This is essentially the same as the ``rest parameters'' mechanism known from Lisp\cite[Section~12.2.3]{emacs_lisp_reference}, recently also adopted in JavaScript (as of the ECMAScript 2015 standard\cite{mdn_rest}).
     
-    As we can see this gives us a very convenient notation for string
+    \item The above extends beyond function definitions. It works in any place, where pattern matching works:
+\begin{lstlisting}
+bind [$[a b {rest}] $['|a '|b '|c '|d '|e]]
+
+-- logs `["c", "d", "e"]`:
+log [rest]
+\end{lstlisting}
+    
+    This enables non-exact matching. If only the first few elements of a list are important and a list with variable number of elements is acceptable as a match, the extra elements can be dropped by using this syntax.
+    
+    \item If used outside pattern matching, curly braces act as an universal list splicing and flattening operator. If an argument is given to a function surrounded by curly braces and this argument is a list then it is treated as if every individual element of that list was provided in its place.
+    
+    %Moreover, if such an element is itself a list, it is also expanded in this way. But this expansion is not recursive, so it does not expand further than one level of nesting.
+    
+    If an argument in curly braces is not a list, then curly braces behave like the identity operator and return it unchanged.
+    
+    There can be multiple arguments inside one pair of curly braces or multiple curly-braced arguments given to a function. All of these arguments will be expanded in the way described.
+    
+    For example:
+\begin{lstlisting}
+bind [f of [a b c d e f log [a b c d e f]]]
+bind [args $[8 7 6]]
+
+-- logs `9 8 7 6 5 4`:
+f[9 {args} {$[5 4]}]
+
+-- or alternatively,
+-- surrounding all arguments with curly braces
+-- logs `9 8 7 6 5 4`:
+f[{9 args $[5 4]}]
+
+-- curly braces can surround any argument
+-- or any sequence of arguments,
+-- regardless of position in the invocation list;
+-- logs `9 8 7 6 [5, 4]`:
+f[{9 args} $[5 4]]
+\end{lstlisting}
+
+    This works similarly to the spread operator from ECMAScript 2015\cite{mdn_spread} or the splicing syntax \texttt{,@} used in Lisp's backquotes\cite[Section~2.4.6]{common_lisp_hyperspec}, \cite[Section~9.4]{emacs_lisp_reference}, but is much more flexible. It can be used in every function or macro invocation, not just in backquotes. Also, if there is more that one list-argument that should be spliced, they can be grouped together inside curly braces and do not have to be individually ``tagged''.
+     
+    Curly braces can also be used as a nicer syntax for the fundamental function \texttt{apply}:
+    \begin{lstlisting}
+    bind [numbers $[1 2 3 4 5]]
+    
+    -- evaluates to 15:
+    apply [sum numbers]
+    
+    -- also evaluates to 15:
+    sum[{numbers}]
+    \end{lstlisting}
+
+    \item They also serve as string interpolation notation. When a string is evaluated, all expressions surrounded by \texttt{\{} and \texttt{\}} that appear inside this string are evaluated and spliced into its value before the value is returned. 
+    
+    For example:
+\begin{lstlisting}
+bind [name '|Bill]
+
+-- logs `Hello, Bill.`:
+log ['[Hello, {name}.]]
+\end{lstlisting}
+    
+    This gives us a very convenient notation for string
     interpolation, similar to e.g. template literals in
     JavaScript\cite{mdn_template_strings}.
-    In order to escape curly braces, they should be doubled:
-    \begin{lstlisting}
-        -- logs `Hello, {name}.` log ['[Hello, {{name}}.]]
-    \end{lstlisting}
     
-    I also added a special type of string -- an HTML string, where interpolation
-    notation is the other way around -- double braces cause substitution, single
-    braces do nothing:
-    \begin{lstlisting}
-        bind [name '|Bill] -- logs `<h1>Hello, Bill.</h1>` log [html'[<h1>Hello,
-            {{name}}.</h1>]]
-        
-        -- logs `<h1>Hello, {name}.</h1>` log [html'[<h1>Hello, {name}.</h1>]]
-    \end{lstlisting}
+    To escape curly braces inside a string we can double them or use the escape character \texttt{\textbackslash}:
+\begin{lstlisting}
+-- logs `Hello, {name}.`:
+log ['[Hello, {{name}}.]]
+
+-- also logs `Hello, {name}.`:
+log ['[Hello, \{name\}.]]
+\end{lstlisting}
+    
+    There is also a special type of string -- an HTML string, where interpolation notation is the reversed -- double braces cause substitution, single braces do nothing:
+\begin{lstlisting}
+bind [name '|Bill]
+
+-- logs `<h1>Hello, Bill.</h1>`:
+log [html'[<h1>Hello, {{name}}.</h1>]]
+
+-- logs `<h1>Hello, {name}.</h1>`:
+log [html'[<h1>Hello, {name}.</h1>]]
+\end{lstlisting}
     
     This is to enable embedding CSS and JavaScript code inside those strings,
     without having to constantly escape brace characters.
     
-    \item Unquote notation for macros\footnote{Analogous to \texttt{unquote} or
-      \texttt{,} in Lisp:
-      \cite[Section~1.3.8]{racket_reference}
-      -- see Chapter \ref{chap:design}}.
+    \item Related to the above point, curly braces are used in \texttt{code'} strings that are returned by macros. They work similarly to curly braces in strings, except that the substituted values should be unevaluated expressions (syntax tree nodes). Also, code strings are never interpreted as streams of characters, and are always stored as syntax trees.
+    
+    This use of curly braces is very similar to Lisp's unquote syntax (\texttt{,})\cite[Section~1.3.8]{racket_reference}.
+    
+    The next section (\ref{sec:mac}) provides examples and explanation of macros in Dual.
 \end{itemize}
 
 \section{Just-in-time macros}\label{sec:mac}
-One feature that I experimented with while creating the prototype of Dual is
-support for ``first-class just-in-time expanded macros''. By this I mean macros
-similar to those found in Lisp, but with a few key characteristics, which
-differentiate them from conventional implementations of macros in Lisp-like
-languages. These are:
-\begin{itemize}
-    \item Macros are expanded upon evaluation; when a macro invocation is
-    encountered by the interpreter, it is expanded into code; the node in
-    the EST containing the macro invocation is permanently replaced by the
-    expanded expression, which is subsequently evaluated and its value is
-    returned as the value of the invocation.
-    \item Macros can return other macros in a straightforward manner; this
-    feature nicely composes with the variation of Lisp syntax found in
-    Dual; I used it extensively to improve it, mostly with the goal of
-    reducing the amount of adjacent closing brackets in the source code.
-\end{itemize}
+The experimental approach to Dual's design gave rise to a very interesting feature, which could be described as first-class just-in-time expanded macros.
 
-In order to support first-class runtime macros a Lisp interpreter can be
-modified as follows\cite{macros}:
+Macros in Lisp-like languages are different than the macros provided by the C preprocessor or similar macro systems. They are much more powerful\cite{c2_macros}.
+
+Essentially, macros are a way to transform code from one (usually much terser) form to another. They can extend the language's syntax, create new syntactical constructs or \acrlong{dsl}s (\acrshort{dsl}s)\cite[Chapter~3]{lol_book}.
+
+Lisp-like macros are integrated with the language and operate on its code or, more precisely, syntax trees\footnote{For brevity I will sometimes use the term ``code'' when I mean a syntax tree.}. Such a macro can be described as a function that takes code as arguments and returns code as a result. This code is then expanded into the syntax tree, replacing the macro. A macro can perform arbitrary computation while it is evaluated, just like a function. Macros are written in the same language as the code they transform.
+
+\subsection{First-class}
+Unlike traditional Lisp macros, in Dual macros are first-class, because they are treated like any other value.
+
+In order to support first-class runtime macros, a Lisp interpreter can be
+modified as follows\cite{macros}\footnote{Recall a brief description of an implementation of a Lisp interpreter from Section \ref{sec:lisp}.}:
 \begin{itemize}
-    \item Primitives are moved into the top-level environment; they thus are
-    no longer treated as special case by the \texttt{eval} function.
+    \item Primitives are moved into the top-level environment\footnote{The top-level environment contains the basic functions and values that are available to every program.}. They thus are no longer treated as special case by the \texttt{eval} function.
     \item A new primitive, \texttt{macro} is added, which is essentially
     equivalent to \texttt{lambda}, except that it produces macro values
     instead of function values.
     \item The \texttt{apply} function is now responsible for checking the
     type of an expression's operator, which can be a \texttt{primitive}, a
-    \texttt{macro} or a normal expression; this determines whether the
-    arguments are evaluated before application
+    \texttt{macro} or a normal expression. This determines whether the
+    arguments should be evaluated before application.
 \end{itemize}
 
 This results in a simpler, more uniform and at the same time more powerful
 interpreter. A major advantage is that:
 \begin{quote}
-    Because of their first-class nature, first-class macros make it easy to add or
-    simulate any degree of laziness\cite{macros}
+Because of their first-class nature, first-class macros make it easy to add or
+simulate any degree of laziness\cite{macros}.
 \end{quote}
 
-The below listing presents an example of a macro named \texttt{if*} that wraps
-the \texttt{if} primitive in a slightly different syntax. This syntax wraps the
-condition, consequent and alternative parts of the \texttt{if} in separate
-blocks delimited by \texttt{[]}. The condition is required to be an infix
-expression in the form \texttt{a operator b}. The consequent and alternative
-blocks take care of wrapping all expressions within them in \texttt{do}
-blocks. This makes it more convenient and less error-prone to write complex
-\texttt{if} expressions:
+A macro in Dual is defined with the \texttt{macro} primitive and bound to a name with the \texttt{bind} primitive:
 \begin{lstlisting}
-bind [if* macro [a op b macro [{then} macro [{else} code'[if [apply[{op} {a}
-{b}] do[{then}] do[{else}]]] ]]]
+-- defines an `unless` macro,
+-- which works like the `if` primitive,
+-- except that the provided condition is negated
+bind [unless macro [condition body alternative
+    code'[if [not[{condition}] {body} {alternative}]]
+]]
 
-if* [a < b][ log ['[a is less than b]] a ][ log ['[b is less than or equal to
-a]] b ]
+bind [a 100]
 
--- expands to: if [<[a b] do [ log ['[a is less than b]] a ] do [ log ['[b is
-less than or equal to a]] b ]]
+-- will log "a greater than 3":
+unless [>[a 3]
+    log|'[a less than or equal to 3]
+    log|'[a greater than 3]
+]
 \end{lstlisting}
 
-%TODO: elaborate
+Because a macro is a first-class value, there is no need for a special primitive for defining macros, such as \texttt{defmacro} in Lisp\cite[Section~3.8, Macro DEFMACRO]{common_lisp_hyperspec}.
 
+\subsection{Just-in-time}
+Macros in Dual are just-in-time expanded, because the expansion happens at runtime, when a macro is encountered and evaluated by the interpreter. There is no separate macro-expansion time.
 
-\subsection{In combination with zero and single argument expressions}\label{subsub:macros}
-The combination of the macro system and the syntax sugar for zero and single argument expression (\texttt{|} and \texttt{!}) helps reduce the amount of bracketing characters even further.
+For simple macros the expansion works as follows:
+\begin{itemize}
+    \item A macro invocation is encountered by the interpreter.
+    \item It is expanded into code by evaluating it.
+    \item The node in the EST containing the macro invocation is permanently replaced by the expanded expression.
+    \item The expanded expression is evaluated and its value is returned as the value of the invocation.
+    \item Next time when the interpreter arrives at the same point in the EST, the macro will already be replaced by the expanded expression. Thus, the cost of macro-expansion is one-time.
+\end{itemize}
 
-For example, if we define a \texttt{match*} and \texttt{of*} macros as
-described, the following expression:
+Macros in Dual can also return other macro values. If a macro returns a macro value instead of code, this value is evaluated. If, in turn, the result of this evaluation is another macro value, this one is evaluated as well, and so on, until a code value is returned. It then is expanded as described above.
+
+This feature nicely composes with Dual's variation of Lisp's syntax in terms readability, particularly by reducing the amount of adjacent closing brackets in the source code and introducing blocks without the need for explicit use of the \texttt{do} primitive.
+
+As an example. the below listing presents a macro named \texttt{if*}, which defines a slightly different syntax for the \texttt{if} primitive. This syntax wraps the condition, consequent and alternative parts of the \texttt{if} in separate blocks delimited by \texttt{[]}. The condition is required to be an infix expression in the form \texttt{a operator b}. The consequent and alternative blocks take care of wrapping all expressions within them in \texttt{do} blocks. This makes it more convenient and less error-prone to write complex \texttt{if} expressions:
+\begin{lstlisting}
+-- defines the `if*` macro
+-- it returns a macro, which returns a macro,
+-- which returns another macro
+-- arguments of each of these macros
+-- are then spliced in the appropriate places
+-- in the code that creates the resulting `if` expression:
+bind [if* macro [a op b
+    macro [{then}
+        macro [{else}
+            code'[if [apply[{op} {a} {b}] do[{then}] do[{else}]]]
+        ]
+    ]
+]]
+
+-- the macro is used as follows: 
+if* [a < b][
+    log ['[a is less than b]]
+    a
+][
+    log ['[b is less than or equal to a]]
+    b
+]
+
+-- the above expands to:
+if [<[a b] do [
+    log ['[a is less than b]]
+    a
+] do [
+    log ['[b is less than or equal to a]]
+    b
+]]
+\end{lstlisting}
+
+Note that the macro gets rid of the explicit \texttt{do} expressions. It essentially defines a new language construct, which has the following template:
+\begin{lstlisting}
+if* [--[condition: ] <value-1> <comparison-operator> <value-2>][
+    -- consequent block:
+    <expression-1>
+    <expression-2>
+    -- ...
+    <expression-n>
+][
+    -- alternative block:
+    <expression-1>
+    <expression-2>
+    -- ...
+    <expression-n>
+]
+\end{lstlisting}
+
+\subsection{In combination with \texttt{|} and \texttt{!}}\label{subsub:macros}
+The combination of the macro system and the syntax sugar for zero and single argument functions (\texttt{|} and \texttt{!}) helps reduce the amount of bracketing characters even further.
+
+For example, if we define a \texttt{match*} and \texttt{of*} macros as follows:
+\begin{lstlisting}
+bind [match* macro [{args}
+	macro [op
+		code'[apply [{op args}]]
+]]
+
+bind [of* macro [{args}
+    macro [{body}
+        macro [alternative
+            code'[of~ [{args} do[{body}] {alternative}]]
+        ]
+    ]
+]]
+\end{lstlisting}
+
+Then the following expression:
 \begin{lstlisting}
 bind [x 99]
 
--- will log "x is greater than one": match* [x] | of* [<|0] [log|'[x is
-negative]] | of* [0] [log|'[x is zero]] | of* [1] [log|'[x is one]] |
-log|'[x is greater than one]
+-- will log "x is greater than one":
+match*  [x]
+| of* [<|0] [log|'[x is negative]]
+| of*   [0] [log|'[x is zero]]
+| of*   [1] [log|'[x is one]]
+| log|'[x is greater than one]
 \end{lstlisting}
 
-which is somewhat similar syntactically to
-ML-style\cite[Section~Algebraic datatypes and pattern matching]{standard_ml_wikipedia}
-languages, could be translated into the following:
+Would be translated into the following:
 \begin{lstlisting}
 bind [x 99]
 
--- will log "x is greater than one": apply [ of [<|0 log|'[x is negative] of
-[0 log|'[x is zero] of [1 log|'[x is one] log|'[x is greater than one] ]
-] ] x ]
+-- will log "x is greater than one":
+apply [
+    of~ [<|0 log|'[x is negative]
+        of~ [0 log|'[x is zero]
+            of~ [1 log|'[x is one]
+                log|'[x is greater than one]
+            ]
+        ]
+    ]
+    x
+]
 \end{lstlisting}
 
-where \texttt{apply} would be defined analogously to Lisp's
-\texttt{apply}. \texttt{of} would be defined as a function primitive with arity
-2..*, which treats its penultimate argument as the function's body and all the
-preceding arguments as patterns for the function's arguments. The last argument
-is used when such a function is called and the values supplied as arguments
-don't match the patterns. If the argument is a function, it will be called with
-the same values as arguments and if it's a value it will be returned.
+Notice that the \texttt{match*} macro does not use or need the native \texttt{match} construct at all.
 
-I used such a solution for pattern matching in the early prototypes, but
-replaced it with a native \texttt{match} construct (described in Section
-\ref{sec:primitives}) for performance reasons. Nevertheless this shows that a
-few simple, but general syntax rules and a powerful macro system, can be a very
-flexible tool for extending syntax.
+The resulting syntax is somewhat similar to ML-style\cite[Section~Algebraic datatypes and pattern matching]{standard_ml_wikipedia} languages. And yet it there is no complex grammar that defines this syntax. It is handled with a very simple parser.
+
+This shows that a few simple, but general syntax rules and a powerful macro system, can be a very flexible tool for extending syntax.

@@ -1,9 +1,9 @@
 \chapter{Development environment design}\label{chap:editor}
-The goal is to build an online \acrlong{ide} IDE, similar to
-Codeanywhere\cite{codeanywhere_website} or
-Cloud9\cite{c9_website}, which works offline as well.
+This chapter describes the design of Dual's development environment.
 
 \section{Overview}
+The overall design tries to merge features of modern code editors, such as 
+
 A folder is considered a project, similarly to modern code editors, such as Brackets or Visual Studio Code.
 
 The current version of the development environment is intended to be used
@@ -305,34 +305,3 @@ tree.
 \label{fig:design_4}
 \end{figure}
 
-\section{Performance}
-It could be optimized similarly to CodeMirror or other web-based text editors or
-applications. That is, only a visible portion (plus a margin, which allows for
-fast scrolling) of the code is rendered as DOM nodes at any time. The scrollbar
-is virtual and controlled by the editor rather than the browser.
-
-Text editors like CodeMirror use similar amount of DOM nodes [[]], but thanks to
-these optimizations are able to handle
-megabyte-sized\cite[Section~General Approach]{cm_internals}
-text files and are used in many real-world
-applications\cite{cm_realworld}, which
-includes being a built-in editor in developer tools in major web browsers.
-
-Another source of inefficiency is that parsing is done twice -- once by Dual's
-parser and once by CodeMirror's system, which are incompatibile.  A solution to
-that would be to implement a custom text editor or extend/modify CodeMirror to
-work with Dual's parser.
-
-
-\begin{figure}[h!]
-\centering \includegraphics[width=0.9\textwidth]{blueprint}
-\caption{
-    Blueprints Visual Scripting;
-    screenshot from \protect\cite{fig_blueprint2}
-}
-\label{fig:blueprint2}
-\end{figure}
-
-\section{Comparison}
-% also show that Scratch is inferior, e.g. having no first-class functions
-% mention that there are derivatives that try to fix that

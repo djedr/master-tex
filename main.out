@@ -19,42 +19,41 @@
 \BOOKMARK [1][-]{section.2.1}{Grammar and syntactic features}{chapter.2}% 19
 \BOOKMARK [2][-]{subsection.2.1.1}{Basic syntax}{section.2.1}% 20
 \BOOKMARK [2][-]{subsection.2.1.2}{Comments}{section.2.1}% 21
-\BOOKMARK [1][-]{section.2.2}{Non-significant characters and the syntax tree}{chapter.2}% 22
-\BOOKMARK [2][-]{subsection.2.2.1}{Numbers}{section.2.2}% 23
-\BOOKMARK [2][-]{subsection.2.2.2}{Zero and single argument expressions}{section.2.2}% 24
-\BOOKMARK [2][-]{subsection.2.2.3}{Pattern matching}{section.2.2}% 25
-\BOOKMARK [2][-]{subsection.2.2.4}{Rest parameters and spread operator}{section.2.2}% 26
-\BOOKMARK [1][-]{section.2.3}{Basic primitives and functions}{chapter.2}% 27
-\BOOKMARK [2][-]{subsection.2.3.1}{Language primitives}{section.2.3}% 28
-\BOOKMARK [1][-]{section.2.4}{Structural string manipulation}{chapter.2}% 29
-\BOOKMARK [1][-]{section.2.5}{Just-in-time macros}{chapter.2}% 30
-\BOOKMARK [1][-]{section.2.6}{C-like syntax}{chapter.2}% 31
-\BOOKMARK [1][-]{section.2.7}{Universal visual editor}{chapter.2}% 32
-\BOOKMARK [1][-]{section.2.8}{Lua}{chapter.2}% 33
-\BOOKMARK [1][-]{section.2.9}{Performance}{chapter.2}% 34
-\BOOKMARK [1][-]{section.2.10}{Class-free Object-Oriented Programming}{chapter.2}% 35
-\BOOKMARK [0][-]{chapter.3}{Development environment design}{}% 36
-\BOOKMARK [1][-]{section.3.1}{Overview}{chapter.3}% 37
-\BOOKMARK [1][-]{section.3.2}{Text editor}{chapter.3}% 38
-\BOOKMARK [1][-]{section.3.3}{Visual editor}{chapter.3}% 39
-\BOOKMARK [2][-]{subsection.3.3.1}{The visual representation}{section.3.3}% 40
-\BOOKMARK [1][-]{section.3.4}{Performance}{chapter.3}% 41
-\BOOKMARK [1][-]{section.3.5}{Comparison}{chapter.3}% 42
-\BOOKMARK [0][-]{chapter.4}{Prototype implementation}{}% 43
-\BOOKMARK [1][-]{section.4.1}{Programming discipline}{chapter.4}% 44
-\BOOKMARK [1][-]{section.4.2}{The language}{chapter.4}% 45
-\BOOKMARK [1][-]{section.4.3}{The environment}{chapter.4}% 46
-\BOOKMARK [0][-]{chapter.5}{Case study}{}% 47
-\BOOKMARK [1][-]{section.5.1}{The game}{chapter.5}% 48
-\BOOKMARK [2][-]{subsection.5.1.1}{Main loop}{section.5.1}% 49
-\BOOKMARK [1][-]{section.5.2}{Performance}{chapter.5}% 50
-\BOOKMARK [1][-]{section.5.3}{Possible improvements}{chapter.5}% 51
-\BOOKMARK [0][-]{chapter.6}{Comparisons to other VPLs}{}% 52
-\BOOKMARK [0][-]{chapter.7}{Summary and conclusions}{}% 53
-\BOOKMARK [0][-]{chapter.8}{Bibliography}{}% 54
-\BOOKMARK [0][-]{section*.16}{Glossary}{}% 55
-\BOOKMARK [0][-]{section*.18}{Acronyms}{}% 56
-\BOOKMARK [0][-]{appendix.A}{DVD}{}% 57
-\BOOKMARK [1][-]{section.A.1}{Running the application}{appendix.A}% 58
-\BOOKMARK [0][-]{appendix.B}{Design discussion}{}% 59
-\BOOKMARK [1][-]{section.B.1}{Comments}{appendix.B}% 60
+\BOOKMARK [1][-]{section.2.2}{Basic primitives and functions}{chapter.2}% 22
+\BOOKMARK [2][-]{subsection.2.2.1}{Language primitives}{section.2.2}% 23
+\BOOKMARK [1][-]{section.2.3}{Enhanced Syntax Tree}{chapter.2}% 24
+\BOOKMARK [2][-]{subsection.2.3.1}{Numbers}{section.2.3}% 25
+\BOOKMARK [2][-]{subsection.2.3.2}{Zero and single argument expressions}{section.2.3}% 26
+\BOOKMARK [2][-]{subsection.2.3.3}{Pattern matching}{section.2.3}% 27
+\BOOKMARK [2][-]{subsection.2.3.4}{Rest parameters and spread operator}{section.2.3}% 28
+\BOOKMARK [1][-]{section.2.4}{Just-in-time macros}{chapter.2}% 29
+\BOOKMARK [2][-]{subsection.2.4.1}{In combination with zero and single argument expressions}{section.2.4}% 30
+\BOOKMARK [0][-]{chapter.3}{Development environment design}{}% 31
+\BOOKMARK [1][-]{section.3.1}{Overview}{chapter.3}% 32
+\BOOKMARK [1][-]{section.3.2}{Text editor}{chapter.3}% 33
+\BOOKMARK [1][-]{section.3.3}{Visual editor}{chapter.3}% 34
+\BOOKMARK [2][-]{subsection.3.3.1}{The visual representation}{section.3.3}% 35
+\BOOKMARK [1][-]{section.3.4}{Performance}{chapter.3}% 36
+\BOOKMARK [1][-]{section.3.5}{Comparison}{chapter.3}% 37
+\BOOKMARK [0][-]{chapter.4}{Prototype implementation}{}% 38
+\BOOKMARK [1][-]{section.4.1}{Programming discipline}{chapter.4}% 39
+\BOOKMARK [1][-]{section.4.2}{The language}{chapter.4}% 40
+\BOOKMARK [2][-]{subsection.4.2.1}{Macros}{section.4.2}% 41
+\BOOKMARK [1][-]{section.4.3}{The environment}{chapter.4}% 42
+\BOOKMARK [0][-]{chapter.5}{Case study}{}% 43
+\BOOKMARK [1][-]{section.5.1}{The game}{chapter.5}% 44
+\BOOKMARK [2][-]{subsection.5.1.1}{Main loop}{section.5.1}% 45
+\BOOKMARK [1][-]{section.5.2}{Performance}{chapter.5}% 46
+\BOOKMARK [1][-]{section.5.3}{Possible improvements}{chapter.5}% 47
+\BOOKMARK [0][-]{chapter.6}{Comparisons to other VPLs}{}% 48
+\BOOKMARK [0][-]{chapter.7}{Summary and conclusions}{}% 49
+\BOOKMARK [0][-]{chapter.8}{Bibliography}{}% 50
+\BOOKMARK [0][-]{section*.15}{Glossary}{}% 51
+\BOOKMARK [0][-]{section*.17}{Acronyms}{}% 52
+\BOOKMARK [0][-]{appendix.A}{DVD}{}% 53
+\BOOKMARK [1][-]{section.A.1}{Running the application}{appendix.A}% 54
+\BOOKMARK [0][-]{appendix.B}{Design discussion}{}% 55
+\BOOKMARK [1][-]{section.B.1}{Comments}{appendix.B}% 56
+\BOOKMARK [2][-]{subsection.B.1.1}{Built-in documentation comments}{section.B.1}% 57
+\BOOKMARK [2][-]{subsection.B.1.2}{One-word comments}{section.B.1}% 58
+\BOOKMARK [1][-]{section.B.2}{C-like syntax}{appendix.B}% 59

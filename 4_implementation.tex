@@ -20,7 +20,20 @@ non-trivial application in the language.
 The prototype implementation of the language contains all the features described in Chapter \ref{chap:lang}, with the following exceptions:
 \begin{itemize}
     \item Macros are not implemented.
+    \item There are two primitives, which produce function values: \texttt{of} and \texttt{of-p}. The second has the same meaning as \texttt{of} described in Chapter \ref{chap:lang}. The first has the same meaning, except that it does not use pattern matching when binding names to arguments. This primitive requires that all the names must be words.
     \item Comments are treated as a streams of characters, taking into account nesting and balancing of brackets in multi-line comments, but are not preserved on the \acrshort{est} as a tree-like structure.
+    \item Strings only have a structural representation. They are represented as syntax tree nodes. The performance penalty is acceptable in the prototype implementation.
+    \item The escape character \texttt{\\} has no special meaning. To substitute a special character in a string, the following built-in values are defined:
+    \begin{lstlisting}
+    (left-bracket) -- escapes "["
+    (right-bracket) -- escapes "]"
+    (left-brace) -- escapes "{"
+    (right-brace) -- escapes "}"
+    (pipe) -- escapes "|"
+    (bang) -- escapes "!"
+    \end{lstlisting}
+    
+    So \texttt{'[(left-bracket)hello(right-bracket)]} would evaluate to: \texttt{"[hello]"}.
 \end{itemize}
 
 Lisp's syntax is as minimal as it gets\cite{syntaxation}, which makes 

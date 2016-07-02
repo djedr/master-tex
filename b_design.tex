@@ -2,18 +2,50 @@
 This appendix contains some ideas that are being designed for the future versions of the Dual programming language.
 
 \section{Comments}\label{sec:comments}
+\subsection{Built-in documentation comments}
+In principle multi-line comments could be implemented simply with the syntax
+analyzer checking the operator of the expression being parsed, and if it is
+\texttt{--}, treating such expression as a comment. The fact that this
+expression was already parsed and transformed into a structural tree-like form
+could be taken advantage of while generating documentation from comments. For
+example we could define a following \acrlong{dsl}\footnote{Inspired by \cite{jsdoc_wikipedia})} for documentation:
+\begin{lstlisting}
+--[
+    the below is a documentation comment
+    followed by the documented piece of code:
+    
+    --[[
+        Calculates the circumference of the Circle.
+        
+        override!
+        deprecated!
+        
+        this [circle]
+        
+        -- The circumference of the circle: 
+        return [number]
+    --]]
+        
+    define [calculate-circumference procedure [
+        mul[2 math.pi this.radius]
+    ]]
+]
+\end{lstlisting}
+
+\subsection{One-word comments}
 If multiline comments were implemented as expressions on parser-level then, in
 combination with \texttt{|} special character we could have one-word comments,
 which could be useful for describing arguments to facilitate reading of
 expressions. For example we could implement list comprehensions, where:
 \begin{lstlisting}
-$<-[^[x 2] x range[0 10]] $<-[$[x y] x $[1 2 3] y $[3 1 4] <>[x y]]
+$<-[^[x 2] x range[0 10]]
+$<-[$[x y] x $[1 2 3] y $[3 1 4] <>[x y]]
 \end{lstlisting}
 would be equivalent to
 Python's\cite[Section~5.1.3]{python_tutorial}:
 \begin{lstlisting}
-[x**2 for x in range(10)] [(x, y) for x in [1,2,3] for y in [3,1,4] if x !=
-y]
+[x**2 for x in range(10)]
+[(x, y) for x in [1,2,3] for y in [3,1,4] if x != y]
 \end{lstlisting}
 As we see this notation is acceptable (if not cleaner) for simple
 comprehensions, but starts being less readable for complex ones. This could be
@@ -28,7 +60,11 @@ separating individual parts of an expression, because of being easily
 distinguished visually from the rest. This can simulate different syntactical
 constructs from other programming languages, like:
 \begin{lstlisting}
-if [>[a b] --|then log['|greater] --|else log['|lesser-or-equal] ]
+if [>[a b] --|then
+    log['|greater]
+--|else
+    log['|lesser-or-equal]
+]
 \end{lstlisting}
 Except that it is not validated by the parser. But we could imagine a separate
 or extend the existing syntax analyzer, so it could validate such ``keyword''
@@ -46,7 +82,7 @@ $<-[^[x 2] %|for x %|in range[0 10]]
 
 $<-[$[x y] %|for x %|in $[1 2 3] %|for y %|in $[3 1 4] %|if <>[x y]]
 
-if [>[a b] %|then log['|greater] %|else log['|lesser-or-equal] ]
+if [>[a b] %|then log['|greater] %|else log['|lesser-or-equal]]
 \end{lstlisting}
 
 Or even, at the cost of complicating the parser, introduce a separate syntax for
@@ -58,9 +94,9 @@ bind [b 5 %:integer]
 
 -- will print "lesser-or-equal"
 if [>[a b] %then
-log['|greater]
+    log['|greater]
 %else
-log['|lesser-or-equal]
+    log['|lesser-or-equal]
 ]
 \end{lstlisting}
 
@@ -86,17 +122,30 @@ language that translates to bare Dual syntax.
 Below I present a snapshot from one of designs I have been working on in order
 to achieve some goals described in this section:
 \begin{lstlisting}
-fit map" {f; lst} { let {i; ret} [0, []];
+fit map" {f; lst} {
+    let {i; ret} [0, []];
 
-while ((i < lst.length)) { ret.push f(lst i); set i" ((i + 1)) }; ret };
+    while ((i < lst.length)) {
+        ret.push f(lst i);
+        set i" ((i + 1))
+    };
+    
+    ret
+};
 \end{lstlisting}
 
 This would be equivalent to:
 \begin{lstlisting}
-bind ['|map of ['|f '|lst do [ bind ['[i ret] $[0 $[]]]
+bind ['|map of ['|f '|lst do [
+    bind ['[i ret] $[0 $[]]]
 
-while [<[i lst|length] do [ ret[push][f[lst|@[i]]] mutate* ['|i +[i 1]]
-]] ret ]]]
+    while [<[i lst|length] do [
+        ret[push][f[lst|@[i]]]
+        mutate ['|i +[i 1]]
+    ]]
+    
+    ret
+]]]
 \end{lstlisting}
 
 Using the notation presented in Chapter \ref{chap:lang}.

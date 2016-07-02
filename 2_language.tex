@@ -81,7 +81,7 @@ classified as an advantage, disadvantage or neither is that the sequence of
 characters \texttt{[[} is not legal, whereas in Lisp the analogous sequence \texttt{((} is.
 
 Alas, this simple notation doesn't do away with a lot of other problems inherent
-in all minimal syntaxes, related to their homogenity. In the next subsections and later throughout this thesis I gradually introduce extensions and syntax sugar, which make the notation a little bit more diverse. Keep in mind that every special character that is introduced, is taken away from the set of possible \texttt{<word>}-characters, which implies that the regular expression for \texttt{<word>} is changed accordingly.
+in all minimal syntaxes, related to their homogenity. Later in this chapter I will introduce extensions and syntax sugar, which make the notation a little bit more diverse. Keep in mind that every special character that is introduced, is taken away from the set of possible \texttt{<word>}-characters, which implies that the regular expression for \texttt{<word>} is changed accordingly.
 
 \subsection{Comments}\label{sub:comments}
 Comments are a basic and indispensable syntax feature of any programming language. I chose to include a comment syntax similar to the one found in Ada, Haskell or Lua:
@@ -95,7 +95,7 @@ sqrt[81]
     this is a multiline comment
     --[
         multiline comments can be nested
-    
+        
         as long as [ and ] are balanced, anything can be nested within
         multiline comments
         
@@ -110,89 +110,336 @@ sqrt[81]
 ]
 \end{lstlisting}
 
-In principle multi-line comments could be implemented simply with the syntax
-analyzer checking the operator of the expression being parsed, and if it is
-\texttt{--}, treating such expression as a comment. The fact that this
-expression was already parsed and transformed into a structural tree-like form
-could be taken advantage of while generating documentation from comments. For
-example we could define a following \acrlong{dsl}\footnote{Inspired by \cite{jsdoc_wikipedia})} for documentation:
+\subsection{Numbers}
+Numbers in the language are represented as JavaScript numbers. This means that
+there's only one number type -- 64-bit floating point\footnote{Defined by the
+  ISO/IEC/IEEE 60559:2011 (IEEE 754) standard:
+  \cite{60559_2011, js_numbers}}. They are implemented as follows:
+\begin{itemize}
+    \item When a word is tokenized by the parser, it is converted to a
+      JavaScript number with a Number type constructor, which returns either the
+      corresponding value (if the word is parsable to a number) or the value
+      \texttt{NaN}. In the former case, the numerical value is stored in the
+      appropriate syntax tree node, as its \texttt{value} property.
+    \item Upon evaluation, a syntax tree node is checked for the \texttt{value}
+      property. If it has one it is given as the result of the evaluation.
+    \item The fact that a number is stored as a syntax tree node, which contains
+      the its string representation and its raw value, both obtained from the
+      source code during parsing means that conversion from a number literal to
+      string is zero-cost, which could be useful for optimization.
+\end{itemize}
+
+Thus all of the following JavaScript number literals are valid in Dual:
 \begin{lstlisting}
---[
-    the below is a documentation comment
-    followed by the documented piece of code:
-    
-    --[[
-        Calculates the circumference of the Circle.
-        
-        override!
-        deprecated!
-        
-        this [circle]
-        
-        -- The circumference of the circle: 
-        return [number]
-    --]]
-    
-    define [calculate-circumference procedure [
-        mul[2 math.pi this.radius]
-    ]]
-]
+1
+357
+3.14
+0x11 // hexadecimal
+0b11 // binary
+0o11 // octal
+5e-2 // exponential notation
 \end{lstlisting}
 
-\section{Enhanced Syntax Tree}
-In order to enable full mapping between any number of program representations at the syntax-level, a rather unique representation for Dual's syntax tree was designed. This is the crucial mechanism in this design. It is described in this section.
+\section{Escape character}
+An escape character \texttt{\\} is introduced. It allows special characters to be included in variable names.
 
-The primary representation of a program in Dual is the syntax tree. Although it is not directly editable, it can contain references to any number of editable representations.
+For example:
+\begin{lstlisting}
+word\ with\ spaces\ and\ braces\[\]
+\end{lstlisting}
+would be a single valid word and could be used as an identifier for a variable.
 
-The text representation is one of possible editable representations. So is the visual one. The mechanism is designed to work with any number of representations.
+\section{Strings}
+String values are introduced in Dual as follows:
+\begin{lstlisting}
+'[A quick brown fox jumps over the lazy dog]
+\end{lstlisting}
 
-A syntax tree is generated. This can be done by inserting text in the text editor and parsing it or by inserting visual entities in the visual editor and transforming them to a syntax tree.
+\texttt{'} is a special operator that produces a string value. It takes any number of arguments, which must be valid expressions.
 
-While the syntax tree is generated, each its node is associated with the corresponding entity of the representation that generates it. This is a bidirectional association -- the entity is also associated with the syntax tree node. 
+Strings support variable substitution (also known as string interpolation\cite{string_interpolation_wikipedia}). Assuming we have a variable \texttt{animal-0} with the string value \texttt{"bear"} and another variable \texttt{animal-1} with the string value \texttt{"duck"}, this string:
+\begin{lstlisting}
+'[A quick brown {animal-0} jumps over the lazy {animal-1}]
+\end{lstlisting}
 
-In case of text representation this means that a reference to each fragment (span) of text corresponding to a syntax tree node is stored in the node. Also the fragment of text is assigned a reference to the node as well. On the implementation level this would require an object to represent ``a text fragment''.
+would evaluate to:
+\begin{lstlisting}
+"A quick brown bear jumps over the lazy duck"
+\end{lstlisting}
 
-In case of visual representation this means that a reference to each visual element corresponding to a syntax tree node is stored in the node. Also the visual element is assigned a reference to the node as well. This could be implemented with a \acrshort{dom} tree that mirrors the syntax tree. Every node in the DOM tree would contain a reference to corresponding syntax tree node and vice versa.
+Special characters inside string can be escaped with the escape character \texttt{\\}. Note that balanced square brackets that are part of syntactically valid Dual expression do not have to be escaped.
 
-Every representation must provide a way to translate itself to a syntax tree and a way to generate itself given a syntax tree.
+The implementation of strings is explained in detail in Section \ref{sec:est}. String interpolation is explained in Section \ref{sec:sub}.
 
-In case of text representation the translation to syntax tree is done with parsing. In order to transform a syntax tree back into text, an ``unparsing'' mechanism must be provided.
+\section{Basic primitives and built-ins}\label{sec:primitives}
+This section enumerates and briefly describes Dual's basic primitives and built-in functions and values.
 
-In case of visual representation translation to syntax tree can be implemented 
-In order to transform in the other direction, a ``visualisation'' mechanism must be provided.
+The items in Sections \ref{sub:fun} and \ref{sub:primitives} are structured as follows:
+\begin{itemize}
+    \item \texttt{<<name>> [<<arguments>>]}
+    
+    <<description>>
+\end{itemize}
 
-\section{Unparsing}
-White space characters and comments have no semantic significance, unless serving as separators could be considered one. After building the syntax tree,
-bracketing characters also serve no purpose and can be safely discarded,
-without influencing the interpretation of the program. This is indeed done when constructing an \acrshort{ast} from text in most programming languages.
+Where \texttt{<<name>>} is the name of the function/primitive and
+\texttt{<<arguments>>} are either the names that describe the arguments of the
+function/primitive or its arity. That is, the number of arguments that the
+function/primitive is defined for. This can be a fixed value (e.g
+\texttt{1}), a fixed range of values (e.g. \texttt{0..3}) or a range of
+values without an upper bound (e.g. \texttt{0..*}, which means 0 or more). An argument name can optionally contain a colon character \texttt{:}, which is followed by the type that the argument is expected to have.
 
-In case of Dual though, no characters are discarded. Instead, white space, comments brackets and any other characters are included in the syntax tree, connected to appropriate nodes. Storing all characters in the syntax tree means that the entirety of text representation, in structural form, is accessible straight from the syntax tree.
+<<description>> is a brief description of the function/primitive.
+
+\subsection{Functions}\label{sub:fun}
+The following basic functions are defined in the language:
+\begin{itemize}
+    \item \texttt{list [0..*]}
+    
+    Returns a JavaScript \texttt{Array}\cite{mdn_array}, which contains the values of its arguments.
+    
+    \item \texttt{\$ [0..*]}
+    
+    An alias for \texttt{list}.
+    
+    \item \texttt{apply [f args]}
+    
+    Works like Lisp's \texttt{apply}: it takes a function and a list of arguments and returns the result of applying the function to the arguments.
+    
+    \item \texttt{log [0..*]}
+    
+    Wraps JavaScript's \texttt{console.log} method\cite{mdn_log}. It outputs the values of its arguments to JavaScript's standard output -- web browser's console.
+    
+    \item \texttt{typeof [arg]}
+    
+    Wraps JavaScript's \texttt{typeof} operator. ``[R]eturns a string indicating the type of the unevaluated operand.''\cite{mdn_typeof}
+    
+    \item \texttt{or [a b]} and \texttt{and [a b]}
+    
+    The basic logical operators -- analogous to \texttt{||} and \texttt{\&\&} in JavaScript.
+    
+    \item \texttt{any [0..*]} and \texttt{all [0..*]}
+    
+    Like the above, but accept variable number of arguments. These return either \texttt{true} or \texttt{false}.
+    
+    \item \texttt{not [arg]} 
+    
+    The logical negation operator (\texttt{!}).
+        
+    \item \texttt{mod [arg]}
+    
+    The modulus (\texttt{\%}) operator.
+    
+    \item \texttt{-# [arg]} 
+    
+    The unary minus operator. It negates its argument.
+    
+    \item \texttt{sum [0..*]} and \texttt{mul [0..*]}
+    
+    Perform summation and product operations on any number of arguments.
+    \item \texttt{to-int [arg:number]} 
+    
+    Converts its argument to an integer value, by truncating the decimal part.
+    
+    \item \texttt{strlen [str:string]}
+    
+    Returns the length of \texttt{str}.
+    \item \texttt{str@ [str:string n:integer]} 
+    
+    Returns the \texttt{n}th character of \texttt{str}.
+\end{itemize}
+
+Moreover, all basic binary inequality operators \texttt{<, >, <=, >=} as well as all basic binary arithmetic operators \texttt{+, -, *, /} are supported. Comparison operators: \texttt{=} and \texttt{<>} are equivalent to JavaScript's \texttt{===} and \texttt{!==}, which means they perform strict comparison, without implicit type conversion\cite[Section~Equality operators]{mdn_comparison_operators}.
+
+\subsection{Language primitives}\label{sub:primitives}
+The Dual language supports the following primitives:
+\begin{itemize}
+    \item \texttt{bind [name value]}
+    
+    Evaluates its second argument and binds this value to the name of the first
+    argument. This name is bound within the current scope. This is a basic
+    construct for defining variables, like \texttt{var} or \texttt{define} in
+    other languages. Significant semantics here are that new scopes are
+    introduced by function bodies, macro bodies and match expression bodies. The
+    primitive also supports pattern matching to deconstruct the value and bind
+    its components to possibly several variables. In that regard it works a lot
+    like JavaScript's destructuring
+    assignment\cite{mdn_destructuring}
+    or similar features in other languages, such as Perl or Python. This
+    primitive can be used only for binding names that don't exist in the scope
+    at the point of its invocation. There are other constructs for mutating and
+    modifying existing variables. There is no
+    hoisting\cite[Section~var hoisting]{mdn_var},
+    as definitions are processed in order in which they appear in code.
+    
+    For example:
+\begin{lstlisting}
+bind [greeting '[Hello]]
+\end{lstlisting}
+    
+    \item \texttt{if [condition consequent alternative]}
+    
+    This primitive serves as a basic conditional evaluation construct. Its
+    semantics are like those of the analogous construct in Lisp. It accepts 3
+    arguments: first the \texttt{condition} expression, then the
+    \texttt{consequent}, that is, the expression to be evaluated if the value of
+    the condition is \textit{not false} (note that this is a strict rule; any
+    other value than \texttt{false} is interpreted as \texttt{true}; every
+    conditional construct in the language follows this rule). The third
+    argument, the \texttt{alternative} is the expression that is evaluated
+    otherwise.
+    \item \texttt{do [0..*]}
+        
+    Evaluates its arguments in order and returns the value of the last argument.
+    
+    \item \texttt{while [condition body]}
+    
+    A basic loop construct. If \texttt{condition} is equivalent to \textit{not
+        false}, evaluates \texttt{body}. Repeats these steps until
+    \texttt{condition} evaluates to \texttt{false}. Returns the value of the
+    last evaluation of \texttt{body} or \texttt{false} if the body was not
+    evaluated.
+    
+    \item \texttt{mutate [name value]}
+    
+    If a variable identified by \texttt{name} is defined within the current
+    scope or any outer scope, changes (mutates) its value, so it now refers to
+    the result of evaluating the \texttt{value} argument. The scopes are
+    searched from the innermost to the outermost, in order. If the \texttt{name}
+    argument doesn't identify any variable, an error is thrown. Returns the
+    scope (environment), in which the primitive was evaluated.
+    
+    \item \texttt{dict [0..*]}
+    
+    Creates and returns a JavaScript object. It takes an even number of arguments. Arguments are considered in twos, as key-value pairs. These pairs determine properties for the new objects. Keys, which must be words, are property names and their corresponding values, which can be arbitrary expressions, are the values of these properties.
+    
+    For example:
+\begin{lstlisting}
+-- creates an object with four properties and assigns it
+-- to variable `car`:
+bind [car dict [
+    id 0
+    brand '[Ford]
+    model '[Mustang]
+    year 1969 
+]]
+\end{lstlisting}
+    
+    \item \texttt{assign [2..*]}
+    
+    A wrapper for JavaScript's Object.assign()\cite{mdn_assign}. It copies the values of all properties from one or more source objects to a target object. Returns the target object. The first argument is the target object, the following arguments are the source objects.
+    
+    \item \texttt{code' [arg]}
+    
+    Returns its argument without evaluating it. Used in macros, which return unevaluated code, which is substituted in the syntax tree and only then evaluated.
+    
+    \item \texttt{macro [1..*]}
+    
+    Returns a macro value. The last argument is the macro's body. The preceding arguments are the patterns for the macro's arguments. See Sections \ref{sec:pat} and \ref{sec:mac} for details.
+    
+    \item \texttt{of [1..*]}
+    
+    Returns a function value. The last argument is the function's body. The preceding arguments are the patterns for the macro's arguments. See Section \ref{sec:pat} for details.
+    
+    \item \texttt{procedure [body]}
+    
+    Returns a function value. Its only argument is the function's body.
+    
+    \item \texttt{match [2..*]}
+    
+    Performs pattern matching. Its first argument is an expression to be matched. The following arguments are two-element lists, where the first element is the pattern to be matched and the second the expression to be evaluated if it matches. See Section \ref{sec:pat} for details.
+        
+    \item \texttt{cond [1..*]}
+    
+    It works like a nested \texttt{if-else}s and similarly to Lisp's \texttt{cond}\cite[Section~5.3, Macro~COND]{common_lisp_hyperspec}. Its arguments are two-element lists, where the first element is a condition that should evaluate to a boolean value and the second is the expression to be evaluated if it the condition is true. It evaluates at most one expression: the one that has a true condition. Conditions are checked in order.
+    
+    \item \texttt{. [2..*]}
+    
+    Property accessor. Essentially works like JavaScript's \texttt{.} operator\cite{mdn_dot}:
+    
+    For example:
+    \begin{lstlisting}
+    .[window Date now][]
+    \end{lstlisting}
+    
+    translates to JavaScript as:
+    \begin{lstlisting}
+    window.Date.now();
+    \end{lstlisting}
+    
+    If a property cannot be accessed, an error is thrown.
+    
+    \item \texttt{: [3..*]}
+    
+    Works symmetrically to \texttt{.} -- it sets a property to a value specified by its last argument.
+    
+    For example:
+    \begin{lstlisting}
+    :[game-state hero ammo 5]
+    \end{lstlisting}
+    
+    translates to JavaScript as:
+    \begin{lstlisting}
+    gameState.hero.ammo = 5;
+    \end{lstlisting}
+       
+    If a property cannot be accessed, an error is thrown.
+    
+    \item \texttt{@ [arg]}
+    
+    Identity operator. Returns the value of its argument.
+    
+    \item \texttt{async [1..*]}
+    
+    Its first argument should be an asynchronous JavaScript function, such as \texttt{requestAnimationFrame}\cite{mdn_requestanimationframe}. It applies this function to its remaining arguments.
+\end{itemize}
+
+\subsection{Values}
+The following values are also defined:
+\begin{itemize}
+    \item \texttt{true} and \texttt{false}
+    
+    Evaluate to their respective boolean values. \texttt{\_} is an alias for \texttt{true} when used outside of pattern-matching. This enables a convenient compatibility between \texttt{match} and \texttt{cond}: if we're matching a single value and want to have a default case, then \texttt{\_} is used to match any value. Similarly, if \texttt{\_} is given as a condition in the last alternative of \texttt{cond}, it will evaluate to \texttt{true} and work as the default case.
+    
+    \item \texttt{undefined}
+    
+    Evaluates to JavaScript's \texttt{undefined} value. It is a primitive type that is used by the language to mark values that have not been assigned a value. Also, functions that do not explicitly return a value, return \texttt{undefined}\cite{mdn_undefined}.
+    
+    \item \texttt{window} 
+    
+    Provides access to JavaScript's global \texttt{window} object\cite{mdn_window}.
+\end{itemize}
 
 
-If there is a mechanism to transform the syntax tree into any given representation, it may be used to 
+\section{Enhanced Syntax Tree}\label{sec:est}
+In order to enable full mapping between any number of program representations at the syntax-level, a modification of an \acrshort{ast} was designed as a data structure representation of Dual's syntax. I call this structure the \acrlong{est} (\acrshort{est}). This crucial element in the language's design is described in this section.
 
-During syntax tree generation 
+The primary representation of a program in Dual is the EST. Although itself not directly editable, it can contain references to any number of editable representations, such as the text and visual ones.
 
-Generally speaking, every node in the syntax tree is connected in both directions to at least one entity that is a part of an editable structure. When this structure is changed, the corresponding AST node is also changed. If there should be more that one editable representation, the syntax tree node will be connected to more entities. For example:
-A syntax tree is generated from a text representation by parsing. During that process, a reference to each fragment (span) of text corresponding to a syntax tree node is stored in the node. Also in the opposite direction -- the fragment of text stores a reference to the node as well.
-A visualisation of this syntax tree is generated in the form of a DOM tree. Each node in the tree stores a reference to the corresponding syntax tree node. Also in the opposite direction -- the DOM node contains a reference to the syntax node.
+These other representations contain back-references to the EST. Thanks to this, a change to any of the representations can be propagated to every other representation.
 
+Every representation must come with:
+\begin{itemize}
+    \item A way to translate it to an EST.
+    \item A way to generate it for a given EST.
+    \item A way or ways to manipulate it.
+\end{itemize}
 
+While translating, generating and manipulating, it must be ensured that each entity of the representation has a bidirectional association to a corresponding EST node.
 
+For example, for text representation:
+\begin{itemize}
+    \item Translation to EST is done with a parser.
+    \item Generation from EST is done with an unparser\cite{unparser_wikipedia}.
+    \item Manipulation is done with a text editor.
+\end{itemize}
 
+To ensure that the associations are kept, there must be objects that represent ``text fragments''. These objects then must contain references to corresponding EST nodes and vice versa.
 
+White space characters and comments have no semantic significance, unless serving as separators could be considered one. After parsing, bracketing characters also serve no purpose and can be safely discarded, without influencing the meaning of the program. This is indeed done when constructing an \acrshort{ast} from text in most programming languages.
 
-This enables easy manipulation of the text source.
+In case of Dual though, no characters are discarded. Instead, white space, comments, brackets and any other characters are included in the EST, connected to appropriate nodes. Storing all characters in the EST means that the entirety of text representation, in structural form, is accessible straight from the syntax tree. This allows an unparser to recreate it \textit{exactly}.
 
-
-This allows for implementation of variety of interesting ``smart'' language and editor features.
-
-A thing to note at this point is that such syntax tree can't be described as
-``abstract''\footnote{According to these definitions: \cite{ast_wikipedia, c2_ast}}, as it includes all of the ``concrete'' syntax, with its runtime-insignificant elements.
-
-The nodes of Dual's syntax tree are also meant to be extended with references to other representations of code -- such as the visual representation. For these reasons, I will later on use the acronym \acrshort{est} (\acrlong{est}) to refer to the syntax tree used internally by Dual's interpreter.
-
-This representation greatly simplifies the implementation of and integrates with
+Such design greatly simplifies the implementation of and integrates with
 the language the following features:
 \begin{itemize}
     \item Automatic indentation
@@ -230,40 +477,12 @@ an analogous operation on the single character-level. The notation
 details). \texttt{log} outputs the values of its arguments to the JavaScript
 console.
 
-Note that I chose the structural representation as
-the only representation for strings, because the performance penalty is acceptable in the prototype implementation. An obvious and very simple optimization
+ An obvious and very simple optimization
 would be to keep the raw form of the string as a value in the
 corresponding syntax tree node. Having these two forms alongside each
 other would enable the programmer to use the familiar string
 manipulation methods as well as structural manipulation.
 \end{itemize}
-
-Such representation was implemented in order to fulfill the design goal of
-direct and complete mapping of the textual representation into any other
-representation.
-
-\subsection{Numbers}
-Numbers in the language are represented as JavaScript numbers. This means that
-there's only one number type -- 64-bit floating point\footnote{Defined by the
-  ISO/IEC/IEEE 60559:2011 (IEEE 754) standard:
-  \cite{60559_2011, js_numbers}}. They are
-implemented as follows:
-\begin{itemize}
-    \item When a word is tokenized by the parser, it is converted to a
-      JavaScript number with a Number type constructor, which returns either the
-      corresponding value (if the word is parsable to a number) or the value
-      \texttt{NaN}. In the former case, the numerical value is stored in the
-      appropriate syntax tree node, as its \texttt{value} property.
-    \item Upon evaluation, a syntax tree node is checked for the \texttt{value}
-      property. If it has one it is given as the result of the evaluation.
-    \item The fact that a number is stored as a syntax tree node, which contains
-      the its string representation and its raw value, both obtained from the
-      source code during parsing means that conversion from a number literal to
-      string is zero-cost, which could be useful for optimization.
-\end{itemize}
-
-This shows a possible way of optimizing the representation of strings, which I
-intend to introduce in a future version of the language.
 
 \subsection{Zero and single argument expressions}
 In order to reduce the amount of \textit{closing} brackets appearing next to
@@ -310,7 +529,7 @@ zero-argument expressions (procedures):
 \end{lstlisting}
 
 
-\subsection{Pattern matching}
+\subsection{Pattern matching}\label{sec:pat}
 A simple, yet powerful pattern-matching facility was added to the language.
 
 Pattern matching works with bindings, functions (although the primary
@@ -509,7 +728,7 @@ purposes:
       -- see Chapter \ref{chap:design}}.
 \end{itemize}
 
-\section{Just-in-time macros}
+\section{Just-in-time macros}\label{sec:mac}
 One feature that I experimented with while creating the prototype of Dual is
 support for ``first-class just-in-time expanded macros''. By this I mean macros
 similar to those found in Lisp, but with a few key characteristics, which
@@ -607,128 +826,3 @@ replaced it with a native \texttt{match} construct (described in Section
 \ref{sec:primitives}) for performance reasons. Nevertheless this shows that a
 few simple, but general syntax rules and a powerful macro system, can be a very
 flexible tool for extending syntax.
-
-
-\section{Basic primitives and functions}\label{sec:primitives}
-Below is a description of the primitives and functions supported by the Dual
-language. Each item is structured as follows:
-\begin{itemize}
-    \item \texttt{<name> [<arguments>]}
-    
-    <description>
-    
-    Where \texttt{<name>} is the name of the function/primitive and
-    \texttt{<arguments>} are either the names that describe the arguments of the
-    function/primitive or its arity. That is, the number of arguments that the
-    function/primitive is defined for. This can be a fixed value (e.g
-    \texttt{1}), a fixed range of values (e.g. \texttt{0..3}) or a range of
-    values without an upper bound (e.g. \texttt{0..*}, which means 0 or more).
-    
-    <description> is a brief description of the function/primitive.
-\end{itemize}
-
-\subsection{Language primitives}
-\js{Wydaje mi się, że nalezałoby to opisać na samym początku. Czyli najpierw
-  ogólna składina hęzyka, potem operatory prymitywne, pattern matching, i potem
-  reszta. Komentarze na końcu.}  The Dual language supports the following
-primitives:
-\begin{itemize}
-    \item \texttt{do [0..*]}
-    
-    Evaluates its arguments in order and returns the value of the last argument.
-    
-    \item \texttt{bind [name value]}
-    
-    Evaluates its second argument and binds this value to the name of the first
-    argument. This name is bound within the current scope. This is a basic
-    construct for defining variables, like \texttt{var} or \texttt{define} in
-    other languages. Significant semantics here are that new scopes are
-    introduced by function bodies, macro bodies and match expression bodies. The
-    primitive also supports pattern matching to deconstruct the value and bind
-    its components to possibly several variables. In that regard it works a lot
-    like JavaScript's destructuring
-    assignment\cite{mdn_destructuring}
-    or similar features in other languages, such as Perl or Python. This
-    primitive can be used only for binding names that don't exist in the scope
-    at the point of its invocation. There are other constructs for mutating and
-    modifying existing variables. There is no
-    hoisting\cite[Section~var hoisting]{mdn_var},
-    as definitions are processed in order in which they appear in code.
-    
-    \item \texttt{if [condition consequent alternative]}
-    
-    This primitive serves as a basic conditional evaluation construct. Its
-    semantics are like those of the analogous construct in Lisp. It accepts 3
-    arguments: first the \texttt{condition} expression, then the
-    \texttt{consequent}, that is, the expression to be evaluated if the value of
-    the condition is \textit{not false} (note that this is a strict rule; any
-    other value than \texttt{false} is interpreted as \texttt{true}; every
-    conditional construct in the language follows this rule). The third
-    argument, the \texttt{alternative} is the expression that is evaluated
-    otherwise.
-    
-    \item \texttt{while [condition body]}
-    
-    A basic loop construct. If \texttt{condition} is equivalent to \textit{not
-      false}, evaluates \texttt{body}. Repeats these steps until
-    \texttt{condition} evaluates to \texttt{false}. Returns the value of the
-    last evaluation of \texttt{body} or \texttt{false} if the body was not
-    evaluated.
-    
-    \item \texttt{mutate* [name value]}
-    
-    If a variable identified by \texttt{name} is defined within the current
-    scope or any outer scope, changes (mutates) its value, so it now refers to
-    the result of evaluating the \texttt{value} argument. The scopes are
-    searched from the innermost to the outermost, in order. If the \texttt{name}
-    argument doesn't identify any variable, an error is thrown. Returns the
-    scope (environment), in which the primitive was evaluated. [[first-class
-        environments, Bla paper?]]
-    
-    \item assign
-    
-    \item code
-    
-    \item macro
-    
-    \item of
-    
-    \item of-p
-    
-    \item procedure
-    
-    \item match
-    
-    \item cons
-    
-    \item invoke*
-    
-    \item .
-
-    \item :
-    
-    \item @
-    
-    \item dict*
-    
-    \item async*
-\end{itemize}
-
-Basic functions and values:
-\begin{itemize}
-    \item \texttt{true} and \texttt{false} evaluate to their respective boolean
-      values. \texttt{\_} is an alias for \texttt{true} when used outside of
-      pattern-matching. This enables a convenient compatibility between
-      \texttt{match} and \texttt{cond}: if we're matching a single value and
-      want to have a default case, then \texttt{\_} is used to match any
-      value. Similarly, if \texttt{\_} is given as a condition in the last
-      alternative of \texttt{cond}, it will evaluate to \texttt{true} and work
-      as the default case.
-    \item \texttt{undefined} evaluates to JavaScript's undefined[[link]].
-    \item \texttt{typeof} wraps JavaScript's \texttt{typeof} operator.
-    \item \texttt{or} and \texttt{and} are the basic logical operators --
-      analogous to \texttt{||} and \texttt{\&\&} in JavaScript.
-    \item \texttt{any} and \texttt{all} are like the above, but accept variable
-      number of arguments. These return either \texttt{true} or \texttt{false}.
-    \item \texttt{not} is the negation operator (\texttt{!})
-\end{itemize}

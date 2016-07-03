@@ -41,28 +41,29 @@
 \BOOKMARK [1][-]{section.3.1}{Overview}{chapter.3}% 41
 \BOOKMARK [1][-]{section.3.2}{Text editor}{chapter.3}% 42
 \BOOKMARK [1][-]{section.3.3}{Visual editor}{chapter.3}% 43
-\BOOKMARK [2][-]{subsection.3.3.1}{The visual representation}{section.3.3}% 44
-\BOOKMARK [1][-]{section.3.4}{Performance}{chapter.3}% 45
-\BOOKMARK [1][-]{section.3.5}{Comparison}{chapter.3}% 46
-\BOOKMARK [0][-]{chapter.4}{Prototype implementation}{}% 47
-\BOOKMARK [1][-]{section.4.1}{Programming discipline}{chapter.4}% 48
-\BOOKMARK [1][-]{section.4.2}{The language}{chapter.4}% 49
-\BOOKMARK [2][-]{subsection.4.2.1}{Macros}{section.4.2}% 50
-\BOOKMARK [1][-]{section.4.3}{The environment}{chapter.4}% 51
-\BOOKMARK [0][-]{chapter.5}{Case study}{}% 52
-\BOOKMARK [1][-]{section.5.1}{The game}{chapter.5}% 53
-\BOOKMARK [2][-]{subsection.5.1.1}{Main loop}{section.5.1}% 54
-\BOOKMARK [1][-]{section.5.2}{Performance}{chapter.5}% 55
-\BOOKMARK [1][-]{section.5.3}{Possible improvements}{chapter.5}% 56
-\BOOKMARK [0][-]{chapter.6}{Comparisons to other VPLs}{}% 57
-\BOOKMARK [0][-]{chapter.7}{Summary and conclusions}{}% 58
-\BOOKMARK [0][-]{chapter.8}{Bibliography}{}% 59
-\BOOKMARK [0][-]{section*.15}{Glossary}{}% 60
-\BOOKMARK [0][-]{section*.17}{Acronyms}{}% 61
-\BOOKMARK [0][-]{appendix.A}{DVD}{}% 62
-\BOOKMARK [1][-]{section.A.1}{Running the application}{appendix.A}% 63
-\BOOKMARK [0][-]{appendix.B}{Design discussion}{}% 64
-\BOOKMARK [1][-]{section.B.1}{Comments}{appendix.B}% 65
-\BOOKMARK [2][-]{subsection.B.1.1}{Built-in documentation comments}{section.B.1}% 66
-\BOOKMARK [2][-]{subsection.B.1.2}{One-word comments}{section.B.1}% 67
-\BOOKMARK [1][-]{section.B.2}{C-like syntax}{appendix.B}% 68
+\BOOKMARK [1][-]{section.3.4}{Visual editor}{chapter.3}% 44
+\BOOKMARK [2][-]{subsection.3.4.1}{The visual representation}{section.3.4}% 45
+\BOOKMARK [0][-]{chapter.4}{Prototype implementation}{}% 46
+\BOOKMARK [1][-]{section.4.1}{Programming discipline}{chapter.4}% 47
+\BOOKMARK [1][-]{section.4.2}{The language}{chapter.4}% 48
+\BOOKMARK [2][-]{subsection.4.2.1}{Macros}{section.4.2}% 49
+\BOOKMARK [1][-]{section.4.3}{The environment}{chapter.4}% 50
+\BOOKMARK [1][-]{section.4.4}{Text editor}{chapter.4}% 51
+\BOOKMARK [1][-]{section.4.5}{Performance}{chapter.4}% 52
+\BOOKMARK [0][-]{chapter.5}{Case study}{}% 53
+\BOOKMARK [1][-]{section.5.1}{The game}{chapter.5}% 54
+\BOOKMARK [2][-]{subsection.5.1.1}{Main loop}{section.5.1}% 55
+\BOOKMARK [1][-]{section.5.2}{Performance}{chapter.5}% 56
+\BOOKMARK [1][-]{section.5.3}{Possible improvements}{chapter.5}% 57
+\BOOKMARK [0][-]{chapter.6}{Comparisons to other VPLs}{}% 58
+\BOOKMARK [0][-]{chapter.7}{Summary and conclusions}{}% 59
+\BOOKMARK [0][-]{chapter.8}{Bibliography}{}% 60
+\BOOKMARK [0][-]{section*.15}{Glossary}{}% 61
+\BOOKMARK [0][-]{section*.17}{Acronyms}{}% 62
+\BOOKMARK [0][-]{appendix.A}{DVD}{}% 63
+\BOOKMARK [1][-]{section.A.1}{Running the prototype}{appendix.A}% 64
+\BOOKMARK [0][-]{appendix.B}{Design discussion}{}% 65
+\BOOKMARK [1][-]{section.B.1}{Comments}{appendix.B}% 66
+\BOOKMARK [2][-]{subsection.B.1.1}{Built-in documentation comments}{section.B.1}% 67
+\BOOKMARK [2][-]{subsection.B.1.2}{One-word comments}{section.B.1}% 68
+\BOOKMARK [1][-]{section.B.2}{C-like syntax}{appendix.B}% 69

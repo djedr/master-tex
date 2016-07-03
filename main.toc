@@ -15,58 +15,59 @@
 \contentsline {subsection}{\numberline {1.2.3}Visual programming languages}{11}{subsection.1.2.3}
 \contentsline {subsection}{\numberline {1.2.4}Line-connected block-based representation}{13}{subsection.1.2.4}
 \contentsline {subsection}{\numberline {1.2.5}Snap-together block-based representation}{13}{subsection.1.2.5}
-\contentsline {section}{\numberline {1.3}Screenshots}{15}{section.1.3}
-\contentsline {chapter}{\numberline {2}Dual programming language design}{21}{chapter.2}
-\contentsline {section}{\numberline {2.1}Syntax and grammar}{21}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Basic syntax}{22}{subsection.2.1.1}
-\contentsline {section}{\numberline {2.2}Comments}{23}{section.2.2}
-\contentsline {section}{\numberline {2.3}Numbers}{24}{section.2.3}
-\contentsline {section}{\numberline {2.4}Escape character}{25}{section.2.4}
-\contentsline {section}{\numberline {2.5}Strings}{25}{section.2.5}
-\contentsline {section}{\numberline {2.6}Basic primitives and built-ins}{25}{section.2.6}
-\contentsline {subsection}{\numberline {2.6.1}Functions}{26}{subsection.2.6.1}
-\contentsline {subsection}{\numberline {2.6.2}Language primitives}{27}{subsection.2.6.2}
-\contentsline {subsection}{\numberline {2.6.3}Values}{31}{subsection.2.6.3}
-\contentsline {section}{\numberline {2.7}Enhanced Syntax Tree}{31}{section.2.7}
-\contentsline {subsection}{\numberline {2.7.1}Structural representation of strings}{32}{subsection.2.7.1}
-\contentsline {section}{\numberline {2.8}Syntax sugar for function invocations}{33}{section.2.8}
-\contentsline {section}{\numberline {2.9}Pattern matching}{34}{section.2.9}
-\contentsline {subsection}{\numberline {2.9.1}Destructuring}{36}{subsection.2.9.1}
-\contentsline {subsection}{\numberline {2.9.2}\texttt {match} primitive}{36}{subsection.2.9.2}
-\contentsline {section}{\numberline {2.10}Rest parameters and spread operator}{37}{section.2.10}
-\contentsline {section}{\numberline {2.11}Just-in-time macros}{39}{section.2.11}
-\contentsline {subsection}{\numberline {2.11.1}First-class}{40}{subsection.2.11.1}
-\contentsline {subsection}{\numberline {2.11.2}Just-in-time}{41}{subsection.2.11.2}
-\contentsline {subsection}{\numberline {2.11.3}In combination with \texttt {|} and \texttt {!}}{42}{subsection.2.11.3}
-\contentsline {chapter}{\numberline {3}Development environment design}{45}{chapter.3}
-\contentsline {section}{\numberline {3.1}Overview}{45}{section.3.1}
-\contentsline {section}{\numberline {3.2}Text editor}{47}{section.3.2}
-\contentsline {section}{\numberline {3.3}Visual editor}{49}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}The visual representation}{49}{subsection.3.3.1}
-\contentsline {subsubsection}{Flexibility}{50}{section*.3}
-\contentsline {subsubsection}{Design}{50}{section*.4}
-\contentsline {subsubsection}{Structure}{51}{section*.5}
-\contentsline {section}{\numberline {3.4}Performance}{52}{section.3.4}
-\contentsline {section}{\numberline {3.5}Comparison}{53}{section.3.5}
-\contentsline {chapter}{\numberline {4}Prototype implementation}{55}{chapter.4}
-\contentsline {section}{\numberline {4.1}Programming discipline}{55}{section.4.1}
-\contentsline {section}{\numberline {4.2}The language}{55}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Macros}{56}{subsection.4.2.1}
-\contentsline {section}{\numberline {4.3}The environment}{56}{section.4.3}
-\contentsline {chapter}{\numberline {5}Case study}{57}{chapter.5}
-\contentsline {section}{\numberline {5.1}The game}{57}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Main loop}{57}{subsection.5.1.1}
-\contentsline {section}{\numberline {5.2}Performance}{59}{section.5.2}
-\contentsline {section}{\numberline {5.3}Possible improvements}{59}{section.5.3}
-\contentsline {chapter}{\numberline {6}Comparisons to other VPLs}{61}{chapter.6}
-\contentsline {chapter}{\numberline {7}Summary and conclusions}{63}{chapter.7}
-\contentsline {chapter}{Bibliography}{65}{chapter.8}
-\contentsline {chapter}{Glossary}{75}{section*.15}
-\contentsline {chapter}{Acronyms}{77}{section*.17}
-\contentsline {chapter}{\numberline {A}DVD}{79}{appendix.A}
-\contentsline {section}{\numberline {A.1}Running the application}{80}{section.A.1}
-\contentsline {chapter}{\numberline {B}Design discussion}{83}{appendix.B}
-\contentsline {section}{\numberline {B.1}Comments}{83}{section.B.1}
-\contentsline {subsection}{\numberline {B.1.1}Built-in documentation comments}{83}{subsection.B.1.1}
-\contentsline {subsection}{\numberline {B.1.2}One-word comments}{84}{subsection.B.1.2}
-\contentsline {section}{\numberline {B.2}C-like syntax}{85}{section.B.2}
+\contentsline {section}{\numberline {1.3}Screenshots}{14}{section.1.3}
+\contentsline {chapter}{\numberline {2}Dual programming language design}{19}{chapter.2}
+\contentsline {section}{\numberline {2.1}Syntax and grammar}{19}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Basic syntax}{20}{subsection.2.1.1}
+\contentsline {section}{\numberline {2.2}Comments}{21}{section.2.2}
+\contentsline {section}{\numberline {2.3}Numbers}{22}{section.2.3}
+\contentsline {section}{\numberline {2.4}Escape character}{23}{section.2.4}
+\contentsline {section}{\numberline {2.5}Strings}{23}{section.2.5}
+\contentsline {section}{\numberline {2.6}Basic primitives and built-ins}{23}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Functions}{24}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}Language primitives}{25}{subsection.2.6.2}
+\contentsline {subsection}{\numberline {2.6.3}Values}{29}{subsection.2.6.3}
+\contentsline {section}{\numberline {2.7}Enhanced Syntax Tree}{29}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}Structural representation of strings}{30}{subsection.2.7.1}
+\contentsline {section}{\numberline {2.8}Syntax sugar for function invocations}{31}{section.2.8}
+\contentsline {section}{\numberline {2.9}Pattern matching}{32}{section.2.9}
+\contentsline {subsection}{\numberline {2.9.1}Destructuring}{34}{subsection.2.9.1}
+\contentsline {subsection}{\numberline {2.9.2}\texttt {match} primitive}{34}{subsection.2.9.2}
+\contentsline {section}{\numberline {2.10}Rest parameters and spread operator}{35}{section.2.10}
+\contentsline {section}{\numberline {2.11}Just-in-time macros}{37}{section.2.11}
+\contentsline {subsection}{\numberline {2.11.1}First-class}{38}{subsection.2.11.1}
+\contentsline {subsection}{\numberline {2.11.2}Just-in-time}{39}{subsection.2.11.2}
+\contentsline {subsection}{\numberline {2.11.3}In combination with \texttt {|} and \texttt {!}}{40}{subsection.2.11.3}
+\contentsline {chapter}{\numberline {3}Development environment design}{43}{chapter.3}
+\contentsline {section}{\numberline {3.1}Overview}{43}{section.3.1}
+\contentsline {section}{\numberline {3.2}Text editor}{44}{section.3.2}
+\contentsline {section}{\numberline {3.3}Visual editor}{44}{section.3.3}
+\contentsline {section}{\numberline {3.4}Visual editor}{45}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}The visual representation}{45}{subsection.3.4.1}
+\contentsline {subsubsection}{Flexibility}{46}{section*.3}
+\contentsline {subsubsection}{Design}{46}{section*.4}
+\contentsline {subsubsection}{Structure}{47}{section*.5}
+\contentsline {chapter}{\numberline {4}Prototype implementation}{51}{chapter.4}
+\contentsline {section}{\numberline {4.1}Programming discipline}{51}{section.4.1}
+\contentsline {section}{\numberline {4.2}The language}{51}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Macros}{52}{subsection.4.2.1}
+\contentsline {section}{\numberline {4.3}The environment}{52}{section.4.3}
+\contentsline {section}{\numberline {4.4}Text editor}{55}{section.4.4}
+\contentsline {section}{\numberline {4.5}Performance}{56}{section.4.5}
+\contentsline {chapter}{\numberline {5}Case study}{59}{chapter.5}
+\contentsline {section}{\numberline {5.1}The game}{59}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Main loop}{59}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.2}Performance}{61}{section.5.2}
+\contentsline {section}{\numberline {5.3}Possible improvements}{61}{section.5.3}
+\contentsline {chapter}{\numberline {6}Comparisons to other VPLs}{63}{chapter.6}
+\contentsline {chapter}{\numberline {7}Summary and conclusions}{65}{chapter.7}
+\contentsline {chapter}{Bibliography}{67}{chapter.8}
+\contentsline {chapter}{Glossary}{77}{section*.15}
+\contentsline {chapter}{Acronyms}{79}{section*.17}
+\contentsline {chapter}{\numberline {A}DVD}{81}{appendix.A}
+\contentsline {section}{\numberline {A.1}Running the prototype}{82}{section.A.1}
+\contentsline {chapter}{\numberline {B}Design discussion}{85}{appendix.B}
+\contentsline {section}{\numberline {B.1}Comments}{85}{section.B.1}
+\contentsline {subsection}{\numberline {B.1.1}Built-in documentation comments}{85}{subsection.B.1.1}
+\contentsline {subsection}{\numberline {B.1.2}One-word comments}{86}{subsection.B.1.2}
+\contentsline {section}{\numberline {B.2}C-like syntax}{87}{section.B.2}

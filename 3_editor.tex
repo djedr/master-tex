@@ -2,176 +2,72 @@
 This chapter describes the design of Dual's development environment.
 
 \section{Overview}
-The overall design tries to merge features of modern code editors, such as 
+The overall design tries to merge features of modern code editors, such as Brackets\cite{brackets_site}, Visual Studio Code\cite{vscode_site} or Atom\cite{atom_site} with visual programming language editors, such as the Blueprint Editor from Unreal Engine 4\cite{blueprint_editor}.
+
+The environment is intended to work online, similarly to \acrlong{ide}s such as Codeanywhere\cite{codeanywhere_website} or Cloud9\cite{c9_website}. It should also work as offline, like Scratch's offline editor\cite{scratch_offline}.
+
+
+
 
 A folder is considered a project, similarly to modern code editors, such as Brackets or Visual Studio Code.
 
-The current version of the development environment is intended to be used
-offline, on user's machine. Nevertheless it is designed so that it could be
-easily transformed into an online system.
+It should be easily usable with minimal effort from the user to install it or set it up.
 
-I decided to implement the system with minimal dependencies, so it can be easily
-installed and so I can achieve a greater level of integration by having more
-control over every part.
+It should have minimal external dependencies
 
-The only required dependency for the basic functionality of the prototype to
-work (which is the editor) is a web browser and the CodeMirror library. An
-additional dependency is the Node.js environment.
-
-The language's development environment is implemented as a web application. It
-consists of three parts:
+The environment should have the following components:
 \begin{itemize}
-    \item The server part, implemented in JavaScript on top of Node.js. This
-      part's functions is mainly to enable access to user's file system, so any
-      local folder can be opened as a project -- modern web browsers restrict
-      access to the local file system, because of security reasons. The server
-      part also handles persisting changes to files and configuration.
-    \item The project manager part, which communicates directly with the server
-      part. The connection is maintained over a
-      WebSocket\cite{mdn_websockets}. This
-      part provides access to user's file system via a custom folder selection
-      interface. Basic configuration of server communication, such as changing
-      the address and ports is also possible. Once a project is selected, the
-      user may open it in the editor part.
-    \item The editor part, which is the main component and can function as a
-      stand-alone application. It can communicate with the server indirectly,
-      through the \texttt{localStorage}
-      mechanism\cite{mdn_localstorage}.
+\item A project manager, which should be capable of managing local as well as remote projects.
+\item A text editor with syntax highlighting, autocompletion, autoindentation, etc. for Dual. The text editor should conform to the design outlined in Section \ref{sec:est}.
+\item A visual editor able to manipulate a visual representation of the EST  with autostructuring. It should also conform to the design outlined in Section \ref{sec:est}.
 \end{itemize}
 
-The project manager and the editor, which can be considered the front-end parts
-of the system are designed to be a
-\acrlong{spa}\cite{spa_wikipedia}. The
-project manager exchanges JSON messages with the server through a
-WebSocket. This is used for updating the view with dynamic data. In order to
-facilitate the manipulation of the HTML structure of the page, which is the main
-application's view, I implemented a very simple web application framework, which
-binds the data from the server with the data on the client and the
-\acrlong{dom}\cite[Chapter~13]{eloquentjs}.
+The layout of the editor should conform to universaly accepted standards where possible. There should be a menu bar at the top.
 
-\begin{figure}[h!]
-\centering \includegraphics[width=0.9\textwidth]{editor}
-\caption{The editor}
-\label{fig:editor}
-\end{figure}
+There should be a flexible global search faciltiy that can search through all editor options and menus.
 
-Figure \ref{fig:editor} shows an overview of the editor prototype's window. The
-basic layout is modeled after the aforementioned code editors. At the top of the
-window is the menu bar, below a global search input (not implemented in the
-prototype). The left panel contains basic controls for selecting examples,
-invoking the parser and interpreter, toggling application view and adjusting the
-scale of the visual representation.
+There should be a console output area at the bottom of the screen
 
-The following options are implemented in the prototype:
-\begin{itemize}
-    \item Available from the menu bar:
-    \begin{itemize}
-        \item File->Save, which saves the current content of the text editor to
-          a file named \texttt{save.dual} in editor's root directory. This only
-          works if the server-side part of the environment is running. Otherwise
-          the source will be saved only to browser's internal storage.
-        \item In the Edit menu: Undo, Redo, Cut, Copy, Paste and Select All
-          options are supported. Note that by default web browsers restrict the
-          access to the user's clipboard, so for Copy and Paste the standard key
-          shortcuts should be used (Ctrl-C, Ctrl-V). All other conventional
-          keyboard shortcuts are also supported, thanks to the CodeMirror
-          library.
-    \end{itemize}
-    \item Available from the left panel:
-    \begin{itemize}
-        \item The options in the Examples submenu cause a corresponding source
-          file to be loaded into the editor. This is for demonstration for the
-          purposes of this thesis.
-        \item The Options submenu allows the user to invoke the parser and the
-          interpreter separately or in combination as well as toggling between
-          the ``page'' (also known as ``application'') and visual editor
-          views. The application view contains an embedded web page (iframe),
-          which can be manipulated by a Dual application. This is used to
-          display the game view in the Pac-Man clone example.
-        \item The Visual scale submenu changes the size of the blocks in the
-          visual editor. This demonstrates how manipulating one CSS property
-          influences the rendering of the visual representation.
-    \end{itemize}
-\end{itemize}
+The editor should support the text and visual representation and should provide an interface to add new representations.
 
-Some options have descriptive captions available that appear when the mouse
-cursor hovers over them.
+The appearance of the visual representation should be customizable.
+
 
 \section{Text editor}
-The text editor is built on top of the CodeMirror
-framework\cite{codemirror_site}. It was integrated with the
-editor in the following way:
+The text editor should have 
+
+\section{Visual editor}
+The visual representation should be mappable to the EST. There should be a distinguishable and manipulable visual element for every EST node. Such an element should contain a reference to the node (and vice versa).
+
+There should be ways to perform the following actions with the visual editor:
 \begin{itemize}
-    \item A custom syntax highlighting mode for Dual was defined.  % crucial:
-    \item If a position of the text cursor in or the contents of the source
-      change, a fragment of text corresponding to the appropriate \acrshort{est}
-      node is highlighted. Also the corresponding subtree in the visual editor
-      is highlighted. This works also in the other direction -- when a node in
-      the visual editor is selected, it is highlighted along with the
-      corresponding text fragment. This demonstrates the core functionality of
-      the system: it is ``aware'' at all times of currently focused meaningful
-      part of the code, corresponding to an \acrshort{est} node. This is
-      reflected in every representation that is associated with the EST.
-
+\item Insert new nodes into EST.
+\item Remove existing nodes from the EST.
+\item Modify existing nodes in the EST.
+\item Replace existing nodes and subtrees in the EST.
+\item Move nodes and subtrees to different locations in the EST.
+\item Select and manipulate multiple arbitrary nodes and subtrees in the EST.
 \end{itemize}
-Because every node in the EST is linked in both directions with a corresponding
-abstract element in a representation, any change to the element can be reflected
-in the node and, through the EST, in all other associated representations. This
-makes the system accurate and fast, as every change happens in an isolated
-context, which doesn't have to be reestablished every time a modification is
-made.
 
-We can distinguish three representations used by the system:
-\begin{enumerate}
-    \item The EST, which is the master representation of the program.
-    \item The fragments of text corresponding to EST nodes in the text
-      representation are tracked by CodeMirror's TextMarker objects. These
-      facilitate tracking and propagating any changes to and from this
-      representation, as well as highlighting.
-    \item The visual representation, which is implemented in terms of pure HTML
-      tables fully styled with CSS. This allows for easy and complete
-      customization of the representation.
-\end{enumerate}
+In short, the visual editor should provide ways to perform the same abstract operations on the EST that are possible when editing text and possibly more.
 
-\begin{figure}[h!]
-\centering \includegraphics[width=0.9\textwidth]{editor-menu}
-\caption{Visual editor's context menu}
-\label{fig:editor-menu}
-\end{figure}
+Some operations on raw text should also be reflected in the visual representation. For example the Find option. Searching through text should highlight the visual elements that correspond to the EST nodes that are connected to the text that contains the searched phrase. Regular expression based searching should also be possible. Replacing text with the Replace option should be reflected in the visual representation.
 
-In case of the visual representation this is implemented in a rather
-straightforward way: every EST node has a corresponding set of \acrshort{dom}
-nodes. Thanks to this, we can track any actions performed on the DOM through the
-standard browser-implemented interface. This is solved in the prototype by
-attaching \texttt{click} event handlers to relevant nodes. Such an event
-triggers the following:
-\begin{itemize}
-    \item A corresponding EST node is ``focused'' by the system.
-    \item A context menu appears similar to that depicted in
-      \ref{fig:editor-menu}. This menu has basic options for editing the visual
-      nodes: Replace, Add and Remove. These perform their corresponding action
-      on the currently focused node and propagate it to all representations. The
-      Remove option simply removes the selected node and its subtree from the
-      DOM, the EST, as well as the associated text fragment. Add and Replace
-      make use of the small text-editor area next to the context menu. It
-      contains a list of possible names of nodes to be inserted in case the user
-      wants to a node. Selecting any of the names causes a template for the new
-      node (in the form of an editable code snippet) to be inserted into the
-      text-editor area. Such a template can be quickly adjusted by the user
-      before inserting. The user may also type in raw code into the text box,
-      without selecting any templates. After entering the code and selecting the
-      appropriate option, the text is parsed, transformed into TextMarker, EST
-      and DOM representations. Then all the versions of the fragment are
-      inserted in appropriate places.
-\end{itemize}
+There should be a possibility to temporarily disable a representation by disconnecting it from the EST. Any changes made to other representations will then not be propagated to this representation. A disabled representation should become read-only until it is enabled. When it is enabled it should be updated to reflect the current state of the EST. At least one representation must be enabled at all times.
+
+
+There should be a context-sensitive autocompletion feature. There should be an easily accessible library of functions and primitives with documentation.
+
+User-defined functions should be added to this library upon definition and removed from it when they are removed from the source code.
+
+% UE4 editor
 
 The list of possible nodes displayed along with the context menu is implemented
 in terms of a simple autocomplete functionality on top of CodeMirror. Every item
 in the autocomplete list is associated with a fragment of code, which is
 basically a signature of the corresponding function. User-defined functions
 could be easily automatically added to this list by extracting their signatures
-from definitions. Autocompletion should also be made context-sensitive,
-similarly to modern code editors.
+from definitions.
 
 The templates could also be selected by the user from a visual library of puzzle
 pieces, like the one in Scratch (Fig. \ref{fig:scratch}).

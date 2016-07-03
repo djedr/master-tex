@@ -60,6 +60,14 @@ The goal is to build an online \acrlong{ide} IDE, similar to
 Codeanywhere\cite{codeanywhere_website} or
 Cloud9\cite{c9_website}, which works offline as well.
 
+The early designs show the following features that are not implemented in the
+final prototype:
+\begin{itemize}
+	\item Names of the arguments are displayed instead of numbers if
+          sensible.
+	\item Names of types of variables
+\end{itemize}
+
 The current version of the development environment is intended to be used
 offline, on user's machine. Nevertheless it is implemented so that it could be
 easily transformed into an online system.
@@ -215,6 +223,13 @@ DOM, the EST, as well as the associated text fragment.
 The Add and Replace options make use of the small text-editor area next to the context menu. It contains a predefined list of names of some of the possible nodes that can be inserted. Selecting any of the names causes a template for the new node -- in the form of an editable code snippet -- to be inserted into the text-editor area. Such a template can be quickly adjusted by the user before inserting.
 
 The user may also type in raw code into the text box, without selecting any templates. After entering the code and selecting the appropriate option, the text is parsed, transformed into TextMarker, EST, and DOM representations. Then all the versions of the fragment are inserted in appropriate places.
+
+The list of possible nodes displayed along with the context menu is implemented
+in terms of a simple autocomplete functionality on top of CodeMirror. Every item
+in the autocomplete list is associated with a fragment of code, which is
+basically a signature of the corresponding function. User-defined functions
+could be easily automatically added to this list by extracting their signatures
+from definitions.
 
 
 \section{Performance}

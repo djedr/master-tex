@@ -11,6 +11,21 @@ and are built on web technologies: JavaScript, HTML5 and CSS. The prototype
 implementation makes use of Node.js, a server-side JavaScript runtime\cite{nodejs_site} and
 CodeMirror, a JavaScript library which provides basic facilities for the text-based code editor part of the system\cite{codemirror_site}. This part is modeled after modern web-oriented code editors with similar design philosophy\cite{js_text_editors_wikipedia}, such as Visual Studio Code\cite{vscode_site}, Brackets\cite{brackets_site}, Atom\cite{atom_site} and many others.
 
+\subsection{Document Object Model}
+The \acrlong{dom} (\acrshort{dom}) is an interface that lets JavaScript manipulate HTML documents as tree structures. The interface aims to be independent of a platform or programming language and is not limited to JavaScript and HTML\cite{dom_spec, w3_dom, dom_wikipedia}. 
+
+In the DOM, each part of the document is represented by a node in a tree manipulable by JavaScript. All changes applied to the tree can be reflected in the document immediately and displayed.
+
+The DOM structure can be manipulated with JavaScript in the following ways\cite{w3s_dom}:
+\begin{itemize}
+\item All of the document's elements and their attributes can be changed or removed.
+\item New elements and attributes can be added.
+\item The whole tree structure can be easily traversed, as each node contains references to many other nodes: its parents, children (with separate references to the first and last child) or siblings.
+\item All the CSS styles assigned to the document and individual elements can be changed. This means manipulating the details of how the elements are laid out and displayed. An enormous number of different display properties can be customized\cite{mdn_css_ref}, such as colors, fonts, sizes, etc.
+\item JavaScript can react to all existing HTML events, such as clicking on elements, scrolling the page that contains the document, etc.
+\item JavaScript can create new events.
+\end{itemize}
+
 \subsection{JavaScript}
 The JavaScript programming language was created by Brendan Eich for Netscape\cite[Introduction]{ecmascript}, the company which created the Netscape Navigator web browser. There is a line of evolution that leads from Netscape and its browser to Mozilla and Firefox\cite{netscape_mozilla, mozilla_story}. The language was developed in 10 days in April 1995\cite{js_ten_days}.
 
@@ -38,7 +53,6 @@ In the recent years JavaScript's popularity has been steadily growing\cite{js_gr
 
 Static type checking for JavaScript is also possible with Flow\cite{js_flow} -- a static type checker, which works either as a syntax extension or through comment annotations -- or TypeScript\cite{typescript} -- which is a superset of JavaScript.
 
-
 \subsubsection{Concurrency model}
 In the context of the concurrency model, the JavaScript runtime conceptually
 consists of three parts: the call stack, the heap and the message queue. All
@@ -65,7 +79,7 @@ loop for as short as possible and divide the processing into multiple messages.
 
 This concurrency model is called the \textit{event} loop, because the messages are added to the queue any time an event occurs (an has an associated handler), such as a click or a scroll. In general input and output in JavaScript is performed asynchronously, through events, so it does not block program execution.
 
-\section{Programming language design and implementation}\label{sec:lisp}
+\section{Design and implementation of Lisp}\label{sec:lisp}
 A very important family of programming languages and one which had the most
 influence on the design of Dual is the Lisp family. In this thesis I use the
 singular form ``Lisp'' to refer to the whole family rather that a concrete
@@ -319,23 +333,52 @@ I used two more heuristics to verify this conclusion:
     The example screenshot at the top of the article presents the MIT Scratch programming language, which falls into the ``snap-together block-based'' category. \cite[Section~VPL-II.B]{visual_languages}.
 \end{itemize}
 
-\subsection{Line-connected block-based representation}
-The results presented in Section \ref{sec:vpls} suggest that the most popular VPL representation is the flowchart-like ``line-connected block-based''. Editors which use this representation usually leave the layout of the program source completely to the user, providing no automatic structuring. This may easily result in disorder and true ``spaghetti-code'', where free-floating blocks are scattered around, connected by many intersecting lines. This is especially true for complex programs.
-
-This lack of support for automatic structuring, which is an essential feature of
-modern text-based code editors is clearly a regression.
-
-% other disadvantages and features
-% Unreal
-
-\subsection{Snap-together block-based representation}
-The second most popular VPL representation is the ``snap-together block-based''. There, the code is presented and manipulated in terms of visual blocks, which can be dragged and dropped by mouse and snapped together like jigsaw puzzle pieces. This representation is self-structuring and is designed to resemble the familiar text-based, indent-structured representations.
-
-The prime example of a VPL that utilizes this representation is MIT Scratch. This is because of its popularity\cite[Section~Community of users]{scratch_wikipedia} -- it is even referred to as ``the most popular VPL''\cite{vpl_infograph}. One classification even refers to the VPLs that use the ``snap-together block-based'' representation as ``Scratch \& friends''\cite[Section~Types~of~VPLs]{vpl_maturity}.
+\subsection{A note on history of VPLs}
+The prime example of a VPL that uses the second-most popular representation according to my classification is MIT Scratch. It is possibly the most popular educational VPL\cite[Section~Community of users]{scratch_wikipedia} -- even referred to as ``the most popular VPL''\cite{vpl_infograph}. One classification even calls the VPLs that use the ``snap-together block-based'' representation ``Scratch \& friends''\cite[Section~Types~of~VPLs]{vpl_maturity}.
 
 However Scratch was not the first language to use this representation. It was preceded by logoBlocks and earlier similar projects\cite{vpl_history}.
 
 In fact, if we go far back in history of VPLs, we eventually arrive at the Logo programming language, which was a dialect of Lisp\cite{logo_history, logo_wikipedia}. It was not a VPL by the definition quoted at the beginning of Section \ref{sec:vpls}, as it did not have a way to manipulate \textit{program elements} visually. Nonetheless, one author calls it ``the first real mainstream VPL''\cite{vpl_infograph}. This is because it pioneered many ideas related to visual programming and was inclined in that direction. As is reflected in its many derivatives, which were indeed VPLs\cite{cricket_logo}, such as the visual programming environment of LEGO Mindstorms\cite{mindstorms_history, mindstorms_wikipedia, mindstorms_site}.
+
+\subsection{Common criticisms of VPLs}\label{sub:vpl_crit}
+Among the most common general criticisms of visual programming languages are\cite{vp_vs_tp, vp_unbelievable, vp_advantages_disadvantages}, \cite[Section~Criticism]{labview_wikipedia}:
+\begin{itemize}
+\item There is a barrier of entry for programmers used to text-based languages.
+\item Essential programming tools are unavailable or cannot be applied: version control, side-by-side (or diff) comparison, change tracking, testing frameworks, build systems.
+\item Existing tools are of low quality.
+\item Performance is overall slow.
+\item There are no extensibility mechanisms.
+\item The target group seems to be novice users.
+\item There is no universal visual representation.
+\item VPLs create closed ecosystems.
+\end{itemize}
+
+I will address some of these criticisms in Chapter \ref{chap:editor}.
+
+\subsection{The problem with structure}
+The next few paragraphs outline the major problem with the most popular (as the results presented in Section \ref{sec:vpls} suggest) ``line-connected block-based'' visual representation.
+
+The reason for its popularity might be that such diagrammatic representation is a very natural way of showing relationships between objects, often used when designing on a whiteboard\cite{whiteboard_design} or with tools like \acrlong{uml}\cite{uml}.
+
+Nonetheless when used naively to visualise a program source code it has a major disadvantage.
+
+Editors which use this representation usually leave the layout of the program source completely to the user, providing no automatic structuring. This may easily result in disorder and true ``spaghetti-code'', where free-floating blocks are scattered around, connected by many intersecting lines. This is especially true for complex programs (See Figure \ref{fig:mess}).
+
+This lack of support for automatic structuring, which is an essential feature of
+modern text-based code editors is clearly a regression.
+
+\begin{figure}[h!]
+    \centering \includegraphics[width=0.9\textwidth]{mess}
+    \caption{
+        An example of a complex program represented with blocks connected by lines;
+        screenshot from \protect\cite{fig_mess}
+    }
+    \label{fig:mess}
+\end{figure}
+
+This problem does not occur in the second most popular VPL representation: the ``snap-together block-based''.
+
+There, the code is presented and manipulated in terms of visual blocks, which can be dragged and dropped by mouse and snapped together like jigsaw puzzle pieces. This representation is self-structuring and designed to resemble the familiar text-based, indent-structured representations.
 
 % advantages and disadvantages of VPLs
 

@@ -33,6 +33,11 @@ Marijn Haverbeke.
 \newblock Also available online:
   \url{http://eloquentjavascript.net/11_language.html}.
 
+\bibitem{lol_book}
+Doug Hoyte.
+\newblock {\em Let Over Lambda}.
+\newblock Lulu.com, 2008.
+
 \bibitem{smalltalk_history}
 Alan~C. Kay.
 \newblock The early history of smalltalk.

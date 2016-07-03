@@ -7,6 +7,22 @@ Mozilla~Developer Network and individual contributors.
 \newblock An article from Mozilla Developer Network
   (\url{https://developer.mozilla.org}).
 
+\bibitem{mdn_array}
+Mozilla~Developer Network and individual contributors.
+\newblock {A}rray.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\bibitem{mdn_comparison_operators}
+Mozilla~Developer Network and individual contributors.
+\newblock {C}omparison operators.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
 \bibitem{mdn_concurrency}
 Mozilla~Developer Network and individual contributors.
 \newblock {C}oncurrency model and {E}vent {L}oop.
@@ -15,11 +31,18 @@ Mozilla~Developer Network and individual contributors.
 \newblock An article from Mozilla Developer Network
   (\url{https://developer.mozilla.org}).
 
+\bibitem{mdn_log}
+Mozilla~Developer Network and individual contributors.
+\newblock {C}onsole.log().
+\newblock \url{https://developer.mozilla.org/en-US/docs/Web/API/Console/log}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
 \bibitem{mdn_destructuring}
 Mozilla~Developer Network and individual contributors.
 \newblock {D}estructuring assignment.
 \newblock
-  \url{https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment}.
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment}.
 \newblock An article from Mozilla Developer Network
   (\url{https://developer.mozilla.org}).
 
@@ -40,6 +63,14 @@ Mozilla~Developer Network and individual contributors.
   (\url{https://developer.mozilla.org}). ``[S]erves as a repository of facts
   about the JavaScript language.''.
 
+\bibitem{mdn_assign}
+Mozilla~Developer Network and individual contributors.
+\newblock {O}bject.assign().
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
 \bibitem{mdn_set_prototype_of}
 Mozilla~Developer Network and individual contributors.
 \newblock {O}bject.set{P}rototype{O}f().
@@ -48,11 +79,27 @@ Mozilla~Developer Network and individual contributors.
 \newblock An article from Mozilla Developer Network
   (\url{https://developer.mozilla.org}).
 
+\bibitem{mdn_dot}
+Mozilla~Developer Network and individual contributors.
+\newblock {P}roperty accessors.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
 \bibitem{mdn_rest}
 Mozilla~Developer Network and individual contributors.
 \newblock {R}est parameters.
 \newblock
-  \url{https://developer.mozilla.org/pl/docs/Web/JavaScript/Reference/Functions/rest_parameters}.
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\bibitem{mdn_spread}
+Mozilla~Developer Network and individual contributors.
+\newblock {S}pread operator.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator}.
 \newblock An article from Mozilla Developer Network
   (\url{https://developer.mozilla.org}).
 
@@ -61,6 +108,22 @@ Mozilla~Developer Network and individual contributors.
 \newblock {T}emplate literals.
 \newblock
   \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\bibitem{mdn_typeof}
+Mozilla~Developer Network and individual contributors.
+\newblock typeof.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\bibitem{mdn_undefined}
+Mozilla~Developer Network and individual contributors.
+\newblock undefined.
+\newblock
+  \url{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined}.
 \newblock An article from Mozilla Developer Network
   (\url{https://developer.mozilla.org}).
 
@@ -75,7 +138,14 @@ Mozilla~Developer Network and individual contributors.
 \bibitem{mdn_websockets}
 Mozilla~Developer Network and individual contributors.
 \newblock {W}eb{S}ockets.
-\newblock \url{https://developer.mozilla.org/pl/docs/WebSockets}.
+\newblock \url{https://developer.mozilla.org/en-US/docs/WebSockets}.
+\newblock An article from Mozilla Developer Network
+  (\url{https://developer.mozilla.org}).
+
+\bibitem{mdn_window}
+Mozilla~Developer Network and individual contributors.
+\newblock {W}indow.
+\newblock \url{https://developer.mozilla.org/en-US/docs/Web/API/Window}.
 \newblock An article from Mozilla Developer Network
   (\url{https://developer.mozilla.org}).
 

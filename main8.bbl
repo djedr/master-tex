@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{fig_scratch}
 Anonymous.
@@ -22,5 +22,84 @@ Unreal Engine~4 Documentation.
 \newblock A screenshot from Blueprints Visual Scripting system from Unreal
   Engine 4's official documentation:
   \url{https://docs.unrealengine.com/latest/INT/Engine/Blueprints/index.html}.
+
+\bibitem{fig_piet}
+Eric Hosick.
+\newblock
+  \url{http://blog.interfacevision.com/assets/img/posts/example_visual_language_piet_01.gif}.
+\newblock A screenshot from Interface Vision's blog post ``Visual Programming
+  Languages - Snapshots'':
+  \url{http://blog.interfacevision.com/design/design-visual-progarmming-languages-snapshots/}.
+  Individual sources are linked there.
+
+\bibitem{fig_lily}
+Eric Hosick.
+\newblock
+  \url{http://blog.interfacevision.com/assets/img/posts/example_visual_language_lily_01.png}.
+\newblock A screenshot from Interface Vision's blog post ``Visual Programming
+  Languages - Snapshots'':
+  \url{http://blog.interfacevision.com/design/design-visual-progarmming-languages-snapshots/}.
+  Individual sources are linked there.
+
+\bibitem{fig_minecraft}
+Eric Hosick.
+\newblock
+  \url{http://blog.interfacevision.com/assets/img/posts/example_visual_language_minecraft_01.png}.
+\newblock A screenshot from Interface Vision's blog post ``Visual Programming
+  Languages - Snapshots'':
+  \url{http://blog.interfacevision.com/design/design-visual-progarmming-languages-snapshots/}.
+  Individual sources are linked there.
+
+\bibitem{fig_google_web_designer}
+Eric Hosick.
+\newblock
+  \url{http://blog.interfacevision.com/assets/img/posts/example_visual_language_webdesigner_01.png}.
+\newblock A screenshot from Interface Vision's blog post ``Visual Programming
+  Languages - Snapshots'':
+  \url{http://blog.interfacevision.com/design/design-visual-progarmming-languages-snapshots/}.
+  Individual sources are linked there.
+
+\bibitem{fig_praxis}
+Eric Hosick.
+\newblock
+  \url{http://blog.interfacevision.com/assets/img/posts/example_visual_language_praxislive.jpg}.
+\newblock A screenshot from Interface Vision's blog post ``Visual Programming
+  Languages - Snapshots'':
+  \url{http://blog.interfacevision.com/design/design-visual-progarmming-languages-snapshots/}.
+  Individual sources are linked there.
+
+\bibitem{fig_appmaker}
+Eric Hosick.
+\newblock
+  \url{http://blog.interfacevision.com/assets/img/posts/example_visual_language_appmaker_01.png}.
+\newblock A screenshot from Interface Vision's blog post ``Visual Programming
+  Languages - Snapshots'':
+  \url{http://blog.interfacevision.com/design/design-visual-progarmming-languages-snapshots/}.
+  Individual sources are linked there.
+
+\bibitem{fig_stroy}
+Eric Hosick.
+\newblock
+  \url{http://blog.interfacevision.com/assets/img/posts/example_visual_language_stroycode_01.png}.
+\newblock A screenshot from Interface Vision's blog post ``Visual Programming
+  Languages - Snapshots'':
+  \url{http://blog.interfacevision.com/design/design-visual-progarmming-languages-snapshots/}.
+  Individual sources are linked there.
+
+\bibitem{fig_lava}
+Eric Hosick.
+\newblock
+  \url{http://blog.interfacevision.com/assets/img/posts/example_visual_language_lava_01.png}.
+\newblock A screenshot from Interface Vision's blog post ``Visual Programming
+  Languages - Snapshots'':
+  \url{http://blog.interfacevision.com/design/design-visual-progarmming-languages-snapshots/}.
+  Individual sources are linked there.
+
+\bibitem{fig_mess}
+Tycho Luyben.
+\newblock
+  \url{http://d2o7bfz2il9cb7.cloudfront.net/main-qimg-a2e1e13841b01982fcb2ddcda2f958e9}.
+\newblock From a Quora answer:
+  \url{https://www.quora.com/What-are-the-advantages-and-disadvantages-of-visual-programming-languages-compared-to-regular-programming-languages/answer/Tycho-Luyben}.
 
 \end{thebibliography}

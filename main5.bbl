@@ -82,6 +82,12 @@ Ecma International and Technical~Committee 39.
 \newblock \url{https://github.com/tc39/ecma262}.
 \newblock Official ECMAScript's GitHub repository.
 
+\bibitem{scratch_website}
+{Lifelong Kindergarten Group at the MIT Media Lab}.
+\newblock {S}cratch - {I}magine, {P}rogram, {S}hare.
+\newblock \url{https://scratch.mit.edu/}.
+\newblock MIT Scratch website.
+
 \bibitem{typescript}
 Microsoft.
 \newblock {T}ype{S}cript - {J}ava{S}cript that scales.
@@ -93,6 +99,18 @@ Microsoft.
 \newblock {V}isual {S}tudio {C}ode - {C}ode {E}diting. {R}edefined.
 \newblock \url{https://code.visualstudio.com/}.
 \newblock Visual Studio Code website.
+
+\bibitem{minecraft_site}
+Mojang.
+\newblock minecraft.net - {H}ome.
+\newblock \url{https://minecraft.net}.
+\newblock Minecraft website.
+
+\bibitem{luna_website}
+{New Byte Order}.
+\newblock {L}una. {V}isual and textual functional programming language.
+\newblock \url{http://www.luna-lang.org/}.
+\newblock Luna programming language website.
 
 \bibitem{luajit}
 Mike Pall.
@@ -106,6 +124,13 @@ PLT et~al.
 \newblock \url{https://racket-lang.org/}.
 \newblock Racket programming language website. For detailed authorship
   information see \url{https://racket-lang.org/people.html}.
+
+\bibitem{mindstorms_site}
+{The LEGO Group}.
+\newblock {H}ome - {LEGO}® {MINDSTORMS}® - {LEGO}.com - {M}indstorms
+  {LEGO}.com.
+\newblock \url{http://mindstorms.lego.com}.
+\newblock LEGO Mindstorms website.
 
 \bibitem{sbcl_site}
 Various.

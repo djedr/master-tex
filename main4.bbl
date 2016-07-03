@@ -7,6 +7,12 @@ Scratch Wiki.
 \newblock Description of the language from the Scratch Wiki. See also the
   language's homepage: \url{https://scratch.mit.edu/}.
 
+\bibitem{scratch_offline}
+Scratch Wiki.
+\newblock {S}cratch 2.0 {O}ffline {E}ditor.
+\newblock \url{https://wiki.scratch.mit.edu/wiki/Scratch_2.0_Offline_Editor}.
+\newblock From the Scratch Wiki: \url{https://wiki.scratch.mit.edu/wiki/}.
+
 \bibitem{open_web_platform}
 W3C Wiki.
 \newblock {O}pen {W}eb {P}latform.
@@ -52,6 +58,18 @@ W3C Wiki.
 \newblock \url{https://en.wikipedia.org/wiki/JSDoc}.
 \newblock Wikipedia definition of JSDoc.
 
+\bibitem{labview_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {L}ab{VIEW}.
+\newblock \url{https://en.wikipedia.org/wiki/LabVIEW}.
+\newblock A Wikipedia article.
+
+\bibitem{mindstorms_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {L}ego {M}indstorms.
+\newblock \url{https://en.wikipedia.org/wiki/Lego_Mindstorms}.
+\newblock Wikipedia article about Lego Mindstorms.
+
 \bibitem{lisp_wikipedia}
 {{W}ikipedia, the free encyclopedia}.
 \newblock {L}isp (programming language).
@@ -71,6 +89,12 @@ W3C Wiki.
 \newblock \url{https://en.wikipedia.org/wiki/List_of_Unreal_Engine_games}.
 \newblock ``[A] list of notable games using a version of the Unreal Engine.''
   From Wikipedia.
+
+\bibitem{logo_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {L}ogo (programming language).
+\newblock \url{https://en.wikipedia.org/wiki/Logo_(programming_language)}.
+\newblock Wikipedia article about the Logo programming language.
 
 \bibitem{pattern_matching_wikipedia}
 {{W}ikipedia, the free encyclopedia}.
@@ -95,6 +119,24 @@ W3C Wiki.
 \newblock {S}tandard {ML}.
 \newblock \url{https://en.wikipedia.org/wiki/Standard_ML}.
 \newblock Wikipedia definition of Standard ML.
+
+\bibitem{string_interpolation_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {S}tring interpolation.
+\newblock \url{https://en.wikipedia.org/wiki/String_interpolation}.
+\newblock Wikipedia definition of string interpolation.
+
+\bibitem{unparser_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {U}nparser.
+\newblock \url{https://en.wikipedia.org/wiki/Unparser}.
+\newblock Wikipedia definition of an unparser.
+
+\bibitem{vararg_wikipedia}
+{{W}ikipedia, the free encyclopedia}.
+\newblock {V}ariadic function.
+\newblock \url{https://en.wikipedia.org/wiki/Variadic_function}.
+\newblock Wikipedia definition of a variadic function.
 
 \bibitem{vpl_wikipedia}
 {{W}ikipedia, the free encyclopedia}.
@@ -125,6 +167,12 @@ WikiWikiWeb.
 \newblock {L}isp {I}s {T}oo {P}owerful.
 \newblock \url{http://c2.com/cgi/wiki?LispIsTooPowerful}.
 \newblock An entry from WikiWikiWeb: \url{http://c2.com/cgi/wiki}.
+
+\bibitem{c2_macros}
+WikiWikiWeb.
+\newblock {L}isp {M}acro.
+\newblock \url{http://c2.com/cgi/wiki?LispMacro}.
+\newblock An entry from WikiWikiWeb \url{http://c2.com/cgi/wiki/FrontPage}.
 
 \bibitem{c2_parentheses}
 WikiWikiWeb.

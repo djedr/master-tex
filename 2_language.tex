@@ -1,6 +1,7 @@
-\chapter{Dual programming language design}\label{chap:lang}
-This chapter describes the text representation of Dual, which is the basis for the executable representation for the interpreter (the syntax tree) and for the block-based visual representation discussed in the following chapters.
+\chapter{Dual programming language}\label{chap:lang}
+This chapter describes the design of the Dual programming language with focus on its text representation and its executable representation -- the syntax tree. The most important concept, the \acrlong{est}, which enables complete integration of any number of additional representations with the language is also discussed.
 
+\section{Introduction}
 The evolution of programming languages is a gradual process. And so is the process of designing a single language. The approach that I found effective was iterative refinement, addition, testing, and sometimes subtraction of features. In practice this translates to intermediate designs and implementations being rearranged into new forms, with some discarded. I did not arrive at something that I could call the final form of the language, so a lot of the features described here are subject to change and improvement. I intend to work on this project further beyond the scope of this thesis.
 
 The language was not originally intended to be a Lisp-like language or clone thereof, but throughout the research I ended up learning a lot about Lisp, sometimes by reinventing parts of this language. A somewhat philosophical interpretation of this would be that Lisp is built on fundamental principles that are (re)discoverable rather than invented.
@@ -825,7 +826,7 @@ log [html'[<h1>Hello, {name}.</h1>]]
     The next section (\ref{sec:mac}) provides examples and explanation of macros in Dual.
 \end{itemize}
 
-\section{Just-in-time macros}\label{sec:mac}
+\section{Macros}\label{sec:mac}
 The experimental approach to Dual's design gave rise to a very interesting feature, which could be described as first-class just-in-time expanded macros.
 
 Macros in Lisp-like languages are different than the macros provided by the C preprocessor or similar macro systems. They are much more powerful\cite{c2_macros}.

@@ -1,67 +1,19 @@
 \chapter{Summary and conclusions}\label{chap:summary}
-While implementing this project I learned that programming language design is a
-tremendous and heroic task, especially if the language being designed is intended to be of any real-world use. Designing and implementing such a language absolutely from scratch, while introducing useful innovation cannot be done within the time limits of research for a thesis, unless perhaps by an experienced language designer. But such experience has to be gained somehow and research such as this is an excellent opportunity.
-
 The language and its development environment presented in this thesis is by no means a complete design. It should be viewed as a snapshot from a design process that I intend to continue in the future.
 
-% how goals are achieved
-The degree of completeness of the project is reflected in:
+However the effort invested in the project was sufficient to achieve the general goals, listed in Chapter \ref{chap:intro}. This is reflected in:
 \begin{itemize}
-    \item The core language, which is Turing-complete and thus capable of implementing any algorithm\footnote{In the same sense as JavaScript or C. No existing language is Turing-complete in the absolute sense, because of physical hardware limitations.}. A simple Brainfuck interpreter is included as an example program (see Appendix \ref{app:plyta}) to demonstrate this\cite{bf_turing_complete}.
-    \item Moreover, the language, being based on Lisp, shares its fundamental expressive power and extensibility.
-    \item The above are demonstrated by implementing a non-trivial application -- clone of Pac-Man, described in Chapter \ref{chap:case}.
-    \item Implementation of several interesting additional features of the core
-    language \js{wymienić jakich}
-    \item The direct correspondence and interchangeability of the visual and text representations, with the possibility of parallel editing; albeit the visual editing part of the editor includes only basic features and is not optimized in terms of performance; details are described in Chapter \ref{chap:editor}
+    \item The core language, which is Turing-complete and thus capable of implementing any algorithm\footnote{In the same sense as JavaScript or C. No existing language is Turing-complete in the absolute sense, because of physical hardware limitations.}. A simple Brainfuck interpreter is included as an example program (see Appendix \ref{app:plyta}) to demonstrate this\cite{bf_turing_complete}. Moreover, the language is based on Lisp, inheriting a lot of its expressive power and extensibility.
+    \item The above is also demonstrated in implementing a non-trivial application, which is the clone of Pac-Man described in Chapter \ref{chap:case}. This exercise also showed significant flaws in the prototype related to performance and thus helped set directions for future improvement.
+    \item Design and implementation of a mechanism, which enables the direct correspondence and interchangeability of the visual and text representations. In principle any number of representations could be associated.
     \item Implementation of the prototype of the language's development
-    environment on top of the web platform, which includes a server-side and a
-    client-side part. It runs locally on the user's machine, but is designed
-    to be easily deployed as an online web application
-    \item The editor has several useful features, such as basic support for text
-    editing built on top of the CodeMirror JavaScript component with custom
-    syntax highlighting and integration with the editor. The text editing
-    component is integrated with the visual editing component, so that
-    navigation or changes to each representation are tracked and visible to
-    the user [[]]
-    \item [[]]
+    environment with integrated text and visual editors. This demonstrates practically the main ideas outlined in Chapter \ref{chap:editor}.
 \end{itemize}
-
-I intend to continue my research with the goal of creating a modern real-world
-programming language useful for a specific range of tasks
-
-I believe that there is room for a small and simple scripting language, which fuses Lisps, JavaScript's, Lua's best and most powerful features. Adding to that full support for visual programming designed to fix as much as possible of the obvious shortcomings of current visual languages as well as introducing innovation always providing direct mapping and fallback to text representation  
-
-If support for visual programming is good and innovative
-It has a chance to draw attention of designers and 
-
-The visual programming feature could draw the attention of non-programmers, designers and programmers, who work by means of prototyping and exploratory programming
-
-Perhaps the above combination of features
-If well designed and executed
-Might be enough to outweigh \cite{pl_checklist}
-%Create a language, which does not tick too many boxes
-%Not ticking too many boxes
-
-
-
-Language
-    extensible
-    expressive
-    
-
-
-The character of this research project is exploratory, although I intend to
-further develop ideas described here and continue my research, which will, as I
-hope, eventually result in creation of an innovative and useful language ready
-for real-world use.
-
-That aside, I believe that at least some of the ideas described here are -- in a
-varying degree -- innovative and worth exploring further.
-
 
 Visual programming systems that provide the ability to work with text and visual representations were developed in the past\cite{snapshots}. But none of them seems to have a similar degree of integration as the system presented here.
 
-I am convinced that the ideas presented here are a valuable contribution in the area of (visual) programming language design and development and can be of use for current and and future designers for improving the existing as well as creating new, better\footnote{
+\clearpage
+I am convinced that some of the ideas presented here are a valuable contribution in the area of (visual) programming language design and development and can be of use for current and and future designers in improving the existing as well as creating new, better\footnote{
 While doing this research for this thesis I found a VPL project named Luna, that may be built around a similar idea of highly integrated text and visual representations. The project's website claims (emphasis mine):
 \cite{luna_website}:
 \begin{quote}
@@ -70,3 +22,5 @@ Luna is the \textit{world’s first} programming language featuring two exchange
 
 However the project is in ``private alpha'' stage -- it is not publicly available as of July 2016. Nonetheless this may be taken as an indication that the ideas presented in this research are a step on a path to better future VPL systems.
 } visual language systems.
+
+I learned that programming language design is a tremendous and heroic task, especially if the language being designed is intended to be of any real-world use. Designing and implementing such a language absolutely from scratch, while introducing useful innovation cannot be done within the time limits of research for a thesis, unless perhaps by an experienced language designer. But such experience has to be gained somehow this was an excellent opportunity.

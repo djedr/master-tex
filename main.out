@@ -17,69 +17,66 @@
 \BOOKMARK [2][-]{subsection.1.2.5}{Common criticisms of VPLs}{section.1.2}% 17
 \BOOKMARK [2][-]{subsection.1.2.6}{The problem with structure}{section.1.2}% 18
 \BOOKMARK [1][-]{section.1.3}{Screenshots}{chapter.1}% 19
-\BOOKMARK [0][-]{chapter.2}{Dual programming language design}{}% 20
-\BOOKMARK [1][-]{section.2.1}{Syntax and grammar}{chapter.2}% 21
-\BOOKMARK [2][-]{subsection.2.1.1}{Basic syntax}{section.2.1}% 22
-\BOOKMARK [1][-]{section.2.2}{Comments}{chapter.2}% 23
-\BOOKMARK [1][-]{section.2.3}{Numbers}{chapter.2}% 24
-\BOOKMARK [1][-]{section.2.4}{Escape character}{chapter.2}% 25
-\BOOKMARK [1][-]{section.2.5}{Strings}{chapter.2}% 26
-\BOOKMARK [1][-]{section.2.6}{Basic primitives and built-ins}{chapter.2}% 27
-\BOOKMARK [2][-]{subsection.2.6.1}{Functions}{section.2.6}% 28
-\BOOKMARK [2][-]{subsection.2.6.2}{Language primitives}{section.2.6}% 29
-\BOOKMARK [2][-]{subsection.2.6.3}{Values}{section.2.6}% 30
-\BOOKMARK [1][-]{section.2.7}{Enhanced Syntax Tree}{chapter.2}% 31
-\BOOKMARK [2][-]{subsection.2.7.1}{Structural representation of strings}{section.2.7}% 32
-\BOOKMARK [1][-]{section.2.8}{Syntax sugar for function invocations}{chapter.2}% 33
-\BOOKMARK [1][-]{section.2.9}{Pattern matching}{chapter.2}% 34
-\BOOKMARK [2][-]{subsection.2.9.1}{Destructuring}{section.2.9}% 35
-\BOOKMARK [2][-]{subsection.2.9.2}{match primitive}{section.2.9}% 36
-\BOOKMARK [1][-]{section.2.10}{Rest parameters and spread operator}{chapter.2}% 37
-\BOOKMARK [1][-]{section.2.11}{Just-in-time macros}{chapter.2}% 38
-\BOOKMARK [2][-]{subsection.2.11.1}{First-class}{section.2.11}% 39
-\BOOKMARK [2][-]{subsection.2.11.2}{Just-in-time}{section.2.11}% 40
-\BOOKMARK [2][-]{subsection.2.11.3}{In combination with | and !}{section.2.11}% 41
-\BOOKMARK [0][-]{chapter.3}{Development environment design}{}% 42
-\BOOKMARK [1][-]{section.3.1}{Overview}{chapter.3}% 43
-\BOOKMARK [1][-]{section.3.2}{Design goals}{chapter.3}% 44
-\BOOKMARK [1][-]{section.3.3}{Requirements}{chapter.3}% 45
-\BOOKMARK [2][-]{subsection.3.3.1}{Usability}{section.3.3}% 46
-\BOOKMARK [2][-]{subsection.3.3.2}{User interface}{section.3.3}% 47
-\BOOKMARK [1][-]{section.3.4}{Text editor}{chapter.3}% 48
-\BOOKMARK [1][-]{section.3.5}{Visual editor and its editor}{chapter.3}% 49
-\BOOKMARK [2][-]{subsection.3.5.1}{The design process}{section.3.5}% 50
-\BOOKMARK [1][-]{section.3.6}{Debugging}{chapter.3}% 51
-\BOOKMARK [1][-]{section.3.7}{Additional features}{chapter.3}% 52
+\BOOKMARK [0][-]{chapter.2}{Dual programming language}{}% 20
+\BOOKMARK [1][-]{section.2.1}{Introduction}{chapter.2}% 21
+\BOOKMARK [1][-]{section.2.2}{Syntax and grammar}{chapter.2}% 22
+\BOOKMARK [2][-]{subsection.2.2.1}{Basic syntax}{section.2.2}% 23
+\BOOKMARK [1][-]{section.2.3}{Comments}{chapter.2}% 24
+\BOOKMARK [1][-]{section.2.4}{Numbers}{chapter.2}% 25
+\BOOKMARK [1][-]{section.2.5}{Escape character}{chapter.2}% 26
+\BOOKMARK [1][-]{section.2.6}{Strings}{chapter.2}% 27
+\BOOKMARK [1][-]{section.2.7}{Basic primitives and built-ins}{chapter.2}% 28
+\BOOKMARK [2][-]{subsection.2.7.1}{Functions}{section.2.7}% 29
+\BOOKMARK [2][-]{subsection.2.7.2}{Language primitives}{section.2.7}% 30
+\BOOKMARK [2][-]{subsection.2.7.3}{Values}{section.2.7}% 31
+\BOOKMARK [1][-]{section.2.8}{Enhanced Syntax Tree}{chapter.2}% 32
+\BOOKMARK [2][-]{subsection.2.8.1}{Structural representation of strings}{section.2.8}% 33
+\BOOKMARK [1][-]{section.2.9}{Syntax sugar for function invocations}{chapter.2}% 34
+\BOOKMARK [1][-]{section.2.10}{Pattern matching}{chapter.2}% 35
+\BOOKMARK [2][-]{subsection.2.10.1}{Destructuring}{section.2.10}% 36
+\BOOKMARK [2][-]{subsection.2.10.2}{match primitive}{section.2.10}% 37
+\BOOKMARK [1][-]{section.2.11}{Rest parameters and spread operator}{chapter.2}% 38
+\BOOKMARK [1][-]{section.2.12}{Macros}{chapter.2}% 39
+\BOOKMARK [2][-]{subsection.2.12.1}{First-class}{section.2.12}% 40
+\BOOKMARK [2][-]{subsection.2.12.2}{Just-in-time}{section.2.12}% 41
+\BOOKMARK [2][-]{subsection.2.12.3}{In combination with | and !}{section.2.12}% 42
+\BOOKMARK [0][-]{chapter.3}{Dual's development environment}{}% 43
+\BOOKMARK [1][-]{section.3.1}{Overview}{chapter.3}% 44
+\BOOKMARK [1][-]{section.3.2}{Design goals}{chapter.3}% 45
+\BOOKMARK [1][-]{section.3.3}{Requirements}{chapter.3}% 46
+\BOOKMARK [2][-]{subsection.3.3.1}{Usability}{section.3.3}% 47
+\BOOKMARK [2][-]{subsection.3.3.2}{User interface}{section.3.3}% 48
+\BOOKMARK [1][-]{section.3.4}{Text editor}{chapter.3}% 49
+\BOOKMARK [1][-]{section.3.5}{Visual representation and its editor}{chapter.3}% 50
+\BOOKMARK [2][-]{subsection.3.5.1}{The design process}{section.3.5}% 51
+\BOOKMARK [1][-]{section.3.6}{Additional features}{chapter.3}% 52
 \BOOKMARK [0][-]{chapter.4}{Prototype implementation}{}% 53
 \BOOKMARK [1][-]{section.4.1}{Programming discipline}{chapter.4}% 54
 \BOOKMARK [1][-]{section.4.2}{The language}{chapter.4}% 55
-\BOOKMARK [2][-]{subsection.4.2.1}{Macros}{section.4.2}% 56
-\BOOKMARK [1][-]{section.4.3}{The environment}{chapter.4}% 57
-\BOOKMARK [1][-]{section.4.4}{Text editor}{chapter.4}% 58
-\BOOKMARK [1][-]{section.4.5}{Performance}{chapter.4}% 59
+\BOOKMARK [1][-]{section.4.3}{The environment}{chapter.4}% 56
+\BOOKMARK [2][-]{subsection.4.3.1}{General architecture}{section.4.3}% 57
+\BOOKMARK [2][-]{subsection.4.3.2}{Text editor}{section.4.3}% 58
+\BOOKMARK [1][-]{section.4.4}{Visual editor and representation}{chapter.4}% 59
 \BOOKMARK [0][-]{chapter.5}{Case study}{}% 60
 \BOOKMARK [1][-]{section.5.1}{The game}{chapter.5}% 61
 \BOOKMARK [2][-]{subsection.5.1.1}{Main loop}{section.5.1}% 62
 \BOOKMARK [1][-]{section.5.2}{Performance}{chapter.5}% 63
 \BOOKMARK [1][-]{section.5.3}{Possible improvements}{chapter.5}% 64
-\BOOKMARK [1][-]{section.5.4}{Conclusions}{chapter.5}% 65
+\BOOKMARK [1][-]{section.5.4}{Conclusion}{chapter.5}% 65
 \BOOKMARK [0][-]{chapter.6}{Comparisons to other VPLs}{}% 66
 \BOOKMARK [1][-]{section.6.1}{VPLs: scripting languages}{chapter.6}% 67
 \BOOKMARK [1][-]{section.6.2}{MIT Scratch}{chapter.6}% 68
-\BOOKMARK [2][-]{subsection.6.2.1}{Features}{section.6.2}% 69
-\BOOKMARK [2][-]{subsection.6.2.2}{Issues}{section.6.2}% 70
-\BOOKMARK [1][-]{section.6.3}{Blueprints Visual Scripting system}{chapter.6}% 71
-\BOOKMARK [2][-]{subsection.6.3.1}{Features}{section.6.3}% 72
-\BOOKMARK [2][-]{subsection.6.3.2}{Issues}{section.6.3}% 73
-\BOOKMARK [1][-]{section.6.4}{In comparison to Dual}{chapter.6}% 74
-\BOOKMARK [0][-]{chapter.7}{Summary and conclusions}{}% 75
-\BOOKMARK [0][-]{chapter.8}{Bibliography}{}% 76
-\BOOKMARK [0][-]{section*.12}{Glossary}{}% 77
-\BOOKMARK [0][-]{section*.14}{Acronyms}{}% 78
-\BOOKMARK [0][-]{appendix.A}{DVD}{}% 79
-\BOOKMARK [1][-]{section.A.1}{Running the prototype}{appendix.A}% 80
-\BOOKMARK [0][-]{appendix.B}{Design discussion}{}% 81
-\BOOKMARK [1][-]{section.B.1}{Comments}{appendix.B}% 82
-\BOOKMARK [2][-]{subsection.B.1.1}{Built-in documentation comments}{section.B.1}% 83
-\BOOKMARK [2][-]{subsection.B.1.2}{One-word comments}{section.B.1}% 84
-\BOOKMARK [1][-]{section.B.2}{C-like syntax}{appendix.B}% 85
+\BOOKMARK [2][-]{subsection.6.2.1}{Issues}{section.6.2}% 69
+\BOOKMARK [1][-]{section.6.3}{Blueprints Visual Scripting system}{chapter.6}% 70
+\BOOKMARK [2][-]{subsection.6.3.1}{Issues}{section.6.3}% 71
+\BOOKMARK [1][-]{section.6.4}{In comparison to Dual}{chapter.6}% 72
+\BOOKMARK [0][-]{chapter.7}{Summary and conclusions}{}% 73
+\BOOKMARK [0][-]{chapter.8}{Bibliography}{}% 74
+\BOOKMARK [0][-]{section*.12}{Acronyms}{}% 75
+\BOOKMARK [0][-]{appendix.A}{DVD}{}% 76
+\BOOKMARK [1][-]{section.A.1}{Running the prototype}{appendix.A}% 77
+\BOOKMARK [0][-]{appendix.B}{Design discussion}{}% 78
+\BOOKMARK [1][-]{section.B.1}{Comments}{appendix.B}% 79
+\BOOKMARK [2][-]{subsection.B.1.1}{Built-in documentation comments}{section.B.1}% 80
+\BOOKMARK [2][-]{subsection.B.1.2}{One-word comments}{section.B.1}% 81
+\BOOKMARK [1][-]{section.B.2}{C-like syntax}{appendix.B}% 82

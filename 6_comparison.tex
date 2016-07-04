@@ -1,67 +1,86 @@
 \chapter{Comparisons to other VPLs}\label{chap:comp}
-This chapter compares Dual to the Blueprints Visual Scripting system of Unreal Engine 4 and to MIT Scratch.
+This chapter compares Dual to the Blueprints Visual Scripting system of Unreal Engine 4 and to MIT Scratch to better illustrate the improvements that the presented design provides.
 
+\section{VPLs: scripting languages}
+All VPLs are either \acrshort{dsl}s or scripting languages. There is no general purpose VPL\cite{general_vpl, no_general_vpl_hacker_news}.
 
-General desirable characteristics of a scripting language:
+General characteristics of a scripting language are\cite{scripting_langs, scripting_lang_wikipedia, c2_scripting_lang, perl_scripting}:
 \begin{itemize}
-    \item dynamic
-    \item flexible
-    \item suitable for rapid prototyping
-    
-    \item library of basic functions
-    \item complementary to a non-scripting language
+    \item It is flexible and in terms of being able to perform
+    \item It is usually dynamically typed
+    \item It has a library of basic functions
+    \item Because of the above, is suitable for rapid prototyping
+    \item It complements a non-scripting language
 \end{itemize}
-    
 
-Blueprints:
+\section{MIT Scratch}
+Scratch is an educational programming language. Although it is not explicitly called a scripting language, it has characteristics of one and uses the term ``script'' to refer to the programs created in it\cite{script_scratch_wiki}.
+
+\subsection{Features}
+
+\subsection{Issues}
+
+Being intended for educational purposes, Scratch has a very limited set of features. Arguably too limited. Some of its main shortcomings are:
 \begin{itemize}
-    \item static, rigid, cumbersome
-    \item no autostructuring
-    \item no text representation
-    \item no first-class functions
-    \item no first-class macros?
-    \item no sorting function available out of the box in 4.9.2
-    
-        and it's a commercial product
-        basic functionality needs external libraries
-        "The low-entry extended standard library has a sort array by comparator function, which is what you'd need here."
-        %https://answers.unrealengine.com/questions/32489/sort-items-in-array-with-blueprints.html
-        %This plugin is now open source.  @ 2016-06-08
-        
-        %http://lambda-the-ultimate.org/node/4918
-    \item  difficult source control
-    
-    p4 was a nightmare
-    
-    diffing, etc. limited to the editor
-    
-    \item  Blueprint does not really complement C++, which is also static and rigid
-    
-    rather: it intersects C++'s feature set; and it's poor at that: slow and incomplete
-    
-    \item not very good for rapid prototyping because of the above
+    \item No support for first-class or higher order functions.
+    \item Limited file I/O.
+    \item Implemented in ActionScript, which limits its portability and usability.
+    \item Does not support complex data structures. Only one-dimensional arrays, known as ``lists'' are supported.
+    \item String manipulation capabilites are limited.
+    \item Limited support for object-orientation.
+    \item No text representation.
 \end{itemize}
-    
-BLUI, Coherent: web platform for UIs everywhere
-        
-   
-    
-Scratch:
-\begin{itemize}
-    \item  no first-class functions
-    \item  limited file I/O?
-    \item  educational
-    \item  in Flash/ActionScript
-    \item  only supports one-dimensional arrays, known as "lists"
-    \item  Floating point scalars and strings are supported as of version 1.4, but with limited string manipulation ability.
-\end{itemize}
-    
-        % also show that Scratch is inferior, e.g. having no first-class functions
-        % mention that there are derivatives that try to fix that
 
-Snap!
-    Scratch successor that fixes its shortcomings
-    first class truly object oriented sprites with prototyping inheritance, and nestable sprites, which are not part of Scratch
-    
+All in all, Scratch is not really usable outside of education. Which is not a problem in itself, since it is designed as strictly for that. But still, it is far from perfect even in this application.
 
+The validity of this statement is reflected in the fact that there exists a less popular derivative, called Snap!, which does partially address Scratch's issues. It adds first class procedures, first class lists, and ``first class truly object oriented sprites with prototyping inheritance, and nestable sprites''\cite[Section~Features and derivatives]{scratch_wikipedia}.
 % https://en.wikipedia.org/wiki/Snap!_(programming_language)
+
+\section{Blueprints Visual Scripting system}
+The Blueprints Visual Scripting system is a part of \acrlong{ue4}, the commercial game engine. As its name implies, it is also intended for \textit{scripting}. Its purpose is to complement C++, which is the implementation language of the engine and is used for all other purposes, such as extending it.
+
+\subsection{Features}
+%Features of the Blueprints system:
+%\begin{itemize}
+%\item It supports macros.
+%\end{itemize}
+
+\subsection{Issues}
+Some of the main disadvantages of the Blueprints system are\cite{blu_disadvantages_1, blu_disadvantages_2, blueprint, blu_lambda}:
+\begin{itemize}
+    \item Blueprint scripts consume more memory and are slower than C++ programs.
+    
+    \item Blueprint scripts are not portable.
+    
+    \item The visual editor does not support automatic structuring. It is hard to manage complex scripts.
+    
+    \item There is no support for first-class or higher-order functions.
+    
+    \item There is no usable text representation.
+        
+    \item The type system is static. This is not a disadvantage in itself, but it does negatively impact the aspects of complementing C++ (which also has a static type system) and flexibility.
+    
+    \item Basic functions are missing from the ``standard library''. E.g. there is no sorting function available out of the box\cite{blu_sort}. The user has to either implement basic functions herself, which can result in partial or broken implementations or use external libraries\cite{blu_library}.
+    
+    \item Version control is very difficult. Because blueprints are stored in binary format without a text representation, they cannot be automatically merged or compared by standard tools. Dedicated tools exist, but are more limited, harder to use.
+\end{itemize}
+
+Overall, as a major part of a commercial game engine, the Blueprints system is significantly lacking. Programming in Blueprints can often feel rigid and cumbersome. It does a poor job at complementing C++, being similarly static and rigid. It can be rather described as intersecting C++'s feature set, with some improvements, but significantly poorer performance. Basic functionality is missing and external libraries are needed to fix that. Because of all this reasons it is not very suitable for rapid prototyping. There is a lot of room for improvement.
+
+\section{In comparison to Dual}
+In comparison with the above languages, Dual features the following:
+\begin{itemize}
+\item It is highly usable, portable and is intended to be open-source.
+\item It has a highly integrated text representation interchangeable with the visual representation. This fixes all problems related to tools that operate only on text, such as version control or comparison and diffing tools.
+\item It is dynamically typed -- its type system relies on JavaScript's type system.
+\item It is highly expressive and extensible, having support for first-class and higher-order functions. The designed first-class \acrshort{jit} macros are much more powerful than the macro system in the Blueprints system.
+\item The visual representation in Dual can be fully customized with CSS. This feature can be combined with the Lisp-quality expressive power of the language for example to better articulate the semantics of a \acrshort{dsl}.
+\end{itemize}
+
+
+
+    
+%BLUI, Coherent: web platform for UIs everywhere
+        
+
+    

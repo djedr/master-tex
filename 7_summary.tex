@@ -1,4 +1,31 @@
 \chapter{Summary and conclusions}\label{chap:summary}
+While implementing this project I learned that programming language design is a
+tremendous and heroic task, especially if the language being designed is intended to be of any real-world use. Designing and implementing such a language absolutely from scratch, while introducing useful innovation cannot be done within the time limits of research for a thesis, unless perhaps by an experienced language designer. But such experience has to be gained somehow and research such as this is an excellent opportunity.
+
+The language and its development environment presented in this thesis is by no means a complete design. It should be viewed as a snapshot from a design process that I intend to continue in the future.
+
+% how goals are achieved
+The degree of completeness of the project is reflected in:
+\begin{itemize}
+    \item The core language, which is Turing-complete and thus capable of implementing any algorithm\footnote{In the same sense as JavaScript or C. No existing language is Turing-complete in the absolute sense, because of physical hardware limitations.}. A simple Brainfuck interpreter is included as an example program (see Appendix \ref{app:plyta}) to demonstrate this\cite{bf_turing_complete}.
+    \item Moreover, the language, being based on Lisp, shares its fundamental expressive power and extensibility.
+    \item The above are demonstrated by implementing a non-trivial application -- clone of Pac-Man, described in Chapter \ref{chap:case}.
+    \item Implementation of several interesting additional features of the core
+    language \js{wymienić jakich}
+    \item The direct correspondence and interchangeability of the visual and text representations, with the possibility of parallel editing; albeit the visual editing part of the editor includes only basic features and is not optimized in terms of performance; details are described in Chapter \ref{chap:editor}
+    \item Implementation of the prototype of the language's development
+    environment on top of the web platform, which includes a server-side and a
+    client-side part. It runs locally on the user's machine, but is designed
+    to be easily deployed as an online web application
+    \item The editor has several useful features, such as basic support for text
+    editing built on top of the CodeMirror JavaScript component with custom
+    syntax highlighting and integration with the editor. The text editing
+    component is integrated with the visual editing component, so that
+    navigation or changes to each representation are tracked and visible to
+    the user [[]]
+    \item [[]]
+\end{itemize}
+
 I intend to continue my research with the goal of creating a modern real-world
 programming language useful for a specific range of tasks
 
@@ -15,18 +42,13 @@ Might be enough to outweigh \cite{pl_checklist}
 %Create a language, which does not tick too many boxes
 %Not ticking too many boxes
 
-\js{Ten akapit i kilka następnych brzmią jak z podsumowania.  Sugeruję przenieść
-    albo do rozdziału z podsumowaniem, ewentualnie na końcu rozdziału zrobić
-    podrozdział z wnioskami.  Na pewno nie powinno być tego we wstępie zanim
-    cokolwiek zostanie zaprezentowane.}
 
-While implementing this project I learned that programming language design is a
-tremendous task, especially if the language being designed is intended to be of
-real-world use. Designing and implementing such a language absolutely from
-scratch, while introducing useful innovation cannot be done within the time
-limits of research for a thesis, unless perhaps by an experienced language
-designer. But such experience has to be gained somehow and this is an excellent
-opportunity.
+
+Language
+    extensible
+    expressive
+    
+
 
 The character of this research project is exploratory, although I intend to
 further develop ideas described here and continue my research, which will, as I
@@ -36,51 +58,15 @@ for real-world use.
 That aside, I believe that at least some of the ideas described here are -- in a
 varying degree -- innovative and worth exploring further.
 
-Even though the language presented in this thesis is complete in the sense of
-being able to implement any algorithm and non-trivial applications, as
-exemplified by the Pac-Man clone, it is by no means a complete design. It should
-be viewed as a snapshot from a continuous design process that is intended to
-progress in the future.\js{Wydaje mi się, że ten akapit równiez pownien być w podsumowaniu}
 
-For these reasons the created environment is by no means complete and ready for
-use in developing complex applications. The degree of completeness of the
-project is reflected in:
-\begin{itemize}
-    \item The core language, which is sufficiently expressive to implement any
-    algorithm, i.e. Turing-complete\footnote{In the same sense as JavaScript or C. No existing language is Turing-complete in the absolute sense, because of physical hardware limitations.}. A simple Brainfuck interpreter is included as an example program (see Appendix \ref{app:plyta}) to demonstrate this\cite{bf_turing_complete}.   
-    \item Implementation of several interesting additional features of the core
-    language, which are described in this chapter \js{wymienić jakich}
-    \item The ablility of the language to implement also non-trivial
-    applications. This is demonstrated by implementing a clone of Pac-Man,
-    described in Chapter \ref{chap:case}
-    \item The direct correspondence of the visual and text representations, with
-    the possibility of parallel dynamic editing; albeit the visual editing
-    part of the editor includes only basic features and is not optimized in
-    terms of performance; details are described in Chapter \ref{chap:editor}
-    \item Implementation of the prototype of the language's development
-    environment on top of the web platform, which includes a server-side and a
-    client-side part. It runs locally on the user's machine, but is designed
-    to be easily deployed as an online web application
-    \item The editor has several useful features, such as basic support for text
-    editing built on top of the CodeMirror JavaScript component with custom
-    syntax highlighting and integration with the editor. The text editing
-    component is integrated with the visual editing component, so that
-    navigation or changes to each representation are tracked and visible to
-    the user [[]]
-    \item [[]]
-\end{itemize}
+Visual programming systems that provide the ability to work with text and visual representations were developed in the past\cite{snapshots}. But none of them seems to have a similar degree of integration as the system presented here.
 
-Language
-    extensible
-    expressive
-
-
-Visual programming systems that connected text and visual representations to were developed in the past\cite{snapshots}. But none of them seems to have a similar degree of integration as the system presented here.
-
-While doing this research for this thesis I found a VPL project named Luna, that may be built around a similar idea of highly integrated text and visual representations. The project's website claims:
+I am convinced that the ideas presented here are a valuable contribution in the area of (visual) programming language design and development and can be of use for current and and future designers for improving the existing as well as creating new, better\footnote{
+While doing this research for this thesis I found a VPL project named Luna, that may be built around a similar idea of highly integrated text and visual representations. The project's website claims (emphasis mine):
 \cite{luna_website}:
 \begin{quote}
-Luna is the world’s first programming language featuring two exchangeable representations: textual and visual, which you can freely switch at any time.
+Luna is the \textit{world’s first} programming language featuring two exchangeable representations: textual and visual, which you can freely switch at any time.
 \end{quote}
 
-However the project is in ``private alpha'' stage -- it is not publicly available as of July 2016. Nonetheless this perhaps illustrated that the ideas presented in this research are a step on a path to better future VPL systems. 
+However the project is in ``private alpha'' stage -- it is not publicly available as of July 2016. Nonetheless this may be taken as an indication that the ideas presented in this research are a step on a path to better future VPL systems.
+} visual language systems.

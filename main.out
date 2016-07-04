@@ -7,8 +7,8 @@
 \BOOKMARK [1][-]{section.0.5}{Structure}{chapter.0}% 7
 \BOOKMARK [0][-]{chapter.1}{Background}{}% 8
 \BOOKMARK [1][-]{section.1.1}{Web technologies}{chapter.1}% 9
-\BOOKMARK [2][-]{subsection.1.1.1}{JavaScript}{section.1.1}% 10
-\BOOKMARK [2][-]{subsection.1.1.2}{Document Object Model}{section.1.1}% 11
+\BOOKMARK [2][-]{subsection.1.1.1}{Document Object Model}{section.1.1}% 10
+\BOOKMARK [2][-]{subsection.1.1.2}{JavaScript}{section.1.1}% 11
 \BOOKMARK [1][-]{section.1.2}{Design and implementation of Lisp}{chapter.1}% 12
 \BOOKMARK [2][-]{subsection.1.2.1}{Abstract syntax tree and program representation}{section.1.2}% 13
 \BOOKMARK [2][-]{subsection.1.2.2}{Text-based code editors}{section.1.2}% 14
@@ -41,33 +41,45 @@
 \BOOKMARK [2][-]{subsection.2.11.3}{In combination with | and !}{section.2.11}% 41
 \BOOKMARK [0][-]{chapter.3}{Development environment design}{}% 42
 \BOOKMARK [1][-]{section.3.1}{Overview}{chapter.3}% 43
-\BOOKMARK [1][-]{section.3.2}{Design}{chapter.3}% 44
-\BOOKMARK [1][-]{section.3.3}{Design requirements}{chapter.3}% 45
-\BOOKMARK [1][-]{section.3.4}{Text editor}{chapter.3}% 46
-\BOOKMARK [1][-]{section.3.5}{Visual editor}{chapter.3}% 47
-\BOOKMARK [2][-]{subsection.3.5.1}{The visual representation}{section.3.5}% 48
-\BOOKMARK [1][-]{section.3.6}{Visual editor}{chapter.3}% 49
-\BOOKMARK [0][-]{chapter.4}{Prototype implementation}{}% 50
-\BOOKMARK [1][-]{section.4.1}{Programming discipline}{chapter.4}% 51
-\BOOKMARK [1][-]{section.4.2}{The language}{chapter.4}% 52
-\BOOKMARK [2][-]{subsection.4.2.1}{Macros}{section.4.2}% 53
-\BOOKMARK [1][-]{section.4.3}{The environment}{chapter.4}% 54
-\BOOKMARK [1][-]{section.4.4}{Text editor}{chapter.4}% 55
-\BOOKMARK [1][-]{section.4.5}{Performance}{chapter.4}% 56
-\BOOKMARK [0][-]{chapter.5}{Case study}{}% 57
-\BOOKMARK [1][-]{section.5.1}{The game}{chapter.5}% 58
-\BOOKMARK [2][-]{subsection.5.1.1}{Main loop}{section.5.1}% 59
-\BOOKMARK [1][-]{section.5.2}{Performance}{chapter.5}% 60
-\BOOKMARK [1][-]{section.5.3}{Possible improvements}{chapter.5}% 61
-\BOOKMARK [0][-]{chapter.6}{Comparisons to other VPLs}{}% 62
-\BOOKMARK [0][-]{chapter.7}{Summary and conclusions}{}% 63
-\BOOKMARK [0][-]{chapter.8}{Bibliography}{}% 64
-\BOOKMARK [0][-]{section*.15}{Glossary}{}% 65
-\BOOKMARK [0][-]{section*.17}{Acronyms}{}% 66
-\BOOKMARK [0][-]{appendix.A}{DVD}{}% 67
-\BOOKMARK [1][-]{section.A.1}{Running the prototype}{appendix.A}% 68
-\BOOKMARK [0][-]{appendix.B}{Design discussion}{}% 69
-\BOOKMARK [1][-]{section.B.1}{Comments}{appendix.B}% 70
-\BOOKMARK [2][-]{subsection.B.1.1}{Built-in documentation comments}{section.B.1}% 71
-\BOOKMARK [2][-]{subsection.B.1.2}{One-word comments}{section.B.1}% 72
-\BOOKMARK [1][-]{section.B.2}{C-like syntax}{appendix.B}% 73
+\BOOKMARK [1][-]{section.3.2}{Design goals}{chapter.3}% 44
+\BOOKMARK [1][-]{section.3.3}{Requirements}{chapter.3}% 45
+\BOOKMARK [2][-]{subsection.3.3.1}{Usability}{section.3.3}% 46
+\BOOKMARK [2][-]{subsection.3.3.2}{User interface}{section.3.3}% 47
+\BOOKMARK [1][-]{section.3.4}{Text editor}{chapter.3}% 48
+\BOOKMARK [1][-]{section.3.5}{Visual editor and its editor}{chapter.3}% 49
+\BOOKMARK [2][-]{subsection.3.5.1}{The design process}{section.3.5}% 50
+\BOOKMARK [1][-]{section.3.6}{Debugging}{chapter.3}% 51
+\BOOKMARK [1][-]{section.3.7}{Additional features}{chapter.3}% 52
+\BOOKMARK [0][-]{chapter.4}{Prototype implementation}{}% 53
+\BOOKMARK [1][-]{section.4.1}{Programming discipline}{chapter.4}% 54
+\BOOKMARK [1][-]{section.4.2}{The language}{chapter.4}% 55
+\BOOKMARK [2][-]{subsection.4.2.1}{Macros}{section.4.2}% 56
+\BOOKMARK [1][-]{section.4.3}{The environment}{chapter.4}% 57
+\BOOKMARK [1][-]{section.4.4}{Text editor}{chapter.4}% 58
+\BOOKMARK [1][-]{section.4.5}{Performance}{chapter.4}% 59
+\BOOKMARK [0][-]{chapter.5}{Case study}{}% 60
+\BOOKMARK [1][-]{section.5.1}{The game}{chapter.5}% 61
+\BOOKMARK [2][-]{subsection.5.1.1}{Main loop}{section.5.1}% 62
+\BOOKMARK [1][-]{section.5.2}{Performance}{chapter.5}% 63
+\BOOKMARK [1][-]{section.5.3}{Possible improvements}{chapter.5}% 64
+\BOOKMARK [1][-]{section.5.4}{Conclusions}{chapter.5}% 65
+\BOOKMARK [0][-]{chapter.6}{Comparisons to other VPLs}{}% 66
+\BOOKMARK [1][-]{section.6.1}{VPLs: scripting languages}{chapter.6}% 67
+\BOOKMARK [1][-]{section.6.2}{MIT Scratch}{chapter.6}% 68
+\BOOKMARK [2][-]{subsection.6.2.1}{Features}{section.6.2}% 69
+\BOOKMARK [2][-]{subsection.6.2.2}{Issues}{section.6.2}% 70
+\BOOKMARK [1][-]{section.6.3}{Blueprints Visual Scripting system}{chapter.6}% 71
+\BOOKMARK [2][-]{subsection.6.3.1}{Features}{section.6.3}% 72
+\BOOKMARK [2][-]{subsection.6.3.2}{Issues}{section.6.3}% 73
+\BOOKMARK [1][-]{section.6.4}{In comparison to Dual}{chapter.6}% 74
+\BOOKMARK [0][-]{chapter.7}{Summary and conclusions}{}% 75
+\BOOKMARK [0][-]{chapter.8}{Bibliography}{}% 76
+\BOOKMARK [0][-]{section*.12}{Glossary}{}% 77
+\BOOKMARK [0][-]{section*.14}{Acronyms}{}% 78
+\BOOKMARK [0][-]{appendix.A}{DVD}{}% 79
+\BOOKMARK [1][-]{section.A.1}{Running the prototype}{appendix.A}% 80
+\BOOKMARK [0][-]{appendix.B}{Design discussion}{}% 81
+\BOOKMARK [1][-]{section.B.1}{Comments}{appendix.B}% 82
+\BOOKMARK [2][-]{subsection.B.1.1}{Built-in documentation comments}{section.B.1}% 83
+\BOOKMARK [2][-]{subsection.B.1.2}{One-word comments}{section.B.1}% 84
+\BOOKMARK [1][-]{section.B.2}{C-like syntax}{appendix.B}% 85

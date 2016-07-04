@@ -1,9 +1,9 @@
 \chapter{Prototype implementation}\label{chap:impl}
+This chapter describes how the essential parts of the designs outlined in previous chapters were fulfilled in practice by implementing a proof-of-concept interpreter and development environment.
 
 \section{Programming discipline}
 The prototype was implemented largely in the spirit of exploratory programming:
-``the kind where you decide what to write by writing
-it.''\cite{arc}.
+``the kind where you decide what to write by writing it.''\cite{arc}.
 
 This approach in combination with a dynamic and flexible language like
 JavaScript enables one to quickly transform ideas to working prototypes and
@@ -11,20 +11,19 @@ shape them as one goes along. But the usefulness of this method is limited, as
 it may quickly produce fairly low-quality code, as it is not focused on future
 maintainability.
 
-Most of the features of the language and editor in the prototype are implemented
-as a proof-of-concept, although some are more refined than others in order to
-fulfil the major goals of this thesis, one of which was to implement a working
-non-trivial application in the language.
+Most of the features of the prototype system are implemented as a proof-of-concept, were the main focus is making them work. Performance and other considerations are of low priority. Some features are more refined than others in order to fulfil the major goals of this thesis, one of which was to implement a working non-trivial application in the language.
 
 \section{The language}
+The language's parser and interpreter are implemented in JavaScript. The parser conforms to the grammar specification described in Section \ref{sub:basic_syntax} with all of its extensions defined in Chapter \ref{chap:lang}. The parser emits events while processing every language construct. These events carry individual syntax tree nodes with information about the current position in the source string. The events are then captured by the environment to attach additional information to \acrshort{est} nodes, such as references to elements of the visual representation (\acrshort{dom} nodes), and objects that represent text fragments.
+
 The prototype implementation of the language contains all the features described in Chapter \ref{chap:lang}, with the following exceptions:
 \begin{itemize}
     \item Macros are not implemented.\footnote{In fact, they partially \textit{are} implemented, but are not usable. For example, there is a \texttt{macro} primitive available, which produces macro values. But it should not be used, as these macro values are not treated specially by the interpreter, so using them will not have the desired effect.}
     \item There are two primitives, which produce function values: \texttt{of} and \texttt{of-p}. The second has the same meaning as \texttt{of} described in Chapter \ref{chap:lang}. The first has the same meaning, except that it does not use pattern matching when binding names to arguments. This primitive requires that all the names must be words.
-    \item Destructuring is not implemented for assignments (it does not work in \texttt{mutate}), only for definitions (it works in \texttt{bind}). Pattern matching could easily be extended to mutation, although I have found it sufficient to be usable only in definitions and ended up not implementing it for assignments in the prototype.
-    \item Comments are treated as a streams of characters, taking into account nesting and balancing of brackets in multi-line comments, but are not preserved on the \acrshort{est} as a tree-like structure.
-    \item Strings are not recognized specially by the parser. They are stored and manipulated as syntax tree nodes, not as streams of characters. This means that the optimization described in Section \ref{sub:str} was not applied. The performance penalty is acceptable in the prototype implementation. 
-    \item The escape character \texttt{\\} has no special meaning. To substitute a special character in a string, the following built-in values are defined:
+    \item Destructuring is implemented only for definitions (it works in \texttt{bind}) and not for assignments (it does not work in \texttt{mutate}). Pattern matching could easily be extended to mutation, although I have found it sufficient to be usable only in definitions and ended up not implementing it for assignments in the prototype.
+    \item Comments are treated and attached to \acrshort{est} nodes as streams of characters. Nesting and balancing of brackets is taken into account in multi-line comments, but their tree-like structure is not preserved.
+    \item Strings are not treated specially by the parser. They are stored and manipulated as syntax tree nodes, not as streams of characters. This means that the optimization described in Section \ref{sub:str} is not applied. The performance penalty is acceptable in the prototype implementation. 
+    \item The escape character \texttt{\textbackslash} has no special meaning. To substitute a special character in a string, the following built-in values are defined:
     \begin{lstlisting}
     (left-bracket) -- escapes "["
     (right-bracket) -- escapes "]"
@@ -37,63 +36,38 @@ The prototype implementation of the language contains all the features described
     So \texttt{'[(left-bracket)hello(right-bracket)]} would evaluate to: \texttt{"[hello]"}.
 \end{itemize}
 
-Lisp's syntax is as minimal as it gets\cite{syntaxation}, which makes 
+The interpreter is implemented naively. Its main part is the recursive \texttt{evaluate} function. The function accepts an \texttt{expression} and an \texttt{environment}. The expression can be a number literal, an identifier or an invocation. Each of these types is evaluated differently:
+\begin{itemize}
+\item If it is a number literal, it evaluates to its corresponding numerical value.
 
-An interpreter for Lisp is also trivial to implement, so this is a good starting
-point.
+\item If it is an identifier (a name), it is looked up in the environment and the corresponding value is returned. If it is not found in the environment, an error is thrown.
 
-There are many approaches to implementing interpreters for LISP in
-JavaScript\cite{js_lisps}, but the general principles are the same.
+\item If the expression is an invocation then it is evaluated according to its operator:
+\begin{itemize}
+\item If the operator is a string operator \texttt{'} or \texttt{html'}, then first any variable substitutions are performed and then the corresponding string value is returned.
+\item If the operator is a primitive, then the expression's arguments are not evaluated and passed to this primitive, which may or may not evaluate them. The result of the primitive's application is returned.
+\item If the operator is an expression, then it is evaluated. Then its arguments are evaluated. If any of those arguments is a substitution expression (i.e. it is wrapped in curly braces \texttt{\{\}}) then it is expanded before proceeding. When all of the arguments are evaluated, the operator is applied to them and the result of this application is returned.
+\end{itemize}
+\end{itemize}   
 
-\subsection{Macros}
-This
-macro system is not included in the final version of the prototype, although a
-proof-of-concept of it that I implemented in earlier prototypes
-
-
-One feature that I experimented with while creating the prototype of Dual is
-support for first-class just-in-time expanded macros
+%Lisp's syntax is as minimal as it gets\cite{syntaxation}, which makes 
+%There are many approaches to implementing interpreters for LISP in JavaScript\cite{js_lisps}, but the general principles are the same.
 
 \section{The environment}
+The prototype of the development environment has elements of a web application in its implementation. However, it is prepared only to work offline, on the user's machine.
 
-The goal is to build an online \acrlong{ide} IDE, similar to
-Codeanywhere\cite{codeanywhere_website} or
-Cloud9\cite{c9_website}, which works offline as well.
-
-The early designs show the following features that are not implemented in the
-final prototype:
-\begin{itemize}
-	\item Names of the arguments are displayed instead of numbers if
-          sensible.
-	\item Names of types of variables
-\end{itemize}
-
-The current version of the development environment is intended to be used
-offline, on user's machine. Nevertheless it is implemented so that it could be
-easily transformed into an online system.
-
-I decided to implement the system with minimal dependencies, so it can be easily
-installed and so I can achieve a greater level of integration by having more
-control over every part.
+The system is implemented with minimal dependencies, so it can be easily
+installed and so that a greater level of integration can be achieved by having more control over every part of the system.
 
 The only required dependencies for the basic functionalities of the prototype to
-work is a web browser and the CodeMirror library. An additional dependency is the Node.js environment -- for running the stub of the project-manager.
+work is a web browser and the CodeMirror library. An additional dependency is the Node.js environment -- for running the stub of the project manager.
 
-The language's development environment is implemented as a web application. It
-consists of three parts:
+The development environment's web-application-like architecture is reflected in its three main components:
 \begin{itemize}
     \item The server part, implemented in JavaScript on top of Node.js. This
-      part's functions is mainly to enable access to user's file system, so any
-      local folder can be opened as a project -- modern web browsers restrict
-      access to the local file system, because of security reasons. The server
-      part also handles persisting changes to files and configuration.
+      part's function is mainly to enable access to the user's file system, so that any local folder can be opened as a project. Modern web browsers restrict access to the local file system, as dictated by their security policy. The server part also handles persisting changes to files and configuration.
     \item The project manager part, which communicates directly with the server
-      part. The connection is maintained over a
-      WebSocket\cite{mdn_websockets}. This
-      part provides access to user's file system via a custom folder selection
-      interface. Basic configuration of server communication, such as changing
-      the address and ports is also possible. Once a project is selected, the
-      user may open it in the editor part.
+      part. The connection is maintained over a WebSocket\cite{mdn_websockets}. This part provides access to user's file system via a custom folder selection interface. Basic configuration of server communication, such as changing the address and ports is also possible. Once a project is selected, the user may open it in the editor part.
     \item The editor part, which is the main component and can function as a
       stand-alone application. It can communicate with the server indirectly,
       through the \texttt{localStorage}
@@ -159,6 +133,8 @@ The following options are implemented in the prototype:
 Some options have descriptive captions available that appear when the mouse
 cursor hovers over them.
 
+The visual representation is composed purely out of HTML and CSS, which makes its appearance fully customizable.
+
 \section{Text editor}
 The text editor is built on top of the CodeMirror
 framework\cite{codemirror_site}. It was integrated with the
@@ -195,6 +171,16 @@ We can distinguish three representations used by the system:
 \end{enumerate}
 
 
+\section{Visual editor}
+
+\subsection{Visual representation}
+
+The early following features of the visual representation are not implemented in the prototype:
+\begin{itemize}
+	\item Names of the arguments are displayed instead of numbers if
+          sensible.
+	\item Names of types of variables
+\end{itemize}
 
 In case of the visual representation this is implemented in a rather
 straightforward way: every EST node has a corresponding set of \acrshort{dom}
@@ -232,7 +218,7 @@ could be easily automatically added to this list by extracting their signatures
 from definitions.
 
 
-\section{Performance}
+\subsection{Performance}
 It could be optimized similarly to CodeMirror or other web-based text editors or
 applications. That is, only a visible portion (plus a margin, which allows for
 fast scrolling) of the code is rendered as DOM nodes at any time. The scrollbar

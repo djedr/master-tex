@@ -23,7 +23,7 @@ I choose Lisp's syntax as the starting point. It is indeed almost as simple as o
 
 I made a few simple adjustments to the syntax in order to address these concerns, at least to some degree. These modifications do not significantly increase the complexity of a parser, but may considerably improve the syntax in terms of ease of use and readability for a human.
 
-\subsection{Basic syntax}
+\subsection{Basic syntax}\label{sub:basic_syntax}
 Below I present the definition of Dual's grammar in left-recursion-free \acrlong{bnf}. It is included here only for the sake of formality. I believe that for such a simple grammar BNF introduces more noise and is unnecessarily more complex than a textual description, possibly with the help of regular expressions or simply verbatim parser source code. For these reasons any extensions to this basic grammar will later on be introduced in these ways.
 
 This is the \acrshort{bnf} definition, a bit verbose for clarity:
@@ -425,7 +425,6 @@ gameState.hero.ammo = 5;
     \item \texttt{async [1..*]}
     
     Its first argument should be an asynchronous JavaScript function, such as \texttt{requestAnimationFrame}\cite{mdn_requestanimationframe}. It applies this function to its remaining arguments.
-    
 \end{itemize}
 
 \subsection{Values}
@@ -1000,3 +999,4 @@ The resulting syntax is somewhat similar to ML-style\cite[Section~Algebraic data
 
 This shows that a few simple, but general syntax rules and a powerful macro system, can be a very flexible tool for extending syntax.
 
+%TODO: modules

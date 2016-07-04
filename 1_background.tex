@@ -72,7 +72,7 @@ This means, at least conceptually, that messages are processed one by one, in a 
 This model makes reasoning about the program execution very straightforward, but
 is problematic when a single message takes long to execute. The problem is
 observed e.g. when web applications cause browsers to hang or display a
-dialog asking the user if he wishes to terminate an unresponsive script.
+dialog asking the user if she wishes to terminate an unresponsive script.
 
 For this reason it is best to write programs in JavaScript that block the event
 loop for as short as possible and divide the processing into multiple messages.
@@ -205,7 +205,7 @@ construct programs. Currently the most successful representation for that is the
 human-readable text-based representation, which evolved from more primitive and
 less convenient representations, such as punched cards\cite{columbia_history_cards, punched_cards_wikipedia}.
 
-\subsection{Text-based code editors}
+\subsection{Text-based code editors}\label{sub:text_editors}
 Constructing programs with text representation can be done with any text editor. This means that the representation is largely independent of a tool, which is an advantage. Any application capable of editing text can theoretically be used to edit any source code (ignoring details such as encoding, etc.). Such applications are universally available, so source code stored in text files can be edited freely on any platform with any tool.
 
 But for complex programs a simple text editor quickly becomes inconvenient and a
@@ -341,10 +341,11 @@ However Scratch was not the first language to use this representation. It was pr
 In fact, if we go far back in history of VPLs, we eventually arrive at the Logo programming language, which was a dialect of Lisp\cite{logo_history, logo_wikipedia}. It was not a VPL by the definition quoted at the beginning of Section \ref{sec:vpls}, as it did not have a way to manipulate \textit{program elements} visually. Nonetheless, one author calls it ``the first real mainstream VPL''\cite{vpl_infograph}. This is because it pioneered many ideas related to visual programming and was inclined in that direction. As is reflected in its many derivatives, which were indeed VPLs\cite{cricket_logo}, such as the visual programming environment of LEGO Mindstorms\cite{mindstorms_history, mindstorms_wikipedia, mindstorms_site}.
 
 \subsection{Common criticisms of VPLs}\label{sub:vpl_crit}
-Among the most common general criticisms of visual programming languages are\cite{vp_vs_tp, vp_unbelievable, vp_advantages_disadvantages}, \cite[Section~Criticism]{labview_wikipedia}:
+Among the most common general criticisms of visual programming languages are\cite{vp_vs_tp, vp_unbelievable, vp_advantages_disadvantages, deutsch_wikipedia}, \cite[Section~Criticism]{labview_wikipedia}:
 \begin{itemize}
 \item There is a barrier of entry for programmers used to text-based languages.
 \item Essential programming tools are unavailable or cannot be applied: version control, side-by-side (or diff) comparison, change tracking, testing frameworks, build systems.
+\item Visual primitives take up significantly more space than text.
 \item Existing tools are of low quality.
 \item Performance is overall slow.
 \item There are no extensibility mechanisms.
@@ -385,6 +386,14 @@ There, the code is presented and manipulated in terms of visual blocks, which ca
 \clearpage
 \section{Screenshots}\label{sec:screenshots}
 This section presents screenshots that show examples of visual programming languages that fall into each of the categories discussed in Section \ref{sec:vpls}.
+
+% This is better, but no source:
+%\subsubsection{Design}
+%\begin{figure}[h!]
+%\centering \includegraphics[width=0.9\textwidth]{blueprint_more}
+%\caption{}
+%\label{fig:blueprint_more}
+%\end{figure}
 
 \begin{figure}[h!]
     \centering \includegraphics[width=0.9\textwidth]{blueprint}
